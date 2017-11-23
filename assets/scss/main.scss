@@ -1,0 +1,155 @@
+/* Scss Document */
+@import 'foundation';
+@import 'vars';
+
+body {
+	background: $white;
+  font-family: $body-font;
+  padding-top: 90px;
+  padding-bottom: 100px;
+  @media (min-width: $large) { 
+    padding-top: 110px;
+    padding-bottom: 0;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $condensed-font;
+    text-transform: uppercase;
+}
+
+.slideup-enter-active, .slideup-leave-active {
+  transition: all 3s ease-out;
+  transform: translateY(0%);
+}
+.slideup-enter {
+  transform: translateY(110%);
+}
+.slideup-leave-active {
+  transform: translateY(110%);
+}
+
+.slideleft-enter-active, .slideleft-leave-active {
+  transition: all 3s ease-out;
+  transform: translateX(0%);
+}
+.slideleft-enter, .slideleft-leave-active {
+  transform: translateX(-110%);
+}
+
+.slideright-enter-active, .slideright-leave-active {
+  transition: all 3s ease-out;
+  transform: translateX(0%);
+}
+.slideright-enter {
+  transform: translateX(-110%);
+}
+.slideright-leave-active {
+  transform: translateX(110%);
+}
+
+.enterRightLeaveLeft-enter-active {
+  transition: all 3s ease-out;
+   transform: translateX(110%);
+}
+
+.enterRightLeaveRight-enter-active {
+  transition: all 3s ease-out;
+   transform: translateX(110%);
+}
+
+.enterLeftLeaveRight-enter-active {
+  transition: all 3s ease-out;
+   transform: translateX(-110%);
+}
+
+.enterLeftLeaveLeft-enter-active {
+  transition: all 3s ease-out;
+   transform: translateX(-110%);
+}
+
+.enterRightLeaveLeft-leave-active {
+  transition: all 3s ease-out;
+   transform: translateX(-110%);
+}
+
+.enterRightLeaveRight-leave-active {
+  transition: all 3s ease-out;
+   transform: translateX(110%);
+}
+
+.enterLeftLeaveRight-leave-active {
+  transition: all 3s ease-out;
+   transform: translateX(110%);
+}
+
+.enterLeftLeaveLeft-leave-active {
+  transition: all 3s ease-out;
+   transform: translateX(-110%);
+}
+
+.enter-right, .enter-right-enter {
+  transform: translateX(110%);
+}
+
+.enter-right-enter-active, .enter-right-leave-active {
+   transition: all 3s ease-out;
+}
+
+.enter-left, .enter-left-enter {
+  transform: translateX(-110%);
+}
+
+.enter-left-enter-active, .enter-left-leave-active {
+   transition: all 3s ease-out;
+}
+
+.leave-right, .leave-right-enter {
+  transform: translateX(110%);
+}
+.leave-right-enter-active, .leave-right-leave-active {
+   transition: all 3s ease-out;
+}
+
+.leave-left, .leave-left-enter {
+  transform: translateX(-110%);
+}
+
+.leave-left-enter-active, .leave-left-leave-active {
+   transition: all 3s ease-out;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: all .3s $curve
+}
+.page-enter {
+  opacity: 0;
+  transform-origin: center;
+  transform: rotateX(10deg) translateY(500px);
+}
+
+.page-leave-active {
+   opacity: 0;
+ transform-origin: center;
+  transform: rotateX(-10deg) translateY(500px);
+}
+
+.nuxt-link-exact-active {
+    color: $green;
+}
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(30px, 0);
+  transition-duration: 3s;
+  
+}
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-30px, 0);
+    transition-duration: 3s;
+}
+@import 'layout';
+@import 'login';
+@import 'product';

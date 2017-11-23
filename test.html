@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script>
+    axios({
+  method: 'get',
+  url: 'http://camila.life/admin/api/1.1/tables/products/rows/'
+}).then(function (response) {
+    console.log(response.data.data[0].images.data[0].url);
+  }).catch(function (error) {
+    console.log(error);
+  });
+	</script>
+</html>

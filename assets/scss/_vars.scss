@@ -1,0 +1,86 @@
+/* Scss Document */
+
+$green: #00FF1B;
+$pink: #FB00DA;
+$dark-pink: #ba00a1;
+$blue: #00bfff;
+$black: #1a1a1a;
+$white: #ffffff;
+$small: 0;
+$medium: 640px;
+$large: 1025px;
+$xlarge: 1200px;
+$xxlarge: 1600px;
+$bounce: cubic-bezier(0.205, 0.470, 0.360, 1.385);
+$curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+
+$serif-font: 'Bauer Bodoni Pro_1 W01 Roman', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+$condensed-font:'DINNextW01-CondensedLig',Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+
+$condensed-bold-font:'DINNextW01-CondensedMed',Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+
+$body-font: 'Avenir Next W01 Light', "Helvetica Neue", Helvetica, Arial, "sans-serif";
+
+$bold-font: 'AvenirNextLTW01-Medium', "Helvetica Neue", Helvetica, Arial, "sans-serif";
+
+.iziToast {
+  font-family: $condensed-bold-font !important
+}
+.body-font {
+  font-family: $body-font;
+}
+.bold-font, .bold, strong {
+  font-family: $bold-font;
+}
+
+.serif-font {
+  font-family: $serif-font;
+}
+
+.condensed {
+  font-family: $condensed-font;
+}
+.condensed-bold {
+  font-family: $condensed-bold-font;
+}
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+.text-lowercase {
+	text-transform: lowercase;
+}
+.white {
+    color: $white;
+}
+.pink {
+    color: $pink;
+}
+
+.blue {
+    color: $blue;
+}
+.green {
+    color: $green;
+}
+.bg-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.pulseEffect {
+  animation: pulse 0.4s $bounce 2;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1)
+  }
+ 
+  70% {
+    transform: scale(1.5)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
