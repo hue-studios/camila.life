@@ -6,10 +6,10 @@ module.exports = {
     middleware: 'check-auth'
   },
   css: [
-    { src: 'foundation-sites/scss/foundation.scss', lang: 'scss' },
-    { src: '~assets/scss/main.scss', lang: 'scss' },
-    { src: 'swiper/dist/css/swiper.css' },
-    { src: '~/snipcart-theme/themes/base/snipcart.min.css'}
+    { src: '~/assets/css/foundation.min.css' },
+    { src: '~/assets/css/swiper.min.css' },
+    { src: '~/assets/snipcart/snipcart.min.css'},
+    { src: '~/assets/scss/main.scss', lang: 'scss' }
   ],
   head: {
     title: 'camila.life - Plant-Based Living - Vegan - Loving Life',
@@ -42,7 +42,8 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/vue-notifications', ssr: false },
-    { src: '~plugins/ga', ssr: false },
+    { src: '~/plugins/ga', ssr: false },
+    { src: '~/plugins/ksvuescrollmagic', ssr: false },
     '~/plugins/swiper'
   ],
   env: {
@@ -60,16 +61,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
-  },
-  generate: {
-    routes: function () {
-      return axios.get('http://camila.life/admin/api/1.1/tables/articles/rows/')
-      .then((res) => {
-        return res.data.data.map((article) => {
-          return '/plant-based-living/' + article.url
-        })
-      })      
     }
   }
 }

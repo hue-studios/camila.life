@@ -4,13 +4,17 @@
   "description": "camila.life",
   "author": "Peter Hoffman <peter@huestudios.com>",
   "private": true,
+  "engines": {
+    "node": ">=6.11.5"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@nuxtjs/font-awesome": "^1.0.2",
@@ -23,11 +27,13 @@
     "jquery": "^3.2.1",
     "js-cookie": "2.1.4",
     "jwt-decode": "2.2.0",
+    "ks-vue-scrollmagic": "^1.0.2",
     "lodash": "^4.17.4",
     "nuxt": "^1.0.0-rc3",
     "uuid": "3.0.1",
     "vue-awesome-swiper": "^2.6.7",
-    "vue-notifications": "^0.9.0"
+    "vue-notifications": "^0.9.0",
+    "vue-social-sharing": "^2.2.10"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

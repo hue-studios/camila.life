@@ -1,6 +1,8 @@
 <template>
-<div class="grid-y">
-  <p class="small-12 cell">signing in.</p>
+<div class="grid-container full">
+  <div class="grid-x grid-padding-x align-center-middle text-center">
+  <h1 class="small-12 cell condensed-bold text-uppercase">SIGNING <span class="pink">IN</span>.</h1>
+  </div>
   </div>
 </template>
 
@@ -25,8 +27,9 @@ export default {
   }
 }
 </script>
-<style scoped lang="scss">
-div {
-  height: 100vh;
-}
-</stlye>
+<style lang="scss" scoped>
+  .grid-x {
+    height: 70vh;
+    align-items: center;
+  }
+</style>

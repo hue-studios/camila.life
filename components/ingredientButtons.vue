@@ -1,11 +1,12 @@
 <template>
 <div class="ingredient-buttons">
-  <transition mode="out-in">
-    <button v-if="!status && isAuthenticated" @click.prevent="addToList(id)">ADD TO LIST</button>
+   <nuxt-link class="details-btn" :to="'/plant-based-vegan-products/' + product.url">DETAILS</nuxt-link>
+   
+    <a v-if="!status && isAuthenticated" class="add-btn" @click.prevent="addToList(id)">ADD TO LIST</a>
     
-    <button v-if="status && isAuthenticated" @click.prevent="removeFromList(id)">DELETE FROM LIST</button>
-  </transition>  
-    <button v-if="!isAuthenticated">SIGN IN TO CREATE SHOPPING LIST</button>
+    <a v-if="status && isAuthenticated" class="remove-btn" @click.prevent="removeFromList(id)">DELETE FROM LIST</a>
+    <a v-if="!isAuthenticated" class="login-btn" @click.prevent="showLoginScreen()">SIGN IN TO CREATE SHOPPING LIST</a>
+    <p v-if="!isAuthenticated" class="list-help-link"><i class="fa fa-question" aria-hidden="true"></i> WHAT IS THE SHOPPING LIST?</p>
     </div>
 </template>
 
@@ -38,6 +39,10 @@ export default {
     }
   },
   methods: {
+    showLoginScreen () {
+      var loginForm = document.getElementById('login-screen')
+      loginForm.classList.remove('close')
+    },
     addToList (product) {
       axios.post('http://camila.life/scripts/list.php?email=' + this.$store.state.user.email + '&product_id=' + product + '&action=add&status=1').then(res => {
         console.log(res)
@@ -101,11 +106,56 @@ export default {
     display: none;
 }
  .ingredient-buttons {
-  a, button {
-    border: thin solid $blue;
-    padding: 5px 10px;
-    display: inline-block;
-    margin: 5px;
+   padding-top: 15px;
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+   position:realtive;
+   @media (min-width: $medium) {
+     justify-content: space-between;     
   }
+  a {
+    border: thin solid $green;
+    border-radius: 2px;
+    color: $green;
+    font-family: $condensed-bold-font;
+    padding: 10px 10px 8px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1em;
+  }
+  .details-btn {
+    align-self: flex-start
+  }
+  .add-btn {
+    border: thin solid $blue;
+    color: $blue;
+  }
+  .remove-btn {
+    border: thin solid $black;
+    color: $black;
+  }
+  .login-btn {
+  
+  }
+  .list-help-link {
+    text-transform: uppercase;
+    font-family: $condensed-font;
+    cursor: pointer;
+    font-size: 12px;
+    position: absolute;
+    right: 35px;
+    bottom: -40px;
+    text-decoration: underline;
+    i {
+      border-radius: 50%;
+      bordeR: thin solid $black;
+      width: 15px;
+      height: 15px;
+      vertical-align: middle;
+      text-align:center;
+    }
+  }
+  
 }
 </style>

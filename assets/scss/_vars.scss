@@ -19,9 +19,9 @@ $condensed-font:'DINNextW01-CondensedLig',Impact, Haettenschweiler, "Franklin Go
 
 $condensed-bold-font:'DINNextW01-CondensedMed',Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
 
-$body-font: 'Avenir Next W01 Light', "Helvetica Neue", Helvetica, Arial, "sans-serif";
+$body-font: 'Avenir Next W01 Thin', "Helvetica Neue", Helvetica, Arial, "sans-serif";
 
-$bold-font: 'AvenirNextLTW01-Medium', "Helvetica Neue", Helvetica, Arial, "sans-serif";
+$bold-font: 'AvenirNextLTW01-Regular', "Helvetica Neue", Helvetica, Arial, "sans-serif";
 
 .iziToast {
   font-family: $condensed-bold-font !important
@@ -44,6 +44,13 @@ $bold-font: 'AvenirNextLTW01-Medium', "Helvetica Neue", Helvetica, Arial, "sans-
   font-family: $condensed-bold-font;
 }
 
+a, a:link, a:visited {
+  color: $blue;
+  transition: all 0.25s $curve;
+}
+a:hover {
+  color: $pink;
+}
 .text-uppercase {
 	text-transform: uppercase;
 }

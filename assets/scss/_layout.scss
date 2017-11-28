@@ -76,29 +76,41 @@ header {
   position: fixed;
   top: 0px;
   left: 0px;
-  background: $white;
+  background: transparent;
   width: 100%;
   z-index: 5;
   height: 90px;
   align-items: center;
   align-content: center;
   justify-content: center;
+  @media (min-width: $medium) {
+    width: 300px;
+  }
   @media (min-width: $large) { 
     height: 110px;
   }
   #logo {
-    font-family: $serif-font;
-    text-transform: uppercase;
-    color: $pink;
+    font-family: $body-font;
+    text-transform: lowercase;
+    color: $white;
     font-size: 60px;
     margin-bottom: 0px;
     line-height: 60px;
     height: 60px;
     @media (min-width: $large) { 
-      font-size: 80px;
+      font-size: 60px;
       margin-bottom: 0px;
-      line-height: 80px;
-      height: 80px;
+      line-height: 60px;
+      height: 60px;
+    }
+    span {
+      font-size: 60px;
+      color: $green;
+//      font-family: $condensed-font;
+//      text-transform: uppercase;
+      @media (min-width: $large) {
+        font-size: 60px;
+      }
     }
   } 
   
@@ -114,6 +126,7 @@ header {
   align-items: center;
   z-index: 6;
   transition: all 0.3s $curve;
+  display: none;
   @media (min-width: $large) {
     height: 110px;
     left: 200px;
@@ -211,7 +224,7 @@ img {
 	z-index: 90;
 	display: none;
 	position: fixed;
-	background: $pink;
+	background: $green;
 	width: 30%;
 	text-align: center;
 	cursor: pointer;
@@ -241,7 +254,7 @@ img {
       position: absolute;
       height: 1px;
       width: 100%;
-      background: $white;
+      background: $pink;
       border-radius: 1px;
       opacity: 1;
       left: 0;

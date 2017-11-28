@@ -68,7 +68,7 @@ body.snip-open {
 .snip-layout {
   background: rgba(123, 123, 123, 0.75);
   bottom: 0;
-  color: #999;
+  color: #FB00DA;
   font-family: "Avenir Next W01 Light", "Helvetica Neue", Helvetica, Arial, "sans-serif";
   font-size: 14px;
   left: 0;
@@ -424,7 +424,7 @@ h4,
     margin-top: 1em;
     text-align: center; }
   .snip-layout .snip-layout__main-container {
-    background: #fff;
+    background: #00FF1B;
     margin: 0 auto;
     max-width: 62.25em;
     position: relative; }
@@ -461,7 +461,7 @@ h4,
     border-top: 1px solid #bbb;
     padding: 1em 0; }
   .snip-layout .snip-layout__content--bordered {
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #00FF1B; }
   .snip-layout .snip-header {
     font-weight: 700;
     background: #00FF1B;
@@ -469,7 +469,7 @@ h4,
     padding: 1em;
     position: relative;
     text-align: left;
-    text-transform: lowercase; }
+    text-transform: uppercase; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-header {
         color: #fff;
@@ -563,7 +563,7 @@ h4,
   .snip-layout .snip-footer__highlight {
     color: #999; }
   .snip-layout .snip-actions {
-    border-top: 1px solid #eee;
+    border-top: 1px solid #00FF1B;
     padding: 1em; }
     .snip-layout .snip-actions::after {
       clear: both;
@@ -577,7 +577,7 @@ h4,
     padding-top: 0; }
   .snip-layout .snip-actions--top {
     border-top: none;
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #00FF1B; }
   .snip-layout .snip-actions__link {
     color: #999; }
   .snip-layout .snip-actions__link--small {
@@ -1017,7 +1017,7 @@ h4,
   .snip-layout .snip-col {
     padding: 0 1em 1em; }
     .snip-layout .snip-col + .snip-col {
-      border-top: 1px solid #eee;
+      border-top: 1px solid #00FF1B;
       padding-top: 1em; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-col {
@@ -1025,7 +1025,7 @@ h4,
         padding: .25em 1.25em;
         width: 33.333333%; }
         .snip-layout .snip-col + .snip-col {
-          border-left: 1px solid #eee;
+          border-left: 1px solid #00FF1B;
           border-top: 0;
           padding-top: .25em; }
           .snip-layout .snip-col + .snip-col.snip-col--no-border {
@@ -1034,7 +1034,7 @@ h4,
     .snip-layout .snip-col--half {
       width: 50%; } }
   .snip-layout .snip-col--right {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #00FF1B;
     -webkit-box-ordinal-group: 3;
     order: 2; }
   .snip-layout .snip-error {

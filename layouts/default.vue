@@ -8,19 +8,21 @@
   <nuxt-link to="/vegan-plant-based-recipes">Recipes</nuxt-link>
   <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
     <div id="user-links">
-    <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">Sign In</a>
-    <nuxt-link v-else to="/auth/sign-off">Sign Off</nuxt-link>
+    <div v-if="loggedUser">
+    <p>Logged in with <span>{{loggedUser.email}}</span></p>
+    <img :src="loggedUser.picture" alt="User Profile Image" v-if="isAuthenticated"/>
+    <nuxt-link :to="'/account/' + loggedUser.email">SHOPPING LIST <span id="list-total-badg-bar" class="badge">{{this.$store.state.listItems}}</span></nuxt-link>
+    <nuxt-link to="/account">VIEW PROFILE</nuxt-link>
+    </div>
+    <a @click.prevent="showLoginScreen()" v-else><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+    <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
+    <nuxt-link v-else to="/auth/sign-off">SIGN OUT</nuxt-link>
 </div>
     </nav>
-     <div id="account-icon">
-    <nuxt-link to="/account" v-if="loggedUser"><img :src="loggedUser.picture" alt="User Profile Image" /></nuxt-link>
-    
-    <a @click.prevent="showLoginScreen()" v-else><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-    </div>
     <header class="grid-x">
      
     <nuxt-link :to="$store.state.backLink" id="back-btn" v-if="$store.state.backLink"><div><span></span><span></span></div></nuxt-link>
-  <nuxt-link to="/" id="logo" class="shrink cell" exact>camila</nuxt-link>
+  <nuxt-link to="/" id="logo" class="shrink cell" exact>camila<span>.life</span></nuxt-link>
   
 </header>
 <header-icons></header-icons>
@@ -28,11 +30,10 @@
   <div id="nav-icon"> <span></span> <span></span> <span></span> </div>
   </div>
   <div class="page-container" @click.prevent="closeSideMenu()">
-  
     <nuxt/>
-    </div>
- 
-     <toolbar></toolbar>
+  </div>
+     <auth-toolbar v-if="isAuthenticated" email="$store.state.user.email"></auth-toolbar>
+     <toolbar v-if="!isAuthenticated"></toolbar>
    <login></login>
      <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="OTRlYjBmNDktYjdiMC00OTAyLWJhNDktYzVkMGI5NDZkNjY5NjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
   </div>
@@ -42,6 +43,7 @@ import $ from 'jquery'
 import login from '~/components/login.vue'
 import headerIcons from '~/components/headerIcons.vue'
 import toolbar from '~/components/toolbar.vue'
+import authToolbar from '~/components/authToolbar.vue'
 import { mapGetters } from 'vuex'
 import axios from 'axios'
 
@@ -57,6 +59,7 @@ export default {
   components: {
     login,
     toolbar,
+    authToolbar,
     headerIcons
   },
   fetch ({store}) {

@@ -1,20 +1,22 @@
 
 <template>
 
-<div class="grid-x grid-padding-x">
-<div class="cell small-12">
-<h1 class="text-center body-font text-lowercase">INGREDIENTS</h1>
-<p class="">I am excited to share the products I have discovered on my journey.  This page includes a selected list of my favs.  You can sign in to create your own shopping list and let me know what you think!!</p>
+<div id="ingredients">
+<div class="grid-x align-center">
+<div class="cell small-11">
+<h1 class="text-center text-uppercase">INGREDIENTS</h1>
+<p class="">I am excited to share the products I have discovered on my journey.  I have a selected list of {{total}} my favs.  You can sign in to create your own shopping list and let me know what you think!!</p>
 </div>
-<div class="cell medium-3">
-      <h5 class="pink body-font text-lowercase">looking for someting?</h5>
-      <p class="small">search all of my favorite vegan products.</p>
-        <input type="text" v-model="search" placeholder="Search title.."/>
-      </div>
-      <div class="cell medium-9 medium-cell-block-y">
+
+  <div id="ingredient-search-box" class="cell small-11 medium-6">
+      <h5 class="green body-font text-lowercase">looking for something?</h5>
+      <p class="small">search all of my favorite vegan products. Found <span v-text="filteredList.length"></span>.</p>
+        <input type="text" v-model="search" placeholder="Search..."/>
+  </div>
+    </div> 
         <ingredient v-for="(ingredient, index) in filteredList" :ingredient="ingredient" :index="index" v-bind:key="ingredient.id"></ingredient>
 
-      </div>
+      
     </div>
 </template>
 
@@ -37,7 +39,8 @@ export default {
     let { data } = await
       axios.get('http://camila.life/admin/api/1.1/tables/ingredients/rows/?filters[brand][>]=0&order[name]=ASC')
     return {
-      ingredients: data.data
+      ingredients: data.data,
+      total: data.data.length
     }
   },
   fetch ({ store }) {
@@ -50,11 +53,32 @@ export default {
       return this.ingredients.filter(ingredient => {
         return ingredient.name.toLowerCase().includes(this.search.toLowerCase())
       })
+    },
+    searchResultsTotal () {
+      return this.ingredients.length
     }
   }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import './assets/scss/_vars.scss';
+#ingredients {
+  display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+padding-top: 90px;
+ @media (min-width: $large) { 
+    padding-top: 110px;
+  }
+}
+#ingredient-search-box {
+  input, input[type=text], input[type=text]:focus {
+    border-radius: 2px;
+    border: none;
+    font-family: $condensed-bold-font;
+    text-transform: uppercase;
+  }
+}
 </style>

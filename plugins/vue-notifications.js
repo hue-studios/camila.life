@@ -1,22 +1,22 @@
 import Vue from 'vue'
 import VueNotifications from 'vue-notifications'
 import iziToast from 'izitoast'// https://github.com/dolce/iziToast
-import 'izitoast/dist/css/iziToastCamila3.min.css'
+import '~/assets/css/iziToastCamila3.min.css'
 
 iziToast.settings({
   timeout: 3000,
   transitionIn: 'flipInX',
   transitionOut: 'flipOutX',
   position: 'center',
-  backgroundColor: '#fb00da',
-  color: 'white',
-  titleColor: '#ffffff',
-  messageColor: '#ffffff',
-  iconColor: '#ffffff',
+  backgroundColor: '#00FF1B',
+  color: 'black',
+  titleColor: '#000000',
+  messageColor: '#000000',
+  iconColor: '#000000',
   layout: 2,
   imageWidth: 80,
   pauseOnHover: false,
-  progressBarColor: '#00FF1B',
+  progressBarColor: '#FB00DA',
   overlay: true,
   overlayClose: true,
   overlayColor: 'rgba(0, 0, 0, 0.6)',

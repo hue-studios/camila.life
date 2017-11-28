@@ -50,7 +50,7 @@ export default {
       #svg-container {
       
       border-radius: 50%;
-      border: thin solid $pink;
+      border: thin solid $blue;
       color: $white;
       width: 50px;
       height: 50px;
@@ -108,7 +108,7 @@ export default {
       #svg-container {
       
       border-radius: 50%;
-      border: thin solid $pink;
+      border: thin solid $blue;
       color: $white;
       width: 50px;
       height: 50px;
