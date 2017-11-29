@@ -15,7 +15,7 @@
 <h5>read the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
 <h5>share the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
  </div>
-<div id="quote" :style="'background-image: url(http://camila.life' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
+<div id="quote" :style="'background-image: url(https://huestudios.com/sites/camila.life' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
 </div>
  </div>
  
