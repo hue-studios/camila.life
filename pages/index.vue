@@ -36,10 +36,10 @@ export default {
   scrollToTop: true,
   async asyncData ({ query, error }) {
     let [productsReq, ingredientsReq, recipesReq, quoteReq] = await Promise.all([
-      axios.get('http://camila.life/admin/api/1.1/tables/products/rows/'),
-      axios.get('http://camila.life/admin/api/1.1/tables/ingredients/rows/'),
-      axios.get('http://camila.life/admin/api/1.1/tables/recipes/rows/'),
-      axios.get('http://camila.life/admin/api/1.1/tables/quotes/rows/')
+      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/products/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/ingredients/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/recipes/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/quotes/rows/')
     ])
     return {
       products: productsReq.data.data,
