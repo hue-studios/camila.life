@@ -20,9 +20,8 @@
 </div>
     </nav>
     <header class="grid-x">
-     
     <nuxt-link :to="$store.state.backLink" id="back-btn" v-if="$store.state.backLink"><div><span></span><span></span></div></nuxt-link>
-  <nuxt-link to="/" id="logo" class="shrink cell" exact>camila<span>.life</span></nuxt-link>
+  <nuxt-link to="/" id="logo" class="shrink cell" exact>camila<span id="tagline">.life</span></nuxt-link>
   
 </header>
 <header-icons></header-icons>
@@ -65,7 +64,6 @@ export default {
   fetch ({store}) {
   },
   mounted () {
-    this.hideOnScroll('header')
   },
   computed: mapGetters([
     'isAuthenticated',
@@ -101,7 +99,7 @@ export default {
       })
     },
     updateListItems () {
-      axios.get('http://camila.life/admin/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$store.state.user.email).then(res => {
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$store.state.user.email).then(res => {
         console.log(res.data.meta)
         this.$store.commit('SET_LISTITEMS', res.data.meta.total)
       }).catch(function (error) {

@@ -15,12 +15,12 @@
 <h5>read the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
 <h5>share the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
  </div>
-<div id="quote" :style="'background-image: url(https://huestudios.com/sites/camila.life' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
+<div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
 </div>
  </div>
  
  <div class="grid-x">
-<product class="small-6 medium-8 cell" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
+<product class="small-6 medium-8 cell hero" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
 <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1" :index="index" v-bind:key="product.id"></product>
  
  </div>
@@ -36,10 +36,10 @@ export default {
   scrollToTop: true,
   async asyncData ({ query, error }) {
     let [productsReq, ingredientsReq, recipesReq, quoteReq] = await Promise.all([
-      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/products/rows/'),
-      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/ingredients/rows/'),
-      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/recipes/rows/'),
-      axios.get('https://huestudios.com/sites/camila.life/admin/api/1.1/tables/quotes/rows/')
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/quotes/rows/')
     ])
     return {
       products: productsReq.data.data,
@@ -98,6 +98,8 @@ export default {
 #top {
 height: 100vh;
 position:relative;
+overflow: hidden;
+width: 100%;
 .angled-crop {
   width: 40%;
   height: 100%;
@@ -157,7 +159,7 @@ position:relative;
   top: 0px;
   background: $blue;
   box-shadow: inset 0px 0px 20px $black;
-  background-image: url(http://camila.life/admin/storage/uploads/camila-sun.jpg);
+  background-image: url(https://huestudios.com/sites/camila.life/content/storage/uploads/camila-sun.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right center;

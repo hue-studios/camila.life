@@ -30,7 +30,7 @@ export default {
     position: fixed;
     right: 3%;
     top: 0px;
-    height: 90px;
+    height: 60px;
     display: flex;
     align-content: center;
     align-items: center;
@@ -40,8 +40,8 @@ export default {
     right: 20px;
   }
   @media (min-width: $large) {
-    height: 110px;
-    right: 200px;
+    height: 75px;
+    right: 190px;
     top: 0px;
     transition: all 0.3s $bounce;
   }
@@ -62,9 +62,7 @@ export default {
         display: inline-block;
         box-shadow: 0px 2px 3px rgba($black, 0.3);
      @media (min-width: $medium) {
-         width: 60px;
-      height: 60px;
-      line-height: 60px;
+       
         }
         svg {
           width: 30px;
@@ -73,8 +71,7 @@ export default {
           filter: drop-shadow(0px 2px 3px rgba($black, 0.3));
           transition: all 0.3s $bounce 0.08s;
           @media (min-width: $medium) {
-            width: 40px;
-            height: 40px;
+           
           }
           .cls-1 {
             fill:none;
@@ -120,9 +117,7 @@ export default {
         display: inline-block;
         box-shadow: 0px 2px 3px rgba($black, 0.3);
      @media (min-width: $medium) {
-         width: 60px;
-      height: 60px;
-      line-height: 60px;
+        
         }
         svg {
           width: 30px;
@@ -131,8 +126,7 @@ export default {
           filter: drop-shadow(0px 2px 3px rgba($black, 0.3));
           transition: all 0.3s $bounce 0.08s;
           @media (min-width: $medium) {
-            width: 40px;
-            height: 40px;
+          
           }
           .cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}.cls-3{fill:#88c057;}.cls-4{fill:#466825;}.cls-5{fill:#659c35;}.cls-6{fill:#436b1c;}.cls-7{fill:#567a34;}.cls-8{fill:#42bec1;}.cls-9{fill:#5fd6d6;}.cls-10{fill:#c92b00;}.cls-11{fill:#a01c02;}.cls-12{fill:#5ea304;}.cls-13{fill:#388c02;}.cls-14{fill:#036d2e;}.cls-15{clip-path:url(#clip-path-2);}.cls-16{fill:#eabc49;}.cls-17{fill:#ffdc6c;}.cls-18{fill:#fcf7c5;}.cls-19{fill:#562300;}.cls-20{fill:#281000;}.cls-21{fill:#8c4719;}.cls-22{fill:#ce921b;}.cls-23{fill:#3cbc0c;}.cls-24{fill:#2b9907;}.cls-25{fill:#017c1b;}.cls-26{fill:#006b12;}.cls-27{fill:#ffe000;}.cls-28{fill:#ffc200;}.cls-29{fill:#e09b77;}.cls-30{clip-path:url(#clip-path-3);}.cls-31{fill:#583e68;}.cls-32{fill:#6a3311;}.cls-33{fill:#6f58a8;}.cls-34{clip-path:url(#clip-path-4);}.cls-35{fill:#d13834;}.cls-36{fill:#f75b57;}.cls-37{fill:#e8b18b;}
           

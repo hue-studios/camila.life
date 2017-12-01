@@ -7,10 +7,14 @@
     height: 400px;
     border-radius: 3px;
     justify-content: flex-end;
+      align-content: center;
+      align-items: center;
     position: relative;
     overflow: hidden;
     transition: all .2s $curve;
-    
+    @media (min-width: $large) {
+      
+      }
     @media (min-width: $large) {
           margin: 20px;
           height: 500px;
@@ -73,12 +77,12 @@
       align-items: center;
       flex-direction: column;
       @media (min-width: $large) {
-        transform: translateY(200px);
-        height: 200px;
+        transform: translateY(170px);
+        height: 160px;
         background: rgba($black, 0.8);
         color: $white;
         justify-content: flex-start;
-      align-items: flex-start;
+        align-items: flex-start;
       }
       
       h1 {
@@ -88,8 +92,10 @@
         display: none;
         @media (min-width: $large) {
           font-size: 36px;
-          line-height: 36px;
+          line-height: 28px;
           display: block;
+          text-align: left;
+          width: 100%;
         }
       }
       p {
@@ -106,31 +112,29 @@
       .product-details-button {
         display: block;
         width: 100px;
-        background: $white;
-        border: thin solid rgba($black, 1);
+        background: rgba($white,0.8);
+        border: thin solid rgba($pink, 1);
         font-size: 18px;
         line-height: 15px;
         margin:0;
-        padding: 10px 10px 8px;
+        padding: 12px 15px 8px;
         color: rgba($black, 1);
         text-align: center;
-        border-radius: 1px;
+        border-radius: 2px;
+        font-family: $condensed-bold-font;
         @media (min-width: $medium) {
           
           
         }
         @media (min-width: $large) {
         position: absolute;
-        bottom: 15px;
-        right: 25%;
-        width: 50%;
-        background: none;
+            background: none;
           transition: all .35s $curve;
           transform: translateX(-100px);
           font-size: 50px;
           line-height: 40px;
-          bottom: 20px;
-          right: 40px;
+          bottom: 0px;
+          right: 20px;
           color: rgba($white, 0.4);
           width: 90%;
           text-align: right;
@@ -216,3 +220,30 @@
   .product-container:hover .product-details-button {
     transform: translateX(0px);
   }
+
+.hero.product-container {
+  .product-border {
+     @media (min-width: $large) {
+      align-content: flex-end;
+      align-items: flex-end;
+    }
+    .product-info {
+      h1 {
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+          width: 50%;
+        }
+        
+      }
+      .product-details-button {
+          @media (min-width: $medium) {
+          }
+          @media (min-width: $large) {
+            bottom: 10px;
+            right: 30px;
+          }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import "default/bs_nav_tabs";
+@import "default/variables";
+
+.vue-tabs {
+  .nav-tabs{
+    margin-left: 0 !important;
+    border-bottom: 0 none;
+    margin-bottom: -2px;
+    > li{
+      margin-bottom: 0px;
+      
+      
+      > a{
+        border: thin solid rgba($black, 0.3) !important;
+        border-bottom: none;
+        border-radius: 0px 2px 2px 0px;
+        color: $white;
+        font-family: $condensed-bold-font;
+        font-weight: 100;
+        background: $pink;
+        margin-right: 0px;
+        box-shadow: inset 0px -1px 10px rgba($black, 0.3);
+      }
+      > a:hover{
+        color: $green;
+        background-color: $dark-pink;
+      }
+      
+    }
+    > li.active{
+       
+       background-color: $white;
+      position: relative;
+      
+
+      > a,
+      > a:hover,
+      > a:focus{
+        
+        background-color: rgba($white,0.85);
+        border-bottom: none !important;
+        color: $pink !important;
+        box-shadow: none;
+        //height: 50px;
+      }
+    }
+  }
+  .tab-content {
+    background-color: rgba($white,0.85);
+    z-index: 0;
+    padding: 20px;
+    border: thin solid rgba($black, 0.3) !important;
+  }
+}

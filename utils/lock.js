@@ -15,7 +15,7 @@ const getOptions = (container) => {
   setSecret(secret)
   return {
     theme: {
-      logo: 'http://camila.life/static/images/logo-white.png',
+      logo: 'https://huestudios.com/sites/camila.life/content/storage/uploads/logo-final.png',
       primaryColor: '#FB00DA'
     },
     languageDictionary: {

@@ -1,0 +1,22 @@
+.swiper-container-horizontal {
+  .swiper-pagination-bullets {
+    margin-left: 0;
+    bottom: -37px;
+    @media (min-width: $large) {
+      bottom: -0px;
+    }
+    
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      border-radius: 100%;
+      background: $black;
+      opacity: .8;
+      cursor: pointer;
+    }
+    .swiper-pagination-bullet-active {
+      background: $pink;
+    }
+    }
+  }

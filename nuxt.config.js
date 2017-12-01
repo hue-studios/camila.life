@@ -8,7 +8,7 @@ module.exports = {
   css: [
     { src: '~/assets/css/foundation.min.css' },
     { src: '~/assets/css/swiper.min.css' },
-    { src: '~/assets/snipcart/snipcart.min.css'},
+    { src: '~/assets/snipcart/snipcart.css'},
     { src: '~/assets/scss/main.scss', lang: 'scss' }
   ],
   head: {
@@ -44,6 +44,7 @@ module.exports = {
     { src: '~/plugins/vue-notifications', ssr: false },
     { src: '~/plugins/ga', ssr: false },
     { src: '~/plugins/ksvuescrollmagic', ssr: false },
+    '~/plugins/vue-tabs', 
     '~/plugins/swiper'
   ],
   env: {

@@ -66,11 +66,11 @@ body.snip-open {
   padding: 0 !important; }
 
 .snip-layout {
-  background: rgba(123, 123, 123, 0.75);
+  background: rgba(26, 26, 26, 0.7);
   bottom: 0;
-  color: #999;
+  color: #FB00DA;
   font-family: "Avenir Next W01 Light", "Helvetica Neue", Helvetica, Arial, "sans-serif";
-  font-size: 14px;
+  font-size: 16px;
   left: 0;
   line-height: normal;
   overflow-x: auto;
@@ -79,6 +79,10 @@ body.snip-open {
   right: 0;
   top: 0;
   z-index: 1040;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  opacity: 0;
+  border-radius: 3px;
   /**
     ICON
 
@@ -356,22 +360,26 @@ h4,
   .snip-layout input:focus, .snip-layout input:hover,
   .snip-layout select:focus,
   .snip-layout select:hover {
-    box-shadow: none;
-    outline: none; }
+    box-shadow: none; }
   .snip-layout input[type=text],
   .snip-layout input[type=password],
   .snip-layout select {
     background: #fff;
-    border-radius: 3px;
-    border: 1px solid #eee;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #FB00DA;
     box-sizing: border-box;
-    color: #555;
+    box-shadow: none;
+    font-family: "DINNextW01-CondensedLig", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    text-transform: uppercase;
+    color: #1a1a1a;
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     height: auto;
     line-height: 18px;
-    margin: 0;
-    padding: .571em .429em;
+    vertical-align: bottom;
+    margin: 0 0 5px;
+    padding: 10px 5px 0 5px;
     -webkit-transition: border 0.66s ease;
     transition: border 0.66s ease;
     width: 100%; }
@@ -380,36 +388,37 @@ h4,
     .snip-layout input[type=password]:hover,
     .snip-layout select:focus,
     .snip-layout select:hover {
-      border-color: #333; }
+      border: none;
+      border-bottom: 1px solid #eee; }
   .snip-layout .snip-btn {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     background-color: #555;
-    border-radius: 3px;
+    border-radius: 2px;
     border: 0;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-size: 10px;
+    font-size: 16px;
     height: 36px;
     line-height: 36px;
     outline: 0;
     padding: 0 1em;
     text-transform: uppercase; }
     .snip-layout .snip-btn:hover {
-      background-color: #3c3c3c; }
+      background-color: #0099cc; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-btn {
-        font-size: 12px;
+        font-size: 16px;
         padding: 0 2em; } }
   .snip-layout .snip-btn--small {
     height: auto;
     line-height: normal;
     padding: .417em; }
   .snip-layout .snip-btn--highlight {
-    background: #efe778;
-    color: #222; }
+    background: #FB00DA;
+    color: #00FF1B; }
     .snip-layout .snip-btn--highlight:hover {
-      background-color: #eadf4a; }
+      background-color: #0099cc; }
   .snip-layout .snip-btn--left {
     float: left; }
   .snip-layout .snip-btn--right {
@@ -418,33 +427,39 @@ h4,
   .snip-layout .snip-btn--danger {
     background-color: #f10; }
     .snip-layout .snip-btn--danger:hover {
-      background-color: #cc0e00; }
+      background-color: #0099cc; }
   .snip-layout .snip-btn--full {
     display: block;
     margin-top: 1em;
     text-align: center; }
   .snip-layout .snip-layout__main-container {
-    background: #fff;
+    background: #ffffff;
     margin: 0 auto;
     max-width: 62.25em;
-    position: relative; }
+    position: relative;
+    border: thin solid #FB00DA;
+    border-radius: 3px; }
   .snip-layout .snip-layout__close {
-    color: #fff;
-    font-size: 1.8em;
-    padding: .333em;
-    padding: 0;
+    background: #1a1a1a;
+    border-radius: 50%;
+    color: #FB00DA;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
     position: absolute;
     right: .417em;
-    top: .1em;
+    top: .3em;
     z-index: 2; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-layout__close {
-        font-size: 1.5em;
-        top: .208em; }
+        font-size: 30px;
+        top: .4em; }
         .snip-layout .snip-layout__close.js-hidden {
           display: none; } }
   .snip-layout .snip-layout__loading {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     color: #333;
     padding: 5em 0;
     text-align: center;
@@ -456,28 +471,43 @@ h4,
       .snip-layout .snip-layout__content {
         padding: 2em 0; } }
   .snip-layout .snip-layout__content--highlight {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #bbb;
-    border-top: 1px solid #bbb;
+    background-color: rgba(26, 26, 26, 0.5);
+    border-bottom: 1px solid #FB00DA;
+    border-top: 1px solid #FB00DA;
     padding: 1em 0; }
   .snip-layout .snip-layout__content--bordered {
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #ffffff; }
   .snip-layout .snip-header {
-    font-weight: 700;
-    background: #00FF1B;
-    color: #fff;
-    padding: 1em;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    color: #FB00DA;
+    padding: 40px 10%;
     position: relative;
     text-align: left;
-    text-transform: lowercase; }
+    text-transform: uppercase;
+    background-color: #ffffff;
+    background-image: url("https://huestudios.com/sites/camila.life/content/storage/uploads/logo-final-pink.png");
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 180px auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-header {
-        color: #fff;
+        color: #ffffff;
         height: 105px;
-        padding: 0;
-        text-align: center; } }
+        padding: 40px 5%;
+        text-align: center;
+        -webkit-box-pack: center;
+        justify-content: center; } }
   .snip-layout .snip-header__user {
-    background: #111;
+    background: #FB00DA;
     font-size: 14px;
     padding: .714em 1.429em;
     text-align: center; }
@@ -486,14 +516,17 @@ h4,
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin: auto; }
+    margin: auto;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    text-transform: uppercase;
+    color: #1a1a1a; }
   .snip-layout .snip-header__back {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     display: -webkit-box;
     display: flex;
-    background: #111;
+    background: #ffffff;
     font-size: 14px;
     padding: .714em 1.429em; }
   .snip-layout .snip-header__back--button {
@@ -501,36 +534,37 @@ h4,
     cursor: hand;
     margin: auto; }
   .snip-layout .snip-header__back--button:hover {
-    color: #fff; }
+    color: #ffffff; }
   .snip-layout .snip-header__user-mail {
-    color: #fff; }
+    color: #ffffff; }
   .snip-layout .snip-header__title {
-    display: none;
     font-size: 15px;
-    text-align: center; }
+    text-align: center;
+    color: #FB00DA; }
     .snip-layout .snip-header__title.js-show {
-      display: block; }
+      display: -webkit-box;
+      display: flex; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-header__title {
-        display: block;
-        font-size: 30px;
-        left: 1.25em;
-        line-height: 105px;
-        position: absolute;
+        display: -webkit-box;
+        display: flex;
+        font-size: 20px;
         text-align: left; } }
   .snip-layout .snip-header__total {
-    background: #111;
     border-radius: 5px;
-    display: inline-block;
-    padding: .5em; }
+    display: -webkit-box;
+    display: flex;
+    font-size: 15px;
+    padding-left: 10px; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-header__total {
         height: 38px;
         line-height: 38px;
-        margin-top: 2.188em;
-        padding: 0 .625em; } }
+        font-size: 20px; } }
+    .snip-layout .snip-header__total #snipcart-amount {
+      color: #1a1a1a; }
   .snip-layout .snip-header__total-label {
-    color: #999;
+    color: #1a1a1a;
     margin-right: .625em; }
   .snip-layout .snip-header__continue {
     display: none; }
@@ -549,22 +583,25 @@ h4,
       right: 1.25em;
       top: 50%; } }
   .snip-layout .snip-footer {
-    background: #222;
+    background: #00FF1B;
     padding: .125em .625em;
     text-transform: uppercase; }
   .snip-layout .snip-footer__copyright {
     background: url("img/lock.png") no-repeat left 0.3em;
-    color: #555;
+    color: #1a1a1a;
     display: inline-block;
     font-size: 10px;
     height: 35px;
     line-height: 35px;
     padding-left: 3.2em; }
   .snip-layout .snip-footer__highlight {
-    color: #999; }
+    color: #666; }
   .snip-layout .snip-actions {
-    border-top: 1px solid #eee;
-    padding: 1em; }
+    border-top: 1px solid #ffffff;
+    padding: 1em;
+    font-family: "DINNextW01-CondensedLig", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    text-transform: uppercase;
+    color: #1a1a1a; }
     .snip-layout .snip-actions::after {
       clear: both;
       content: "";
@@ -577,15 +614,13 @@ h4,
     padding-top: 0; }
   .snip-layout .snip-actions--top {
     border-top: none;
-    border-bottom: 1px solid #eee; }
+    border-bottom: 1px solid #ffffff; }
   .snip-layout .snip-actions__link {
-    color: #999; }
-  .snip-layout .snip-actions__link--small {
-    font-size: 12px; }
+    color: #FB00DA; }
   .snip-layout .snip-actions__link--right {
     float: right; }
   .snip-layout .snip-table {
-    font-size: 14px;
+    font-size: 20px;
     text-align: left;
     width: 100%; }
     .snip-layout .snip-table td, .snip-layout .snip-table th, .snip-layout .snip-table tr {
@@ -611,7 +646,7 @@ h4,
   @media only screen and (max-width: 48em) {
     .snip-layout .snip-table--small {
       display: block;
-      font-size: 14px;
+      font-size: 18px;
       text-align: left; }
       .snip-layout .snip-table--small td, .snip-layout .snip-table--small th, .snip-layout .snip-table--small tr {
         display: block; }
@@ -620,14 +655,15 @@ h4,
           width: 0; }
       .snip-layout .snip-table--small tr {
         padding: 1em 0;
-        position: relative; }
+        position: relative;
+        border: thin solid rgba(26, 26, 26, 0.5)tr; }
         .snip-layout .snip-table--small tr::after {
           clear: both;
           content: "";
           display: table; }
       .snip-layout .snip-table--small td {
         border: 0;
-        padding: 1em; }
+        padding: 0 1em; }
       .snip-layout .snip-table--small .snip-table__header {
         display: none; }
       .snip-layout .snip-table--small .snip-table__body {
@@ -649,18 +685,24 @@ h4,
         .snip-layout .snip-table--small .snip-table__body--big td {
           padding: .5em;
           text-align: inherit; } }
+  .snip-layout table thead {
+    background: #ffffff; }
   .snip-layout .snip-table__header {
-    font-size: 12px;
-    padding: 1em 2em;
-    text-transform: uppercase; }
+    font-size: 18px;
+    padding: 3em 0em 0em;
+    text-transform: uppercase;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif"; }
     .snip-layout .snip-table__header ~ .snip-table__header {
       border-top: 1px solid #eee; }
+    .snip-layout .snip-table__header th {
+      text-align: center !important;
+      color: #1a1a1a; }
   .snip-layout .snip-table__body {
     border-top: 1px solid #eee;
     display: table-row-group;
     padding: 1.429em; }
   .snip-layout .snip-table__body--small {
-    background: #f8f8f8; }
+    background: #ffffff; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-table__body--small {
         padding: .429em 1.429em .429em 2.857em; } }
@@ -671,7 +713,7 @@ h4,
         padding: 1.222em 1.111em 1.222em 1.222em; } }
   .snip-layout .snip-table__loading {
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
     color: #333;
     font-weight: bold;
     text-transform: uppercase; }
@@ -691,13 +733,13 @@ h4,
     font-weight: normal;
     display: block; }
   .snip-layout .snip-table__cell--bold {
-    font-weight: 700; }
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif"; }
   .snip-layout .snip-table__cell--highlight {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     color: #333; }
   .snip-layout .snip-table__cell--success {
-    font-weight: 700;
-    color: #76d443; }
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    color: #00FF1B; }
   @media only screen and (max-width: 48em) {
     .snip-layout .snip-table__small-col {
       float: left;
@@ -706,10 +748,24 @@ h4,
       width: 33.333333%; }
       .snip-layout .snip-table__small-col + .snip-table__small-col {
         border-left: 1px solid #eee; } }
+  .snip-layout .snip-table tr.snip-table__item {
+    background: #ffffff;
+    margin: 10px 5px;
+    border: thin solid rgba(26, 26, 26, 0.2);
+    box-shadow: 0px 1px 10px rgba(26, 26, 26, 0.3); }
+    @media only screen and (min-width: 48em) {
+      .snip-layout .snip-table tr.snip-table__item {
+        box-shadow: none; } }
+    .snip-layout .snip-table tr.snip-table__item .snip-table__cell--clear:nth-of-type(1) {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle; }
+      .snip-layout .snip-table tr.snip-table__item .snip-table__cell--clear:nth-of-type(1) h2 {
+        display: inline; }
   .snip-layout .snip-product {
-    background: #f8f8f8;
+    background: #ffffff;
     border-top: 1px solid #eee;
-    font-size: 14px;
+    font-size: 18px;
     padding: 2em 1.25em; }
     .snip-layout .snip-product::after {
       clear: both;
@@ -733,40 +789,40 @@ h4,
       max-width: 100%; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-product__thumbnail {
-        display: block; } }
+        display: inline; } }
   .snip-layout .snip-product__name {
-    font-weight: 700;
-    color: #333;
-    font-size: 1.125em;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    color: #FB00DA;
+    font-size: 1em;
+    line-height: 1em;
     overflow: hidden;
     text-transform: uppercase; }
-    @media only screen and (min-width: 48em) {
+    @media only screen and (min-width: 64em) {
       .snip-layout .snip-product__name {
-        font-size: 14px;
-        margin-top: .5em; } }
+        line-height: 0.9em; } }
   .snip-layout .snip-product__description {
-    font-size: 12.44444px;
+    font-size: 16px;
     margin-top: .25em;
     overflow: hidden; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-product__description {
-        font-size: 14px;
+        font-size: 16px;
         margin-top: .5em; } }
   .snip-layout .snip-product__important {
-    font-weight: 700;
-    font-size: 12.44444px; }
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    font-size: 16px; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-product__important {
-        font-size: 14px; } }
+        font-size: 18px; } }
   .snip-layout .snip-product__remove {
     color: #f10;
-    font-size: 30px;
+    font-size: 20px;
     position: static; }
     @media only screen and (max-width: 48em) {
       .snip-layout .snip-product__remove {
         position: absolute;
-        right: 0.28571em;
-        top: 0.57143em; } }
+        right: .4em;
+        top: .9em; } }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-product__remove {
         float: left;
@@ -774,19 +830,46 @@ h4,
   .snip-layout .snip-product__remove--disabled {
     opacity: 0.2;
     cursor: default; }
-  @media only screen and (min-width: 48em) {
-    .snip-layout .snip-product__customfields {
-      max-width: 200px; } }
+  .snip-layout .snip-product__customfields {
+    max-width: 200px; }
+    @media only screen and (min-width: 48em) {
+      .snip-layout .snip-product__customfields {
+        max-width: 200px; } }
+  .snip-layout .snip-customfields {
+    min-width: 150px;
+    padding: 0 !important; }
+    .snip-layout .snip-customfields .snip-form__label {
+      margin: 0.653em 0 0 0px; }
+      @media only screen and (min-width: 48em) {
+        .snip-layout .snip-customfields .snip-form__label {
+          margin: 0em 0 0 0px; } }
+    .snip-layout .snip-customfields select {
+      padding: 0; }
+  .snip-layout .snipcart-customfield-dropdown.snip-form__container {
+    width: 50%;
+    margin: 0;
+    padding: 0 1em;
+    display: inline-block !important;
+    clear: none !important;
+    float: none !important; }
+    @media only screen and (min-width: 48em) {
+      .snip-layout .snipcart-customfield-dropdown.snip-form__container {
+        width: 100%;
+        margin: 0;
+        clear: left !important;
+        float: left !important; } }
   .snip-layout .snip-product__customfields-checkbox {
     float: left;
     margin: 0 .5em .75em 0; }
   .snip-layout .snip-product__empty {
-    font-size: 20px;
-    padding: 1em 2em;
+    font-size: 18px;
+    padding: 1em 2em 3em;
     text-align: center;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    color: #1a1a1a; }
   .snip-layout .snip-quantity-trigger {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     -webkit-box-align: center;
     align-items: center;
     color: #111;
@@ -808,14 +891,14 @@ h4,
     -webkit-box-pack: center;
     justify-content: center;
     color: #111;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
     margin-top: -1.6px;
     line-height: 1.6;
     height: 1em;
     width: 1em; }
     .snip-layout .snip-quantity-trigger__btn--duplicate:hover {
-      background-color: #eadf4a; }
+      background-color: #0099cc; }
     .snip-layout .snip-quantity-trigger__btn--duplicate:before {
       display: block;
       height: 1em;
@@ -840,7 +923,7 @@ h4,
     line-height: 1em; }
   .snip-layout .snip-quantity-trigger__btn--minus:before {
     content: "-";
-    line-height: 14px; }
+    line-height: 19px; }
   .snip-layout .snip-quantity-trigger__btn--disabled {
     background-color: #eee;
     color: #bbb;
@@ -869,7 +952,7 @@ h4,
       left: -200px;
       width: 30%;
       height: 0.3em;
-      background-color: #efe778;
+      background-color: #FB00DA;
       -webkit-animation: snip-loading 2s ease-in-out infinite;
       animation: snip-loading 2s ease-in-out infinite; }
     .snip-layout .snip-loader--bar.js-hidden {
@@ -906,17 +989,18 @@ h4,
     .snip-layout .snip-form__container + .snip-form__container {
       margin-top: 1em; }
   .snip-layout .snip-form__label {
-    color: #999;
+    color: #FB00DA;
     display: block;
-    font-size: 12px;
-    margin: 0 0 .5em 0;
+    font-size: 14.4px;
+    margin: 1em 0 0em 0;
     overflow: hidden;
     text-transform: uppercase;
-    cursor: pointer; }
+    cursor: pointer;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif"; }
   .snip-layout .snip-form__description {
     margin: 1em 0; }
   .snip-layout .snip-form__help {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     color: #333;
     float: right;
     font-size: 12px; }
@@ -928,16 +1012,43 @@ h4,
     .snip-layout .snip-form__select--small ~ .snip-form__select--small {
       margin-left: 2%; }
   .snip-layout .snip-form__error {
-    background: #f10;
-    border-radius: 3px;
-    color: #fff;
+    background: #00FF1B;
+    border-radius: 2px;
+    color: #1a1a1a;
     font-size: 14px;
     padding: .357em;
-    text-align: center; }
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif"; }
+  .snip-layout select#snipcart_custom_SIZE, .snip-layout select#snipcart_custom_COLOR {
+    font-family: "DINNextW01-CondensedLig", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    text-transform: uppercase;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 5px 5px 2px 5px; }
+  .snip-layout .snipcart-customfield-element {
+    position: relative; }
+  .snip-layout .snipcart-customfield-element:after {
+    font-family: 'FontAwesome';
+    content: '\f0d7';
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+    color: #FB00DA;
+    font-size: 10px; }
+  .snip-layout .snipcart-customfield-element:before {
+    font-family: 'FontAwesome';
+    content: '\f0d8';
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    color: #FB00DA;
+    font-size: 10px; }
   .snip-layout .snip-steps {
-    background: #ccc;
+    background: #FB00DA;
     display: block;
-    height: 48px; }
+    height: 48px;
+    overflow: hidden; }
     .snip-layout .snip-steps.snip-steps--4 li {
       width: 25%; }
     .snip-layout .snip-steps.snip-steps--5 li {
@@ -950,9 +1061,9 @@ h4,
       .snip-layout .snip-steps {
         height: 60px; } }
   .snip-layout .snip-step__item {
-    background: #ccc;
-    border-bottom: 1px solid #bbb;
-    color: #999;
+    background: #FB00DA;
+    border-bottom: 1px solid #FB00DA;
+    color: #1a1a1a;
     cursor: pointer;
     display: table;
     float: left;
@@ -960,7 +1071,8 @@ h4,
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; }
+    user-select: none;
+    border-bottom: thin solid rgba(26, 26, 26, 0.5); }
     @supports ((display: -webkit-box) or (display: flex)) {
       .snip-layout .snip-step__item {
         display: -webkit-box;
@@ -970,11 +1082,16 @@ h4,
         -webkit-box-align: center;
         align-items: center; } }
     .snip-layout .snip-step__item + .snip-step__item {
-      border-left: 1px solid #bbb; }
+      border-left: 1px solid #FB00DA; }
     .snip-layout .snip-step__item.js-active {
       background: #fff;
       border-bottom-color: #fff;
-      color: #333; }
+      color: #FB00DA;
+      box-shadow: 0px 0px 20px rgba(26, 26, 26, 0.2);
+      border-top: thin solid rgba(26, 26, 26, 0.5);
+      border-left: thin solid rgba(26, 26, 26, 0.5);
+      border-right: thin solid rgba(26, 26, 26, 0.5);
+      box-shadow: 0px 2px 10px rgba(26, 26, 26, 0.5); }
     .snip-layout .snip-step__item.js-hidden {
       display: none; }
     @media only screen and (min-width: 48em) {
@@ -994,7 +1111,7 @@ h4,
     display: none; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-step__label {
-        font-weight: 700;
+        font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
         display: table-cell;
         font-size: 10px;
         line-height: 16px;
@@ -1017,7 +1134,7 @@ h4,
   .snip-layout .snip-col {
     padding: 0 1em 1em; }
     .snip-layout .snip-col + .snip-col {
-      border-top: 1px solid #eee;
+      border-top: 1px solid #ffffff;
       padding-top: 1em; }
     @media only screen and (min-width: 48em) {
       .snip-layout .snip-col {
@@ -1025,7 +1142,7 @@ h4,
         padding: .25em 1.25em;
         width: 33.333333%; }
         .snip-layout .snip-col + .snip-col {
-          border-left: 1px solid #eee;
+          border-left: 1px solid #ffffff;
           border-top: 0;
           padding-top: .25em; }
           .snip-layout .snip-col + .snip-col.snip-col--no-border {
@@ -1034,20 +1151,20 @@ h4,
     .snip-layout .snip-col--half {
       width: 50%; } }
   .snip-layout .snip-col--right {
-    border-left: 1px solid #eee;
+    border-left: 1px solid #ffffff;
     -webkit-box-ordinal-group: 3;
     order: 2; }
   .snip-layout .snip-error {
     padding: 2em 15%; }
   .snip-layout .snip-error__text {
-    color: #f10;
+    color: #FB00DA;
     font-size: 14px;
     margin-bottom: 1em; }
   .snip-layout .snip-error__text--centered {
     text-align: center; }
   .snip-layout .snip-error__title {
-    font-weight: 700;
-    color: #333;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+    color: #1a1a1a;
     margin: 1em 0;
     text-align: center;
     text-transform: uppercase; }
@@ -1070,7 +1187,7 @@ h4,
     background: #f8f8f8;
     border-top: 1px solid #eee; }
   .snip-layout .snip-static__title {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     color: #333;
     font-size: 1em;
     text-transform: uppercase; }
@@ -1125,7 +1242,7 @@ h4,
   .snip-layout .snip-tooltip__list {
     color: #555; }
   .snip-layout .snip-tooltip__item {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     color: #111;
     margin-bottom: 5px; }
   .snip-layout .snip-flash__content {
@@ -1195,7 +1312,7 @@ h4,
       .snip-layout .snip-discount__remove {
         float: left; } }
   .snip-layout .snip-badge {
-    font-weight: 700;
+    font-family: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
     text-transform: uppercase;
     border-radius: 3px;
     padding: 0.5em;
@@ -1213,5 +1330,8 @@ h4,
     color: #333; }
   @media only screen and (min-width: 64em) {
     .snip-layout {
-      font-size: 16px;
+      font-size: 18px;
       padding: 1.5em 0; } }
+
+.snip-layout.snip-active {
+  opacity: 1; }
