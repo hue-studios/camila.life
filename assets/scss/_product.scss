@@ -222,6 +222,7 @@
   }
 
 .hero.product-container {
+  width: 100% !important;
   .product-border {
      @media (min-width: $large) {
       align-content: flex-end;

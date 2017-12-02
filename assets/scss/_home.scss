@@ -1,13 +1,13 @@
 #top {
-height: 100vh;
+height: 587px;
 position:relative;
 overflow: hidden;
 width: 100%;
   @media (min-width: $medium) {
-    height: 600px;
+    height: 800px;
   }
   @media (min-width: $large) {
-    height: 600px;
+    height: 80vh;
   }
 .angled-crop {
   width: 60%;
@@ -24,6 +24,7 @@ width: 100%;
   flex-direction: column;
   @media (min-width: $medium) {
      width: 50%;
+    left: -10%;
   }
   @media (min-width: $large) {
    left: 20%;
@@ -46,7 +47,7 @@ width: 100%;
   }
 }
 .angled-crop::before {
-  @media (min-width: $medium) {
+
     width: 80px;
     height: 100%;
     position: absolute;
@@ -56,7 +57,7 @@ width: 100%;
     border-right: 80px solid $pink;
     border-top: 100vh solid transparent;
     z-index:5;
-  }
+  
 }
 .angled-crop::after {
     width: 80px;
@@ -100,14 +101,29 @@ width: 100%;
   color: $pink;
   display: flex;
   align-items: flex-end;
+  text-align:right;
+    @media (min-width: $medium) {
+      width: 50%;
+  }
   h5 {
-    font-size: 124px;
+    font-size: 56px;
     line-height: 0.7em;
-    width: 50%;
-    margin-bottom: -15px;
-    margin-left: 80px;
+    width: 70%;
+    margin-bottom: 25px;
+    margin-left: 0px;
     position: relative;
     display: block;
+    text-align:right;
+    @media (min-width: $medium) {
+      font-size: 124px;
+      line-height: 0.7em;
+      width: 50%;
+      margin-bottom: -15px;
+      margin-left: 100px;
+      position: relative;
+      display: block;
+      text-align:left;
+    }
     span {
       position: absolute;
       z-index: 5;

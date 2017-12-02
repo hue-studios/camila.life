@@ -14,9 +14,10 @@
 </div>
  </div>
  
- <div class="grid-x">
+ <div id="home-boutique" class="grid-x">
+ <h1 class="small-12 cell pink">BOUTIQUE</h1>
 <product class="small-6 medium-8 cell hero" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
-<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1" :index="index" v-bind:key="product.id"></product>
+<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1 && index < 4" :index="index" v-bind:key="product.id"></product>
  
  </div>
 </div>
@@ -31,7 +32,7 @@ export default {
   scrollToTop: true,
   async asyncData ({ query, error }) {
     let [productsReq, ingredientsReq, recipesReq, quoteReq] = await Promise.all([
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?order[sort]'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/quotes/rows/')
@@ -77,7 +78,7 @@ export default {
   },
   methods: {
     pinTopScene () {
-      const scene = new this.$scrollmagic.Scene({triggerElement: '.page-container', duration: 900}).setTween(new this.$gsap.TimelineMax().add([
+      const scene = new this.$scrollmagic.Scene({triggerElement: '.page-container', duration: 1030}).setTween(new this.$gsap.TimelineMax().add([
         this.$gsap.TweenMax.to('#quote h5', 1, {marginLeft: '0px', ease: this.$gsap.Linear.easeNone}),
         this.$gsap.TweenMax.to('#quote h5 span', 1, {right: '-125%', opacity: '0.5', ease: this.$gsap.Linear.easeNone}),
         this.$gsap.TweenMax.to('.angled-crop', 1, {left: '24%', ease: this.$gsap.Linear.easeNone})
