@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5 {
    transition: all 3s ease-out;
 }
 
-.page-enter-active, .page-leave-active {
+.page-enter-active, .page-leave-active, .left-enter-active, .left-leave-active, .top-enter-active, .top-leave-active {
   transition: all .3s $curve
 }
 .page-enter {
@@ -132,6 +132,30 @@ h1, h2, h3, h4, h5 {
    opacity: 0;
  transform-origin: center;
   transform: rotateX(-10deg) translateY(500px);
+}
+
+.left-enter {
+  opacity: 0;
+  transform-origin: center;
+  transform: rotateY(10deg) translateX(-500px);
+}
+
+.left-leave-active {
+   opacity: 0;
+ transform-origin: center;
+  transform: rotateY(-10deg) translateX(-500px);
+}
+
+.top-enter {
+  opacity: 0;
+  transform-origin: center;
+  transform: rotateX(10deg) translateY(-500px);
+}
+
+.top-leave-active {
+   opacity: 0;
+ transform-origin: center;
+   transform: rotateX(10deg) translateY(-500px);
 }
 
 .nuxt-link-exact-active {

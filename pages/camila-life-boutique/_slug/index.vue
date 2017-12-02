@@ -104,10 +104,8 @@ import axios from 'axios'
 import relatedProducts from '~/components/relatedProducts.vue'
 
 export default {
-  scrollToTop: true,
   transition: {
-    enterActiveClass: 'animated fadeInLeft fast',
-    leaveActiveClass: 'animated fadeOutLeft fast'
+    name: 'left'
   },
   async asyncData ({ params }) {
     // We can use async/await ES6 feature
