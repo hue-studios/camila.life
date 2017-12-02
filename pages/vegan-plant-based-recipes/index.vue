@@ -2,18 +2,7 @@
 <template>
   <div class="container">
     <h1>RECIPES</h1>
-    <ul>
-      <li v-for="recipe in recipes">
-        <nuxt-link :to="'/vegan-plant-based-recipes/' + recipe.url">
-		<div class="bg-img" v-bind:style="{ backgroundImage: 'url(http://camila.life' +recipe.images.data.data+')', width: '50px', height: '50px' }"> </div>
-		<h2>{{ recipe.name }}</h2>
-		<div v-for="(image, index) in recipe.images.data">
-		<div class="bg-img" v-if="index == 0" v-bind:style="{ backgroundImage: 'url(http://camila.life' +image.url+')', width: '50px', height: '50px' }"></div>
-		</div>
-		</nuxt-link>
-      </li>
-    </ul>
-    <p><nuxt-link to="/">Back to home page</nuxt-link></p>
+    <h5>coming soon.</p>
   </div>
 </template>
 
