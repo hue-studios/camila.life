@@ -96,7 +96,7 @@ export default {
 <style lang="scss" scoped>
 @import './assets/scss/_vars.scss';
 #top {
-height: 100vh;
+height: 600px;
 position:relative;
 overflow: hidden;
 width: 100%;

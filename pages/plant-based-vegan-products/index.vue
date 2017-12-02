@@ -1,23 +1,10 @@
 
 <template>
 
-<div id="ingredients">
-<div class="grid-x align-center">
-<div class="cell small-11">
-<h1 class="text-center text-uppercase">INGREDIENTS</h1>
-<p class="">I am excited to share the products I have discovered on my journey.  I have a selected list of {{total}} my favs.  You can sign in to create your own shopping list and let me know what you think!!</p>
-</div>
-
-  <div id="ingredient-search-box" class="cell small-11 medium-6">
-      <h5 class="green body-font text-lowercase">looking for something?</h5>
-      <p class="small">search all of my favorite vegan products. Found <span v-text="filteredList.length"></span>.</p>
-        <input type="text" v-model="search" placeholder="Search..."/>
+<div class="grid-y align-middle align-center">
+    <h1>INGREDIENTS</h1>
+    <p>coming soon.</p>
   </div>
-    </div> 
-        <ingredient v-for="(ingredient, index) in filteredList" :ingredient="ingredient" :index="index" v-bind:key="ingredient.id"></ingredient>
-
-      
-    </div>
 </template>
 
 <script>
@@ -63,6 +50,11 @@ export default {
 
 <style lang="scss" scoped>
 @import './assets/scss/_vars.scss';
+.grid-y {
+  height: 100vh;
+  background: $pink;
+  color: $white;
+}
 #ingredients {
   display: flex;
  align-items: center;

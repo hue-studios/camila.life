@@ -1,6 +1,6 @@
 
 <template>
-  <div class="container">
+<div class="grid-y align-middle align-center">
     <h1>RECIPES</h1>
     <p>coming soon.</p>
   </div>
@@ -25,6 +25,11 @@ export default {
 </script>
 
 <style scoped>
+.grid-y {
+  height: 100vh;
+  background: $pink;
+  color: $white;
+}
 .container {
   width: 70%;
   margin: auto;

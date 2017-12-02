@@ -1,13 +1,8 @@
 
 <template>
-  <div class="container">
-    <h1>Plant-Based Living</h1>
-    <ul>
-      <li v-for="article in articles">
-        <nuxt-link :to="'/plant-based-living/' + article.url">{{ article.title }}</nuxt-link>
-      </li>
-    </ul>
-    <p><nuxt-link to="/">Back to home page</nuxt-link></p>
+<div class="grid-y align-middle align-center">
+    <h1>PLANT-BASED-LIVING</h1>
+    <p>coming soon.</p>
   </div>
 </template>
 
@@ -30,6 +25,11 @@ export default {
 </script>
 
 <style scoped>
+.grid-y {
+  height: 100vh;
+  background: $pink;
+  color: $white;
+}
 .container {
   width: 70%;
   margin: auto;
