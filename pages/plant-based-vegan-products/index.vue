@@ -37,7 +37,7 @@ export default {
   scrollToTop: true,
   async asyncData () {
     let { data } = await
-      axios.get('http://camila.life/admin/api/1.1/tables/ingredients/rows/?filters[brand][>]=0&order[name]=ASC')
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[brand][>]=0&order[name]=ASC')
     return {
       ingredients: data.data,
       total: data.data.length

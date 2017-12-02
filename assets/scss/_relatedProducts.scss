@@ -1,0 +1,84 @@
+.related-products {
+   align-content: center;
+   align-items: center;
+   justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  h1 {
+    text-align: center;
+    font-size:42px;
+    @media (min-width: $medium) {
+    
+    }
+  }
+   .related-product {
+     position:relative;
+     display: flex;
+     align-content: center;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     .related-product-container {
+        text-align:center;
+        width: 350px;
+        margin-bottom: 50px;
+       
+        @media (min-width: $medium) {
+          width: 90%;
+        }
+       @media (min-width: $large) {
+          
+        }
+     }
+     .related-product-image-container {
+       background: $white;
+       height: 180px;
+       width: 100%;
+       display: inline-block;
+       text-align:center;
+       transition: all 0.25s $bounce;
+       @media (min-width: $medium) {
+         height: 200px;
+         
+        }
+       @media (min-width: $large) {
+         height: 220px;
+          
+        }
+       .related-product-image {
+         height: 100%;
+         width: auto;
+       }
+      }
+     button {
+       font-family: $condensed-bold-font;
+       text-align: center;
+       width: 100%;
+       border: thin solid $black;
+       padding-top: 15px;
+       padding-bottom: 12px;
+       margin-top: 15px;
+       color:$black;
+     }
+     h4 {
+       margin-top: 10px;
+       font-size: 16px;
+       line-height: 16px;
+       color: $black;
+       font-family: $condensed-bold-font;
+     }
+     h5 {
+       color: $black;
+       font-size: 16px;
+       font-family: $condensed-bold-font;
+     }
+    
+   }
+  .related-product-image-container:hover {
+    @media (min-width: $large) {
+    transform: scale(1.1);
+    box-shadow: 0px 2px 15px rgba($black, 0.3);    
+   }
+    
+  }
+ }

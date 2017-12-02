@@ -1,43 +1,48 @@
-export const enterUp = {
-  mode: 'out-in',
-  name: 'slideup'
-}
-
-export const leaveUp = {
-  mode: 'out-in',
-  name: 'slideup'
-}
-
-export const enterDown = {
-  mode: 'out-in',
-  name: 'slideup'
-}
-
-export const leaveDown = {
-  mode: 'out-in',
-  name: 'slideup'
-}
 
 export const enterLeftLeaveLeft = {
   mode: 'out-in',
-  enterActiveClass: 'enter-left',
-  leaveActiveClass: 'leave-left'
+  enterActiveClass: 'animated fadeInLeft',
+  leaveActiveClass: 'animated fadeOutLeft'
 }
 
 export const enterLeftLeaveRight = {
   mode: 'out-in',
-  enterActiveClass: 'enter-left',
-  leaveActiveClass: 'leave-right'
+  enterActiveClass: 'animated fadeInLeft',
+  leaveActiveClass: 'animated fadeOutRight'
 }
 
-export const enterRightLeaveRight = {
+export const enterLeftLeaveDown = {
   mode: 'out-in',
-  enterActiveClass: 'enter-right',
-  leaveActiveClass: 'leave-right'
+  enterActiveClass: 'animated fadeInLeft',
+  leaveActiveClass: 'animated fadeOutDown'
 }
 
-export const enterRightLeaveLeft = {
+export const enterRight = {
   mode: 'out-in',
-  enterActiveClass: 'enter-right',
-  leaveActiveClass: 'leave-left'
+  enterActiveClass: 'animated fadeInRight'
+}
+export const enterUp = {
+  mode: 'out-in',
+  enterActiveClass: 'animated fadeInUp'
+}
+
+export const enterDown = {
+  mode: 'out-in',
+  enterActiveClass: 'animated fadeInDown'
+}
+
+export const leaveLeft = {
+  leaveActiveClass: 'animated fadeOutLeft'
+}
+
+export const leaveRight = {
+  leaveActiveClass: 'animated fadeOutRight'
+}
+
+export const leaveUp = {
+  leaveActiveClass: 'animated fadeOutUp'
+}
+
+export const leaveDown = {
+  leaveActiveClass: 'animated fadeOutDown'
 }

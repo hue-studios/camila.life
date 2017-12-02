@@ -540,7 +540,8 @@ h4,
   .snip-layout .snip-header__title {
     font-size: 15px;
     text-align: center;
-    color: #FB00DA; }
+    color: #FB00DA;
+    display: none; }
     .snip-layout .snip-header__title.js-show {
       display: -webkit-box;
       display: flex; }

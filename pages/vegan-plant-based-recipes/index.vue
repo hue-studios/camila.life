@@ -27,7 +27,7 @@ export default {
   },
   async asyncData () {
     let { data } = await
-      axios.get('http://camila.life/admin/api/1.1/tables/recipes/rows/?order[name]=ASC')
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?order[name]=ASC')
     return {
       recipes: data.data
     }

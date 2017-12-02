@@ -16,7 +16,7 @@ export default {
     }
   },
   created: function () {
-    axios.get('http://camila.life/admin/api/1.1/tables/ingredients/rows/?filters[id][eq]=' + this.id).then(response => {
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[id][eq]=' + this.id).then(response => {
       this.ingredient = response.data.data[0]
     }).catch(e => {
       this.errors.push(e)

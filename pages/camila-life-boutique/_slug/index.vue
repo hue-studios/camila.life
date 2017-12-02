@@ -94,15 +94,21 @@
       </vue-tabs>
     </div>
     <div class="small-12 cell product-footer">
+      <related-products term="citrus" limit="3" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import relatedProducts from '~/components/relatedProducts.vue'
 
 export default {
   scrollToTop: true,
+  transition: {
+    enterActiveClass: 'animated fadeInLeft fast',
+    leaveActiveClass: 'animated fadeOutLeft fast'
+  },
   async asyncData ({ params }) {
     // We can use async/await ES6 feature
     let { data } = await axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?filters[url][eq]=' + params.slug)
@@ -120,9 +126,6 @@ export default {
       title: this.product.name + ' - camila.life boutique - Plant-Based Living - Vegan - Loving Life'
     }
   },
-  created () {
-    console.log('PETER: ' + this.images[0].url)
-  },
   data () {
     return {
       swiperOption: {
@@ -137,6 +140,11 @@ export default {
         prevButton: '.swiper-button-prev'
       }
     }
+  },
+  created () {
+  },
+  components: {
+    relatedProducts
   },
   notifications: {
     showSuccessMsg: {
@@ -184,6 +192,7 @@ export default {
     padding-bottom: 0px;
     margin-bottom: 0;
     line-height: 0.9em;
+    width: 96%;
     @media (min-width: $medium) {
       font-size: 36px;
     }
@@ -194,6 +203,7 @@ export default {
     margin-bottom: 0;
     line-height: 1em;
     text-transform: lowercase;
+    width: 96%;
     @media (min-width: $medium) {
     }
   }
@@ -390,7 +400,10 @@ export default {
   }
   .product-footer {
     background: $pink;
-    height: 500px;
+    align-content: center;
+    justify-content: center;
+    @media (min-width: $medium) {
+    }
   }
 }
 ul.nav {

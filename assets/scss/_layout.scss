@@ -112,13 +112,14 @@ header {
     margin-bottom: 0px;
     line-height: 36px;
     height: 36px;
-    margin-left: 40px;
+    margin-left: 10px;
     position:relative;
+    transition: all .5s ease-out;
     @media (min-width: $large) { 
       font-size: 42px;
       line-height: 42px;
       height: 42px;
-      margin-left: 50px;
+      margin-left: 20px;
       
     }
     span {
@@ -141,7 +142,13 @@ header {
     width: 18px;
     position: absolute;
   }
-  
+  #logo.inside {
+    margin-left: 40px;
+    @media (min-width: $large) { 
+      margin-left: 50px;
+      
+    }
+  }
 }
 
 #account-icon {

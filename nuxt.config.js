@@ -8,7 +8,8 @@ module.exports = {
   css: [
     { src: '~/assets/css/foundation.min.css' },
     { src: '~/assets/css/swiper.min.css' },
-    { src: '~/assets/snipcart/snipcart.css'},
+    { src: '~/assets/css/animate.min.css'},
+    { src: '~/assets/snipcart/snipcart.min.css'},
     { src: '~/assets/scss/main.scss', lang: 'scss' }
   ],
   head: {

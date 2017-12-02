@@ -19,7 +19,7 @@ export default {
   },
   async asyncData ({ params }) {
     // We can use async/await ES6 feature
-    let { data } = await axios.get('http://camila.life/admin/api/1.1/tables/ingredients/rows/?filters[url][eq]=' + params.slug)
+    let { data } = await axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[url][eq]=' + params.slug)
     return { ingredient: data.data[0] }
   },
   fetch ({ store }) {

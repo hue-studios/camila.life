@@ -22,7 +22,7 @@ export default {
     recipeDetails
   },
   created: function () {
-    axios.get('http://camila.life/admin/api/1.1/tables/recipe_ingredients/rows/?filters[ingredient][eq]=' + this.id).then(response => {
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipe_ingredients/rows/?filters[ingredient][eq]=' + this.id).then(response => {
       this.recipes = response.data.data
       this.total = this.recipes.length
     }).catch(e => {

@@ -27,7 +27,7 @@ export default {
   ]),
   created: function () {
     if (this.$store.state.user) {
-      axios.get('http://camila.life/admin/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$store.state.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$store.state.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
         if (response.data.data.length >= 1) {
           this.status = true
         } else {

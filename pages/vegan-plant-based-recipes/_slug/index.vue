@@ -35,7 +35,7 @@ import axios from 'axios'
 export default {
   scrollToTop: true,
   async asyncData ({ params }) {
-    return axios.get('http://camila.life/admin/api/1.1/tables/recipes/rows/?filters[url][eq]=' + params.slug).then(res => {
+    return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[url][eq]=' + params.slug).then(res => {
       return {
         recipe: res.data.data[0]
       }
