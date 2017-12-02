@@ -2,7 +2,7 @@
 <template>
   <div class="container">
     <h1>RECIPES</h1>
-    <h5>coming soon.</p>
+    <p>coming soon.</p>
   </div>
 </template>
 
