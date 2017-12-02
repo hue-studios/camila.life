@@ -2,7 +2,7 @@
 <template>
 
 <div class="grid-y align-middle align-center">
-    <h1>INGREDIENTS</h1>
+    <h1>VEGAN PRODUCTS</h1>
     <p>coming soon.</p>
   </div>
 </template>

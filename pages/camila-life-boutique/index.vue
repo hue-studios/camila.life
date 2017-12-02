@@ -94,11 +94,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './assets/scss/_vars.scss';
-.featured {
-  height: 100vh;
-}
-.sidebar {
-  height: 100vh;
-}
+
 </style>

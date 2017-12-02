@@ -24,7 +24,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import './assets/scss/_vars.scss';
 .grid-y {
   height: 100vh;
   background: $pink;

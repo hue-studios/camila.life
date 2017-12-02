@@ -7,17 +7,6 @@
   <nuxt-link to="/plant-based-vegan-products">Products</nuxt-link>
   <nuxt-link to="/vegan-plant-based-recipes">Recipes</nuxt-link>
   <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
-    <div id="user-links">
-    <div v-if="loggedUser">
-    <p>Logged in with <span>{{loggedUser.email}}</span></p>
-    <img :src="loggedUser.picture" alt="User Profile Image" v-if="isAuthenticated"/>
-    <nuxt-link :to="'/account/' + loggedUser.email">SHOPPING LIST <span id="list-total-badg-bar" class="badge">{{this.$store.state.listItems}}</span></nuxt-link>
-    <nuxt-link to="/account">VIEW PROFILE</nuxt-link>
-    </div>
-    <a @click.prevent="showLoginScreen()" v-else><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-    <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
-    <nuxt-link v-else to="/auth/sign-off">SIGN OUT</nuxt-link>
-</div>
     </nav>
     <header class="grid-x">
     <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutLeft" mode="out-in">
@@ -33,9 +22,7 @@
   <div class="page-container" @click.prevent="closeSideMenu()">
     <nuxt/>
   </div>
-     <auth-toolbar v-if="isAuthenticated" email="$store.state.user.email"></auth-toolbar>
-     <toolbar v-if="!isAuthenticated"></toolbar>
-   <login></login>
+    <toolbar></toolbar>
      <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="OTRlYjBmNDktYjdiMC00OTAyLWJhNDktYzVkMGI5NDZkNjY5NjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
   </div>
 </template>
@@ -44,7 +31,6 @@ import $ from 'jquery'
 import login from '~/components/login.vue'
 import headerIcons from '~/components/headerIcons.vue'
 import toolbar from '~/components/toolbar.vue'
-import authToolbar from '~/components/authToolbar.vue'
 import { mapGetters } from 'vuex'
 import axios from 'axios'
 
@@ -60,7 +46,6 @@ export default {
   components: {
     login,
     toolbar,
-    authToolbar,
     headerIcons
   },
   fetch ({store}) {

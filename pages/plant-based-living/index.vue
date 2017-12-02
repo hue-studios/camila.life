@@ -13,7 +13,7 @@ export default {
   scrollToTop: true,
   async asyncData () {
     let { data } = await
-      axios.get('http://camila.life/admin/api/1.1/tables/articles/rows/?order[date_published]=ASC')
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?order[date_published]=ASC')
     return {
       articles: data.data
     }
@@ -24,7 +24,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import './assets/scss/_vars.scss';
 .grid-y {
   height: 100vh;
   background: $pink;
