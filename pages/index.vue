@@ -8,7 +8,10 @@
 
  </div>
  <div class="angled-crop">
- 
+ <div id="intro-image"></div>
+ <p>Hello health wonderers...my name is Camila. I too like all of you have been on a “discovering good and health journey”.  My journey started in 2010 and I’m still on it!</p>
+ <p>This site is my next phase and soon you will see a lot of ingredients, recipes, ideas, and even a shopping assistant for your own vegan adventures.</p>
+ <p>For this first phase, I am excited to launch my online boutique!! Check it out here, follow me on Instagram, and stay tuned!!</p>
  </div>
 <div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
 </div>
@@ -18,6 +21,7 @@
  <h1 class="small-12 cell pink">BOUTIQUE</h1>
 <product class="small-6 medium-8 cell hero" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
 <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1 && index < 4" :index="index" v-bind:key="product.id"></product>
+<nuxt-link class="small-6 medium-4 cell" to="camila-life-boutique" id="home-boutique-link"><h5><span>GO TO</span> BOUTIQUE <i class="fa fa-angle-right" aria-hidden="true"></i></h5></nuxt-link>
  
  </div>
 </div>
