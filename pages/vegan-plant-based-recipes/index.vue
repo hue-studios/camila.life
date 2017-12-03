@@ -1,7 +1,8 @@
 
 <template>
 <div class="grid-y align-middle align-center">
-    <h1>RECIPES</h1>
+    <h1>VEGAN RECIPES</h1>
+    <p>this is where you and I create the <i class="red fa fa-heart" aria-hidden="true"></i>!! very soon this will be a source of vegan recipes I have experiemented with. 
     <p>coming soon.</p>
   </div>
 </template>
@@ -50,7 +51,14 @@ ul li a {
   color: gray;
 }
 p {
-  font-size: 20px;
+text-align: center;
+  width: 90%;
+  @media (min-width: $medium) { 
+    width: 70%;
+  }
+  @media (min-width: $large) { 
+    width: 50%;
+  }
 }
 a {
   color: #41B883;

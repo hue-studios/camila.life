@@ -3,6 +3,7 @@
 
 <div class="grid-y align-middle align-center">
     <h1>VEGAN PRODUCTS</h1>
+    <p>discover the <i class="red fa fa-heart" aria-hidden="true"></i>!  there are a lot of products out there...I have tried a bunch of them.  soon, this will be a list of the ones I love with a shopping list feature to help you discover what you <i class="red fa fa-heart" aria-hidden="true"></i>!</p>
     <p>coming soon.</p>
   </div>
 </template>
@@ -71,6 +72,16 @@ padding-top: 90px;
     border: none;
     font-family: $condensed-bold-font;
     text-transform: uppercase;
+  }
+}
+p {
+text-align: center;
+  width: 90%;
+  @media (min-width: $medium) { 
+    width: 70%;
+  }
+  @media (min-width: $large) { 
+    width: 50%;
   }
 }
 </style>

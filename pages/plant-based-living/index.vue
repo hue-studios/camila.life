@@ -1,7 +1,8 @@
 
 <template>
 <div class="grid-y align-middle align-center">
-    <h1>PLANT-BASED-LIVING</h1>
+    <h1>PLANT BASED HEALTHY LIVING</h1>
+    <p>read the <i class="red fa fa-heart" aria-hidden="true"></i>!! I am looking forward to sharing my journey here with my own experiences and ideas.</p>
     <p>coming soon.</p>
   </div>
 </template>
@@ -50,7 +51,14 @@ ul li a {
   color: gray;
 }
 p {
-  font-size: 20px;
+text-align: center;
+  width: 90%;
+  @media (min-width: $medium) { 
+    width: 70%;
+  }
+  @media (min-width: $large) { 
+    width: 50%;
+  }
 }
 a {
   color: #41B883;
