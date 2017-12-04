@@ -35,6 +35,7 @@
           v-bind:data-item-price="product.price"
           v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
           v-bind:data-item-stackable="false"
+          v-bind:data-item-weight="product.weight"
           v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url"
           v-bind:data-item-custom1-name="product.product_options.data[0].option_title"
           v-bind:data-item-custom1-options="product.product_options.data[0].option_values.replace(/,/g, '|')">
@@ -47,6 +48,7 @@
           v-bind:data-item-price="product.price"
           v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
           v-bind:data-item-stackable="false"
+          v-bind:data-item-weight="product.weight"
           v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url"
           v-bind:data-item-custom1-name="product.product_options.data[0].option_title"
           v-bind:data-item-custom1-options="product.product_options.data[0].option_values.replace(/,/g, '|')"
@@ -61,6 +63,7 @@
           v-bind:data-item-price="product.price"
           v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
           v-bind:data-item-stackable="false"
+          v-bind:data-item-weight="product.weight"
           v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url"
            v-bind:data-item-custom1-name="product.product_options.data[0].option_title"
           v-bind:data-item-custom1-options="product.product_options.data[0].option_values.replace(/,/g, '|')"
@@ -77,6 +80,7 @@
           v-bind:data-item-price="product.price"
           v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
           v-bind:data-item-stackable="false"
+          v-bind:data-item-weight="product.weight"
           v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url">
               ADD TO BAG
       </button>
