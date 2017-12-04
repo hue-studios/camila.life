@@ -124,8 +124,8 @@ export default {
       title: this.product.name + ' at camila.life boutique - Stylish Plant-Based Living',
       meta: [
         { hid: 'description', name: 'description', content: this.product.sub_title },
-        { hid: 'og:url', property: 'og:url', content: 'https://www.camila.life/camila-life-boutique/' + this.product.url },
-        { hid: 'og:image', property: 'og:image', content: 'https://huestudios.com' + this.product.images.data[0].url },
+        { hid: 'og:url', property: 'og:url', content: 'http://www.camila.life/camila-life-boutique/' + this.product.url },
+        { hid: 'og:image', property: 'og:image', content: 'http://huestudios.com' + this.product.images.data[0].url },
         { hid: 'og:title', property: 'og:title', content: this.product.name + ' at camila.life boutique - Stylish Plant-Based Living' },
         { hid: 'og:description', property: 'og:description', content: this.product.sub_title }
       ]

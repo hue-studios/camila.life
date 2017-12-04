@@ -69,8 +69,8 @@ export default {
       meta: [
         { name: 'robots', content: 'index, follow' },
         { hid: 'description', name: 'description', content: 'camila.life is focused on plant-based living to discover your own potential to live a happy, healthy life full of wellth!!' },
-        { hid: 'og:url', property: 'og:url', content: 'https://www.camila.life' },
-        { hid: 'og:image', property: 'og:image', content: 'https://huestudios.com/sites/camila.life/content/storage/uploads/CAMILA-FB.jpg' },
+        { hid: 'og:url', property: 'og:url', content: 'http://www.camila.life' },
+        { hid: 'og:image', property: 'og:image', content: 'http://huestudios.com/sites/camila.life/content/storage/uploads/CAMILA-FB.jpg' },
         { hid: 'og:title', property: 'og:title', content: 'camila.life - Plant-Based Vegan Living - Loving a Healthy Life' },
         { hid: 'og:description', property: 'og:description', content: 'camila.life is focused on plant-based living to discover your own potential to live a happy, healthy life full of wellth!!' }
       ]
