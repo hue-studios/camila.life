@@ -21,7 +21,24 @@
   </div>
   <div class="page-container" @click.prevent="closeSideMenu()">
     <nuxt/>
+    <social-sharing inline-template>
+    <div>
+    <network network="facebook">
+      <i class="fa fa-fw fa-facebook"></i>
+    </network>
+    <network network="googleplus">
+      <i class="fa fa-fw fa-google-plus"></i>
+    </network>
+      <network network="pinterest">
+      <i class="fa fa-fw fa-pinterest"></i>
+    </network>
+    <network network="twitter">
+      <i class="fa fa-fw fa-twitter"></i>
+    </network>
+    </div>
+  </social-sharing>
   </div>
+ 
     <toolbar></toolbar>
      <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="OTRlYjBmNDktYjdiMC00OTAyLWJhNDktYzVkMGI5NDZkNjY5NjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
   </div>

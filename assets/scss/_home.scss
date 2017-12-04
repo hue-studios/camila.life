@@ -20,6 +20,7 @@ width: 100%;
   display: flex;
   align-content: center;
   align-items:center;
+  justify-content: center;
   text-align: center;
   flex-direction: column;
   @media (min-width: $medium) {
@@ -45,6 +46,10 @@ width: 100%;
     color: $white;
     font-family: $bold-font;
     line-height: 1em;
+    width: 96%;
+    @media (min-width: $medium) {
+     width: 90%;
+  }
   }
   #intro-image {
     background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/20582576_800189970155748_1428367133212934144_n.jpg');
@@ -55,10 +60,22 @@ width: 100%;
     height:200px;
     border-radius: 50%;
     margin-bottom: 20px;
+    @media (min-width: $large) {
+      width: 300px;
+      height:300px;
+    }
+  }
+  a.underline-link, a.underline-link:visited {
+    color: $green;
+    text-decoration: underline;
+    
+  }
+  a.underline-link:hover {
+    color: $black;
   }
 }
 .angled-crop::before {
-  @media (min-width: $medium) {
+
     width: 80px;
     height: 100%;
     position: absolute;
@@ -68,7 +85,6 @@ width: 100%;
     border-right: 80px solid $pink;
     border-top: 100vh solid transparent;
     z-index:5;
-  }
   
 }
 .angled-crop::after {
@@ -157,6 +173,7 @@ width: 100%;
 #home-boutique {
   position:relative;
   padding-top: 65px;
+  justify-content: center;
   #home-boutique-title {
     font-size: 104px;
     line-height: 100px;
@@ -167,22 +184,39 @@ width: 100%;
   }
   a#home-boutique-link {
     height: 398px;
-    display: inline-flex;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-end;
+    background: $pink;
+    margin-top:5px;
+    flex-direction: column;
     h5 {
       width: 100%;
-      height: 100%;
-      padding-top: 160px;
-      background: $pink;
+      text-align:center;
+      
       color: $white;
       font-family: $condensed-bold-font;
       border-radius: 3px;
-      margin:5px;
+      
       font-size: 48px;
       line-height: 30px;
+      @media (min-width: $medium) {
+          font-size: 60px;
+         line-height: 30px;
+        text-align:center;
+        }
+       @media (min-width: $large) {
+          
+        }
       span {
-        font-size: 82px;
+        font-size: 96px;
         line-height: 30px;
         width: 100%;
+        @media (min-width: $medium) {
+          font-size: 120px;
+        line-height: 30px;
+        }
       }
     }
   }

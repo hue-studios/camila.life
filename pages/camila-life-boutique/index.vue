@@ -24,15 +24,17 @@ export default {
   fetch ({ store }) {
     store.commit('SET_BACKLINK', '')
   },
-  head: {
-    meta: [
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:site', content: '@nuxt_js' },
-      { name: 'twitter:title', content: 'Nuxt.js Twitter Card' },
-      { name: 'twitter:description', content: 'Nuxt.js lets you handle custom headers for your app with vue-meta' },
-      { name: 'twitter:image', content: 'https://avatars0.githubusercontent.com/u/23360933?v=3' },
-      { name: 'twitter:image:alt', content: 'Nuxt.js logo' }
-    ]
+  head () {
+    return {
+      title: 'camila.life boutique - Stylish Plant-Based Living - BeCAUSE Shirts',
+      meta: [
+        { hid: 'description', name: 'description', content: 'camila.life boutique is focused on positive, healthy living that motivates.' },
+        { hid: 'og:url', property: 'og:url', content: 'https://www.camila.life/camila-life-boutique' },
+        { hid: 'og:image', property: 'og:image', content: 'https://huestudios.com/sites/camila.life/content/storage/uploads/CAMILA-FB-BOUTIQUE.jpg' },
+        { hid: 'og:title', property: 'og:title', content: 'camila.life online boutique- Plant-Based Vegan Living - Loving a Healthy Life' },
+        { hid: 'og:description', property: 'og:description', content: 'camila.life boutique is focused on positive, healthy living that motivates.' }
+      ]
+    }
   },
   data () {
     return {
