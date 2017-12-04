@@ -40,7 +40,7 @@
   </div>
  
     <toolbar></toolbar>
-     <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="OTRlYjBmNDktYjdiMC00OTAyLWJhNDktYzVkMGI5NDZkNjY5NjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
+     <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTY2YjJhZDctMjJmMi00ZGViLTgwZjUtNDI0YmE2NDY0MWEwNjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
   </div>
 </template>
 <script>
