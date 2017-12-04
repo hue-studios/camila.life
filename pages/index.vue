@@ -18,7 +18,7 @@
  </div>
  
  <div id="home-boutique" class="grid-x">
- <h1 class="small-12 cell pink">BOUTIQUE</h1>
+ <h1 id="home-boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
 <product class="small-6 medium-8 cell hero" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
 <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1 && index < 4" :index="index" v-bind:key="product.id"></product>
 <nuxt-link class="small-6 medium-4 cell" to="camila-life-boutique" id="home-boutique-link"><h5><span>GO TO</span> BOUTIQUE <i class="fa fa-angle-right" aria-hidden="true"></i></h5></nuxt-link>
