@@ -91,10 +91,25 @@
         text-align: center;
         display: none;
         @media (min-width: $large) {
-          font-size: 36px;
+          font-size: 28px;
           line-height: 28px;
           display: block;
           text-align: left;
+          width: 100%;
+        }
+      }
+      h3 {
+        font-size: 22px;
+        line-height: 20px;
+        text-align: center;
+        display: none;
+        @media (min-width: $large) {
+          font-size: 16px;
+          line-height: 18px;
+          display: block;
+          text-align: left;
+          font-family: $bold-font;
+          text-transform: lowercase;
           width: 100%;
         }
       }

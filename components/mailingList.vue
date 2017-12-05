@@ -7,11 +7,10 @@
   <a id="close-btn" @click.prevent="closeForm"><div id="close-box"><span></span><span></span></div></a>
  <div id="mailing-list">
   <h1>CONNECT WITH CAMILA</h1>
-  
-  <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown" mode="out-in">
-				<div v-if="response_box" id="response-box" class="text-center expanded row align-middle align-center">
+  <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutRight" mode="out-in">
+				<div v-if="responseBox" id="response-box" class="text-center expanded row align-middle align-center">
 					<div class="columns small-12">
-						<p class="">Alright {{name}}!! You are now subscribed to Camila's mailing list!</p>
+						<p class="">Alright <span class="pink">{{name}}</span>!! <br><br>You are now subscribed to Camila's mailing list!</p>
 						<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
 							<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
 							<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
@@ -55,9 +54,10 @@
 import axios from 'axios'
 
 export default {
+  name: 'mailingList',
   data () {
     return {
-      response_box: false,
+      responseBox: false,
       name: '',
       email: '',
       zip_code: ''
@@ -69,13 +69,16 @@ export default {
     closeForm () {
       var listForm = document.getElementById('list-screen')
       listForm.classList.add('close')
+      this.name = ''
+      this.email = ''
+      this.zip_code = ''
+      this.responseBox = false
     },
     submitList () {
-      console.log(this.name)
-      axios.post('https://huestudios.com/sites/camila.life/content/tables/mailing_list/columns/?name=' + this.name + '&email=' + this.email + '&zip_code=' + this.zip_code).then(function (response) {
+      axios.post('https://huestudios.com/sites/camila.life/scripts/mailing-list.php?name=' + this.name + '&email=' + this.email + '&zip_code=' + this.zip_code).then(function (response) {
         console.log(response)
-        this.response_box = true
       })
+      this.responseBox = true
     }
   }
 }
