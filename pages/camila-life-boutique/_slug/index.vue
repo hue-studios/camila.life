@@ -24,8 +24,9 @@
       <h1 class="show-for-large">{{ product.name }}</h1>
       <p class="show-for-large subtitle">{{product.sub_title}}</p>
       <h5 class="breadcrumbs">BOUTIQUE <span class="pink"><i class="fa fa-angle-right" aria-hidden="true"></i></span> {{ product.category }} <span><span class="pink"><i class="fa fa-angle-right" aria-hidden="true"></i></span> {{product.type}}</span></h5>
-   
+     
       <p class="small-12 cell product-price"><span>PRICE</span> ${{product.price}}</p>
+    
       <div class="grid-x bag-button-container">
       <div class="small-12 large-shrink">
       <button @click="showSuccessMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>added <span class='condensed-bold'>` + product.name + `</span> to shopping bag</span>`, image: 'https://huestudios.com' + product.images.data[0].url})" v-if="product.product_options.data.length == 1"
@@ -87,12 +88,57 @@
      </div>
      <p class="small-12 large-shrink cell instructions"><i class="fa fa-info-circle" aria-hidden="true"></i> select size after you add to shopping bag.</p>
      </div>
+      <div id="sharing-links" class="small-12 cell">
+     <h5>SHARE</h5>
+     <social-sharing inline-template>
+        <div>
+        <ul>
+        <li>
+        <network network="facebook">
+          <i class="fa fa-fw fa-facebook"></i>
+        </network>
+        </li>
+        <li>
+        <network network="googleplus">
+          <i class="fa fa-fw fa-google-plus"></i>
+        </network>
+        </li>
+        <li>
+          <network network="pinterest">
+          <i class="fa fa-fw fa-pinterest"></i>
+        </network>
+        </li>
+        <li>
+        <network network="whatsapp">
+        <i class="fa fa-whatsapp"></i>
+      </network>
+      </li>
+        <li>
+        <network network="twitter">
+          <i class="fa fa-fw fa-twitter"></i>
+        </network>
+        </li>
+        <li>
+        <network network="email">
+          <i class="fa fa-envelope"></i>
+      </network>
+      </li>
+        <li>
+      <network network="sms">
+        <i class="fa fa-commenting-o"></i>
+      </network>
+      </li>
+        </ul>
+        </div>
+      </social-sharing>
+             
+      </div>
          <vue-tabs>
         <v-tab title="DESCRIPTION">
           <div class="product-description" v-html="product.description"></div>
         </v-tab>
 
-        <v-tab title="FIT DETAILS">
+        <v-tab title="SIZE DETAILS">
           <div class="product-size-description" v-html="product.size_description"></div>
         </v-tab>
       </vue-tabs>
@@ -114,7 +160,6 @@ export default {
   async asyncData ({ params }) {
     // We can use async/await ES6 feature
     let { data } = await axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?filters[url][eq]=' + params.slug)
-    console.log(data.data[0].product_options.data.length)
     return {
       product: data.data[0],
       images: data.data[0].images.data
@@ -183,249 +228,5 @@ export default {
 
 <style lang="scss" scoped>
 @import './assets/scss/_vars.scss';
-.product-details {
-  overflow: hidden;
-  h3 {
-        font-size: 18px !important;
-      }
-  padding-top: 20px;
-  justify-content: center;
-  @media (min-width: $large) {
-      padding-top: 0px;
-    }
-  #background-tag {
-    display: none;
-  }
-  h1.mobile-title {
-    padding-top: 5px;
-    padding-bottom: 0px;
-    margin-bottom: 0;
-    line-height: 0.9em;
-    width: 96%;
-    @media (min-width: $medium) {
-      font-size: 36px;
-    }
-  }
-  .mobile-subtitle {
-    padding-top: 0px;
-    padding-bottom: 20px;
-    margin-bottom: 0;
-    line-height: 1em;
-    text-transform: lowercase;
-    width: 96%;
-    @media (min-width: $medium) {
-    }
-  }
-  .product-swiper-container {
-    position: relative;
-  .product-callouts {
-    position: absolute;
-    top: 3px;
-    left: 0px;
-    z-index: 5;
-
-    h5 {
-      opacity: 1;
-      font-size: 26px;
-      line-height: 16px;
-      margin-bottom: 0;
-      color: $black;
-      @media (min-width: $medium) {
-        font-size: 36px;
-        line-height: 26px;
-      }
-      @media (min-width: $large) {
-        font-size: 26px;
-        line-height: 20px;
-      }
-      i {
-         margin-left: 5px;
-         font-size: 0.8em;
-         vertical-align: initial;
-         color: $pink;
-         @media (min-width: $large) {
-        }
-      }
-    }
-  }
-    .product-swiper {
-        border-top: thin solid rgba($pink, 0.2);
-        border-bottom: thin solid rgba($pink, 0.2);
-        @media (min-width: $large) {
-            border-top: none;
-        border-bottom: none;
-          }
-        
-      .swiper-slide {
-
-        .image-container {
-          
-          margin: 0px;
-          height: 300px;
-          text-align: center;
-          transition: all 0.3s linear;
-          display: flex;
-          justify-content: flex-end;
-          align-content: flex-end;
-          align-items: center;
-          flex-direction: column;
-          @media (min-width: $medium) {
-            height: 380px;
-          }
-          @media (min-width: $large) {
-            height: 640px;
-            opacity: 0.4;
-          }
-          img {
-            height: 100%;
-            width: auto;
-            display: inline-flex;
-          }
-        }
-      }
-      .swiper-slide.swiper-slide-active {
-        .image-container {
-          opacity: 1;
-        }
-      
-      }
-    }
-  }
-  .product-info {
-    z-index: 5;
-    display: flex;
-    align-content: center;
-    flex-direction:column;
-     @media (min-width: $large) {
-        margin-top: 40px;
-        margin-bottom: 0px;
-      }
-      .breadcrumbs {
-        display: none;
-        font-size: 11px;
-      }
-      .subtitle {
-      color: $pink;
-      font-family: $bold-font;
-      margin-bottom: 0;
-      text-transform: lowercase;
-      }
-      .product-price {
-      text-align: center;
-      font-family: $condensed-bold-font;
-      font-size: 26px;
-      margin-bottom: 10px;
-      margin-top: 15px;
-      @media (min-width: $medium) {
-        font-size: 32px;
-      }
-      @media (min-width: $large) {
-        text-align: left;
-        font-size: 28px;
-      }
-      span {
-        display: none;
-      }
-    }
-      .bag-button-container {
-      align-content: center;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      @media (min-width: $large) {
-        text-align: left;
-        justify-content: flex-start;
-        flex-direction:row;
-      }
-        .instructions {
-          font-size: 11px;
-          font-family: $bold-font;
-          margin-top: 10px;
-            i {
-              color: $pink;
-            }
-           @media (min-width: $large) {
-             margin-left: 10px;
-             margin-top: 0px;
-             margin-bottom: 0;
-           }
-          }
-
-        button {
-          border: thin solid $pink;
-          text-align: center;
-          font-family: $condensed-bold-font;
-          line-height: 20px;
-          padding: 12px 25px 8px 25px;
-          border-radius: 2px;
-          margin: 0 auto;
-          display: inline-block;
-          font-size: 22px;
-          @media (min-width: $medium) {
-            font-size: 32px;
-            line-height: 30px;
-          }
-          @media (min-width: $large) {
-            font-size: 22px;
-            line-height: 20px;
-            margin: 0;
-            width: 190px;
-          }
-        }
-     }
-    .vue-tabs {
-     margin-top: 30px;
-     margin-bottom: 10px;
-    @media (min-width: $medium) {
-      width: 80%;
-      margin: 30px 10% 20px;
-    }
-    @media (min-width: $large) {
-      width: 97%;
-      margin: 30px 3% 10px 0;
-      }
-     
-    }
-    h1 {
-    line-height: 1em;
-    font-size: 32px;
-    }
-    .product-description, .product-size-description {
-      line-height: 1em;
-      
-    }
-    .product-size-description {
-      font-family: $condensed-bold-font;
-      text-transform: uppercase;
-      font-size: 1em;
-      line-height: 1em !important;
-      p {
-        line-height: 1em;
-      }
-    }
-    
-  }
-  .product-footer {
-    background: $pink;
-    align-content: center;
-    justify-content: center;
-    @media (min-width: $medium) {
-    }
-  }
-}
-ul.nav {
-background: $pink;
-  li.tab {
-    
-    a.tabs__link {
-      font-family: $condensed-bold-font;
-    }
-    a.active_tab.tabs__link {
-    
-    }
-  }
-}
 
 </style>

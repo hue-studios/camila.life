@@ -1,0 +1,116 @@
+#footer {
+ background: #fb00da; 
+background: -moz-linear-gradient(45deg, #fb00da 0%, #c900c2 88%); 
+background: -webkit-linear-gradient(45deg, #fb00da 0%,#c900c2 88%); 
+background: linear-gradient(45deg, #fb00da 0%,#c900c2 88%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb00da', endColorstr='#c900c2',GradientType=1 ); 
+position:relative;
+width: 100%;
+  overflow: hidden;
+  align-content:center;
+  text-align: center;
+  justify-content: center;
+  padding: 30px 0;
+  margin-top: 0px;
+  @media (min-width: $medium) {
+     padding: 50px 0;
+  }
+  @media (min-width: $large) {
+    padding: 60px 0;
+  }
+  
+  svg#love-icon {
+    position: absolute;
+    left: -100px;
+    top: -10%;
+    width: auto;
+    height: 120%;
+    z-index: 0;
+    @media (min-width: $medium) {
+      height: 150%;
+      top: -25%;
+      left: -120px;
+    }
+    @media (min-width: $large) {
+    }
+    .cls-1{fill:$dark-pink;}
+  }
+  .footer-column {
+    z-index: 1;
+      margin-bottom: 30px;
+    @media (min-width: $medium) {
+      margin-bottom: 10px;
+    }
+    h4 {
+      font-family: $bold-font;
+      text-transform: lowercase;
+      font-size: 16px;
+      color: $green;
+      position: relative;
+      margin-bottom: 10px;
+    
+    }
+    h4::before {
+    content:'';
+    background-color: $green;
+    bottom: -2px;
+    content: '';
+    height: 1px;
+    left: 50%;
+    width: 50%;
+      margin-left:-25%;
+    position: absolute;
+  }
+    a, a:visited, a:link {
+      color: $white;
+      text-transform: uppercase;
+      font-family: $condensed-bold-font;
+      font-size: 18px;
+      width: 100%;
+      margin: 5px 0;
+      display: block;
+    }
+  }
+  #copyright {
+    font-size: 12px;
+    line-height: 10px;
+    font-family: $bold-font;
+    margin-bottom: 0;
+    z-index: 1;
+  }
+  h5#web-designer {
+    z-index: 1;
+		a {
+			font-size: 10px;
+			color: $white !important;
+			svg {
+				width: 45px;
+				height: auto;
+				display: inline;
+				fill: #fff;
+				stroke: none;
+				path {
+					transition: all 0.3s linear;
+				}
+				path:nth-of-type(1) {
+					transition-delay: 0.1s;
+				}
+				path:nth-of-type(2) {
+					transition-delay: 0.2s;
+				}
+				path:nth-of-type(3) {
+					transition-delay: 0.3s;
+				}
+				}
+		}
+		a:hover {
+			svg path {
+				fill: #F90;
+				
+			}
+		}
+		margin-top: 10px;
+		margin-bottom: 0px;
+	}
+
+}
