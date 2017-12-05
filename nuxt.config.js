@@ -17,6 +17,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'p:domain_verify', content: '4ae831660e1240158bea8fe008ab9a5b' },
       {  hid: 'og:site_name', property: 'og:site_name', content: 'camila.life' },
       { hid: 'og_type', property: 'og:type', content: 'website' },
       { hid: 'fb:app_id', property: 'fb:app_id', content: '112054666106286' }

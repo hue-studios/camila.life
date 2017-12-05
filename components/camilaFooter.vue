@@ -27,7 +27,8 @@
 <h4>GET TO KNOW CAMILA</h4>
 <a href="https://www.instagram.com/camila.life.now/" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
 <a href="https://www.facebook.com/camila.life.now/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
-<a href="#" target="_blank"><i class="fa fa-fw fa-spotify"></i></a>
+<a href="https://twitter.com/camila_life_now" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+<a href="https://www.pinterest.com/camilaLifeNow/" target="_blank"><i class="fa fa-fw fa-pinterest"></i></a>
 <a href="#" @click.prevent="showListScreen()">MAILING LIST</a>
 <a href="mailto:talktome@camila.life">EMAIL CAMILA</a>
 </div>

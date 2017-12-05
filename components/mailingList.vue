@@ -36,10 +36,10 @@
     </div>
     <div class="small-12 cell"></div>
      <div class="small-2 cell label-container">
-      <label for="middle-label" class="text-right" v-model="zip_code">zip code: </label>
+      <label for="middle-label" class="text-right">zip code: </label>
     </div>
     <div class="small-4 cell">
-      <input type="text" name="zip_code" placeholder="12345" maxlength="5" required>
+      <input type="text" name="zip_code"  v-model="zip_code" placeholder="12345" maxlength="5" required>
     </div>
   </div>
   <button type="submit" @click.prevent="submitList()">SUBMIT</button>
@@ -72,7 +72,10 @@ export default {
     },
     submitList () {
       console.log(this.name)
-      axios.post()
+      axios.post('https://huestudios.com/sites/camila.life/content/tables/mailing_list/columns/?name=' + this.name + '&email=' + this.email + '&zip_code=' + this.zip_code).then(function (response) {
+        console.log(response)
+        this.response_box = true
+      })
     }
   }
 }

@@ -109,11 +109,6 @@
         </network>
         </li>
         <li>
-        <network network="whatsapp">
-        <i class="fa fa-whatsapp"></i>
-      </network>
-      </li>
-        <li>
         <network network="twitter">
           <i class="fa fa-fw fa-twitter"></i>
         </network>
@@ -121,11 +116,6 @@
         <li>
         <network network="email">
           <i class="fa fa-envelope"></i>
-      </network>
-      </li>
-        <li>
-      <network network="sms">
-        <i class="fa fa-commenting-o"></i>
       </network>
       </li>
         </ul>
@@ -176,7 +166,13 @@ export default {
         { hid: 'og:url', property: 'og:url', content: 'http://www.camila.life/camila-life-boutique/' + this.product.url },
         { hid: 'og:image', property: 'og:image', content: 'http://huestudios.com' + this.product.images.data[0].url },
         { hid: 'og:title', property: 'og:title', content: this.product.name + ' at camila.life boutique - Stylish Plant-Based Living' },
-        { hid: 'og:description', property: 'og:description', content: this.product.sub_title }
+        { hid: 'og:description', property: 'og:description', content: this.product.sub_title },
+        { hid: 'twitter:summary_large_image', name: 'twitter:summary_large_image', content: 'summary' },
+        { hid: 'twitter:site', name: 'twitter:site', content: '@camila_life_now' },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.product.name },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.product.sub_title },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'http://huestudios.com' + this.product.images.data[0].url },
+        { hid: 'twitter:image:alt', content: this.product.name }
       ]
     }
   },
