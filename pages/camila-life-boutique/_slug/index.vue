@@ -118,7 +118,7 @@
     </vue-tabs>
   </div>
   <div class="small-12 cell product-footer">
-    <related-products :term="product.related_term" limit="3" :id="product.id"/>
+    <related-products :term="product.related_term" limit="3" :id="product.id"></related-products>
   </div>
 </div>
 </template>
