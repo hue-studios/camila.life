@@ -3,7 +3,7 @@
  <div id="boutique" class="container-full">
   <div class="grid-x">
     <h1 id="boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
-    <div class="small-12 medium-8 xlarge-4 cell promo text-center">
+    <div class="small-12 large-8 xlarge-4 cell promo text-center">
       <div class="promo-container">
         <div class="background-cover">
           <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
@@ -145,22 +145,20 @@ margin-top: 0px;
 margin-bottom: 0px;
 }
     .promo-container {
-    background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-sm.jpg');
       background-position: center;
       background-repeat: no-repeat;
       background-size:cover;
       
       color: $white;
       margin: 5px;
-      height: 77vh;
+      height: 580px;
       @media (min-width: $medium) {
-        height: 400px;
-        background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-md.jpg');
+        height: 500px;
       }
       @media (min-width: $large) {
         height: 500px;
         margin: 20px;
-        background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-lg.jpg');
+       
       }
       .background-cover { 
       
@@ -174,7 +172,6 @@ margin-bottom: 0px;
       width: 100%;
       height: 100%;
       @media (min-width: $large) {
-        background-color: rgba($black, 0.8);
       }
       h5 {
         font-size: 33px;

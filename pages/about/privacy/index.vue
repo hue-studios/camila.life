@@ -34,7 +34,6 @@
 <p>Google's use of the DART cookie enables it to serve ads to visitors based on their visit to sites they visit on the Internet.</p>
 
 <p>Website visitors may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.</p>
-      <a href="https://taxcloud.net/SalesTaxPolicy/?m=yDEyWk3NZ1E=" target="_blank">SALES TAX POLICY</a>
     </div>
 </div>
 	
@@ -53,7 +52,7 @@ export default {
   color: $white;
   padding-top: 30px;
   font-family: $bold-font;
-  padding-bottom: 70px;
+  padding-bottom: 80px;
   align-content: center;
   flex-direction: column;
   align-items: center;

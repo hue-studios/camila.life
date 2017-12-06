@@ -18,7 +18,7 @@
   </div>
   <div id="home-boutique" class="grid-x">
     <h1 id="home-boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
-    <div class="small-12 medium-8 xlarge-4 cell promo text-center">
+    <div class="small-12 large-8 cell promo text-center">
       <div class="promo-container">
         <div class="background-cover">
           <h5>WEAR. STRUT. GIVE THE LOVE.</h5>

@@ -62,7 +62,7 @@ module.exports = {
     { src: '~/plugins/vue-notifications', ssr: false },
     { src: '~/plugins/ga', ssr: false },
     { src: '~/plugins/ksvuescrollmagic', ssr: false },
-    '~/plugins/social-sharing',
+    { src: '~/plugins/social-sharing', ssr: false },
     '~/plugins/vue-tabs', 
     '~/plugins/swiper'
   ],
