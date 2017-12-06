@@ -1,9 +1,22 @@
 
 <template>
- <div class="container-full">
+ <div id="boutique" class="container-full">
  <div class="grid-x">
-<product class="small-6 medium-8 cell hero" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
-<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1" :index="index" v-bind:key="product.id"></product>
+ <h1 id="boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
+<div class="small-12 medium-8 xlarge-4 cell promo text-center">
+   <div class="promo-container">
+   <div class="background-cover">
+   <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
+   <h2>PRE-SALE EVENT</h2>
+   <h1 class="green">GET 20% OFF</h1>
+   <h5>ON ALL ITEMS</h5>
+   <p class="condensed-bold">UNTIL DEC 11TH</p>
+   <h3>ENTER CODE <strong>20OFF</strong> AT CHECKOUT</h3>
+   <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
+   </div>
+   </div>
+ </div>
+<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" :index="index" v-bind:key="product.id"></product>
  
  </div>
 </div>
@@ -96,5 +109,132 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import './assets/scss/_vars.scss';
+#boutique {
+position:relative;
+  padding-top: 65px;
+  justify-content: center;
+  padding-bottom: 60px;
+  overflow: hidden;
+  @media (min-width: $medium) {
+    padding-top: 70px;
+  }
+  @media (min-width: $large) {
+    padding-top: 55px;
+  }
+  #boutique-title {
+    font-size: 92px;
+    line-height: 100px;
+    position: absolute;
+    text-transform: lowercase;
+    font-family: $body-font;
+    top: -12px;
+    left: -9px;
+    @media (min-width: $medium) {
+      font-size: 104px;
+      line-height: 100px;
+    }
+    @media (min-width: $large) {
+    }
+  }
+  }
+.promo {
+    .promo-container {
+    background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-sm.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      
+      color: $white;
+      margin: 5px;
+      
+      @media (min-width: $medium) {
+        height: 400px;
+        background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-md.jpg');
+      }
+      @media (min-width: $large) {
+        height: 500px;
+        margin: 20px;
+        background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-lg.jpg');
+      }
+      .background-cover { 
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: rgba($black, 0.7);
+      width: 100%;
+      height: 100%;
+      h5 {
+        font-size: 33px;
+        line-height: 30px;
+        margin-bottom: 0;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      h2 {
+        margin-top: 30px;
+        margin-bottom: 0;
+        font-size: 60px;
+        line-height: 50px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      h1 {
+        font-family: $condensed-bold-font;
+        font-size: 72px;
+        line-height: 50px;
+        margin-bottom: 30px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      p {
+        margin-bottom: 0;
+        font-size: 24px;
+        line-height: 20px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      h3 {
+        margin-bottom: 30px;
+        margin-top: 30px;
+        font-size:24px;
+        line-height: 20px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        strong {
+          color: $green;
+        }
+        
+      }
+      p.instructions {
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 16px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      }
+    }
+  }
 </style>

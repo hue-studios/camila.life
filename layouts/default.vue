@@ -23,6 +23,7 @@
     <nuxt/>
     
   </div>
+  <mailing-list-inline></mailing-list-inline>
  <camila-footer></camila-footer>
     <toolbar></toolbar>
     <mailing-list></mailing-list>
@@ -34,6 +35,7 @@
 import $ from 'jquery'
 import login from '~/components/login.vue'
 import mailingList from '~/components/mailingList.vue'
+import mailingListInline from '~/components/mailingListInline.vue'
 import camilaFooter from '~/components/camilaFooter.vue'
 import headerIcons from '~/components/headerIcons.vue'
 import toolbar from '~/components/toolbar.vue'
@@ -54,7 +56,8 @@ export default {
     toolbar,
     headerIcons,
     camilaFooter,
-    mailingList
+    mailingList,
+    mailingListInline
   },
   fetch ({store}) {
   },

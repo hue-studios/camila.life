@@ -12,7 +12,7 @@
 </div>
 <div class="small-12 medium-4 cell footer-column">
 <h4>SHOPPING BAG LINKS</h4>
-<nuxt-link to="#" class="snipcart-user-profile">SHOPPING BAG</nuxt-link>
+<nuxt-link to="#" class="snipcart-checkout">SHOPPING BAG</nuxt-link>
 <a href="#" class="snipcart-user-profile">
   <span class="snipcart-user-email">Login</span>
  
@@ -32,7 +32,7 @@
 <a href="#" @click.prevent="showListScreen()">MAILING LIST</a>
 <a href="mailto:talktome@camila.life">EMAIL CAMILA</a>
 </div>
-<h5 class="small-11 cell text-center white" id="copyright">© 2017</h5>
+<h5 class="small-11 cell text-center white" id="copyright">© 2017 <span> 222 Water Street Binghamton, NY 13901 </span> 607-722-5156</h5>
 <h5 id="web-designer" class="text-center small-11 cell">
 		<a href="http://huestudios.com" target="_blank" class="columns shrink">designed by <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.44 48.62" id="hue-logo">
 			<title>hue Creative Marketing - Binghamton, NY</title>

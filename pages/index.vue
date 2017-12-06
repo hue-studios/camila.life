@@ -11,7 +11,7 @@
  <div id="intro-image"></div>
  <p>Hello health wonderers...my name is Camila. I too like all of you have been on a “discovering good and health journey”.  My journey started in 2010 and I’m still on it!</p>
  <p>This site is my next phase and soon you will see a lot of ingredients, recipes, ideas, and even a shopping assistant for your own vegan adventures.</p>
- <p>For this first phase, I am excited to launch my online boutique!! Check it out <a href="/camila-life-boutique" class="underline-link">here</a>, follow me on <a href="https://www.instagram.com/camila.life.now/" target="_blank" class="underline-link">Instagram</a>, and stay tuned!!</p>
+ <p>For this first phase, I am excited to launch my online boutique!! Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link>, follow me on <a href="https://www.instagram.com/camila.life.now/" target="_blank" class="underline-link">Instagram</a>, and stay tuned!!</p>
  </div>
 <div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
 </div>
@@ -19,9 +19,21 @@
  
  <div id="home-boutique" class="grid-x">
  <h1 id="home-boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
-<product class="small-6 medium-8 cell hero" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
-<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1 && index < 4" :index="index" v-bind:key="product.id"></product>
-<nuxt-link class="small-6 medium-4 cell" to="camila-life-boutique" id="home-boutique-link"><h5><span>GO TO</span> BOUTIQUE <i class="fa fa-angle-right" aria-hidden="true"></i></h5></nuxt-link>
+ <div class="small-12 medium-8 xlarge-4 cell promo text-center">
+   <div class="promo-container">
+   <div class="background-cover">
+   <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
+   <h2>PRE-SALE EVENT</h2>
+   <h1 class="green">GET 20% OFF</h1>
+   <h5>ON ALL ITEMS</h5>
+   <p class="condensed-bold">UNTIL DEC 11TH</p>
+   <h3>ENTER CODE <strong>20OFF</strong> AT CHECKOUT</h3>
+   <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
+   </div>
+   </div>
+ </div>
+<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index < 6" :index="index" v-bind:key="product.id"></product>
+<nuxt-link class="small-6 medium-4 cell" to="camila-life-boutique" id="home-boutique-link"><div class="home-boutique-link-container"><h5><span>GO TO</span> BOUTIQUE <i class="fa fa-angle-right" aria-hidden="true"></i></h5></div></nuxt-link>
  
  </div>
 

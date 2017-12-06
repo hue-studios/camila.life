@@ -73,10 +73,18 @@ width: 100%;
   }
   #copyright {
     font-size: 12px;
-    line-height: 10px;
+    line-height: 14px;
     font-family: $bold-font;
     margin-bottom: 0;
     z-index: 1;
+    span {
+      padding-left: 10px;
+      padding-right: 10px;
+      display: block;
+      @media (min-width: $medium) {
+        display: inline-block;
+      }
+    }
   }
   h5#web-designer {
     z-index: 1;

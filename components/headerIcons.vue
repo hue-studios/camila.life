@@ -2,8 +2,9 @@
  
     
 <div id="cart-icons" class="shoppingcart-summary snipcart-summary">
-
+<h5 class="show-for-medium white">SHOPPING BAG</h5>
  <a href="#" class="snipcart-checkout" id="cart-button">
+
  <div id="svg-container"><svg id="shopping-bag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.09 59"><title>Shopping Bag</title><path class="cls-1" d="M16.55,19V14.09A13.1,13.1,0,0,1,29.64,1a12.92,12.92,0,0,1,12.9,12.91V19" transform="translate(-1.45)"/><path class="cls-2" d="M56.57,19H39.5a10,10,0,0,1-20,0H2.43a1,1,0,0,0-1,1.16L7.79,56.81A2.76,2.76,0,0,0,10.5,59h38a2.76,2.76,0,0,0,2.71-2.19l6.32-36.65A1,1,0,0,0,56.57,19Z" transform="translate(-1.45)"/><polygon class="cls-3" points="3.31 39 52.87 39 54.59 29 1.59 29 3.31 39"/><path class="cls-3" d="M51.25,56.81,52.6,49H6.49l1.35,7.81A2.76,2.76,0,0,0,10.55,59h38A2.76,2.76,0,0,0,51.25,56.81Z" transform="translate(-1.45)"/></svg></div> <span id="cart-total-badge" class="badge snipcart-total-items"></span></a>
  
   </div>
@@ -41,6 +42,12 @@ export default {
     right: 190px;
     top: 0px;
     transition: all 0.3s $bounce;
+  }
+  h5 {
+  font-size: 14px;
+  margin-bottom: 0;
+  line-height: 10px;
+  margin-right: 7px;
   }
     #cart-button {
     transition: all 0.3s $bounce;
