@@ -123,8 +123,8 @@ position:relative;
     padding-top: 55px;
   }
   #boutique-title {
-    font-size: 92px;
-    line-height: 100px;
+    font-size: 76px;
+    line-height: 110px;
     position: absolute;
     text-transform: lowercase;
     font-family: $body-font;
@@ -139,6 +139,13 @@ position:relative;
   }
   }
 .promo {
+margin-top: 0px;
+margin-bottom: 20px;
+
+@media (min-width: $medium) {
+margin-top: 0px;
+margin-bottom: 0px;
+}
     .promo-container {
     background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-sm.jpg');
       background-position: center;
@@ -147,7 +154,7 @@ position:relative;
       
       color: $white;
       margin: 5px;
-      
+      height: 77vh;
       @media (min-width: $medium) {
         height: 400px;
         background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/promo-bg-md.jpg');

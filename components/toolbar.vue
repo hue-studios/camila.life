@@ -1,5 +1,5 @@
 <template>
-   <div class="mobile-app-icon-bar hide-for-large">
+   <div class="mobile-app-icon-bar">
   <nuxt-link to="/camila-life-boutique">B<span class="show-for-medium">OUTIQUE</span></nuxt-link>
   <nuxt-link to="/plant-based-vegan-products">P<span class="show-for-medium">RODUCTS</span></nuxt-link>
   <nuxt-link to="/vegan-plant-based-recipes">R<span class="show-for-medium">ECIPES</span></nuxt-link>
