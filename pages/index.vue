@@ -2,7 +2,6 @@
 <template>
  <div id="container" class="grid-container full">
  <div class="grid-x">
-
  <div id="top" class="small-12 cell">
  <div id="intro">
 
@@ -11,11 +10,14 @@
  <div id="intro-image"></div>
  <p>Hello health wonderers...my name is Camila.<span class="show-for-medium"> I too like all of you have been on a “discovering good and health journey”.</span> My journey started in 2010 and I’m still on it!</p>
  <p>This site is my next phase and soon you will see a lot of ingredients, recipes, ideas, and even a shopping assistant for your own vegan adventures.</p>
- <p>For this first phase, I am excited to launch my online boutique!! <span class="show-for-medium">Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link>, follow me on <a href="https://www.instagram.com/camila.life.now/" target="_blank" class="underline-link">Instagram</a>, and stay tuned!!</span></p>
+ <p>For this first phase, I am excited to launch my online boutique!! <span class="show-for-medium">Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link> and stay tuned!!</span></p>
  <nuxt-link to="/camila-life-boutique" id="home-shop-button">SHOP NOW</nuxt-link>
  </div>
-<div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
+<div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'">
+
+<h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
 </div>
+
  </div>
  
  <div id="home-boutique" class="grid-x">

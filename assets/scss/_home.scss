@@ -84,7 +84,7 @@ width: 100%;
   #home-shop-button {
     margin-top: 15px;
     display: block;
-    padding: 10px 40px;
+    padding: 10px 40px 7px;
     font-family: $condensed-bold-font;
     color: $pink;
     background: $green;
@@ -92,11 +92,11 @@ width: 100%;
     border-radius: 2px;
     animation: pulse 3s 2s $curve infinite;
     @media (min-width: $medium) {
-      padding: 10px 40px;
+      padding: 10px 40px 7px;
       font-size: 26px;
     }
     @media (min-width: $large) {
-      padding: 10px 40px;
+      padding: 10px 40px 7px;
       font-size: 32px;
     }
   }

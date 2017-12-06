@@ -20,6 +20,7 @@
   <div id="nav-icon"> <span></span> <span></span> <span></span> </div>
   </div>
   <div class="page-container" @click.prevent="closeSideMenu()">
+  
     <nuxt/>
     
   </div>
