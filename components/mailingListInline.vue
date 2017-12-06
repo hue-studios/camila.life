@@ -10,7 +10,7 @@
       
       <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutRight" mode="out-in">
         <form id="mailing-list-form" v-if="!responseBox">
-          <p><strong>sign up</strong> to join my journey.  I will keep you supdated on new vegan products, recipes, ideas, and specials at my boutique...I'll be sending nothing but <i class="red fa fa-heart" aria-hidden="true"></i>!!</p>
+          <p><strong>sign up</strong> to join my journey.  I will keep you updated on new vegan products, recipes, ideas, and specials at my boutique...I'll be sending nothing but <i class="red fa fa-heart" aria-hidden="true"></i>!!</p>
           <div class="grid-x list-form-container">
             <div class="small-2 small-offset-1 cell label-container">
               <label for="middle-label" class="text-right">name: </label>

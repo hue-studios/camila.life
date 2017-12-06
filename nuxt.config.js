@@ -6,7 +6,7 @@ module.exports = {
     middleware: 'check-auth'
   },
   css: [
-    { src: '~/assets/css/foundation.min.css' },
+    { src: '~/assets/css/foundation.css' },
     { src: '~/assets/css/swiper.min.css' },
     { src: '~/assets/css/animate.min.css'},
     { src: '~/assets/snipcart/snipcart.min.css'},

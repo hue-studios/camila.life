@@ -1,26 +1,24 @@
 
 <template>
  <div id="boutique" class="container-full">
- <div class="grid-x">
- <h1 id="boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
-<div class="small-12 medium-8 xlarge-4 cell promo text-center">
-   <div class="promo-container">
-   <div class="background-cover">
-   <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
-   <h2>PRE-SALE EVENT</h2>
-   <h1 class="green">GET 20% OFF</h1>
-   <h5>ON ALL ITEMS</h5>
-   <p class="condensed-bold">UNTIL DEC 11TH</p>
-   <h3>ENTER CODE <strong>SHOPTHELOVE</strong> AT CHECKOUT</h3>
-   <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
-   </div>
-   </div>
- </div>
-<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" :index="index" v-bind:key="product.id"></product>
- 
- </div>
+  <div class="grid-x">
+    <h1 id="boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
+    <div class="small-12 medium-8 xlarge-4 cell promo text-center">
+      <div class="promo-container">
+        <div class="background-cover">
+          <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
+          <h2>PRE-SALE EVENT</h2>
+          <h1 class="green">GET 20% OFF</h1>
+          <h5>ON ALL ITEMS</h5>
+          <p class="condensed-bold">UNTIL DEC 11TH</p>
+          <h3>ENTER CODE <strong>SHOPTHELOVE</strong> AT CHECKOUT</h3>
+          <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
+        </div>
+      </div>
+    </div>
+    <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" :index="index" v-bind:key="product.id"></product>
+  </div>
 </div>
-	
 </template>
 <script>
 import axios from 'axios'
