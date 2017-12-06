@@ -90,7 +90,7 @@
      </div>
       <div id="sharing-links" class="small-12 cell">
      <h5>SHARE</h5>
-     <social-sharing :url="'https://camila.life/camila-life-boutique/' + product.url"
+     <social-sharing :url="'http://camila.life/camila-life-boutique/' + product.url"
                       :title="this.product.name + ' at camila.life boutique - Stylish Plant-Based Living'"
                       :description="this.product.sub_title"
                       :quote="this.product.sub_title"
