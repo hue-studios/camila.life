@@ -90,7 +90,14 @@
      </div>
       <div id="sharing-links" class="small-12 cell">
      <h5>SHARE</h5>
-     <social-sharing inline-template>
+     <social-sharing :url="'https://camila.life/camila-life-boutique/' + product.url"
+                      :title="this.product.name + ' at camila.life boutique - Stylish Plant-Based Living'"
+                      :description="this.product.sub_title"
+                      :quote="this.product.sub_title"
+                      hashtags="camilafeeling,camila,plantlife,veganlove,plantpower,positivity,energy,veganstyle,veganfood"
+                      twitter-user="camila_life_now"
+                      :media="'http://huestudios.com' + this.product.images.data[0].url"
+                      inline-template>
         <div>
         <ul>
         <li>

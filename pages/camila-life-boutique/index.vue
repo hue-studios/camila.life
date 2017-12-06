@@ -11,7 +11,7 @@
    <h1 class="green">GET 20% OFF</h1>
    <h5>ON ALL ITEMS</h5>
    <p class="condensed-bold">UNTIL DEC 11TH</p>
-   <h3>ENTER CODE <strong>20OFF</strong> AT CHECKOUT</h3>
+   <h3>ENTER CODE <strong>SHOPTHELOVE</strong> AT CHECKOUT</h3>
    <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
    </div>
    </div>
@@ -165,9 +165,12 @@ position:relative;
       flex-direction: column;
       padding-top: 15px;
       padding-bottom: 15px;
-      background-color: rgba($black, 0.7);
+      background-color: rgba($black, 1);
       width: 100%;
       height: 100%;
+      @media (min-width: $large) {
+        background-color: rgba($black, 0.8);
+      }
       h5 {
         font-size: 33px;
         line-height: 30px;
@@ -213,11 +216,14 @@ position:relative;
       h3 {
         margin-bottom: 30px;
         margin-top: 30px;
-        font-size:24px;
+        font-size:20px;
         line-height: 20px;
         @media (min-width: $medium) {
+          font-size:26px;
+          line-height: 20px;
         }
         @media (min-width: $large) {
+          font-size: 30px;
         }
         strong {
           color: $green;

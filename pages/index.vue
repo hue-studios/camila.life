@@ -9,9 +9,10 @@
  </div>
  <div class="angled-crop">
  <div id="intro-image"></div>
- <p>Hello health wonderers...my name is Camila. I too like all of you have been on a “discovering good and health journey”.  My journey started in 2010 and I’m still on it!</p>
+ <p>Hello health wonderers...my name is Camila.<span class="show-for-medium"> I too like all of you have been on a “discovering good and health journey”.</span> My journey started in 2010 and I’m still on it!</p>
  <p>This site is my next phase and soon you will see a lot of ingredients, recipes, ideas, and even a shopping assistant for your own vegan adventures.</p>
- <p>For this first phase, I am excited to launch my online boutique!! Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link>, follow me on <a href="https://www.instagram.com/camila.life.now/" target="_blank" class="underline-link">Instagram</a>, and stay tuned!!</p>
+ <p>For this first phase, I am excited to launch my online boutique!! <span class="show-for-medium">Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link>, follow me on <a href="https://www.instagram.com/camila.life.now/" target="_blank" class="underline-link">Instagram</a>, and stay tuned!!</span></p>
+ <nuxt-link to="/camila-life-boutique" id="home-shop-button">SHOP NOW</nuxt-link>
  </div>
 <div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
 </div>
@@ -27,7 +28,7 @@
    <h1 class="green">GET 20% OFF</h1>
    <h5>ON ALL ITEMS</h5>
    <p class="condensed-bold">UNTIL DEC 11TH</p>
-   <h3>ENTER CODE <strong>20OFF</strong> AT CHECKOUT</h3>
+   <h3>ENTER CODE <strong>SHOPTHELOVE</strong> AT CHECKOUT</h3>
    <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
    </div>
    </div>
