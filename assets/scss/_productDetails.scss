@@ -251,22 +251,21 @@
     font-size: 32px;
     }
     .product-description, .product-size-description {
-      line-height: 1em;
+      line-height: 1.1em;
       font-family: $bold-font;
       h6 {
         font-family: $condensed-bold-font;
         text-transform: uppercase;
-        line-height: 1em;
+        line-height: 1.1em;
         font-size: 18px;
       }
       
     }
     .product-size-description {
-      font-family: $bold-font;
-      text-transform: uppercase;
-      line-height: 1em !important;
+     
+      line-height: 1.1em !important;
       p {
-        line-height: 1em;
+        line-height: 1.1em;
       }
       h6 {
         font-family: $condensed-bold-font;
