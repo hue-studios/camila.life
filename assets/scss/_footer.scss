@@ -77,6 +77,9 @@ width: 100%;
     font-family: $bold-font;
     margin-bottom: 0;
     z-index: 1;
+    a {
+      color: $white;
+    }
     span {
       padding-left: 10px;
       padding-right: 10px;
