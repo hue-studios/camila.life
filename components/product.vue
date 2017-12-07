@@ -8,7 +8,9 @@
 <h5 class="condensed-bold" v-if="product.new_item">NEW<i class="fa fa-star" aria-hidden="true"></i></h5>
 </div>
 <nuxt-link :to="'/camila-life-boutique/' + product.url" class="shrink cell product-info">
+  <div class="product-info-tab"></div>
           <h1 class="title" data-swiper-parallax="200">{{product.name}} <span class="pink condensed-bold">${{product.price}}</span></h1>
+          <h3 class="sub-title">{{product.sub_title}}</h3>
            <h5 class="product-details-button">DETAILS <div><span></span><span></span></div></h5>
         
       </nuxt-link>    
@@ -19,6 +21,7 @@
     v-bind:data-item-price="product.price"
     v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
     v-bind:data-item-stackable="false"
+    v-bind:data-item-weight="product.weight"
     v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url"
     v-bind:data-item-custom1-name="product.product_options.data[0].option_title"
     v-bind:data-item-custom1-options="product.product_options.data[0].option_values.replace(/,/g, '|')">
@@ -31,6 +34,7 @@
     v-bind:data-item-price="product.price"
     v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
     v-bind:data-item-stackable="false"
+    v-bind:data-item-weight="product.weight"
     v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url"
     v-bind:data-item-custom1-name="product.product_options.data[0].option_title"
     v-bind:data-item-custom1-options="product.product_options.data[0].option_values.replace(/,/g, '|')"
@@ -45,6 +49,7 @@
     v-bind:data-item-price="product.price"
     v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
     v-bind:data-item-stackable="false"
+    v-bind:data-item-weight="product.weight"
     v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url"
      v-bind:data-item-custom1-name="product.product_options.data[0].option_title"
     v-bind:data-item-custom1-options="product.product_options.data[0].option_values.replace(/,/g, '|')"
@@ -61,6 +66,7 @@
     v-bind:data-item-price="product.price"
     v-bind:data-item-url="'https://camila.life/camila-life-boutique/'+product.url"
     v-bind:data-item-stackable="false"
+    v-bind:data-item-weight="product.weight"
     v-bind:data-item-image="'https://huestudios.com'+ product.images.data[0].url">
         ADD TO BAG
 </button>
