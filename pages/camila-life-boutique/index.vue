@@ -44,7 +44,7 @@ export default {
         { hid: 'og:image', property: 'og:image', content: 'https://huestudios.com/sites/camila.life/content/storage/uploads/CAMILA-FB-BOUTIQUE-2C.jpg' },
         { hid: 'og:title', property: 'og:title', content: 'camila.life online boutique- Plant-Based Vegan Living - Loving a Healthy Life' },
         { hid: 'og:description', property: 'og:description', content: 'STRUT the LOVE at camila.life boutique...focused on positive, healthy living that motivates.' },
-        { hid: 'og:quote', property: 'STRUT the LOVE at camila.life boutique.' }
+        { hid: 'og:quote', property: 'og:quote', content: 'STRUT the LOVE at camila.life boutique.' }
       ]
     }
   },
