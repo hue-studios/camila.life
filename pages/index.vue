@@ -1,31 +1,44 @@
 
 <template>
  <div id="container" class="grid-container full">
- <div class="grid-x">
-
- <div id="top" class="small-12 cell">
- <div id="intro">
-
- </div>
- <div class="angled-crop">
- <p v-if="isAuthenticated" class="small-12 medium-6 cell condensed text-uppercase">Welcome <span>{{loggedUser.given_name}}</span>!</p>
-  <h5>discover the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
-<h5>create the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
-<h5>wear the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
-<h5>read the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
-<h5>share the <svg id="love-icon" data-name="love-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 46"><title>Love Icon</title><path d="M24.85,10.13A13.07,13.07,0,0,1,36.84,2c7.22,0,12.42,6.18,13.08,13.54a13.51,13.51,0,0,1-.43,5.12A22.58,22.58,0,0,1,42.6,32.17L24.85,48,7.4,32.17A22.7,22.7,0,0,1,.5,20.66a13.6,13.6,0,0,1-.42-5.12C.73,8.18,5.94,2,13.16,2A12.67,12.67,0,0,1,24.85,10.13Z" transform="translate(0 -2)"/></svg></h5>
- </div>
-<div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'"><h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5></div>
+  <div class="grid-x">
+    <div id="top" class="small-12 cell">
+      <div id="intro"> </div>
+      <div class="angled-crop">
+        <div id="intro-image"></div>
+        <p>Hello health wonderers...my name is Camila.<span class="show-for-medium"> I too like all of you have been on a “discovering good and health journey”.</span> My journey started in 2010 and I’m still on it!</p>
+        <p>This site is my next phase and soon you will see a lot of ingredients, recipes, ideas, and even a shopping assistant for your own vegan adventures.</p>
+        <p>For this first phase, I am excited to launch my online boutique!! <span class="show-for-medium">Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link> and stay tuned!!</span></p>
+        <nuxt-link to="/camila-life-boutique" id="home-shop-button">SHOP NOW</nuxt-link>
+      </div>
+      <div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'">
+        <h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5>
+      </div>
+    </div>
+  </div>
+  <div id="home-boutique" class="grid-x">
+    <h1 id="home-boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
+    <div class="small-12 large-8 cell promo text-center">
+      <div class="promo-container">
+        <div class="background-cover">
+          <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
+          <h2>PRE-SALE EVENT</h2>
+          <h1 class="green">GET 20% OFF</h1>
+          <h5>ON ALL ITEMS</h5>
+          <p class="condensed-bold">UNTIL DEC 11TH</p>
+          <h3>ENTER CODE <strong>SHOPTHELOVE</strong> AT CHECKOUT</h3>
+          <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
+        </div>
+      </div>
+    </div>
+    <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index < 6" :index="index" v-bind:key="product.id"></product>
+    <nuxt-link class="small-6 medium-4 cell" to="camila-life-boutique" id="home-boutique-link">
+      <div class="home-boutique-link-container">
+        <h5><span>GO TO</span> BOUTIQUE <i class="fa fa-angle-right" aria-hidden="true"></i></h5>
+      </div>
+    </nuxt-link>
+  </div>
 </div>
- </div>
- 
- <div class="grid-x">
-<product class="small-6 medium-8 cell hero" v-for="(product, index) in products" :product="product" v-if="index == 1" :index="index" v-bind:key="product.id"></product>
-<product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index !== 1" :index="index" v-bind:key="product.id"></product>
- 
- </div>
-</div>
-	
 </template>
 <script>
 import axios from 'axios'
@@ -36,7 +49,7 @@ export default {
   scrollToTop: true,
   async asyncData ({ query, error }) {
     let [productsReq, ingredientsReq, recipesReq, quoteReq] = await Promise.all([
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?order[sort]'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/quotes/rows/')
@@ -56,20 +69,23 @@ export default {
     'isAuthenticated',
     'loggedUser'
   ]),
-  head: {
-    meta: [
-      { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:site', content: '@nuxt_js' },
-      { name: 'twitter:title', content: 'Nuxt.js Twitter Card' },
-      { name: 'twitter:description', content: 'Nuxt.js lets you handle custom headers for your app with vue-meta' },
-      { name: 'twitter:image', content: 'https://avatars0.githubusercontent.com/u/23360933?v=3' },
-      { name: 'twitter:image:alt', content: 'Nuxt.js logo' }
-    ]
-  },
   data () {
     return {
       quote: '',
       quoteImage: ''
+    }
+  },
+  head () {
+    return {
+      title: 'camila.life - Plant-Based Living - Vegan - Loving Life - Boutique',
+      meta: [
+        { name: 'robots', content: 'index, follow' },
+        { hid: 'description', name: 'description', content: 'camila.life is focused on plant-based living to discover your own potential to live a happy, healthy life full of wellth!!' },
+        { hid: 'og:url', property: 'og:url', content: 'http://www.camila.life' },
+        { hid: 'og:image', property: 'og:image', content: 'http://huestudios.com/sites/camila.life/content/storage/uploads/CAMILA-FB.jpg' },
+        { hid: 'og:title', property: 'og:title', content: 'camila.life - Plant-Based Vegan Living - Loving a Healthy Life' },
+        { hid: 'og:description', property: 'og:description', content: 'camila.life is focused on plant-based living to discover your own potential to live a happy, healthy life full of wellth!!' }
+      ]
     }
   },
   components: {
@@ -82,10 +98,10 @@ export default {
   },
   methods: {
     pinTopScene () {
-      const scene = new this.$scrollmagic.Scene({triggerElement: '.page-container', duration: 1000}).setTween(new this.$gsap.TimelineMax().add([
+      const scene = new this.$scrollmagic.Scene({triggerElement: '.page-container', duration: 1030}).setTween(new this.$gsap.TimelineMax().add([
         this.$gsap.TweenMax.to('#quote h5', 1, {marginLeft: '0px', ease: this.$gsap.Linear.easeNone}),
         this.$gsap.TweenMax.to('#quote h5 span', 1, {right: '-125%', opacity: '0.5', ease: this.$gsap.Linear.easeNone}),
-        this.$gsap.TweenMax.to('.angled-crop', 1, {left: '26%', ease: this.$gsap.Linear.easeNone})
+        this.$gsap.TweenMax.to('.angled-crop', 1, {left: '24%', ease: this.$gsap.Linear.easeNone})
       ]))
       this.$ksvuescr.$emit('addScene', 'pinTopScene', scene)
     }
@@ -94,120 +110,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './assets/scss/_vars.scss';
-#top {
-height: 100vh;
-position:relative;
-overflow: hidden;
-width: 100%;
-.angled-crop {
-  width: 40%;
-  height: 100%;
-  background: $pink;
-  position: absolute;
-  left: 20%;
-  top: 0px;
-  z-index: 10;
-  display: flex;
-  align-content: center;
-  align-items:center;
-  text-align: center;
-  flex-direction: column;
-  h5 {
-  color: $white;
-    display: flex;
-    svg {
-      width: 20px;
-      height: auto;
-      path {
-        fill:#d75a4a;
-      }
-    }
-  }
-  p { 
-    font-size: 48px;
-    color: $white;
-  }
-}
-.angled-crop::before {
-    width: 80px;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    left: -80px;
-    content: '';
-    border-right: 80px solid $pink;
-    border-top: 100vh solid transparent;
-    z-index:5;
-}
-.angled-crop::after {
-    width: 80px;
-    height: 100%;
-    position: absolute;
-    top: 0px;
-    right: -80px;
-    content: '';
-    border-left: 80px solid $pink;
-    border-bottom: 100vh solid transparent;
-    z-index:5;
-}
-#intro {
-  height: 100%;
-  width: 40%;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  background: $blue;
-  box-shadow: inset 0px 0px 20px $black;
-  background-image: url(https://huestudios.com/sites/camila.life/content/storage/uploads/camila-sun.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-color: rgba($black, 0.5);
-  background-blend-mode: color-dodge;
-  
-}
-#quote {
-  box-shadow: inset 0px 0px 20px $black;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100%;
-  width: 40%;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  background-color: rgba($black, 0.9);
-  background-blend-mode: exclusion;
-  color: $pink;
-  display: flex;
-  align-items: flex-end;
-  h5 {
-    font-size: 124px;
-    line-height: 0.7em;
-    width: 50%;
-    margin-bottom: -15px;
-    margin-left: 80px;
-    position: relative;
-    display: block;
-    span {
-      position: absolute;
-      z-index: 5;
-      font-size: 22px;
-      line-height: 20px;
-      color: $white;
-      font-family: $serif-font;
-      text-transform: uppercase;
-      bottom: 43px;
-      right: -50%;
-    }
-  }
-}
-}
-.featured {
-  height: 100vh;
-}
-.sidebar {
-  height: 100vh;
-}
+
 </style>

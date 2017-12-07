@@ -1,13 +1,16 @@
 <template>
-  <div>
-<nav @click.prevent="closeSideMenu()">
-<svg id="c-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.19 400"><title>C Icon</title><path class="cls-1" d="M298.87,132.62H290.2c0-62.26-52.51-123.44-119.11-123.44C74.72,9.18,61.72,128.83,61.72,199.76s13,190.58,109.37,190.58c68.22,0,119.11-67.14,119.11-134.82h8.67V383.84H290.2c0-10.83-5.41-27.07-18.4-27.07-16.25,0-44.94,42.23-100.71,42.23C79.59,399,0,310.75,0,199.76S79.59.51,171.09.51c55.22,0,79,39.53,99.08,39.53,15.16,0,20-10.29,20-23.28h8.67Z"/></svg>
-<nuxt-link to="/" exact>Home</nuxt-link>
-   <nuxt-link to="/camila-life-boutique">Boutique</nuxt-link>
-  <nuxt-link to="/plant-based-vegan-products">Products</nuxt-link>
-  <nuxt-link to="/vegan-plant-based-recipes">Recipes</nuxt-link>
-  <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
-    <div id="user-links">
+<div>
+  <nav @click.prevent="closeSideMenu()">
+    <svg id="c-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 298.19 400">
+      <title>C Icon</title>
+      <path class="cls-1" d="M298.87,132.62H290.2c0-62.26-52.51-123.44-119.11-123.44C74.72,9.18,61.72,128.83,61.72,199.76s13,190.58,109.37,190.58c68.22,0,119.11-67.14,119.11-134.82h8.67V383.84H290.2c0-10.83-5.41-27.07-18.4-27.07-16.25,0-44.94,42.23-100.71,42.23C79.59,399,0,310.75,0,199.76S79.59.51,171.09.51c55.22,0,79,39.53,99.08,39.53,15.16,0,20-10.29,20-23.28h8.67Z"/>
+    </svg>
+    <nuxt-link to="/" exact>Home</nuxt-link>
+    <nuxt-link to="/camila-life-boutique">Boutique</nuxt-link>
+    <nuxt-link to="/plant-based-vegan-products">Products</nuxt-link>
+    <nuxt-link to="/vegan-plant-based-recipes">Recipes</nuxt-link>
+    <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
+     <div id="user-links">
     <div v-if="loggedUser">
     <p>Logged in with <span>{{loggedUser.email}}</span></p>
     <img :src="loggedUser.picture" alt="User Profile Image" v-if="isAuthenticated"/>
@@ -18,33 +21,40 @@
     <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
     <nuxt-link v-else to="/auth/sign-off">SIGN OUT</nuxt-link>
 </div>
-    </nav>
-    <header class="grid-x">
+  </nav>
+  <header class="grid-x">
     <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutLeft" mode="out-in">
-    <nuxt-link :to="$store.state.backLink" id="back-btn" v-if="$store.state.backLink"><div><span></span><span></span></div></nuxt-link>
+      <nuxt-link :to="$store.state.backLink" id="back-btn" v-if="$store.state.backLink">
+        <div><span></span><span></span></div>
+      </nuxt-link>
     </transition>
-  <nuxt-link to="/" id="logo" class="shrink cell" v-bind:class="{ inside: $store.state.backLink } " exact>camila<span id="tagline">.life</span></nuxt-link>
-  
-</header>
-<header-icons></header-icons>
-<div id="nav-btn" @click.prevent="sideMenuToggle()">
-  <div id="nav-icon"> <span></span> <span></span> <span></span> </div>
+    <nuxt-link to="/" id="logo" class="shrink cell" v-bind:class="{ inside: $store.state.backLink } " exact>camila<span id="tagline">.life</span></nuxt-link>
+  </header>
+  <header-icons></header-icons>
+  <div id="nav-btn" @click.prevent="sideMenuToggle()">
+    <div id="nav-icon"> <span></span> <span></span> <span></span> </div>
   </div>
   <div class="page-container" @click.prevent="closeSideMenu()">
     <nuxt/>
   </div>
-     <auth-toolbar v-if="isAuthenticated" email="$store.state.user.email"></auth-toolbar>
-     <toolbar v-if="!isAuthenticated"></toolbar>
-   <login></login>
-     <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="OTRlYjBmNDktYjdiMC00OTAyLWJhNDktYzVkMGI5NDZkNjY5NjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
-  </div>
+  
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
+  <auth-toolbar v-if="isAuthenticated" email="$store.state.user.email"></auth-toolbar>
+  <toolbar v-if="!isAuthenticated"></toolbar>
+  <login></login>
+  <mailing-list></mailing-list>
+  <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTY2YjJhZDctMjJmMi00ZGViLTgwZjUtNDI0YmE2NDY0MWEwNjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script> 
+</div>
 </template>
 <script>
 import $ from 'jquery'
 import login from '~/components/login.vue'
+import mailingList from '~/components/mailingList.vue'
+import mailingListInline from '~/components/mailingListInline.vue'
+import camilaFooter from '~/components/camilaFooter.vue'
 import headerIcons from '~/components/headerIcons.vue'
 import toolbar from '~/components/toolbar.vue'
-import authToolbar from '~/components/authToolbar.vue'
 import { mapGetters } from 'vuex'
 import axios from 'axios'
 
@@ -60,8 +70,10 @@ export default {
   components: {
     login,
     toolbar,
-    authToolbar,
-    headerIcons
+    headerIcons,
+    camilaFooter,
+    mailingList,
+    mailingListInline
   },
   fetch ({store}) {
   },
@@ -129,4 +141,3 @@ header.hideThis {
   transform: translateY(-120px);
 }
 </style>
-

@@ -1,0 +1,298 @@
+.product-details {
+  overflow: hidden;
+  h3 {
+        font-size: 18px !important;
+      }
+  padding-top: 20px;
+  justify-content: center;
+  @media (min-width: $large) {
+      padding-top: 0px;
+    }
+  #background-tag {
+    display: none;
+  }
+  h1.mobile-title {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+    line-height: 0.9em;
+    width: 96%;
+    @media (min-width: $medium) {
+      font-size: 36px;
+    }
+  }
+  .mobile-subtitle {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    line-height: 1em;
+    text-transform: lowercase;
+    width: 96%;
+    @media (min-width: $medium) {
+    }
+    @media (min-width: $medium) {
+    }
+  }
+  .product-swiper-container {
+    position: relative;
+  .product-callouts {
+    position: absolute;
+    top: 3px;
+    left: 0px;
+    z-index: 5;
+
+    h5 {
+      opacity: 1;
+      font-size: 26px;
+      line-height: 16px;
+      margin-bottom: 0;
+      color: $black;
+      @media (min-width: $medium) {
+        font-size: 36px;
+        line-height: 26px;
+      }
+      @media (min-width: $large) {
+        font-size: 26px;
+        line-height: 20px;
+      }
+      i {
+         margin-left: 5px;
+         font-size: 0.8em;
+         vertical-align: initial;
+         color: $pink;
+         @media (min-width: $large) {
+        }
+      }
+    }
+  }
+    .product-swiper {
+        border-top: thin solid rgba($pink, 0.2);
+        border-bottom: thin solid rgba($pink, 0.2);
+        @media (min-width: 1024px) {
+            border-top: none;
+        border-bottom: none;
+          }
+        
+      .swiper-slide {
+
+        .image-container {
+          
+          margin: 0px;
+          height: 300px;
+          text-align: center;
+          transition: all 0.3s linear;
+          display: flex;
+          justify-content: flex-end;
+          align-content: flex-end;
+          align-items: center;
+          flex-direction: column;
+          @media (min-width: $medium) {
+            height: 380px;
+          }
+          @media (min-width: 1024px) {
+            height: 660px;
+            opacity: 0.4;
+          }
+          img {
+            height: 100%;
+            width: auto;
+            display: inline-flex;
+          }
+        }
+      }
+      .swiper-slide.swiper-slide-active {
+        .image-container {
+          opacity: 1;
+        }
+      
+      }
+    }
+  }
+  .product-info {
+    z-index: 5;
+    display: flex;
+    align-content: center;
+    flex-direction:column;
+     @media (min-width: $large) {
+        margin-top: 40px;
+        margin-bottom: 0px;
+      }
+      .breadcrumbs {
+        display: none;
+        font-size: 11px;
+      }
+      .subtitle {
+      color: $pink;
+      font-family: $bold-font;
+      margin-bottom: 0;
+      text-transform: lowercase;
+      }
+      .product-price {
+      text-align: center;
+      font-family: $condensed-bold-font;
+      font-size: 26px;
+      margin-bottom: 10px;
+      margin-top: 15px;
+      @media (min-width: $medium) {
+        font-size: 32px;
+      }
+      @media (min-width: $large) {
+        text-align: left;
+        font-size: 24px;
+        margin-top: 10px
+      }
+      span {
+        display: none;
+      }
+    }
+      .bag-button-container {
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      @media (min-width: $large) {
+        text-align: left;
+        justify-content: flex-start;
+        flex-direction:row;
+      }
+        .instructions {
+          font-size: 11px;
+          font-family: $bold-font;
+          margin-top: 10px;
+            i {
+              color: $pink;
+            }
+           @media (min-width: $large) {
+             margin-left: 10px;
+             margin-top: 0px;
+             margin-bottom: 0;
+           }
+          }
+        
+        button {
+          border: thin solid $pink;
+          text-align: center;
+          font-family: $condensed-bold-font;
+          line-height: 20px;
+          padding: 12px 25px 8px 25px;
+          border-radius: 2px;
+          margin: 0 auto;
+          display: inline-block;
+          font-size: 22px;
+          @media (min-width: $medium) {
+            font-size: 32px;
+            line-height: 30px;
+          }
+          @media (min-width: $large) {
+            font-size: 22px;
+            line-height: 20px;
+            margin: 0;
+            width: 190px;
+          }
+        }
+     }
+     #sharing-links {
+     display: flex;
+     align-items:flex-start;
+     justify-content: center;
+     align-content: center;
+     flex-direction: row;
+     margin-top: 15px;
+       @media (min-width: $large) {
+         margin-top: 20px;
+         justify-content: flex-start;
+       }
+          h5 {
+            width: 50px;
+            color: $black;
+          }
+          ul {
+            display: flex;
+           align-items:flex-start;
+           justify-content: flex-start;
+           align-content: center;
+           flex-direction: row;
+            margin:0;
+           li {
+            list-style-type: none;
+             margin:0 6px;
+             i {
+               color: rgba($pink, 0.99);
+               cursor: pointer;
+               transition: all 0.25s $bounce;
+             }
+             i:hover {
+               transform: scale(1.3);
+             }
+             i:hover > i:not(:target) {
+               transform: scale(0.7);
+             }
+           }
+           
+          }
+     }
+    .vue-tabs {
+     margin-top: 15px;
+     margin-bottom: 10px;
+    @media (min-width: $medium) {
+      width: 80%;
+      margin: 15px 10% 20px;
+    }
+    @media (min-width: $large) {
+      width: 97%;
+      margin: 10px 3% 10px 0;
+      }
+     
+    }
+    h1 {
+    line-height: 1em;
+    font-size: 32px;
+    }
+    .product-description, .product-size-description {
+      line-height: 1.1em;
+      font-family: $bold-font;
+      h6 {
+        font-family: $condensed-bold-font;
+        text-transform: uppercase;
+        line-height: 1.1em;
+        font-size: 18px;
+      }
+      
+    }
+    .product-size-description {
+     
+      line-height: 1.1em !important;
+      p {
+        line-height: 1.1em;
+      }
+      h6 {
+        font-family: $condensed-bold-font;
+        text-transform: uppercase;
+        line-height: 1em;
+        font-size: 18px;
+      }
+    }
+    
+  }
+  .product-footer {
+    background: $pink;
+    align-content: center;
+    justify-content: center;
+    @media (min-width: $medium) {
+    }
+  }
+}
+ul.nav {
+background: none;
+  li.tab {
+    
+    a.tabs__link {
+      font-family: $condensed-bold-font;
+    }
+    a.active_tab.tabs__link {
+    
+    }
+  }
+}

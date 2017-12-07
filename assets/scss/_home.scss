@@ -1,0 +1,452 @@
+#top {
+height: 600px;
+position:relative;
+overflow: hidden;
+width: 100%;
+  @media (min-width: $medium) {
+    height: 700px;
+  }
+  @media (min-width: $large) {
+    height: 700px;
+  }
+.angled-crop {
+  width: 60%;
+  height: 100%;
+  background: $pink;
+  position: absolute;
+  left: -0%;
+  top: 0px;
+  z-index: 10;
+  display: flex;
+  align-content: center;
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  @media (min-width: $medium) {
+     width: 50%;
+    left: -10%;
+  }
+  @media (min-width: $large) {
+   left: 20%;
+    width: 40%;
+  }
+  h5 {
+  color: $white;
+    display: flex;
+    svg {
+      width: 20px;
+      height: auto;
+      path {
+        fill:#d75a4a;
+      }
+    }
+  }
+  p { 
+    color: $white;
+    font-family: $bold-font;
+    line-height: 1em;
+    width: 96%;
+    @media (min-width: $medium) {
+     width: 90%;
+  }
+  }
+  #intro-image {
+    background-image: url('https://huestudios.com/sites/camila.life/content/storage/uploads/20582576_800189970155748_1428367133212934144_n.jpg');
+    box-shadow: inset 0px -2px 30px $black;
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    margin-top: -50px;
+    @media (min-width: $medium) {
+      margin-top: -50px;
+      width: 260px;
+      height:260px;
+    }
+    @media (min-width: $large) {
+      width: 300px;
+      height:300px;
+      margin-top: -10px;
+    }
+  }
+  a.underline-link, a.underline-link:visited {
+    color: $green;
+    text-decoration: underline;
+    
+  }
+  a.underline-link:hover {
+    color: $black;
+  }
+  #home-shop-button {
+    margin-top: 15px;
+    display: block;
+    padding: 10px 40px 7px;
+    font-family: $condensed-bold-font;
+    color: $pink;
+    background: $green;
+    font-size: 22px;
+    border-radius: 2px;
+    animation: pulse 3s 2s $curve infinite;
+    @media (min-width: $medium) {
+      padding: 10px 40px 7px;
+      font-size: 26px;
+    }
+    @media (min-width: $large) {
+      padding: 10px 40px 7px;
+      font-size: 32px;
+    }
+  }
+}
+.angled-crop::before {
+
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: -80px;
+    content: '';
+    border-right: 80px solid $pink;
+    border-top: 600px solid transparent;
+    z-index:5;
+  @media (min-width: $medium) {
+    border-top: 700px solid transparent;
+  }
+  @media (min-width: $large) {
+    border-top: 700px solid transparent;
+  }
+  
+}
+.angled-crop::after {
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: -80px;
+    content: '';
+    border-left: 80px solid $pink;
+    border-bottom: 600px solid transparent;
+    z-index:5;
+   @media (min-width: $medium) {
+    border-bottom: 700px solid transparent;
+  }
+  @media (min-width: $large) {
+    border-bottom: 700px solid transparent;
+  }
+}
+#intro {
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: $blue;
+  box-shadow: inset 0px 0px 20px $black;
+  background-image: url(https://huestudios.com/sites/camila.life/content/storage/uploads/camila-sun.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-color: rgba($black, 0.5);
+  background-blend-mode: color-dodge;
+  
+}
+#quote {
+  box-shadow: inset 0px 0px 20px $black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 40%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: rgba($black, 0.9);
+  background-blend-mode: exclusion;
+  color: $pink;
+  display: flex;
+  align-items: flex-end;
+  text-align:right;
+    @media (min-width: $medium) {
+      width: 50%;
+  }
+  @media (min-width: $large) {
+      
+  }
+  h5 {
+    font-size: 56px;
+    line-height: 0.7em;
+    width: 65%;
+    margin-bottom: 65px;
+    margin-left: 50px;
+    position: relative;
+    display: block;
+    text-align:right;
+    @media (min-width: $medium) {
+      font-size: 124px;
+      line-height: 0.7em;
+      width: 50%;
+      margin-bottom: -15px;
+      margin-left: 100px;
+      position: relative;
+      display: block;
+      text-align:left;
+    }
+    @media (min-width: $large) {
+      margin-left: 250px;
+    }
+    @media (min-width: 1200px) {
+      margin-left: 300px;
+    }
+    @media (min-width: 1400px) {
+      margin-left: 350px;
+    }
+    span {
+      position: absolute;
+      z-index: 5;
+      font-size: 16px;
+      line-height: 20px;
+      color: $white;
+      font-family: $serif-font;
+      text-transform: uppercase;
+      bottom: -20px;
+      right: -20%;
+      @media (min-width: $medium) {
+        font-size: 22px;
+        line-height: 20px;
+        bottom: 45px;
+      }
+      @media (min-width: $large) {
+        right: 30%;
+      }
+      @media (min-width: 1400px) {
+        right: 20%;
+      }
+    }
+  }
+}
+}
+#home-boutique {
+  position:relative;
+  padding-top: 65px;
+  justify-content: center;
+  padding-bottom: 60px;
+  overflow: hidden;
+  @media (min-width: $medium) {
+    padding-top: 70px;
+  }
+  @media (min-width: $large) {
+    padding-top: 55px;
+  }
+  #home-boutique-title {
+    font-size: 92px;
+    line-height: 100px;
+    position: absolute;
+    text-transform: lowercase;
+    font-family: $body-font;
+    top: -12px;
+    left: -9px;
+    @media (min-width: $medium) {
+      font-size: 104px;
+      line-height: 100px;
+    }
+    @media (min-width: $large) {
+    }
+  }
+  .promo {
+    .promo-container {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:cover;
+      
+      color: $white;
+      margin: 5px;
+      height: 500px;
+      @media (min-width: $medium) {
+        height: 450px;
+      }
+      @media (min-width: $large) {
+        height: 500px;
+        margin: 20px;
+      }
+      .background-cover { 
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: rgba($black, 1);
+      width: 100%;
+      height: 100%;
+      @media (min-width: $large) {
+      }
+      h5 {
+        font-size: 33px;
+        line-height: 30px;
+        margin-bottom: 0;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      h2 {
+        margin-top: 30px;
+        margin-bottom: 0;
+        font-size: 60px;
+        line-height: 50px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      h1 {
+        font-family: $condensed-bold-font;
+        font-size: 72px;
+        line-height: 50px;
+        margin-bottom: 30px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      p {
+        margin-bottom: 0;
+        font-size: 24px;
+        line-height: 20px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      h3 {
+        margin-bottom: 30px;
+        margin-top: 30px;
+        font-size:20px;
+        line-height: 20px;
+        @media (min-width: $medium) {
+          font-size:26px;
+          line-height: 20px;
+        }
+        @media (min-width: $large) {
+          font-size: 30px;
+        }
+        strong {
+          color: $green;
+        }
+        
+      }
+      p.instructions {
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 16px;
+        @media (min-width: $medium) {
+        }
+        @media (min-width: $large) {
+        }
+        
+      }
+      }
+    }
+  }
+  a#home-boutique-link {
+    
+   
+    .home-boutique-link-container {
+      margin: 5px;
+      background: $pink;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      display: flex;
+      height: 280px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-end;
+    
+    margin-top:60px;
+    flex-direction: column;
+      max-width: 375px;
+      @media (min-width: $medium) {
+        margin-top: 60px;
+        height: 280px;
+      }
+      @media (min-width: $large) {
+        height: 500px;
+        margin: 20px;
+      }
+    h5 {
+      width: 100%;
+      text-align:center;
+      
+      color: $white;
+      font-family: $condensed-bold-font;
+      border-radius: 3px;
+      
+      font-size: 45px;
+      line-height: 40px;
+      @media (min-width: $medium) {
+          font-size: 52px;
+         line-height: 40px;
+        text-align:center;
+        }
+       @media (min-width: $large) {
+         font-size: 60px;
+         line-height: 40px;
+          
+        }
+      span {
+        font-size: 90px;
+        line-height: 70px;
+        width: 100%;
+        @media (min-width: $medium) {
+          font-size: 103px;
+        line-height: 70px;
+        }
+         @media (min-width: $large) {
+          font-size: 120px;
+        line-height: 70px;
+        }
+      }
+    }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba($black, 0.0)
+  }
+  84% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba($black, 0.0)
+  }
+  88% {
+    transform: scale(1.1);
+    box-shadow: 0 2px 13px rgba($black, 0.4)
+  }
+  
+  92% {
+    transform: scale(1);
+    
+  }
+  96% {
+    transform: scale(1.2);
+    box-shadow: 0 2px 17px rgba($black, 0.6)
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba($black, 0.0)
+  }
+}

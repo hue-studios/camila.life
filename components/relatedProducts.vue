@@ -75,7 +75,8 @@ import axios from 'axios'
 export default {
   props: {
     term: String,
-    limit: String
+    limit: String,
+    id: Number
   },
   data () {
     return {
@@ -83,8 +84,7 @@ export default {
     }
   },
   created: function () {
-    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?filters[name][contains]=' + this.term + '&limit=' + this.limit + '&order[sort]').then(response => {
-      console.log(response.data.data)
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?filters[name][contains]=' + this.term + '&filters[id][neq]=' + this.id + '&limit=' + this.limit + '&order[sort]').then(response => {
       this.relatedProducts = response.data.data
     }).catch(e => {
       this.errors.push(e)
