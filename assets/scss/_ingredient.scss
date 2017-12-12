@@ -1,0 +1,388 @@
+.ingredient-container {
+  justify-content: center;
+  align-items: center;
+  margin: 8px 2%;
+  max-width: 1025px;
+  position:relative;
+  border-radius: 4px;
+  border: thin solid rgba($black, 0.1);
+  box-shadow: 0px 2px 15px rgba($black, 0.2);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  overflow: hidden;
+background: $pink; 
+
+background: $pink-gradient-2; 
+
+  @media (min-width: $medium) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 0px;
+  }
+  @media (min-width: $large) {
+    transition: all .3s $curve;
+  }
+
+  
+  .ingredient-description {
+    padding: 15px 5px 0px;
+    @media (min-width: $medium) {
+      padding: 15px 0;
+      margin-left: 5%;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    h1 {
+      margin-bottom: 0px;
+      font-size: 22px;
+      line-height: 1em;
+      text-transform: lowercase;
+      color: $white;
+      margin-top: 0px;
+      font-family: $bold-font;
+      position: relative;
+      @media (min-width: $medium) {
+        font-size: 26px;
+        margin-top: 0px;
+        text-align: left;
+        margin-bottom: 0px;
+      }
+      @media (min-width: 800px) {
+        font-size: 28px;
+      }
+      @media (min-width: $large) {
+        font-size: 42px;
+      }
+    }
+    h1::after {
+    @media (min-width: 750px) {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: -30%;
+      height: 0px;
+      background: $green;
+      width: 130%;
+      }
+    }
+    .ingredient-sub-title {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      width: 100%;
+      position: relative;
+      @media (min-width: $medium) {
+         align-content: flex-start;
+         justify-content: flex-start;
+         padding-top: 7px;
+      }
+      
+      h5 {
+        margin-top: 10px;
+        margin-right: 10px;
+        text-align: center;
+        font-family: $condensed-bold-font;
+        font-size: 16px;
+        line-height: 15px;
+        text-transform: uppercase;
+        @media (min-width: $medium) {
+          margin-top: 0px;
+          text-align: left;
+         }
+         @media (min-width: 750px) {
+            margin-top: 5px;
+        }
+        .prefix {
+          text-decoration: none;
+          font-family: $condensed-font;
+        }
+      }
+    }
+    .love-section {
+      position: relative;
+      @media (min-width: $medium) {
+       max-width: 700px;
+       padding-right: 15px;
+      }
+      @media (min-width: 850px) {
+        margin-bottom: 15px;
+      }
+      @media (min-width: $large) {
+        margin-bottom: 0px;
+      }
+      h3 {
+        position: absolute;
+        left: 37px;
+        top: 37px;
+        font-size: 28px;
+        line-height: 22px;
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+        border-bottom: 10px solid $green;
+        font-family: $condensed-bold-font;
+       @media (min-width: $medium) {
+      
+        }
+        @media (min-width: $large) {
+        }
+        span {
+          color: $black;
+          @media (min-width: $medium) {
+            
+          }
+          @media (min-width: $large) {
+            display: inline-block;
+            margin-left: 4px;
+            color: $black;
+          }
+        }
+      }
+      p {
+        padding-left: 45px;
+        font-size: 15px;
+        line-height: 1.3em;
+        font-family: $bold-font;
+        color: $white;
+        a {
+           text-decoration: underline;
+         }
+         a:hover {
+           color: $pink;
+         }
+      }
+    }
+    .goes-with {
+      line-height: 1.2em;
+      text-align: center;
+      max-width: 700px;
+      position:relative;
+      @media (min-width: $medium) {
+        text-align: left;
+        padding-right: 15px;
+        margin-top: 4px;
+
+      }
+      .goes-with-item {
+        padding-right: 4px;
+        position:relative;
+        
+      }
+    }
+    
+    .details-btn {
+      font-family: $condensed-bold-font;
+      border: thin solid $green;
+      text-align: center;
+      padding: 7px 20px 5px;
+      color: $green;
+      border-radius: 2px;
+      margin-top: 5px;
+      margin-left: 25%;
+      display: inline-block;
+      width: 50%;
+      font-size: 22px;
+      position: relative;
+      @media (min-width: $medium) {
+        text-align: right;
+        margin-left: 50%;
+        width: 45%;
+        border: none;
+        font-size: 42px;
+        line-height: 40px;
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        z-index: 5;
+        font-family: $condensed-font;
+        padding-right: 30px;
+        margin-top:0;
+      }
+      span {
+      display: none;
+      @media (min-width: $medium) {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 20px;
+        background: $green;
+        border-radius: 1px;
+        right: 0;
+        transform: rotate(0deg);
+        transition: .25s linear;
+        }
+      }
+       span:nth-child(1) {
+        top: 4px;
+        transform-origin: left center;
+        transform: rotate(61deg);
+      }
+      span:nth-child(2) {
+        bottom: 11px;
+        transform-origin: left center;
+        transform: rotate(-61deg);
+
+      }
+    }
+  }
+  .ingredient-image {
+    z-index:5;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    @media (min-width: $medium) {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left: 10px;
+    }
+    img {
+      max-width: 300px;
+      width: 200px;
+      height: auto;
+      border-radius: 50%;
+      border: 1px solid $green;
+      @media (min-width: 500px) {
+        width: 250px;
+      }
+     
+      @media (min-width: $medium) {
+        width: 200px;
+        
+      }
+      @media (min-width: 800px) {
+        width: 200px;
+      }
+       @media (min-width: $large) {
+        width: 200px;
+      }
+    }
+    .image-link {
+      display: block;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      margin-left: -100px;
+      width: 200px;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba($black, 0);
+      @media (min-width: 500px) {
+        width: 250px;
+        margin-left: -125px;
+      }
+      @media (min-width: $medium) {
+        width: 220px;
+        margin-left: -110px;
+      }
+      @media (min-width: 800px) {
+        width: 250px;
+        margin-left: -125px;
+      }
+    }
+    .login-btn {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      margin-left: -100px;
+      width: 200px;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba($black, 0.75);
+      @media (min-width: 500px) {
+        width: 250px;
+        margin-left: -125px;
+      }
+      @media (min-width: $medium) {
+        width: 200px;
+        margin-left: -100px;
+      }
+      @media (min-width: 800px) {
+        width: 200px;
+        margin-left: -100px;
+      }
+      a {
+        width: 150px;
+        color: $green;
+        font-family: $script-font;
+        border-radius: 1px;
+        line-height: 0.7em;
+        padding: 15px 0;
+        font-size: 26px;
+        text-transform: lowercase;
+        span {
+          font-family: $condensed-bold-font;
+          font-size: 18px;
+          line-height: 0.8em;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: $white;
+        }
+      }
+    }
+  }
+  .ingredient-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      right: 5%;
+      top:5px;
+      z-index:5;
+      height: 220px;
+       @media (min-width: 500px) {
+        height: 270px;
+      }
+      @media (min-width: $medium) {
+        flex-direction: row;
+        height: 45px;
+        top: auto;
+        right: auto;
+        bottom: 25px;
+        left: 10px;
+        width: 220px;
+        @media (min-width: 800px) {
+        }
+      }
+      .icon-svg-container {
+        border-radius: 50%;
+        border: thin solid $black;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        justify-content: center;
+        align-items: center;
+        @media (min-width: $medium) {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+        svg {
+          width: 39px;
+          height: 39px;
+          @media (min-width: $medium) {
+            width: 40px;
+            height: 40px;
+          }
+          .cls-1 {
+            fill: none;
+          }
+          path {
+            fill: $black;
+          } 
+        }
+      }
+    }
+}

@@ -5,9 +5,9 @@ import '~/assets/css/iziToastCamila3.min.css'
 
 iziToast.settings({
   timeout: 3000,
+  position: 'bottomRight',
   transitionIn: 'flipInX',
   transitionOut: 'flipOutX',
-  position: 'center',
   backgroundColor: '#00FF1B',
   color: 'black',
   titleColor: '#000000',

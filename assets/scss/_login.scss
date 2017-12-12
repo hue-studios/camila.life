@@ -22,7 +22,14 @@ z-index: 100;
   }
 
 }
-  button {font-family: $condensed-bold-font; font-size: 1.2em;}
+  button {
+    font-family: $condensed-bold-font; 
+    font-size: 1.2em;
+  }
+  .auth0-lock.auth0-lock .auth0-lock-header {
+    border-radius: 2px 2px 0 0;
+    
+  }
   .auth0-lock-social-button-text {
     font-family: $body-font;
   }
@@ -38,15 +45,18 @@ z-index: 100;
   .auth0-lock.auth0-lock.auth0-lock-opened-in-frame .auth0-lock-header-bg .auth0-lock-header-bg-blur {
     opacity: 0;
   }
+  .auth0-lock.auth0-lock .auth0-lock-submit {
+    border-radius: 0 0 2px 2px;
+  }
 #close-btn {
   position: absolute;
   z-index: 9999999;
   top: -20px;
 right: -20px;
-  background: rgba($dark-pink, 1);
+  background: rgba($black, 1);
   border-radius: 50%;
-  box-shadow: 0px 1px 10px rgba($black,0.5);
-  transition: all 0.25s $bounce;
+  border: thin solid $pink;
+  transition: all 0.3s $bounce;
   @media (min-width: $medium) {
   }
   @media (min-width: $large) {
@@ -79,6 +89,9 @@ right: -20px;
   }
       }
 }
+  #close-btn:hover {
+    transform: scale(1.2);
+  }
 }
 #login-screen.close {
   top: 100%;

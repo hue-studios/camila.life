@@ -23,7 +23,13 @@ import axios from 'axios'
 export default {
   scrollToTop: true,
   fetch ({ store }) {
-    store.commit('SET_BACKLINK', '')
+    if (store.state.user) {
+      return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + store.state.user.email).then((res) => {
+        console.log(res)
+        store.commit('SET_LISTITEMS', res.data.meta.total)
+        store.commit('SET_BACKLINK', '')
+      })
+    }
   },
   async asyncData () {
     let { data } = await

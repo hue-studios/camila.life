@@ -1,6 +1,6 @@
 <template>
 <div class="grid-x grid-padding-x related-products">
-  <h1 class="small-12 cell">CUSTOMERS ALSO LOVE</h1>
+  <h1 class="small-12 cell script-font text-lowercase">CUSTOMERS ALSO LOVE</h1>
   <div v-for="product in relatedProducts" class="small-12 medium-4 cell related-product">
 
     <div class="related-product-container">

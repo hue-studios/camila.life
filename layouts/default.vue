@@ -10,17 +10,20 @@
     <nuxt-link to="/plant-based-vegan-products">Products</nuxt-link>
     <nuxt-link to="/vegan-plant-based-recipes">Recipes</nuxt-link>
     <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
-     <div id="user-links">
-    <div v-if="loggedUser">
-    <p>Logged in with <span>{{loggedUser.email}}</span></p>
-    <img :src="loggedUser.picture" alt="User Profile Image" v-if="isAuthenticated"/>
-    <nuxt-link :to="'/account/' + loggedUser.email">SHOPPING LIST <span id="list-total-badg-bar" class="badge">{{this.$store.state.listItems}}</span></nuxt-link>
-    <nuxt-link to="/account">VIEW PROFILE</nuxt-link>
+    <div id="user-links" >
+      <div id="auth-links" v-if="loggedUser">
+        <div id="user-image" :style="'background-image: url(' + loggedUser.picture + ')'" v-if="isAuthenticated"></div>
+        <p>Logged in: <span>{{loggedUser.email}}</span></p>
+        
+
+        <nuxt-link :to="'/account/' + loggedUser.email">SHOPPING LIST <span id="list-total-badg-bar" class="badge">{{this.$store.state.listItems}}</span></nuxt-link>
+
+        <nuxt-link to="/account">VIEW PROFILE</nuxt-link>
+        
+        <nuxt-link to="/auth/sign-off">SIGN OUT</nuxt-link>
+      </div>
+      <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
     </div>
-    <a @click.prevent="showLoginScreen()" v-else><i class="fa fa-sign-in" aria-hidden="true"></i></a>
-    <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
-    <nuxt-link v-else to="/auth/sign-off">SIGN OUT</nuxt-link>
-</div>
   </nav>
   <header class="grid-x">
     <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutLeft" mode="out-in">
@@ -34,16 +37,16 @@
   <div id="nav-btn" @click.prevent="sideMenuToggle()">
     <div id="nav-icon"> <span></span> <span></span> <span></span> </div>
   </div>
-  <div class="page-container" @click.prevent="closeSideMenu()">
+  <div class="grid-container full page-container" @click.prevent="closeSideMenu()">
     <nuxt/>
   </div>
   
-  <mailing-list-inline></mailing-list-inline>
-  <camila-footer></camila-footer>
-  <auth-toolbar v-if="isAuthenticated" email="$store.state.user.email"></auth-toolbar>
+  
+  <auth-toolbar v-if="isAuthenticated" :email="$store.state.user.email"></auth-toolbar>
   <toolbar v-if="!isAuthenticated"></toolbar>
   <login></login>
   <mailing-list></mailing-list>
+  
   <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTY2YjJhZDctMjJmMi00ZGViLTgwZjUtNDI0YmE2NDY0MWEwNjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script> 
 </div>
 </template>
@@ -55,6 +58,7 @@ import mailingListInline from '~/components/mailingListInline.vue'
 import camilaFooter from '~/components/camilaFooter.vue'
 import headerIcons from '~/components/headerIcons.vue'
 import toolbar from '~/components/toolbar.vue'
+import authToolbar from '~/components/authToolbar.vue'
 import { mapGetters } from 'vuex'
 import axios from 'axios'
 
@@ -70,14 +74,21 @@ export default {
   components: {
     login,
     toolbar,
+    authToolbar,
     headerIcons,
     camilaFooter,
     mailingList,
     mailingListInline
   },
-  fetch ({store}) {
+  async asyncData () {
+    let { data } = await axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$store.state.user.email)
+    return {
+      meta: data.meta,
+      products: data.data
+    }
   },
   mounted () {
+    console.log(this.$store.state.user)
   },
   computed: mapGetters([
     'isAuthenticated',
@@ -114,7 +125,6 @@ export default {
     },
     updateListItems () {
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$store.state.user.email).then(res => {
-        console.log(res.data.meta)
         this.$store.commit('SET_LISTITEMS', res.data.meta.total)
       }).catch(function (error) {
         console.log(error)

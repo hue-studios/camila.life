@@ -13,6 +13,8 @@ $xlarge: 1200px;
 $xxlarge: 1600px;
 $bounce: cubic-bezier(0.205, 0.470, 0.360, 1.385);
 $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+$pink-gradient: linear-gradient(135deg, #c900ae 0%,#ed00d1 41%,#fb00da 56%,#ce00a5 99%);
+$pink-gradient-2: linear-gradient(135deg, #fb00da 20%,#ce00a5 99%); 
 
 $serif-font: 'Bauer Bodoni Pro_1 W01 Roman', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 $condensed-font:'DINNextW01-CondensedLig',Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
@@ -23,6 +25,7 @@ $body-font: 'Avenir Next W01 Thin', "Helvetica Neue", Helvetica, Arial, "sans-se
 
 $bold-font: 'AvenirNextLTW01-Regular', "Helvetica Neue", Helvetica, Arial, "sans-serif";
 
+$script-font: 'ITCZemkeHandW01-Regular',"Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 .iziToast {
   font-family: $condensed-bold-font !important
 }
@@ -36,7 +39,9 @@ $bold-font: 'AvenirNextLTW01-Regular', "Helvetica Neue", Helvetica, Arial, "sans
 .serif-font {
   font-family: $serif-font;
 }
-
+.script-font {
+  font-family: $script-font;
+}
 .condensed {
   font-family: $condensed-font;
 }
@@ -94,3 +99,56 @@ a:hover {
     transform: scale(1)
   }
 }
+
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: $pink;
+  fill:$pink;
+  animation: stroke .6s $curve forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: inline-block;
+  stroke-width: 2;
+  stroke: $black;
+  stroke-miterlimit: 10;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke .3s $curve .8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+    
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px $pink;
+  }
+}
+
+

@@ -1,5 +1,6 @@
 .product-details {
   overflow: hidden;
+  background: $white;
   h3 {
         font-size: 18px !important;
       }
@@ -72,7 +73,17 @@
             border-top: none;
         border-bottom: none;
           }
-        
+      ul {
+        margin-left: 0px;
+        li {
+          background: $pink;
+          opacity: .5;
+        }
+        li.swiper-pagination-bullet-active {
+          background: $green;
+          opacity: 1;
+        }
+      }
       .swiper-slide {
 
         .image-container {
