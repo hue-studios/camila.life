@@ -1,16 +1,16 @@
 
 <template>
   <div class="grid-x grid-padding-x shopping-list-container">
-    
+
     <h1 class="small-12 cell text-center text-lowercase script-font shopping-list__title"><nuxt-link to="/account/">{{loggedUser.given_name}}'s</nuxt-link> SHOPPING LIST</h1>
     <h5 class="white bold-font text-lowercase" v-if="meta.total == 0">uh oh! Your list is empty.  go to the <nuxt-link to="/plant-based-vegan-products"> vegan products page</nuxt-link> to save delicious products to your list </h5>
-    
+
     <div class="small-12 cell list-items" v-if="meta.total !== 0" v-for="ingredient in ingredients">
       <list-item :id="ingredient.product_id"></list-item>
     </div>
-    
+
     <div class="small-12 cell text-center shopping-list__user">
-    <h5 class="">LOGGED IN AS: {{loggedUser.email}}</h5>
+    <h5 class="">LOGGEDD IN AS: {{loggedUser.email}}</h5>
     <nuxt-link class="text-uppercase condensed-bold" to="/account/">VIEW PROFILE</nuxt-link>
     <nuxt-link class="text-uppercase condensed-bold" to="/auth/sign-off">Sign Out</nuxt-link>
     </div>
@@ -116,7 +116,7 @@ export default {
       width: 200px;
       margin-top: 10px;
       margin-bottom: 10px;
-      
+
     }
   }
   .list-items {
