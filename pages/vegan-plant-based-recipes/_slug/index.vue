@@ -1,49 +1,56 @@
 
 <template>
-  <div class="container">
-   <div v-for="image in recipe.images.data">
-		<div class="bg-img" v-bind:style="{ backgroundImage: 'url(http://camila.life' +image.url+')', width: '50px', height: '50px' }"> </div>
-		</div>
-    <h1>{{ recipe.name }}</h1>
-    <pre>{{ recipe.style }}</pre>
-    <p>{{recipe.cuisine}}</p>
-	<p>{{recipe.caption}}</p>
-    <h3>HOW TO INDULGE</h3>
-    <p>{{recipe.description}}</p>
-    <h5>PREP TIME: <span class="green">{{recipe.prep_time}} MIN</span></h5>
-    <h5>COOK TIME: <span class="green">{{recipe.cook_time}} MIN</span></h5>
-	<h3>INGREDIENTS</h3>
-     <ul>
-	<li v-for="ingredient in recipe.recipe_ingredients.data">
-	{{ingredient.measurement}} {{ingredient.measurement_label}} <nuxt-link :to="'/plant-based-vegan-products/' + ingredient.url">
-	<span class="blue text-uppercase bold">{{ingredient.name}}</span> </nuxt-link>
-	</li>
-	</ul>
-    <h3>HOW TO GET IT DONE</h3>
-    <ul>
-	<li v-for="direction in recipe.recipe_directions.data">
-	<span class="blue text-uppercase">{{direction.title}}:</span> {{direction.content}}
-	</li>
-	</ul>
-    <p><nuxt-link to="/vegan-plant-based-recipes">Back to the list</nuxt-link></p>
+<div id="recipe" class="grid-x" v-bind:style="'background-image: url(https://huestudios.com' + bgImg + ')'">
+  <h1 class="bold-font text-lowercase">{{ recipe.name }}</h1>
+
+  <div class="recipe__caption" v-html="recipe.caption"></div>
+  <div class="recipe__stats">
+  <div class="recipe-sub-title">
+    <h5 class="style"><span class="prefix">STYLE: </span>{{recipe.style}} </h5>
+    <h5 class="cuisine" v-if="recipe.cuisine"><span class="prefix">CUISINE: </span>{{recipe.cuisine}}</h5>
   </div>
+  <h5 v-if="recipe.prep_time">PREP TIME: <span class="green">{{recipe.prep_time}} MIN</span></h5>
+  <h5 v-if="recipe.cook_time">COOK TIME: <span class="green">{{recipe.cook_time}} MIN</span></h5>
+</div>
+  <div class="small cell recipe__ingredients">
+  <h3 class="text-lowercase bold-font">ingredients</h3>
+  <ingredient v-for="(ingredient, index) in recipe.recipe_ingredients.data" :index="index" v-bind:key="ingredient.id" :id="ingredient.ingredient" :measurement="ingredient.measurement" :label="ingredient.measurement_label"></ingredient>
+</div>
+<div class="small-12 cell recipe__directions">
+  <h3 class="text-lowercase bold-font">HOW TO GET IT DONE</h3>
+
+  <div v-for="direction in recipe.recipe_directions.data">
+    <h3 class="blue text-uppercase">{{direction.title}}</h3>
+    <div v-html="direction.content"></div>
+  </div>
+</div>
+</div>
 </template>
 
 <script>
 import axios from 'axios'
+import ingredient from '~/components/recipeIngredient'
 
 export default {
   scrollToTop: true,
-  async asyncData ({ params }) {
+  async asyncData ({
+    params
+  }) {
     return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[url][eq]=' + params.slug).then(res => {
       return {
-        recipe: res.data.data[0]
+        recipe: res.data.data[0],
+        bgImg: res.data.data[0].images.data[0].url
       }
     }).catch(function (error) {
       console.log(error)
     })
   },
-  fetch ({ store }) {
+  components: {
+    ingredient
+  },
+  fetch ({
+    store
+  }) {
     if (store.state.user) {
       return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + store.state.user.email).then((res) => {
         console.log(res)
@@ -57,34 +64,20 @@ export default {
       title: this.recipe.name
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
-<style scoped>
-.container {
-  width: 70%;
-  margin: auto;
-  text-align: center;
-  padding-top: 100px;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-ul li {
-  border: 1px #ddd solid;
-  padding: 20px;
-  text-align: left;
-}
-ul li a {
-  color: gray;
-}
-p {
-  font-size: 20px;
-}
-a {
-  color: #41B883;
+<style lang="scss" scoped>
+@import './assets/scss/_vars.scss';
+#recipe {
+    height: 95vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgba($black, 0.7);
+    background-blend-mode: darken;
+    color: $white;
 }
 </style>

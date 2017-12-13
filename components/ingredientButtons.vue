@@ -3,7 +3,7 @@
    <transition enter-active-class="animated fadeInUpBig"
     leave-active-class="animated fadeOutUpBig">
     <a v-if="!status" class="add-btn" @click.prevent="addToList(id)">+</a>
-    
+
     <a v-else class="remove-btn" @click.prevent="removeFromList(id)">-</a>
   </transition>
  </div>
@@ -123,15 +123,15 @@ export default {
 }
  .ingredient-buttons {
    position: absolute;
-   left: 5%;
-   top: 20px;
-   width: 50px;
+   left: -20px;
+   top: -20px;
+   width: 40px;
+   z-index: 5;
     @media (min-width: $medium) {
-    left: 25px;
-   top: 25px;
-    }
-     @media (min-width: $large) {
-       
+       left: -25px;
+       top: -25px;
+       width: 50px;
+
      }
   a {
     display: block;
@@ -143,14 +143,23 @@ export default {
     text-align: center;
     vertical-align: middle;
     position: relative;
-    width: 50px;
-    height: 50px;
-    line-height: 47px;
+    width: 40px;
+    height: 40px;
+    line-height: 37px;
     position: relative;
     z-index: 2;
     transition: all .5s ease-out;
-  }
 
+  @media (min-width: $medium) {
+    width: 50px;
+    height: 50px;
+    line-height: 47px;
+
+  }
+   @media (min-width: $large) {
+
+   }
+   }
   .add-btn {
     border: thin solid $green;
     color: $black;
@@ -160,10 +169,14 @@ export default {
     border: thin solid $black;
     color: $green;
     background: $black;
-    line-height: 36px;
+    line-height: 26px;
     font-size: 60px;
+    @media (min-width: $medium) {
+      line-height: 36px;
+      font-size: 60px;
+    }
   }
-  
+
 
 
 }

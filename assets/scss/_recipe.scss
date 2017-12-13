@@ -1,21 +1,14 @@
 .recipe__container {
-
-
-
   @media (min-width: $medium) {
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
   @media (min-width: $large) {
     transition: all .3s $curve;
   }
-.recipe__container:nth-of-type(3) {
-    width: 66%;
-}
 .recipe__grid {
   flex-direction: column;
   justify-content: center;
-  margin: 8px 10px;
+  align-items:center;
+  margin: 5px 5px 5px;
   position:relative;
   border-radius: 4px;
   border: thin solid rgba($black, 0.1);
@@ -23,18 +16,28 @@
   padding-top: 15px;
   padding-bottom: 15px;
   overflow: hidden;
-background: $pink;
-
-background: $pink-gradient-2;
+  background-color: rgba($black, 0.7);
+  background-blend-mode: darken;
+  background-position:center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 250px;
+  @media (min-width: $medium) {
+    height: 300px;
+  }
+  @media (min-width: $large) {
+    height: 360px;
+  }
 }
   .recipe-description {
     padding: 15px 5px 0px;
     @media (min-width: $medium) {
-      padding: 15px 0;
-      margin-left: 5%;
-      height: 350px;
+      padding: 0;
+      width: 90%;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
       flex-direction: column;
     }
     h1 {
@@ -46,152 +49,98 @@ background: $pink-gradient-2;
       margin-top: 0px;
       font-family: $bold-font;
       position: relative;
+      text-align: left;
       @media (min-width: $medium) {
         font-size: 26px;
         margin-top: 0px;
-        text-align: left;
+
         margin-bottom: 0px;
-      }
-      @media (min-width: 800px) {
-        font-size: 28px;
       }
       @media (min-width: $large) {
         font-size: 42px;
       }
-    }
-    h1::after {
-    @media (min-width: 750px) {
-      content: '';
-      position: absolute;
-      bottom: 2px;
-      left: -30%;
-      height: 0px;
-      background: $green;
-      width: 130%;
+      i {
+        color: rgba($pink, 0.5);
+        font-size:18px;
+        @media (min-width: $medium) {
+          font-size: 20px;
+        }
+        @media (min-width: $large) {
+          font-size: 36px;
+        }
       }
     }
-    .ingredient-sub-title {
+    h1::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 1px;
+      height: 1px;
+      background: $green;
+      width: 17px;
+      z-index: 5;
+      @media (min-width: $medium) {
+        top: 25px;
+      }
+      @media (min-width: $large) {
+        top: 39px;
+        width: 25px;
+        left: 2px;
+      }
+    }
+    .recipe-sub-title {
       display: flex;
-      justify-content: center;
-      align-content: center;
+      align-content: flex-start;
+      justify-content: flex-start;
+      flex-direction:column;
       width: 100%;
       position: relative;
+      color: $white;
+      margin-top: 5px;
+      text-align: left;
       @media (min-width: $medium) {
-         align-content: flex-start;
-         justify-content: flex-start;
+
          padding-top: 7px;
       }
 
       h5 {
-        margin-top: 10px;
-        margin-right: 10px;
-        text-align: center;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
         font-family: $condensed-bold-font;
-        font-size: 16px;
-        line-height: 15px;
+        font-size: 14px;
+        line-height: 13px;
         text-transform: uppercase;
         @media (min-width: $medium) {
           margin-top: 0px;
           text-align: left;
+          font-size: 16px;
+          line-height: 15px;
          }
-         @media (min-width: 750px) {
-            margin-top: 5px;
-        }
+
         .prefix {
           text-decoration: none;
           font-family: $condensed-font;
         }
       }
     }
-    .love-section {
-      position: relative;
-      @media (min-width: $medium) {
-       max-width: 700px;
-       padding-right: 15px;
-      }
-      @media (min-width: 850px) {
-        margin-bottom: 15px;
-      }
-      @media (min-width: $large) {
-        margin-bottom: 0px;
-      }
-      h3 {
-        position: absolute;
-        left: 37px;
-        top: 37px;
-        font-size: 28px;
-        line-height: 22px;
-        transform: rotate(-90deg);
-        transform-origin: bottom left;
-        border-bottom: 10px solid $green;
-        font-family: $condensed-bold-font;
-       @media (min-width: $medium) {
 
-        }
-        @media (min-width: $large) {
-        }
-        span {
-          color: $black;
-          @media (min-width: $medium) {
-
-          }
-          @media (min-width: $large) {
-            display: inline-block;
-            margin-left: 4px;
-            color: $black;
-          }
-        }
-      }
-      p {
-        padding-left: 45px;
-        font-size: 15px;
-        line-height: 1.3em;
-        font-family: $bold-font;
-        color: $white;
-        a {
-           text-decoration: underline;
-         }
-         a:hover {
-           color: $pink;
-         }
-      }
-    }
-    .goes-with {
-      line-height: 1.2em;
-      text-align: center;
-      max-width: 700px;
-      position:relative;
-      @media (min-width: $medium) {
-        text-align: left;
-        padding-right: 15px;
-        margin-top: 4px;
-
-      }
-      .goes-with-item {
-        padding-right: 4px;
-        position:relative;
-
-      }
-    }
 
     .details-btn {
       font-family: $condensed-bold-font;
-      border: thin solid $green;
-      text-align: center;
       padding: 7px 20px 5px;
       color: $green;
       border-radius: 2px;
-      margin-top: 5px;
-      margin-left: 25%;
       display: inline-block;
-      width: 50%;
       font-size: 22px;
-      position: relative;
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      padding-right: 25px;
+      text-align: right;
       @media (min-width: $medium) {
         text-align: right;
-        margin-left: 50%;
-        width: 45%;
-        border: none;
+
         font-size: 42px;
         line-height: 40px;
         position: absolute;
@@ -203,15 +152,16 @@ background: $pink-gradient-2;
         margin-top:0;
       }
       span {
-      display: none;
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 20px;
+      background: $green;
+      border-radius: 1px;
+      right: 0;
       @media (min-width: $medium) {
-        display: block;
-        position: absolute;
         height: 2px;
         width: 20px;
-        background: $green;
-        border-radius: 1px;
-        right: 0;
         transform: rotate(0deg);
         transition: .25s linear;
         }

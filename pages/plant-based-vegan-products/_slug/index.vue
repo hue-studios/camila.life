@@ -1,23 +1,24 @@
 
 <template>
   <div class="grid-x" id="ingredient-details">
-  <div class="small-12 cell ingredient-details-top">
+    <div class="small-12 cell ingredient-details-title">
+      <h1 class="text-center text-lowercase body-font ">{{ ingredient.name }}</h1>
+      <h3 class="script-font text-lowercase">{{ingredient.sub_title}}</h3>
+    </div>
+  <div class="small-12 cell ingredient-details-description-container">
     <div class="grid-x">
       <div class="small-12 cell ingredient-details-images-description">
         <div class="ingredient-swiper-container">
-           
           <div v-swiper:ingredientSwiper="swiperOption" class="ingredient-swiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide" v-for="image in images"> <img :src="'https://huestudios.com' +image.url" :alt="ingredient.name" :name="ingredient.name" @click.prevent="showImageModal(image.url, image.name)"/> </div>
+              <div class="swiper-slide" v-for="image in images"> <img :src="'https://huestudios.com' +image.url" :alt="ingredient.name" :name="ingredient.name" data-swiper-parallax="100" /> <i data-swiper-parallax="-100" class="green fa fa-arrows-alt full-screen" aria-hidden="true" @click.prevent="showImageModal(image.url, image.name)" v-if="isAuthenticated"></i></div>
             </div>
             <ul class="swiper-pagination">
             </ul>
           </div>
-          <div class="login-btn" v-if="!isAuthenticated"><a @click.prevent="showLoginScreen" ><span>SIGN IN TO CREATE</span><br>SHOPPING LIST</a></div> 
+          <div class="login-btn" v-if="!isAuthenticated"><a @click.prevent="showLoginScreen" ><span>SIGN IN TO CREATE</span><br>SHOPPING LIST</a></div>
         </div>
         <div class="ingredient-details-description">
-        <h1 class="text-center text-lowercase body-font">{{ ingredient.name }}</h1>
-        <h3 class="script-font text-lowercase">{{ingredient.sub_title}}</h3>
           <div class="ingredient-icons">
             <div class="icon-svg-container" v-if="ingredient.vegan === 1">
               <svg id="vegan-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 270">
@@ -102,41 +103,43 @@
               </svg>
             </div>
           </div>
-          
+
           <h5 class="category"><span class="prefix">CATEGORY: </span>{{ingredient.category}} <span class="prefix">BRAND: </span>{{ingredient.brand}}</h5>
           <p>{{ingredient.description }}</p>
+        <div id="sharing-links">
+          <div class="sharing-links__container">
+          <h5 class="script-font text-lowercase green">SHARE</h5>
+          <social-sharing :url="'http://camila.life/camila-life-boutique/' + ingredient.url"
+                        :title="this.ingredient.name + ' - Plant-Based Vegan Ingredient on camila.life'"
+                        :description="this.truncate160(this.ingredient.description)"
+                        :quote="this.ingredient.sub_title"
+                        hashtags="camilafeeling,camila,plantlife,veganlove,plantpower,positivity,energy,veganstyle,veganfood"
+                        twitter-user="camila_life_now"
+                        :media="'http://huestudios.com' + this.ingredient.images.data[0].url"
+                        inline-template>
+            <div>
+              <ul>
+                <li>
+                  <network network="facebook"> <i class="fa fa-fw fa-facebook"></i> </network>
+                </li>
+                <li>
+                  <network network="googleplus"> <i class="fa fa-fw fa-google-plus"></i> </network>
+                </li>
+                <li>
+                  <network network="pinterest"> <i class="fa fa-fw fa-pinterest"></i> </network>
+                </li>
+                <li>
+                  <network network="twitter"> <i class="fa fa-fw fa-twitter"></i> </network>
+                </li>
+                <li>
+                  <network network="email"> <i class="fa fa-envelope"></i> </network>
+                </li>
+              </ul>
+            </div>
+          </social-sharing>
         </div>
-      </div>
-      <div id="sharing-links" class="small-order-3">
-        <h5 class="script-font text-lowercase green">SHARE</h5>
-        <social-sharing :url="'http://camila.life/camila-life-boutique/' + ingredient.url"
-                      :title="this.ingredient.name + ' - Plant-Based Vegan Ingredient on camila.life'"
-                      :description="this.truncate160(this.ingredient.description)"
-                      :quote="this.ingredient.sub_title"
-                      hashtags="camilafeeling,camila,plantlife,veganlove,plantpower,positivity,energy,veganstyle,veganfood"
-                      twitter-user="camila_life_now"
-                      :media="'http://huestudios.com' + this.ingredient.images.data[0].url"
-                      inline-template>
-          <div>
-            <ul>
-              <li>
-                <network network="facebook"> <i class="fa fa-fw fa-facebook"></i> </network>
-              </li>
-              <li>
-                <network network="googleplus"> <i class="fa fa-fw fa-google-plus"></i> </network>
-              </li>
-              <li>
-                <network network="pinterest"> <i class="fa fa-fw fa-pinterest"></i> </network>
-              </li>
-              <li>
-                <network network="twitter"> <i class="fa fa-fw fa-twitter"></i> </network>
-              </li>
-              <li>
-                <network network="email"> <i class="fa fa-envelope"></i> </network>
-              </li>
-            </ul>
-          </div>
-        </social-sharing>
+        </div>
+        </div>
       </div>
     </div>
     <ingredient-buttons v-if="isAuthenticated" class="small-12 cell" :id="ingredient.id" :product="ingredient"></ingredient-buttons>
@@ -149,7 +152,7 @@
   </div>
   <h4 class="small-12 cell text-center body-font text-lowercase ingredient-page-sub-title" v-if="relatedIngredients.length > 0"><span>related</span> <span class="green">{{ingredient.category}}</span> ingredients</h4>
    <div class="small-12 cell" v-if="relatedIngredients.length > 0">
-     
+
      <related-ingredients v-for="(relatedIngredient, index) in relatedIngredients" :ingredient="relatedIngredient" :index="index" v-bind:key="relatedIngredient.id"></related-ingredients>
    </div>
   <transition name="modal">
@@ -163,7 +166,7 @@
 import axios from 'axios'
 import ingredientRecipes from '~/components/ingredientRecipes'
 import ingredientButtons from '~/components/ingredientButtons.vue'
-import relatedIngredients from '~/components/relatedIngredients.vue'
+import relatedIngredients from '~/components/ingredient.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -207,16 +210,17 @@ export default {
       ingredient: [],
       relatedIngredients: [],
       swiperOption: {
+        autoplay: 3000,
         direction: 'horizontal',
         loop: true,
+        speed: 900,
         parallax: true,
-        speed: 600,
-        spaceBetween: 40,
+        spaceBetween: 0,
         pagination: '.swiper-pagination',
         clickable: true,
-        paginationElement: 'li',
         nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev'
+        prevButton: '.swiper-button-prev',
+        paginationType: 'bullets'
       }
     }
   },
@@ -227,6 +231,7 @@ export default {
     }).catch(e => {
       this.errors.push(e)
     })
+    console.log(this.ingredient.description.length)
     axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[category][contains]=' + this.ingredient.category + '&filters[id][neq]=' + this.ingredient.id + '&limit=5&order[sort]').then(response => {
       console.log(response)
       this.relatedIngredients = response.data.data

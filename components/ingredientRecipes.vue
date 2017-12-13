@@ -1,7 +1,7 @@
 <template>
 <div class="ingredient-recipe">
 <nuxt-link :to="'/vegan-plant-based-recipes/' + recipe.url">
-<div class="ingredient-recipe-image" :style="'background-image: url(https://huestudios.com' + image + ')'"><h3 class="body-font text-lowercase">{{makeHeart(recipe.name)}} <i class="fa fa-heart" aria-hidden="true"></i></h3></div>
+<div class="ingredient-recipe-image" :style="'background-image: url(https://huestudios.com' + image + ')'"><h3 class="bold-font text-lowercase">{{makeHeart(recipe.name)}} <i class="fa fa-heart" aria-hidden="true"></i></h3></div>
 
 <h4 class="" v-if="recipe.prep_time"><span>Prep time is about</span> {{recipe.prep_time}} min.</h4>
 <h4 class="" v-if="recipe.cook_time"><span>Cook time is about </span>{{recipe.cook_time}} min.</h4>
@@ -69,7 +69,7 @@ export default {
  .ingredient-recipe {
     a {
       margin: 5px 10px;
-      background: $pink; 
+      background: $pink;
       border-radius: 4px;
       border: thin solid rgba($black, 0.1);
       box-shadow: 0px 2px 15px rgba($black, 0.2);
@@ -108,7 +108,7 @@ export default {
     @media (min-width: $large) {
     }
      i {
-       color: red;
+       color: $pink;
      }
    }
    h3::after {

@@ -14,8 +14,8 @@
   </div>
   <div id="ingredient-container">
       <ingredient v-for="(ingredient, index) in filteredList" :ingredient="ingredient" :index="index" v-bind:key="ingredient.id"></ingredient>
-  </div>     
-  </div> 
+  </div>
+  </div>
 </template>
 
 <script>
@@ -73,7 +73,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  @media (min-width: $large) { 
+  @media (min-width: $large) {
   }
   .page-intro {
     background-size: cover;
@@ -95,11 +95,11 @@ export default {
         font-size: 56px;
         line-height: 50px;
       }
-      @media (min-width: $medium) { 
+      @media (min-width: $medium) {
         font-size: 96px;
         line-height: 82px;
       }
-      @media (min-width: $large) { 
+      @media (min-width: $large) {
         font-size: 156px;
         line-height: 136px;
       }
@@ -111,24 +111,24 @@ export default {
       padding-top: 30px;
       padding-bottom: 10px;
       width: 94%;
-      @media (min-width: $medium) { 
+      @media (min-width: $medium) {
         font-size: 22px;
         line-height: 30px;
         padding-top: 30px;
         padding-bottom: 10px;
         width: 80%;
       }
-      @media (min-width: 750px) { 
+      @media (min-width: 750px) {
         width: 70%;
       }
-      @media (min-width: $large) { 
+      @media (min-width: $large) {
         padding-top: 30px;
         padding-bottom: 10px;
         width: 50%;
         font-size: 26px;
         line-height: 30px;
       }
-      @media (min-width: $large) { 
+      @media (min-width: $large) {
         width: 70%;
       }
 
@@ -139,13 +139,13 @@ export default {
       line-height: 30px;
       padding-top: 0px;
       padding-bottom: 30px;
-      @media (min-width: $medium) { 
+      @media (min-width: $medium) {
         font-size: 40px;
         line-height: 40px;
         padding-top: 0px;
         padding-bottom: 70px;
       }
-      @media (min-width: $large) { 
+      @media (min-width: $large) {
         font-size: 48px;
         line-height: 50px;
         padding-top: 0px;

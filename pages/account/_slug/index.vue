@@ -76,6 +76,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    
     .shopping-list__title {
         color: $white;
         margin-top: 40px;
@@ -86,7 +87,7 @@ export default {
             font-size: 32px;
         }
         a {
-            color: $green;
+            color: $white;
             font-family: $body-font;
             position: relative;
         }

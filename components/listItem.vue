@@ -1,6 +1,6 @@
 <template>
 <div :id="ingredient.id">
-  <transition enter-active-class="animated fadeInLeftBig" leave-active-class="animated fadeOutRightBig">
+  <transition enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp fast">
     <div v-if="status" class="grid-x list-item">
       <a class="remove-btn" @click.prevent="removeFromList(ingredient.id)">-</a>
       <img class="small-12 medium-shrink cell" :src="'https://huestudios.com' + ingredient.images.data[0].url" />

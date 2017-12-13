@@ -1,7 +1,8 @@
 
 <template>
   <div id="recipes" class="grid-x">
-    <recipe class="cell" v-for="(recipe, index) in recipes" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id" ></recipe>
+    <recipe class="cell" v-for="(recipe, index) in recipes" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id"></recipe>
+
   </div>
 </template>
 
