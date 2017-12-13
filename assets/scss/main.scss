@@ -8,7 +8,7 @@ body {
   padding-bottom: 50px;
   padding-top: 60px;
 background: $dark-pink;
-  @media (min-width: $large) { 
+  @media (min-width: $large) {
     padding-bottom: 0;
     padding-top: 70px;
   }
@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5 {
   opacity: 0;
   transform: translate(30px, 0);
   transition-duration: 3s;
-  
+
 }
 .slide-left-leave-active,
 .slide-right-enter {
@@ -98,10 +98,9 @@ h1, h2, h3, h4, h5 {
 @import 'product';
 @import 'productDetails';
 @import 'relatedProducts';
+@import 'recipe';
 @import 'ingredient';
 @import 'ingredientDetails';
 @import 'relatedIngredients';
+@import 'articleDetails';
 @import 'home';
-
-
-

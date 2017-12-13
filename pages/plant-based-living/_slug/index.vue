@@ -1,17 +1,36 @@
 
 <template>
   <div class="container">
-    <h1>{{ article.title }}</h1>
-    <h5>WRITTEN BY <span v-if="article.author">{{article.author}}</span><span v-else>camila</span></h5>
-    <div v-html="article.content"></div>
-    <h5>{{article.tags}}</h5>
+    <div id="fb-root"></div>
+    <script>
+    (function (d, s, id) {
+      var js
+      var fjs = d.getElementsByTagName(s)[0]
+      if (d.getElementById(id)) return
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=112054666106286'
+      fjs.parentNode.insertBefore(js, fjs)
+    }(document, 'script', 'facebook-jssdk'))
+   </script>
+   <div class="grid-x grid-padding-x article-details">
+     <div class="small-12 cell article-details__title" :style="'background-image: url(https://huestudios.com' + image + ')'">
+       <h1 class="text-lowercase body-font">{{ article.title }}</h1>
+
+       <h5 class="article-details__author">WRITTEN BY <span v-if="article.author">{{article.author}}</span><span v-else>camila</span></h5>
+       <h6 class="article-details__date" v-if="article.date_published">{{formateDate(article.date_published)}}</h6>
+      </div>
+    <div class="small-11 medium-9 large-8 cell article-details__content" v-html="article.content"></div>
+    <h5 class="article-details__tags">{{makeArray(article.tags)}}</h5>
+    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
     <p><nuxt-link to="/plant-based-living">Back to the list</nuxt-link></p>
-    <div id="hiddenDiv" v-text="article.content" style="display: none;"></div>
+  </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import moment from 'moment'
 
 export default {
   scrollToTop: true,
@@ -19,7 +38,8 @@ export default {
     let { data } = await axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?filters[url][eq]=' + params.slug)
     return {
       article: data.data[0],
-      image: 'Peter'
+      image: data.data[0].image.data.url,
+      tags: data.data[0].tags
     }
   },
   fetch ({ store }) {
@@ -30,6 +50,8 @@ export default {
         store.commit('SET_BACKLINK', '/plant-based-living')
       })
     }
+  },
+  created () {
   },
   head () {
     return {
@@ -50,8 +72,12 @@ export default {
     }
   },
   methods: {
-    stripTags (str) {
-      return str
+    formateDate (date) {
+      return moment().format('MMMM Do YYYY', date)
+    },
+    makeArray (str) {
+      var newArray = str.split(',')
+      return newArray
     },
     truncate (str, length, ending) {
       if (str !== null) {

@@ -14,12 +14,12 @@
       <div id="auth-links" v-if="loggedUser">
         <div id="user-image" :style="'background-image: url(' + loggedUser.picture + ')'" v-if="isAuthenticated"></div>
         <p>Logged in: <span>{{loggedUser.email}}</span></p>
-        
+
 
         <nuxt-link :to="'/account/' + loggedUser.email">SHOPPING LIST <span id="list-total-badg-bar" class="badge">{{this.$store.state.listItems}}</span></nuxt-link>
 
         <nuxt-link to="/account">VIEW PROFILE</nuxt-link>
-        
+
         <nuxt-link to="/auth/sign-off">SIGN OUT</nuxt-link>
       </div>
       <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
@@ -40,14 +40,12 @@
   <div class="grid-container full page-container" @click.prevent="closeSideMenu()">
     <nuxt/>
   </div>
-  
-  
   <auth-toolbar v-if="isAuthenticated" :email="$store.state.user.email"></auth-toolbar>
   <toolbar v-if="!isAuthenticated"></toolbar>
   <login></login>
   <mailing-list></mailing-list>
-  
-  <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTY2YjJhZDctMjJmMi00ZGViLTgwZjUtNDI0YmE2NDY0MWEwNjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script> 
+
+  <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTY2YjJhZDctMjJmMi00ZGViLTgwZjUtNDI0YmE2NDY0MWEwNjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
 </div>
 </template>
 <script>
