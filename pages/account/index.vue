@@ -87,7 +87,8 @@ export default {
       given_name: this.$store.state.user.given_name,
       family_name: this.$store.state.user.family_name,
       zip_code: this.$store.state.user.zipcode,
-      birthday: this.$store.state.user.birthday
+      birthday: this.$store.state.user.birthday,
+      ip_address: ''
     }
   },
   middleware: 'authenticated',
@@ -99,6 +100,11 @@ export default {
   scrollToTop: true,
   created () {
     const vm = this
+    axios.get('https://api.ipify.org')
+      .then((res) => {
+        vm.ip_address = (res.data)
+        console.log(vm.ip_address)
+      })
     console.log('is social? ' + this.$store.state.user.identities[0].isSocial)
     axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/users/rows/?filters[email][eq]=' + this.$store.state.user.email)
       .then((res) => {
@@ -135,7 +141,7 @@ export default {
   methods: {
     updateUser () {
       if (this.given_name && this.family_name) {
-        axios.post('https://huestudios.com/sites/camila.life/scripts/user.php?email=' + this.email + '&given_name=' + this.given_name + '&family_name=' + this.family_name + '&birthday=' + this.birthday + '&zip_code=' + this.zip_code + '&table=users').then(res => {
+        axios.post('https://huestudios.com/sites/camila.life/scripts/user.php?email=' + this.email + '&given_name=' + this.given_name + '&family_name=' + this.family_name + '&birthday=' + this.birthday + '&zip_code=' + this.zip_code + '&table=users' + '&ip=' + this.ip_address).then(res => {
           console.log(res)
         }).catch(function (error) {
           console.log(error)
