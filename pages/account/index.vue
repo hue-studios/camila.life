@@ -1,6 +1,7 @@
 
 <template>
-  <div class="grid-x account-container">
+  <div class="account-container">
+    <div class="grid-x account__container">
    <h1 class="small-12 cell text-center text-lowercase account__title"><img :src="loggedUser.picture" style="width: 50px; height: 50px;"/> <span class="green" v-if="loggedUser.given_name">{{ loggedUser.given_name}}'s</span> account</h1>
 
    <form class="small-12 cell">
@@ -58,12 +59,18 @@
 <nuxt-link to="/auth/sign-off">Sign Off</nuxt-link>
 <nuxt-link v-if="this.$store.state.user.email" :to="'/account/' + this.$store.state.user.email">SHOPPING LIST</nuxt-link>
  </div>
+
+  </div>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import { mapGetters } from 'vuex'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 
 export default {
   fetch ({ store }) {
@@ -85,6 +92,10 @@ export default {
   },
   middleware: 'authenticated',
   computed: mapGetters(['loggedUser']),
+  components: {
+    mailingListInline,
+    camilaFooter
+  },
   scrollToTop: true,
   created () {
     const vm = this
@@ -159,8 +170,14 @@ export default {
 @import './assets/scss/_vars.scss';
 .account-container {
   min-height:600px;
-  max-width: 700px;
-
+  width: 100%;
+  align-content: center;
+  align-items:center;
+  display: flex;
+  flex-direction: column;
+.account__container {
+    max-width: 700px;
+}
   .account__title {
     margin-top: 40px;
     margin-bottom: 20px;

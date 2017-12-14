@@ -1,23 +1,25 @@
 
 <template>
-<div class="container">
-  <h1>Plant-Based Living</h1>
-  <ul>
-    <li v-for="article in articles">
-      <nuxt-link :to="'/plant-based-living/' + article.url">{{ article.title }}</nuxt-link>
-    </li>
-  </ul>
-  <p>
-    <nuxt-link to="/">Back to home page</nuxt-link>
-  </p>
+<div id="articles" class="grid-x">
+  <h1 class="small-12 text-center white body-font cell text-lowercase" style="margin-top: 40px;">Plant-Based Living</h1>
+  <articleItem class="cell" v-for="(article, index) in articles" :article="article" :index="index" :id="article.id" v-bind:key="article.id"></articleItem>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
-
+import articleItem from '~/components/articleItem'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 export default {
   scrollToTop: true,
+  components: {
+    articleItem,
+    mailingListInline,
+    camilaFooter
+  },
   async asyncData () {
     let { data } = await
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?order[date_published]=ASC')
@@ -44,33 +46,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  width: 70%;
-  margin: auto;
-  text-align: center;
-  padding-top: 100px;
-}
+#articles {
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  border: 1px #ddd solid;
-  padding: 20px;
-  text-align: left;
-}
-
-ul li a {
-  color: gray;
-}
-
-p {
-  font-size: 20px;
-}
-
-a {
-  color: #41B883;
 }
 </style>

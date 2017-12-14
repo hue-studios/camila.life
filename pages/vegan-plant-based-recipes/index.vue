@@ -2,13 +2,16 @@
 <template>
   <div id="recipes" class="grid-x">
     <recipe class="cell" v-for="(recipe, index) in recipes" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id"></recipe>
-
+    <mailing-list-inline></mailing-list-inline>
+    <camila-footer></camila-footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import recipe from '~/components/recipe'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 
 export default {
   scrollToTop: true,
@@ -31,7 +34,9 @@ export default {
     }
   },
   components: {
-    recipe
+    recipe,
+    mailingListInline,
+    camilaFooter
   },
   created () {
   }

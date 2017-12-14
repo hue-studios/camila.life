@@ -158,6 +158,8 @@
   <transition name="modal">
     <div id="modal-screen" v-if="showModal" @click.prevent="closeModal()"> <img id="modal-image" :src="modalImage" :alt="modalName" :name="modalName" /> </div>
   </transition>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
 </div>
 
 </template>
@@ -167,6 +169,8 @@ import axios from 'axios'
 import ingredientRecipes from '~/components/ingredientRecipes'
 import ingredientButtons from '~/components/ingredientButtons.vue'
 import relatedIngredients from '~/components/ingredient.vue'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -174,7 +178,9 @@ export default {
   components: {
     ingredientRecipes,
     ingredientButtons,
-    relatedIngredients
+    relatedIngredients,
+    mailingListInline,
+    camilaFooter
   },
   computed: mapGetters([
     'isAuthenticated',

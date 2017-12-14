@@ -18,7 +18,7 @@
   </div>
   <div id="home-boutique" class="grid-x">
     <h1 id="home-boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
-    <div class="small-12 large-8 cell promo text-center">
+    <!-- <div class="small-12 large-8 cell promo text-center">
       <div class="promo-container">
         <div class="background-cover">
           <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
@@ -30,7 +30,7 @@
           <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
         </div>
       </div>
-    </div>
+    </div> -->
     <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index < 6" :index="index" v-bind:key="product.id"></product>
     <nuxt-link class="small-6 medium-4 cell" to="camila-life-boutique" id="home-boutique-link">
       <div class="home-boutique-link-container">
@@ -38,11 +38,15 @@
       </div>
     </nuxt-link>
   </div>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
 </div>
 </template>
 <script>
 import axios from 'axios'
 import product from '~/components/product.vue'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -95,7 +99,9 @@ export default {
     }
   },
   components: {
-    product
+    product,
+    mailingListInline,
+    camilaFooter
   },
   created: function () {
   },

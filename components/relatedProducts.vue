@@ -98,7 +98,7 @@ export default {
     showSuccessMsg: {
       type: 'success',
       title: 'successfully added',
-      position: 'center',
+      position: 'bottomRight',
       color: 'white',
       message: '',
       timeout: 3000,
@@ -122,5 +122,5 @@ export default {
 
 
 <style lang="scss" scoped>
- 
+
 </style>

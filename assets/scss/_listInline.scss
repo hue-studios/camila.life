@@ -1,5 +1,5 @@
 #inline-list {
-
+  width: 100%;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -81,7 +81,7 @@
     top: -50px;
     width: auto;
     height: 120%;
-   
+
   }
   }
 #list-box {
@@ -91,7 +91,7 @@
   max-width: 400px;
   text-align: center;
   @media (min-width: $large) {
-   
+
   }
   form {
     p {
@@ -118,7 +118,7 @@
       align-self:flex-end;
       padding-right: 7px;
     }
-    
+
     input, input:-webkit-autofill {
       background-color: none !important;
       background: none;
@@ -128,7 +128,7 @@
       padding-bottom: 1px;
       font-size: 20px;
       line-height: 20px;
-      margin-bottom: 15px;  
+      margin-bottom: 15px;
       position:relative;
     }
     input:focus {
@@ -152,7 +152,7 @@
     font-family: $bold-font;
     text-transform: lowercase;
   }
-  
+
 
 }
   button {font-family: $condensed-bold-font; font-size: 1.2em;
@@ -164,5 +164,3 @@
   }
 
 }
-
-

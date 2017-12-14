@@ -12,8 +12,8 @@
           <h1 class="title">{{product.name}} <span class="pink condensed-bold">${{product.price}}</span></h1>
           <h3 class="sub-title">{{product.sub_title}}</h3>
            <h5 class="product-details-button">DETAILS <div><span></span><span></span></div></h5>
-        
-      </nuxt-link>    
+
+      </nuxt-link>
   <button @click="showSuccessMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>added <span class='condensed-bold'>` + product.name + `</span> to shopping bag</span>`, image: 'https://huestudios.com' + product.images.data[0].url})" v-if="product.product_options.data.length == 1"
     class="add-to-cart snipcart-add-item"
     v-bind:data-item-id="product.id"
@@ -109,7 +109,7 @@ export default {
     showSuccessMsg: {
       type: 'success',
       title: 'successfully added',
-      position: 'center',
+      position: 'bottomRight',
       color: 'white',
       message: '',
       timeout: 3000,

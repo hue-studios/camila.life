@@ -1,6 +1,8 @@
 
 <template>
 <div id="recipe" class="grid-x" v-bind:style="'background-image: url(https://huestudios.com' + bgImg + ')'">
+  <h6>coming soon <i class="fa fa-heart" aria-hidden="true"></i></h6>
+  <div style="display: none;">
   <h1 class="bold-font text-lowercase">{{ recipe.name }}</h1>
 
   <div class="recipe__caption" v-html="recipe.caption"></div>
@@ -25,11 +27,16 @@
   </div>
 </div>
 </div>
+<mailing-list-inline></mailing-list-inline>
+<camila-footer></camila-footer>
+</div>
 </template>
 
 <script>
 import axios from 'axios'
 import ingredient from '~/components/recipeIngredient'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 
 export default {
   scrollToTop: true,
@@ -46,7 +53,9 @@ export default {
     })
   },
   components: {
-    ingredient
+    ingredient,
+    mailingListInline,
+    camilaFooter
   },
   fetch ({
     store
@@ -72,12 +81,23 @@ export default {
 @import './assets/scss/_vars.scss';
 #recipe {
     height: 95vh;
+    width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
     background-color: rgba($black, 0.7);
     background-blend-mode: darken;
+    align-items: center;
+    justify-content: center;
     color: $white;
+    h6 {
+      text-align: center;
+      font-size: 22px;
+      font-family: $bold-font;
+      i {
+        color: $pink;
+      }
+    }
 }
 </style>

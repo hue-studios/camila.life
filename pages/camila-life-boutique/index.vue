@@ -3,7 +3,7 @@
  <div id="boutique" class="container-full">
   <div class="grid-x">
     <h1 id="boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
-    <div class="small-12 large-8 xlarge-4 cell promo text-center">
+    <!-- <div class="small-12 large-8 xlarge-4 cell promo text-center">
       <div class="promo-container">
         <div class="background-cover">
           <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
@@ -15,14 +15,18 @@
           <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
         </div>
       </div>
-    </div>
+    </div> -->
     <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" :index="index" v-bind:key="product.id"></product>
   </div>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
 </div>
 </template>
 <script>
 import axios from 'axios'
 import product from '~/components/product.vue'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 
 export default {
   scrollToTop: true,
@@ -59,7 +63,9 @@ export default {
     }
   },
   components: {
-    product
+    product,
+    mailingListInline,
+    camilaFooter
   },
   created () {
   },
@@ -155,7 +161,7 @@ margin-bottom: 0px;
       background-position: center;
       background-repeat: no-repeat;
       background-size:cover;
-      
+
       color: $white;
       margin: 5px;
       height: 580px;
@@ -165,10 +171,10 @@ margin-bottom: 0px;
       @media (min-width: $large) {
         height: 500px;
         margin: 20px;
-       
+
       }
-      .background-cover { 
-      
+      .background-cover {
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -188,7 +194,7 @@ margin-bottom: 0px;
         }
         @media (min-width: $large) {
         }
-        
+
       }
       h2 {
         margin-top: 30px;
@@ -199,7 +205,7 @@ margin-bottom: 0px;
         }
         @media (min-width: $large) {
         }
-        
+
       }
       h1 {
         font-family: $condensed-bold-font;
@@ -210,7 +216,7 @@ margin-bottom: 0px;
         }
         @media (min-width: $large) {
         }
-        
+
       }
       p {
         margin-bottom: 0;
@@ -220,7 +226,7 @@ margin-bottom: 0px;
         }
         @media (min-width: $large) {
         }
-        
+
       }
       h3 {
         margin-bottom: 30px;
@@ -237,7 +243,7 @@ margin-bottom: 0px;
         strong {
           color: $green;
         }
-        
+
       }
       p.instructions {
         margin-bottom: 0;
@@ -247,7 +253,7 @@ margin-bottom: 0px;
         }
         @media (min-width: $large) {
         }
-        
+
       }
       }
     }

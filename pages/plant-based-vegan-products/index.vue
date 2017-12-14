@@ -15,16 +15,22 @@
   <div id="ingredient-container">
       <ingredient v-for="(ingredient, index) in filteredList" :ingredient="ingredient" :index="index" v-bind:key="ingredient.id"></ingredient>
   </div>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import ingredient from '~/components/ingredient.vue'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 
 export default {
   components: {
-    ingredient
+    ingredient,
+    mailingListInline,
+    camilaFooter
   },
   data () {
     return {

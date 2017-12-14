@@ -120,12 +120,16 @@
   <div class="small-12 cell product-footer">
     <related-products :term="product.related_term" limit="3" :id="product.id"></related-products>
   </div>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
 import relatedProducts from '~/components/relatedProducts.vue'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 
 export default {
   transition: {
@@ -184,7 +188,9 @@ export default {
   created () {
   },
   components: {
-    relatedProducts
+    relatedProducts,
+    mailingListInline,
+    camilaFooter
   }
 }
 </script>

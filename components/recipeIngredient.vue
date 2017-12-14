@@ -3,7 +3,7 @@
   <div class="grid-x recipe-ingredient__container">
 
     <div class="cell shrink recipe-ingredient__image">
-       <img :src="'https://huestudios.com' + ingredient.images.data[0].thumbnail_url" :alt="ingredient.name" :name="ingredient.name"/>
+       <img :src="'https://huestudios.com'" :alt="ingredient.name" :name="ingredient.name"/>
     </div>
     <h5 class="cell auto recipe-ingredient__description"><span class="recipe-ingredient__measurement">{{measurement}} {{label}}</span> {{ ingredient.name }} </h5>
 

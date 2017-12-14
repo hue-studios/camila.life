@@ -80,7 +80,7 @@ export default {
     showSuccessMsg: {
       type: 'success',
       title: 'successfully added',
-      position: 'center',
+      position: 'bottomRight',
       color: 'black',
       message: '',
       timeout: 3000,

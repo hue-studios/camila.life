@@ -22,15 +22,18 @@
       </div>
     <div class="small-11 medium-9 large-8 cell article-details__content" v-html="article.content"></div>
     <h5 class="article-details__tags">{{makeArray(article.tags)}}</h5>
-    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
-    <p><nuxt-link to="/plant-based-living">Back to the list</nuxt-link></p>
+    <div class="fb-comments" :data-href="'http://www.camila.life/plant-based-living/' + article.url" data-numposts="5"></div>
   </div>
+  <mailing-list-inline></mailing-list-inline>
+  <camila-footer></camila-footer>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import moment from 'moment'
+import mailingListInline from '~/components/mailingListInline'
+import camilaFooter from '~/components/camilaFooter'
 
 export default {
   scrollToTop: true,
@@ -70,6 +73,10 @@ export default {
         { hid: 'twitter:image:alt', content: this.article.title }
       ]
     }
+  },
+  components: {
+    mailingListInline,
+    camilaFooter
   },
   methods: {
     formateDate (date) {
