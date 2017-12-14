@@ -10,8 +10,6 @@
     <nuxt-link to="/plant-based-vegan-products">Products</nuxt-link>
     <nuxt-link to="/vegan-plant-based-recipes">Recipes</nuxt-link>
     <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
-<<<<<<< HEAD
-=======
     <div id="user-links" >
       <div id="auth-links" v-if="loggedUser">
         <div id="user-image" :style="'background-image: url(' + loggedUser.picture + ')'" v-if="isAuthenticated"></div>
@@ -26,7 +24,6 @@
       </div>
       <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
     </div>
->>>>>>> 1.0.1
   </nav>
   <header class="grid-x">
     <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutLeft" mode="out-in">
@@ -48,7 +45,7 @@
   <camila-footer></camila-footer>
   <toolbar></toolbar>
   <mailing-list></mailing-list>
-  <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTY2YjJhZDctMjJmMi00ZGViLTgwZjUtNDI0YmE2NDY0MWEwNjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script> 
+  <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZTY2YjJhZDctMjJmMi00ZGViLTgwZjUtNDI0YmE2NDY0MWEwNjM2MzgwODM2NDQ3OTY4NDk2" data-autopop="false"></script>
 =======
   <auth-toolbar v-if="isAuthenticated" :email="$store.state.user.email"></auth-toolbar>
   <toolbar v-if="!isAuthenticated"></toolbar>
@@ -82,10 +79,7 @@ export default {
   components: {
     login,
     toolbar,
-<<<<<<< HEAD
-=======
     authToolbar,
->>>>>>> 1.0.1
     headerIcons,
     camilaFooter,
     mailingList,
