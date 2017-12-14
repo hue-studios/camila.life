@@ -11,6 +11,12 @@ import axios from 'axios'
 import { setToken, checkSecret, extractInfoFromHash, getUserFromLocalStorage } from '~/utils/auth'
 
 export default {
+  data () {
+    return {
+      user_id: '',
+      ip_address: ''
+    }
+  },
   mounted () {
     const { token, secret } = extractInfoFromHash()
     if (!checkSecret(secret) || !token) {
@@ -23,10 +29,27 @@ export default {
     }).catch(function (error) {
       console.log(error)
     })
+    const vm = this
+    axios.get('https://api.ipify.org')
+      .then((res) => {
+        vm.ip_address = (res.data)
+        console.log(vm.ip_address)
+      })
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/users/rows/?filters[email][eq]=' + this.$store.state.user.email)
+      .then((res) => {
+        console.log(res)
+        vm.user_id = res.data.data[0].id
+      }).then(function () {
+        axios.post('https://huestudios.com/sites/camila.life/scripts/ip.php?ip=' + vm.ip_address + '&user_id=' + vm.user_id + '&status=1').then(res => {
+          console.log(res)
+        }).catch(function (error) {
+          console.log(error)
+        })
+      })
     if (this.$store.state.user.given_name) {
-      this.$router.replace('/')
+      // this.$router.replace('/')
     } else {
-      this.$router.replace('/account')
+      // this.$router.replace('/account')
     }
   }
 }
