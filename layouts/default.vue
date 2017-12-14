@@ -6,17 +6,18 @@
       <path class="cls-1" d="M298.87,132.62H290.2c0-62.26-52.51-123.44-119.11-123.44C74.72,9.18,61.72,128.83,61.72,199.76s13,190.58,109.37,190.58c68.22,0,119.11-67.14,119.11-134.82h8.67V383.84H290.2c0-10.83-5.41-27.07-18.4-27.07-16.25,0-44.94,42.23-100.71,42.23C79.59,399,0,310.75,0,199.76S79.59.51,171.09.51c55.22,0,79,39.53,99.08,39.53,15.16,0,20-10.29,20-23.28h8.67Z"/>
     </svg>
     <nuxt-link to="/" exact>Home</nuxt-link>
-    <nuxt-link to="/camila-life-boutique">Boutique</nuxt-link>
-    <nuxt-link to="/plant-based-vegan-products">Products</nuxt-link>
-    <nuxt-link to="/vegan-plant-based-recipes">Recipes</nuxt-link>
-    <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
+
+    <nuxt-link to="/plant-based-vegan-products">taste the love</nuxt-link>
+    <nuxt-link to="/vegan-plant-based-recipes">create the love</nuxt-link>
+    <nuxt-link to="/plant-based-living">read the love</nuxt-link>
+    <nuxt-link to="/camila-life-boutique">wear the love</nuxt-link>
     <div id="user-links" >
       <div id="auth-links" v-if="loggedUser">
         <div id="user-image" :style="'background-image: url(' + loggedUser.picture + ')'" v-if="isAuthenticated"></div>
         <p>Logged in: <span>{{loggedUser.email}}</span></p>
 
 
-        <nuxt-link :to="'/account/' + loggedUser.email">SHOPPING LIST <span id="list-total-badg-bar" class="badge">{{this.$store.state.listItems}}</span></nuxt-link>
+        <nuxt-link :to="'/account/' + loggedUser.email">SHOPPING LIST <span id="list-total-badg-bar" class="badge" v-if="this.$store.state.listItems > 0">{{this.$store.state.listItems}}</span></nuxt-link>
 
         <nuxt-link to="/account">VIEW PROFILE</nuxt-link>
 

@@ -145,7 +145,7 @@
     <ingredient-buttons v-if="isAuthenticated" class="small-12 cell" :id="ingredient.id" :product="ingredient"></ingredient-buttons>
   </div>
   <h5 class="small-11 cell script-font text-lowercase goes-with"><span class="green">goes with</span> <span class="goes-with-item" v-for="goes in goesWith"> {{goes}}, </span><span v-if="recipes.length > 0">and <span class="green">featured in</span> {{recipes.length}} recipe<span v-if="recipes.length > 1">s</span></span>.</h5>
-  <div class="small-12 cell">
+  <div class="small-12 cell" style="max-width: 1025px;">
     <div class="grid-x recipes-grid">
       <ingredient-recipes class="small-11 medium-6 large-4 cell" v-for="(recipe, index) in recipes" :id="recipe.recipe_id" :index="index" v-bind:key="recipe.recipe_id"></ingredient-recipes>
     </div>

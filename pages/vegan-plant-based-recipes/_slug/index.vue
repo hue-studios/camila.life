@@ -78,26 +78,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './assets/scss/_vars.scss';
-#recipe {
-    height: 95vh;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    background-color: rgba($black, 0.7);
-    background-blend-mode: darken;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    h6 {
-      text-align: center;
-      font-size: 22px;
-      font-family: $bold-font;
-      i {
-        color: $pink;
-      }
-    }
-}
 </style>

@@ -79,6 +79,7 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
   @media (min-width: $large) {
   }
   .page-intro {
@@ -87,6 +88,7 @@ export default {
     background-repeat: no-repeat;
     background-color: rgba($black, 0.6);
     background-blend-mode: darken;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;

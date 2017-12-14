@@ -48,6 +48,5 @@ export default {
 	align-items: flex-start;
   justify-content: center;
   flex-direction: row;
-  max-width: 1400px;
 }
 </style>

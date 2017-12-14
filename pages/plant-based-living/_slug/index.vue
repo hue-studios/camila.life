@@ -21,7 +21,42 @@
        <h6 class="article-details__date" v-if="article.date_published">{{formateDate(article.date_published)}}</h6>
       </div>
     <div class="small-11 medium-9 large-8 cell article-details__content" v-html="article.content"></div>
-    <h5 class="article-details__tags">{{makeArray(article.tags)}}</h5>
+    <div class="small-12 cell article-details__tags-container">
+    <h5 class="article-details__tag" v-for="tag in tags">{{tag}}</h5>
+    </div>
+    <div id="article-details__sharing-links" class="small-12 cell">
+      <div class="sharing-links__container">
+      <h5 class="script-font text-lowercase green">SHARE</h5>
+      <social-sharing :url="'http://camila.life/plant-based-living/' + article.url"
+                    :title="this.article.title + ' - camila.life'"
+                    :description="this.truncate(this.article.description)"
+                    :quote="this.article.quote"
+                    :hashtags="this.article.tags"
+                    twitter-user="camila_life_now"
+                    :media="'http://huestudios.com' + this.image"
+                    inline-template>
+        <div>
+          <ul id="sharing-links__list">
+            <li>
+              <network network="facebook"> <i class="fa fa-fw fa-facebook"></i> </network>
+            </li>
+            <li>
+              <network network="googleplus"> <i class="fa fa-fw fa-google-plus"></i> </network>
+            </li>
+            <li>
+              <network network="pinterest"> <i class="fa fa-fw fa-pinterest"></i> </network>
+            </li>
+            <li>
+              <network network="twitter"> <i class="fa fa-fw fa-twitter"></i> </network>
+            </li>
+            <li>
+              <network network="email"> <i class="fa fa-envelope"></i> </network>
+            </li>
+          </ul>
+        </div>
+      </social-sharing>
+    </div>
+    </div>
     <div class="fb-comments" :data-href="'http://www.camila.life/plant-based-living/' + article.url" data-numposts="5"></div>
   </div>
   <mailing-list-inline></mailing-list-inline>
@@ -42,7 +77,7 @@ export default {
     return {
       article: data.data[0],
       image: data.data[0].image.data.url,
-      tags: data.data[0].tags
+      tags: []
     }
   },
   fetch ({ store }) {
@@ -55,6 +90,7 @@ export default {
     }
   },
   created () {
+    this.tags = this.makeArray(this.article.tags)
   },
   head () {
     return {
@@ -109,5 +145,25 @@ export default {
 
 <style lang="scss" scoped>
 @import './assets/scss/_vars.scss';
-
+#sharing-links {
+  width: 100%;
+  .sharing-links__container {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    h5 {
+      font-size: 34px;
+    }
+    #sharing-links__list {
+      margin-bottom: 0;
+      list-style-type: none;
+      margin-left: 0;
+      display: flex;
+      flex-direction:row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
 </style>
