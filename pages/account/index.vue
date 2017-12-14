@@ -2,11 +2,11 @@
 <template>
   <div class="account-container">
     <div class="grid-x account__container">
-   <h1 class="small-12 cell text-center text-lowercase account__title"><img :src="loggedUser.picture" style="width: 50px; height: 50px;"/> <span class="green" v-if="loggedUser.given_name">{{ loggedUser.given_name}}'s</span> account</h1>
+   <h1 class="small-12 cell text-center text-lowercase account__title"><img :src="loggedUser.picture" style="width: 50px; height: 50px;"/> <span class="green" v-if="given_name">{{given_name}}'s</span> account</h1>
 
    <form class="small-12 cell">
   <div class="grid-x account__user">
-  <p class="small-12 medium-10 medium-offset-1 text-center cell account__user-intro">hey <span class="green">{{loggedUser.given_name}}</span>! <br></br> this is your camila.life profile.  we will be updating this to help customize the experience and track your journey when using our app.  so, make sure it's accurate and keep enjoying the <i class="fa fa-heart red"></i>!!</p>
+  <p class="small-12 medium-10 medium-offset-1 text-center cell account__user-intro">hey <span class="green">{{given_name}}</span>! <br></br> this is your camila.life profile.  we will be updating this to help customize the experience and track your journey when using our app.  so, make sure it's accurate and keep enjoying the <i class="fa fa-heart red"></i>!!</p>
     <div id="social-notice" class="small-10 medium-8 small-offset-1 medium-offset-2 text-center text-uppercase cell black" v-if="this.$store.state.user.identities[0].isSocial">
       <h5 style="color: black">Your account credentials are managed through the social account you logged in with.</h5>
     </div>

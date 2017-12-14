@@ -32,9 +32,9 @@ nav {
     }
   }
   a:link, a:visited {
-    color: $green;
+    color: $white;
     text-transform: lowercase;
-    font-size: 32px;
+    font-size: 26px;
     line-height: 30px;
     margin-bottom: 15px;
     display: inline-flex;
@@ -45,19 +45,19 @@ nav {
     left: 1px;
     opacity: 1;
     width: 100%;
-  } 
+  }
   a::before {
     content: '';
     position: absolute;
-    width: 0px;
+    width: 16px;
     background: $green;
     height: 1px;
-    bottom: 0px;
-    left:-2px;
+    bottom: 2px;
+    left:1px;
     transition: all 0.35s ease-out;
   }
    a.nuxt-link-exact-active, a.nuxt-link-active {
-    color: $black;  
+    color: $black;
   }
   #user-links {
     width: 100%;
@@ -117,12 +117,12 @@ nav {
         margin-top: -15px;
         margin-left: 3px;
       }
-      
+
     }
     a:hover::before {
       opacity: 0;
       width: 0px;
-    } 
+    }
     a::before {
       content: '';
       position: absolute;
@@ -150,12 +150,12 @@ header {
   height: 60px;
   align-items: center;
   justify-content: flex-start;
-  
+
   border-bottom: thin solid $dark-pink;
   @media (min-width: $medium) {
-    
+
   }
-  @media (min-width: $large) { 
+  @media (min-width: $large) {
     height: 70px;
   }
   svg {
@@ -183,12 +183,12 @@ header {
     margin-left: 10px;
     position:relative;
     transition: all .5s ease-out;
-    @media (min-width: $large) { 
+    @media (min-width: $large) {
       font-size: 42px;
       line-height: 42px;
       height: 42px;
       margin-left: 20px;
-      
+
     }
     span {
       font-size: 36px;
@@ -212,9 +212,9 @@ header {
   }
   #logo.inside {
     margin-left: 40px;
-    @media (min-width: $large) { 
+    @media (min-width: $large) {
       margin-left: 50px;
-      
+
     }
   }
 }
@@ -266,12 +266,12 @@ img {
     left: 1%;
     top:0px;
     z-index: 10;
-    
-    
-    @media (min-width: $medium) { 
+
+
+    @media (min-width: $medium) {
       left: 1%;
     }
-    @media (min-width: $large) { 
+    @media (min-width: $large) {
       left: 1%;
     }
     div {
@@ -280,7 +280,7 @@ img {
        height: 60px;
       width: 30px;
       cursor: pointer;
-  @media (min-width: $large) { 
+  @media (min-width: $large) {
     height: 70px;
   }
     }
@@ -305,7 +305,7 @@ img {
           }
           @media (min-width: $large) {
             top: 24px;
-            
+
           }
         }
         span:nth-of-type(2) {
@@ -333,7 +333,7 @@ img {
 	cursor: pointer;
 	border-top: thin solid #1e1e1e;
   transition: .35s $curve;
-  
+
 	@media (min-width: $large) {
 		top: 0px;
 		bottom: auto;
@@ -347,7 +347,7 @@ img {
     position: relative;
     margin: 10px auto 10px auto;
     transform: rotate(0deg);
-    
+
     cursor: pointer;
     @media (min-width: $large) {
       margin: 30px;
@@ -415,6 +415,5 @@ img {
   filter: grayscale(0.9)
 }
 header.open, #account-icons.open  {
- 
-}
 
+}
