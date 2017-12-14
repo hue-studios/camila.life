@@ -109,7 +109,7 @@
         <div id="sharing-links">
           <div class="sharing-links__container">
           <h5 class="script-font text-lowercase green">SHARE</h5>
-          <social-sharing :url="'http://camila.life/camila-life-boutique/' + ingredient.url"
+          <social-sharing :url="'http://camila.life/plant-based-vegan-products/' + ingredient.url"
                         :title="this.ingredient.name + ' - Plant-Based Vegan Ingredient on camila.life'"
                         :description="this.truncate160(this.ingredient.description)"
                         :quote="this.ingredient.sub_title"
