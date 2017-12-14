@@ -63,7 +63,11 @@ module.exports = {
     { src: '~/plugins/ga', ssr: false },
     { src: '~/plugins/ksvuescrollmagic', ssr: false },
     { src: '~/plugins/social-sharing', ssr: false },
+<<<<<<< HEAD
     '~/plugins/vue-tabs', 
+=======
+    '~/plugins/vue-tabs',
+>>>>>>> 1.0.1
     '~/plugins/swiper'
   ],
   env: {

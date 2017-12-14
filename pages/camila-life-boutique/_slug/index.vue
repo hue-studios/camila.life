@@ -116,10 +116,17 @@
         <div class="product-size-description" v-html="product.size_description"></div>
       </v-tab>
     </vue-tabs>
+<<<<<<< HEAD
   </div>
   <div class="small-12 cell product-footer">
     <related-products :term="product.related_term" limit="3" :id="product.id"></related-products>
   </div>
+=======
+  </div>
+  <div class="small-12 cell product-footer">
+    <related-products :term="product.related_term" limit="3" :id="product.id"></related-products>
+  </div>
+>>>>>>> 1.0.1
 </div>
 </template>
 
@@ -140,7 +147,13 @@ export default {
     }
   },
   fetch ({ store }) {
-    store.commit('SET_BACKLINK', '/camila-life-boutique')
+    if (store.state.user) {
+      return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + store.state.user.email).then((res) => {
+        console.log(res)
+        store.commit('SET_LISTITEMS', res.data.meta.total)
+        store.commit('SET_BACKLINK', '/camila-life-boutique')
+      })
+    }
   },
   head () {
     return {
@@ -179,29 +192,6 @@ export default {
   },
   components: {
     relatedProducts
-  },
-  notifications: {
-    showSuccessMsg: {
-      type: 'success',
-      title: 'successfully added',
-      position: 'center',
-      color: 'white',
-      message: '',
-      timeout: 3000,
-      cb: function () {
-      },
-      onClosing: function () {
-        var cartTotalBadge = document.getElementById('cart-total-badge')
-        cartTotalBadge.classList.remove('pulseEffect')
-      },
-      onClosed: function () {
-        var cartTotalBadge = document.getElementById('cart-total-badge')
-        setTimeout(function () {
-          cartTotalBadge.classList.add('pulseEffect')
-          console.log('closed')
-        }, 1000)
-      }
-    }
   }
 }
 </script>

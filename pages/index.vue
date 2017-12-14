@@ -47,6 +47,15 @@ import { mapGetters } from 'vuex'
 
 export default {
   scrollToTop: true,
+  fetch ({ store }) {
+    if (store.state.user) {
+      return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + store.state.user.email).then((res) => {
+        console.log(res)
+        store.commit('SET_LISTITEMS', res.data.meta.total)
+        store.commit('SET_BACKLINK', '')
+      })
+    }
+  },
   async asyncData ({ query, error }) {
     let [productsReq, ingredientsReq, recipesReq, quoteReq] = await Promise.all([
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?order[sort]'),
@@ -61,9 +70,6 @@ export default {
       quote: quoteReq.data.data[0],
       quoteImage: quoteReq.data.data[0].image.data.url
     }
-  },
-  fetch ({ store }) {
-    store.commit('SET_BACKLINK', '')
   },
   computed: mapGetters([
     'isAuthenticated',
