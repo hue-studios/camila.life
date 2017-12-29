@@ -144,9 +144,9 @@
     </div>
     <ingredient-buttons v-if="isAuthenticated" class="small-12 cell" :id="ingredient.id" :product="ingredient"></ingredient-buttons>
   </div>
-  <h5 class="small-11 cell script-font text-lowercase goes-with"><span class="green">goes with</span> <span class="goes-with-item" v-for="goes in goesWith"> {{goes}}, </span><span v-if="recipes.length > 0">and <span class="green">featured in</span> {{recipes.length}} recipe<span v-if="recipes.length > 1">s</span></span>.</h5>
+  <h5 class="small-11 cell script-font text-lowercase goes-with" v-if="ingredient.goes_with.length > 0"><span class="green">goes with</span> <span class="goes-with-item" v-for="goes in goesWith"> {{goes}}, </span><span v-if="recipes.length > 0">and <span class="green">featured in</span> {{recipes.length}} recipe<span v-if="recipes.length > 1">s</span></span>.</h5>
   <div class="small-12 cell" style="max-width: 1025px;">
-    <div class="grid-x recipes-grid">
+    <div class="grid-x recipes-grid" v-if="recipes.length > 0">
       <ingredient-recipes class="small-11 medium-6 large-4 cell" v-for="(recipe, index) in recipes" :id="recipe.recipe_id" :index="index" v-bind:key="recipe.recipe_id"></ingredient-recipes>
     </div>
   </div>
@@ -231,7 +231,8 @@ export default {
     }
   },
   created: function () {
-    this.goesWith = this.makeArray(this.ingredient.goes_with)
+    const vm = this
+
     axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipe_ingredients/rows/?filters[ingredient][eq]=' + this.ingredient.id).then(response => {
       this.recipes = response.data.data
     }).catch(e => {
@@ -244,6 +245,10 @@ export default {
     }).catch(e => {
       this.errors.push(e)
     })
+    if (this.ingredient.goes_with.length > 0) {
+      vm.goesWith = this.makeArray(vm.ingredient.goes_with)
+      console.log(vm.ingredient.goes_with)
+    }
   },
   head () {
     return {

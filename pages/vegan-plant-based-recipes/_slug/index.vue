@@ -1,8 +1,7 @@
 
 <template>
 <div id="recipe" class="grid-x" v-bind:style="'background-image: url(https://huestudios.com' + bgImg + ')'">
-  <h6>coming soon <i class="fa fa-heart" aria-hidden="true"></i></h6>
-  <div style="display: none;">
+  <div>
   <h1 class="bold-font text-lowercase">{{ recipe.name }}</h1>
 
   <div class="recipe__caption" v-html="recipe.caption"></div>
@@ -16,7 +15,7 @@
 </div>
   <div class="small cell recipe__ingredients">
   <h3 class="text-lowercase bold-font">ingredients</h3>
-  <ingredient v-for="(ingredient, index) in recipe.recipe_ingredients.data" :index="index" v-bind:key="ingredient.id" :id="ingredient.ingredient" :measurement="ingredient.measurement" :label="ingredient.measurement_label"></ingredient>
+  <ingredient v-for="(ingredient, index) in recipe.recipe_ingredients.data" :index="index" v-bind:key="ingredient.id" :id="ingredient.ingredient" :recipe="ingredient.recipe" :measurement="ingredient.measurement" :label="ingredient.measurement_label" :description="ingredient.recipe_ingredient_description"></ingredient>
 </div>
 <div class="small-12 cell recipe__directions">
   <h3 class="text-lowercase bold-font">HOW TO GET IT DONE</h3>

@@ -12,7 +12,7 @@
      <h1 v-else class="text-center">{{ ingredient.name }} </h1>
 
 
-      <h5 class="script-font text-lowercase ingredient__goes-with"><span class="hide-mobile"><span class="green">goes with</span> <span class="goes-with-item" v-for="goes in goesWith"> {{goes}}, </span> and </span><span class="green">featured in {{total}} recipe<span v-if="total > 1">s</span></span>.</h5>
+      <h5 class="script-font text-lowercase ingredient__goes-with" v-if="ingredient.goes_with"><span class="hide-mobile"><span class="green">goes with</span> <span class="goes-with-item" v-for="goes in goesWith"> {{goes}}, </span> and </span><span class="green">featured in {{total}} recipe<span v-if="total > 1">s</span></span>.</h5>
       <nuxt-link class="ingredient__details-btn" :to="'/plant-based-vegan-products/' + ingredient.url">DETAILS<span></span><span></span></nuxt-link>
     </div>
     <ingredient-buttons v-if="isAuthenticated" class="small-12 cell" :id="ingredient.id" :product="ingredient"></ingredient-buttons>
@@ -47,7 +47,11 @@ export default {
     }).catch(e => {
       this.errors.push(e)
     })
-    this.goesWith = this.makeArray(this.ingredient.goes_with)
+    const vm = this
+    if (this.ingredient.goes_with) {
+      vm.goesWith = this.makeArray(vm.ingredient.goes_with)
+      console.log(vm.ingredient.goes_with)
+    }
   },
   methods: {
     showLoginScreen () {

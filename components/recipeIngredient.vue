@@ -1,11 +1,11 @@
 <template>
-  <nuxt-link :to="'/plant-based-vegan-products/' + ingredient.url">
+  <nuxt-link :to="url">
   <div class="grid-x recipe-ingredient__container">
 
     <div class="cell shrink recipe-ingredient__image">
-       <img :src="'https://huestudios.com'" :alt="ingredient.name" :name="ingredient.name"/>
+       <img v-if="image" :src="'https://huestudios.com' + image.thumbnail_url" :alt="ingredient.name" :name="ingredient.name"/>
     </div>
-    <h5 class="cell auto recipe-ingredient__description"><span class="recipe-ingredient__measurement">{{measurement}} {{label}}</span> {{ ingredient.name }} </h5>
+    <h5 class="cell auto recipe-ingredient__description"><span class="recipe-ingredient__measurement">{{measurement}} {{label}}</span> {{ ingredient.name }} <span class="recipe-ingredient__text">{{description}}</span></h5>
 
 
   </div>
@@ -18,9 +18,13 @@ import { mapGetters } from 'vuex'
 
 export default {
   props: {
-    id: String,
-    measurement: Number,
-    label: String
+    recipe: Number,
+    id: Number,
+    measurement: String,
+    label: String,
+    description: String,
+    image: '',
+    url: ''
   },
   data () {
     return {
@@ -34,11 +38,24 @@ export default {
     'loggedUser'
   ]),
   created: function () {
-    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[id][eq]=' + this.id).then(response => {
-      this.ingredient = response.data.data[0]
-    }).catch(e => {
-      this.errors.push(e)
-    })
+    const vm = this
+    if (!vm.recipe) {
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[id][eq]=' + vm.id).then(response => {
+        vm.ingredient = response.data.data[0]
+        vm.image = vm.ingredient.images.data[0]
+        vm.url = '/plant-based-vegan-products/' + vm.ingredient.url
+      }).catch(e => {
+        this.errors.push(e)
+      })
+    } else {
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[id][eq]=' + vm.recipe).then(response => {
+        vm.ingredient = response.data.data[0]
+        vm.image = vm.ingredient.images.data[0]
+        vm.url = '/vegan-plant-based-recipes/' + vm.ingredient.url
+      }).catch(e => {
+        this.errors.push(e)
+      })
+    }
   },
   methods: {
     showLoginScreen () {
