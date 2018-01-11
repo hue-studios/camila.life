@@ -24,3 +24,4 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
+## Features
