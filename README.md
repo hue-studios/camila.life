@@ -1,4 +1,4 @@
-# camila.life 1.0
+# camila.life 1.1.0
 
 > hue project featuring Nuxt.js and Snipcart
 
