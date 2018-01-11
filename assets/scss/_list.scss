@@ -33,7 +33,7 @@ z-index: 100;
     top: -50px;
     width: auto;
     height: 120%;
-   
+
   }
   }
 #list-box {
@@ -43,7 +43,7 @@ z-index: 100;
   max-width: 400px;
   text-align: center;
   @media (min-width: $large) {
-   
+
   }
   form {
     .list-form-container {
@@ -66,7 +66,7 @@ z-index: 100;
       align-self:flex-end;
       padding-right: 7px;
     }
-    
+
     input, input:-webkit-autofill {
       background-color: none !important;
       background: none;
@@ -76,7 +76,7 @@ z-index: 100;
       padding-bottom: 1px;
       font-size: 20px;
       line-height: 20px;
-      margin-bottom: 15px;  
+      margin-bottom: 15px;
       position:relative;
     }
     input:focus {
@@ -100,7 +100,7 @@ z-index: 100;
     font-family: $bold-font;
     text-transform: lowercase;
   }
-  
+
 
 }
   button {font-family: $condensed-bold-font; font-size: 1.2em;
@@ -125,7 +125,7 @@ right: -5px;
     right: -20px;
   }
   @media (min-width: $large) {
-    
+
   }
   #close-box {
     position: relative;
@@ -162,9 +162,6 @@ right: -5px;
 #close-btn:hover {
   transform: rotateX(180deg);
 }
-
-<<<<<<< Updated upstream
-=======
 
 
 .checkmark__circle {
@@ -215,6 +212,3 @@ right: -5px;
     box-shadow: inset 0px 0px 0px 30px $pink;
   }
 }
-
-
->>>>>>> Stashed changes

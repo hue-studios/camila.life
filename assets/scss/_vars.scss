@@ -14,7 +14,7 @@ $xxlarge: 1600px;
 $bounce: cubic-bezier(0.205, 0.470, 0.360, 1.385);
 $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 $pink-gradient: linear-gradient(135deg, #c900ae 0%,#ed00d1 41%,#fb00da 56%,#ce00a5 99%);
-$pink-gradient-2: linear-gradient(135deg, #fb00da 20%,#ce00a5 99%); 
+$pink-gradient-2: linear-gradient(135deg, #fb00da 20%,#ce00a5 99%);
 
 $serif-font: 'Bauer Bodoni Pro_1 W01 Roman', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 $condensed-font:'DINNextW01-CondensedLig',Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
@@ -25,11 +25,11 @@ $body-font: 'Avenir Next W01 Thin', "Helvetica Neue", Helvetica, Arial, "sans-se
 
 $bold-font: 'AvenirNextLTW01-Regular', "Helvetica Neue", Helvetica, Arial, "sans-serif";
 
-<<<<<<< Updated upstream
+
 $script-font: 'ITCZemkeHandW01-Regular',"Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 =======
 
->>>>>>> Stashed changes
+
 .iziToast {
   font-family: $condensed-bold-font !important
 }
@@ -95,7 +95,7 @@ a:hover {
   0% {
     transform: scale(1)
   }
- 
+
   70% {
     transform: scale(1.5)
   }
@@ -136,7 +136,7 @@ a:hover {
 @keyframes stroke {
   100% {
     stroke-dashoffset: 0;
-    
+
   }
 }
 
@@ -154,5 +154,3 @@ a:hover {
     box-shadow: inset 0px 0px 0px 30px $pink;
   }
 }
-
-
