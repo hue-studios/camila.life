@@ -151,7 +151,7 @@
     </div>
   </div>
   <h4 class="small-12 cell text-center body-font text-lowercase ingredient-page-sub-title" v-if="relatedIngredients.length > 0"><span>related</span> <span class="green">{{ingredient.category}}</span> ingredients</h4>
-   <div class="small-12 cell" v-if="relatedIngredients.length > 0">
+   <div class="small-12 cell related-ingredients-list" v-if="relatedIngredients.length > 0">
 
      <related-ingredients v-for="(relatedIngredient, index) in relatedIngredients" :ingredient="relatedIngredient" :index="index" v-bind:key="relatedIngredient.id"></related-ingredients>
    </div>
@@ -203,7 +203,8 @@ export default {
     let { data } = await axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[url][eq]=' + params.slug)
     return {
       ingredient: data.data[0],
-      images: data.data[0].images.data
+      images: data.data[0].images.data,
+      coverImage: data.data[0].images.data[0].url
     }
   },
   data () {
@@ -256,14 +257,14 @@ export default {
       meta: [
         { hid: 'description', name: 'description', content: this.truncate160(this.ingredient.description) },
         { hid: 'og:url', property: 'og:url', content: 'http://www.camila.life/plant-based-vegan-products/' + this.ingredient.url },
-        { hid: 'og:image', property: 'og:image', content: 'http://huestudios.com' + this.ingredient.images.data[0].url },
+        { hid: 'og:image', property: 'og:image', content: 'http://huestudios.com' + this.coverImage },
         { hid: 'og:title', property: 'og:title', content: this.ingredient.name + ' - Plant-Based Vegan Ingredient on camila.life' },
         { hid: 'og:description', property: 'og:description', content: this.truncate160(this.ingredient.description) },
         { hid: 'twitter:summary_large_image', name: 'twitter:summary_large_image', content: 'summary' },
         { hid: 'twitter:site', name: 'twitter:site', content: '@camila_life_now' },
         { hid: 'twitter:title', name: 'twitter:title', content: this.ingredient.name },
         { hid: 'twitter:description', name: 'twitter:description', content: this.truncate160(this.ingredient.description) },
-        { hid: 'twitter:image', name: 'twitter:image', content: 'http://huestudios.com' + this.ingredient.images.data[0].url },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'http://huestudios.com' + this.coverImage },
         { hid: 'twitter:image:alt', content: this.ingredient.name }
       ]
     }

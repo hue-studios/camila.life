@@ -2,18 +2,20 @@
 <template>
 
 <div id="ingredients" class="grid-x">
-  <div class="small-12 cell text-center page-intro" :style="'background-image: url(http://huestudios.com' + page.header_image.data.url + ')'">
+  <div class="small-12 cell text-center page-intro" :style="'background-image: url(http://huestudios.com/sites/camila.life/content/thumbnail/200/300/crop/best/' + page.header_image.data.name + ')'">
     <h1 id="ingredients-title" class="text-uppercase">INGREDIENTS OF LOVE</h1>
     <p class="text-lowercase">Awesome plant-based ingredients for you to discover and experiment with in your favorite dishes.</p>
     <h5 class="pink text-uppercase">Discover.  Get Inpsired. Save it.  Shop it.</h5>
   </div>
-  <div id="ingredient-search-box" class="cell small-11 medium-6">
+  <div id="ingredient-search-box" class="cell small-11 medium-6 large-4">
     <h5 class="green body-font text-lowercase">looking for something?</h5>
-    <p class="small">search all of my favorite vegan products. Found <span v-text="filteredList.length"></span>.</p>
+    <p class="script-font">search all of my favorite vegan products...found <span class="green" v-text="filteredList.length"></span>.</p>
     <input type="text" v-model="search" placeholder="Search..."/>
   </div>
   <div id="ingredient-container">
+    <transition-group name="dropdown" tag="div">
       <ingredient v-for="(ingredient, index) in filteredList" :ingredient="ingredient" :index="index" v-bind:key="ingredient.id"></ingredient>
+    </transition-group>
   </div>
   <mailing-list-inline></mailing-list-inline>
   <camila-footer></camila-footer>
@@ -40,7 +42,7 @@ export default {
   },
   async asyncData ({ query, error }) {
     let [ingredientsReq, pageReq] = await Promise.all([
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[brand][>]=0&order[name]=ASC'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[ingredients_page][>]=0&order[name]=ASC'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/pages/rows/')
     ])
     return {
@@ -88,7 +90,6 @@ export default {
     background-repeat: no-repeat;
     background-color: rgba($black, 0.6);
     background-blend-mode: darken;
-    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,7 +164,24 @@ export default {
   }
 }
 #ingredient-search-box {
-display: none;
+  color: $white;
+  padding-top: 20px;
+  @media (min-width: $medium) {
+  }
+  @media (min-width: $large) {
+    padding-top: 40px;
+  }
+  h5 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 0px;
+    font-weight: bold;
+  }
+  p {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
   input, input[type=text], input[type=text]:focus {
     border-radius: 2px;
     border: none;
@@ -175,5 +193,38 @@ display: none;
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.dropdown {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 350ms;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    background-image: linear-gradient(to top, white, rgba(white, 0));
+  }
+
+  &-enter,
+  &-leave-to { opacity: 0 }
+
+  &-leave,
+  &-enter-to { opacity: 1 }
+
+  &-enter-active,
+  &-leave-active {
+    position: absolute;
+    width: 100%;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  &-enter-active { transition-delay: 100ms }
+}
+
 
 </style>

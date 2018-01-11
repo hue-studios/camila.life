@@ -1,7 +1,8 @@
 <template>
   <div class="grid-x ingredient__container">
     <div class="cell shrink ingredient__image" :class="{ logged: !isAuthenticated }">
-      <img v-bind:src="'https://huestudios.com' + ingredient.images.data[0].thumbnail_url" :alt="ingredient.name"/>
+      <img v-if="ingredient.images.data.length > 0" v-bind:src="'https://huestudios.com' + ingredient.images.data[0].thumbnail_url" :alt="ingredient.name"/>
+      <img v-else src="/icons/ms-icon-310x310.png" :alt="ingredient.name"/>
       <div class="login-btn" v-if="!isAuthenticated"><a @click.prevent="showLoginScreen" ><span>SIGN IN TO CREATE</span><br>SHOPPING LIST</a></div>
       <nuxt-link class="image-link" v-if="isAuthenticated" :to="'/plant-based-vegan-products/' + ingredient.url"></nuxt-link>
     </div>
@@ -9,10 +10,12 @@
     <div class="cell auto ingredient__description">
 
      <nuxt-link v-if="isAuthenticated" :to="'/plant-based-vegan-products/' + ingredient.url"> <h1 class="text-center">{{ ingredient.name }} </h1></nuxt-link>
+
      <h1 v-else class="text-center">{{ ingredient.name }} </h1>
 
 
       <h5 class="script-font text-lowercase ingredient__goes-with" v-if="ingredient.goes_with"><span class="hide-mobile"><span class="green">goes with</span> <span class="goes-with-item" v-for="goes in goesWith"> {{goes}}, </span> and </span><span class="green">featured in {{total}} recipe<span v-if="total > 1">s</span></span>.</h5>
+      <h3>{{ingredient.category}}</h3>
       <nuxt-link class="ingredient__details-btn" :to="'/plant-based-vegan-products/' + ingredient.url">DETAILS<span></span><span></span></nuxt-link>
     </div>
     <ingredient-buttons v-if="isAuthenticated" class="small-12 cell" :id="ingredient.id" :product="ingredient"></ingredient-buttons>

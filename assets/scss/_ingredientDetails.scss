@@ -3,9 +3,8 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  padding: 15px 5%;
-  overflow: hidden;
   color: $white;
+  width: 100%;
 
   .ingredient-details-title {
     display: flex;
@@ -336,6 +335,14 @@
         padding-right: 2px;
       }
     }
+  }
+
+  .related-ingredients-list {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .recipes-grid {
