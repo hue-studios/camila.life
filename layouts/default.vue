@@ -26,14 +26,14 @@
       <a v-if="!isAuthenticated" @click.prevent="showLoginScreen ()">SIGN IN</a>
     </div>
   </nav>
-  <header class="grid-x">
     <transition enter-active-class="animated fadeInLeft" leave-active-class="animated fadeOutLeft" mode="out-in">
       <nuxt-link :to="$store.state.backLink" id="back-btn" v-if="$store.state.backLink">
         <div><span></span><span></span></div>
       </nuxt-link>
     </transition>
-    <nuxt-link to="/" id="logo" class="shrink cell" v-bind:class="{ inside: $store.state.backLink } " exact>camila<span id="tagline">.life</span></nuxt-link>
-  </header>
+    <nuxt-link to="/" id="logo" class="shrink cell" v-bind:class="{ inside: $store.state.backLink } " exact>ca
+      <br>mi<br>la</nuxt-link>
+
   <header-icons></header-icons>
   <div id="nav-btn" @click.prevent="sideMenuToggle()">
     <div id="nav-icon"> <span></span> <span></span> <span></span> </div>

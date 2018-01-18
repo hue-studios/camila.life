@@ -9,7 +9,6 @@
         <p>Hello health wonderers...my name is Camila.<span class="show-for-medium"> I too like all of you have been on a “discovering good and health journey”.</span> My journey started in 2010 and I’m still on it!</p>
         <p>This site is my next phase and soon you will see a lot of ingredients, recipes, ideas, and even a shopping assistant for your own vegan adventures.</p>
         <p>For this first phase, I am excited to launch my online boutique!! <span class="show-for-medium">Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link> and stay tuned!!</span></p>
-        <nuxt-link to="/camila-life-boutique" id="home-shop-button">SHOP NOW</nuxt-link>
       </div>
       <div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'">
         <h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5>
@@ -61,16 +60,16 @@ export default {
     }
   },
   async asyncData ({ query, error }) {
-    let [productsReq, ingredientsReq, recipesReq, quoteReq] = await Promise.all([
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?order[sort]'),
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/'),
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/'),
+    let [homePageReq, quoteReq] = await Promise.all([
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/home_page/rows/1'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/quotes/rows/')
     ])
     return {
-      products: productsReq.data.data,
-      ingredients: ingredientsReq.data.data,
-      recipes: recipesReq.data.data,
+      featuredArticle: homePageReq.data.data.featured_article.data[0],
+      featuredItems: homePageReq.data.data.featured_items.data,
+      featuredProducts: homePageReq.data.data.home_page_products.data,
+      featuredIngredients: homePageReq.data.data.home_page_ingredients.data,
+      featuredRecipes: homePageReq.data.data.home_page_recipes.data,
       quote: quoteReq.data.data[0],
       quoteImage: quoteReq.data.data[0].image.data.url
     }
