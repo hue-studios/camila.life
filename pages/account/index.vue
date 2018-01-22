@@ -21,8 +21,8 @@
       <label for="middle-label" class="text-right middle">first name</label>
     </div>
     <div class="small-9 medium-6 large-6 cell required-box">
-      <input type="text" id="middle-label" placeholder="" :value="given_name" v-model="given_name" v-if="this.$store.state.user.identities[0].isSocial" readonly>
-      <input type="text" id="middle-label" placeholder="" :value="given_name" v-model="given_name" v-else required>
+      <input type="text" id="middle-label" placeholder="" v-model="given_name" v-if="this.$store.state.user.identities[0].isSocial" readonly>
+      <input type="text" id="middle-label" placeholder="" v-model="given_name" v-else required>
       <div id="given-name-error" class="error">REQUIRED</div>
     </div>
     <div class="small-12 cell show-for-medium"></div>
@@ -31,8 +31,8 @@
     </div>
 
     <div class="small-9 medium-6 large-6 cell required-box">
-      <input type="text" v-if="this.$store.state.user.identities[0].isSocial" id="middle-label" placeholder="" :value="family_name" v-model="family_name" readonly>
-      <input type="text" v-else id="middle-label" placeholder="" :value="family_name" v-model="family_name" required>
+      <input type="text" v-if="this.$store.state.user.identities[0].isSocial" id="middle-label" placeholder="" v-model="family_name" readonly>
+      <input type="text" v-else id="middle-label" placeholder="" v-model="family_name" required>
       <div id="family-name-error" class="error">REQUIRED</div>
     </div>
 
@@ -41,14 +41,14 @@
       <label for="middle-label" class="text-right middle">birthday</label>
     </div>
     <div class="small-9 medium-4 cell">
-      <input type="date" id="middle-label" placeholder="" :value="birthday" v-model="birthday">
+      <input type="date" id="middle-label" placeholder="" v-model="birthday">
     </div>
     <div class="small-12 cell show-for-medium"></div>
     <div class="small-3 cell">
       <label for="middle-label" class="text-right middle">zip</label>
     </div>
     <div class="small-9 medium-4 cell">
-      <input type="text" id="middle-label" placeholder="" maxlength="5"  :value="zip_code" v-model="zip_code">
+      <input type="text" id="middle-label" placeholder="" maxlength="5" v-model="zip_code">
     </div>
     <div class="small-12 cell text-center">
       <button type="submit" @click.prevent="updateUser()">UPDATE</button>
