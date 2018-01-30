@@ -1,41 +1,15 @@
 
 <template>
- <div id="container" class="grid-container full">
+ <div class="page">
   <div class="grid-x">
-    <div id="top" class="small-12 cell">
-      <div id="intro"> </div>
-      <div class="angled-crop">
-        <div id="intro-image"></div>
-        <p>Hello health wonderers...my name is Camila.<span class="show-for-medium"> I too like all of you have been on a “discovering good and health journey”.</span> My journey started in 2010 and I’m still on it!</p>
-        <p>This site is my next phase and soon you will see a lot of ingredients, recipes, ideas, and even a shopping assistant for your own vegan adventures.</p>
-        <p>For this first phase, I am excited to launch my online boutique!! <span class="show-for-medium">Check it out <nuxt-link to="/camila-life-boutique" class="underline-link">here</nuxt-link> and stay tuned!!</span></p>
-      </div>
-      <div id="quote" :style="'background-image: url(https://huestudios.com' + quoteImage + ')'">
-        <h5 class="serif">{{quote.quote}}<span>-{{quote.author}}</span></h5>
+    <div class="small-12 medium-8 large-7 cell">
+      <h1>{{featuredArticle.title}}</h1>
+    </div>
+    <div class="small-12 medium-4 large-5 cell">
+      <div class="grid-x">
+        <a v-for="(item, index) in featuredItems" v-bind:key="index" :href="item.url" :style="'background-image: url(' + item.image + ')'">{{item.title}}</a>
       </div>
     </div>
-  </div>
-  <div id="home-boutique" class="grid-x">
-    <h1 id="home-boutique-title" class="small-12 cell pink">BOUTIQUE</h1>
-    <!-- <div class="small-12 large-8 cell promo text-center">
-      <div class="promo-container">
-        <div class="background-cover">
-          <h5>WEAR. STRUT. GIVE THE LOVE.</h5>
-          <h2>PRE-SALE EVENT</h2>
-          <h1 class="green">GET 20% OFF</h1>
-          <h5>ON ALL ITEMS</h5>
-          <p class="condensed-bold">UNTIL DEC 11TH</p>
-          <h3>ENTER CODE <strong>SHOPTHELOVE</strong> AT CHECKOUT</h3>
-          <p class="condensed-bold instructions">*ITEMS WILL BE SHIPPED BY DEC 15TH</p>
-        </div>
-      </div>
-    </div> -->
-    <product class="small-6 medium-4 cell" v-for="(product, index) in products" :product="product" v-if="index < 6" :index="index" v-bind:key="product.id"></product>
-    <nuxt-link class="small-6 medium-4 cell" to="camila-life-boutique" id="home-boutique-link">
-      <div class="home-boutique-link-container">
-        <h5><span>GO TO</span> BOUTIQUE <i class="fa fa-angle-right" aria-hidden="true"></i></h5>
-      </div>
-    </nuxt-link>
   </div>
   <mailing-list-inline></mailing-list-inline>
   <camila-footer></camila-footer>
@@ -43,7 +17,6 @@
 </template>
 <script>
 import axios from 'axios'
-import product from '~/components/product.vue'
 import mailingListInline from '~/components/mailingListInline'
 import camilaFooter from '~/components/camilaFooter'
 import { mapGetters } from 'vuex'
@@ -65,7 +38,7 @@ export default {
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/quotes/rows/')
     ])
     return {
-      featuredArticle: homePageReq.data.data.featured_article.data[0],
+      featuredArticle: homePageReq.data.data.featured_article.data,
       featuredItems: homePageReq.data.data.featured_items.data,
       featuredProducts: homePageReq.data.data.home_page_products.data,
       featuredIngredients: homePageReq.data.data.home_page_ingredients.data,
@@ -80,7 +53,6 @@ export default {
   ]),
   data () {
     return {
-      products: [],
       quote: '',
       quoteImage: ''
     }
@@ -99,24 +71,15 @@ export default {
     }
   },
   components: {
-    product,
     mailingListInline,
     camilaFooter
   },
   created: function () {
+    console.log(this.featuredIngredients[0])
   },
   mounted () {
-    this.$nextTick(this.pinTopScene)
   },
   methods: {
-    pinTopScene () {
-      const scene = new this.$scrollmagic.Scene({triggerElement: '.page-container', duration: 1030}).setTween(new this.$gsap.TimelineMax().add([
-        this.$gsap.TweenMax.to('#quote h5', 1, {marginLeft: '0px', ease: this.$gsap.Linear.easeNone}),
-        this.$gsap.TweenMax.to('#quote h5 span', 1, {right: '-125%', opacity: '0.5', ease: this.$gsap.Linear.easeNone}),
-        this.$gsap.TweenMax.to('.angled-crop', 1, {left: '24%', ease: this.$gsap.Linear.easeNone})
-      ]))
-      this.$ksvuescr.$emit('addScene', 'pinTopScene', scene)
-    }
   }
 }
 </script>
