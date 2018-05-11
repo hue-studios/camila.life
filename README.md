@@ -1,6 +1,6 @@
 # camila.life
 
-> camila.life 1.2
+> camila.life 1.2.0
 
 ## Build Setup
 

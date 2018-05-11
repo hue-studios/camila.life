@@ -37,7 +37,7 @@
             <nuxt-link to="#" class="condensed four">SHOP</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/" class="condensed five">ACCOUNT</nuxt-link>
+            <nuxt-link to="/account" class="condensed five">ACCOUNT</nuxt-link>
           </li>
         </ul>
       </div>
@@ -66,7 +66,7 @@
 
       <ul uk-accordion class="ingredient-list uk-light">
         <li class="uk-open">
-          
+
           <a class="uk-accordion-title uk-text-uppercase uk-text-center">Dairy-Free</a>
           <div class="uk-accordion-content">
             <ingredientListItem class="uk-width-1-1" v-for="(item, index) in list" v-if="item.category == 'dairy-free'" :id="item.product_id" :index="index" v-bind:key="'list-'+item.product_id" group="dairy-free"></ingredientListItem>
