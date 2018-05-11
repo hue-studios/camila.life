@@ -1,0 +1,36 @@
+{
+  "name": "camila.life",
+  "version": "1.0.0",
+  "description": "camila.life 1.2",
+  "author": "hue",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/auth": "^4.3.0",
+    "@nuxtjs/axios": "^5.3.1",
+    "@vuikit/icons": "^0.8.1",
+    "@vuikit/theme": "^0.8.0",
+    "moment": "^2.22.1",
+    "nuxt": "^1.0.0",
+    "striptags": "^3.1.1",
+    "uikit": "^3.0.0-beta.42",
+    "vue-social-sharing": "^2.3.3",
+    "vuikit": "^0.8.4"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "cross-env": "^5.0.1",
+    "eslint": "^4.15.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.5.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^6.0.6"
+  }
+}

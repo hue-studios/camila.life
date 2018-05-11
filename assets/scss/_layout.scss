@@ -1,0 +1,70 @@
+.uk-offcanvas-overlay::before {
+	background: rgba($white,0.6);
+}
+.uk-offcanvas-push, .uk-offcanvas-reveal, .uk-offcanvas-container .uk-offcanvas-content {
+	transition: all 0.37s $curve;
+}
+.uk-nav {
+  a {
+    transform:translateX(-60px);
+    opacity: 0;
+    position: relative;
+    transition: all 0.3s $curve;
+		color: rgba($white, 0.7) !important;
+  }
+	a:hover {
+		color: rgba($white, 1.0) !important;
+	}
+  a:hover::before {
+    left: 1px;
+    opacity: 1;
+    width: 80%;
+  }
+  a::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    background: white;
+    height: 1px;
+    bottom: 2px;
+    left:1px;
+    transition: all 0.35s $curve;
+  }
+   a.nuxt-link-exact-active {
+    color: $pink !important;
+  }
+}
+.uk-open .uk-nav {
+  a {
+    transform:translateX(0px);
+    opacity: 1;
+  }
+  a.one {
+    transition-delay: 0.0s !important;
+  }
+  a.two {
+    transition-delay: 0.03s !important;
+  }
+  a.three {
+    transition-delay: 0.06s !important;
+  }
+  a.four {
+    transition-delay: 0.09s !important;
+  }
+  a.five {
+    transition-delay: 0.12s !important;
+  }
+}
+
+.page-enter-active {
+  transition: opacity 0.25s ease-out;
+}
+
+.page-leave-active {
+  transition: opacity 0.25s ease-in;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}

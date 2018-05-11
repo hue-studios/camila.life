@@ -1,0 +1,41 @@
+/* Scss Document */
+$global-link-color: #DA7D02;
+
+// 2. Import default variables and available mixins.
+@import "uikit/variables-theme.scss";
+@import "uikit/mixins-theme.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+// 4. Import UIkit.
+@import "uikit/uikit-theme.scss";
+@import 'vars';
+@import 'nav';
+@import 'layout';
+@import 'toolbar';
+@import 'article';
+@import 'recipe';
+@import 'ingredient';
+@import 'iconLabels';
+@import 'listButtons';
+@import 'list';
+
+body {
+	background: $white;
+  font-family: $bold-font;
+  padding-bottom: 50px;
+	color: $black;
+  @media (min-width: $large) {
+    padding-bottom: 0;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $condensed-font;
+    text-transform: uppercase;
+}
+
+.uk-card {
+	transition: all 0.3s ease-out;
+}

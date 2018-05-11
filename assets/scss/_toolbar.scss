@@ -1,0 +1,45 @@
+#toolbar {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	z-index: 100;
+	// width:calc(100% - 110px);
+	width: 75%;
+	background: $black;
+	color: $white;
+	height: 40px;
+	display: flex;
+	@media (min-width: $breakpoint-small) {
+		width: 80%;
+	}
+	@media (min-width: $breakpoint-medium) {
+		display: none;
+	}
+	a, div {
+		width: 33.3333%;
+		cursor: pointer;
+		text-align: center;
+		font-family: $condensed-font;
+		color: $white;
+		line-height: 30px;
+		font-size: 16px;
+		padding-top: 7px;
+		padding-bottom: 3px;
+		vertical-align: bottom;
+		height: 30px;
+		border-right: thin solid rgba($dark-pink, 0.1);
+		.uk-badge {
+			background: none;
+			border:thin solid $pink;
+			margin-top: -3px;
+		}
+	}
+	a:hover {
+		color: $white;
+		text-decoration: none;
+	}
+	.nuxt-link-exact-active {
+		color: $blue !important;
+		text-decoration: none;
+	}
+}

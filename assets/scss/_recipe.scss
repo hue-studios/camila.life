@@ -1,0 +1,146 @@
+#recipes {
+	// recipe-landing styles
+	.page-cover {
+		height: 350px;
+		position: relative;
+		@media (min-width: $breakpoint-small) {}
+		@media (min-width: $breakpoint-medium) {
+			height: 400px;
+		}
+		@media (min-width: $breakpoint-large) {
+			height: 500px;
+		}
+
+		h1 {
+			.uk-badge {
+				vertical-align: text-top;
+				background: $pink;
+				color: $white;
+			}
+		}
+	}
+	#listings {
+		min-height: 100vh;
+		margin-top: 0;
+		padding-top: 0;
+	}
+	#filters {
+		margin: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+		transition: all 0.25s ease-out;
+
+		form {
+			align-content: center;
+		background: $white;
+		border-bottom: thin solid rgba($black, 0.2);
+		padding: 10px;
+		@media (min-width: $breakpoint-small) {
+			padding: 20px;
+		}
+		@media (min-width: $breakpoint-medium) {
+
+		}
+		.uk-grid {
+			margin-left: 0;
+		}
+		h5 {
+			font-size: 16px;
+			margin-right: 0px;
+			margin-bottom: 0;
+			vertical-align: bottom;
+			@media (min-width: $breakpoint-small) {
+				font-size: 22px;
+				margin-right: 10px;
+			}
+			@media (min-width: $breakpoint-medium) {
+
+			}
+		}
+			input {
+				height: 40px;
+				border-bottom: thin solid rgba($black, 0.6);
+			}
+			select {
+				border: none;
+				height: 40px;
+				border-bottom: thin solid rgba($black, 0.6);
+			}
+			button {
+				height: 40px;
+			}
+		}
+	}
+}
+// recipe-item styles
+.recipe-item {
+	.recipe-top {
+		height: 150px;
+		background-size: cover;
+		background-position: center;
+		.uk-marker {
+			background: $white;
+			color: $black;
+			right: -10px;
+			top: 35px;
+			svg {
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+
+	.uk-card-title {
+		margin-bottom: 0;
+	}
+
+	h2 {}
+
+	h4 {
+		margin-top: 0;
+
+		.label {
+			opacity: 0.6;
+		}
+	}
+
+	h5 {
+		display: inline;
+		margin: 5px;
+		font-size: 16px;
+		line-height: 16px;
+		border: thin solid $black;
+		padding: 5px 5px 3px;
+	}
+
+	h5:first-of-type {
+		margin-left: 0;
+	}
+
+	p.timing {
+		margin: 0;
+
+		span {}
+	}
+
+	.uk-card-footer {
+		.uk-button {
+			// border: thin solid $pink;
+			// color: $pink;
+			// font-size: 32px;
+		}
+	}
+}
+// recipe-details styles
+#recipe {
+	.slideshow {
+		h1 {
+
+			font-size: 112px;
+		}
+		.uk-slideshow-nav {
+			margin-top: 0px !important;
+			margin-bottom: 0px;
+		}
+	}
+}
