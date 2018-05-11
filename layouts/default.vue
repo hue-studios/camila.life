@@ -62,29 +62,32 @@
       </div>
     </vk-grid>
     <vk-grid class="uk-flex uk-flex-center uk-grid uk-child-width-1-1" v-else v-vk-height-viewport="{ minHeight: 600 }">
-      <h1 class="uk-width-1-1 uk-text-center script-font">{{$auth.user.given_name}}'S GROCERY LIST</h1>
 
+      <div class="uk-width-1-1">
+        <h1 class="uk-text-center script-font">{{$auth.user.given_name}}'S GROCERY LIST</h1>
       <ul uk-accordion class="ingredient-list uk-light">
         <li class="uk-open">
 
-          <a class="uk-accordion-title uk-text-uppercase uk-text-center">Dairy-Free</a>
+          <a class="uk-accordion-title uk-text-uppercase uk-text-center uk-padding-small">Dairy-Free</a>
           <div class="uk-accordion-content">
             <ingredientListItem class="uk-width-1-1" v-for="(item, index) in list" v-if="item.category == 'dairy-free'" :id="item.product_id" :index="index" v-bind:key="'list-'+item.product_id" group="dairy-free"></ingredientListItem>
           </div>
         </li>
+        
         <li>
-          <a class="uk-accordion-title uk-text-uppercase uk-text-center">Meat-Free</a>
+          <a class="uk-accordion-title uk-text-uppercase uk-text-center uk-padding-small">Meat-Free</a>
           <div class="uk-accordion-content">
             <ingredientListItem class="uk-width-1-1" v-for="(item, index) in list" v-if="item.category == 'meat-free'" :id="item.product_id" :index="index" v-bind:key="'list-' + item.product_id" group="meat-free"></ingredientListItem>
           </div>
         </li>
         <li>
-          <a class="uk-accordion-title uk-text-uppercase uk-text-center">oils / sauces</a>
+          <a class="uk-accordion-title uk-text-uppercase uk-text-center uk-padding-small">oils / sauces</a>
           <div class="uk-accordion-content">
             <ingredientListItem class="uk-width-1-1" v-for="(item, index) in list" :id="item.product_id" :index="index" v-if="item.category == 'oils / sauces'" v-bind:key="'list-' + item.product_id" group="oils / sauces"></ingredientListItem>
           </div>
         </li>
       </ul>
+    </div>
     </vk-grid>
   </div>
 </div>

@@ -13,7 +13,6 @@
 
   <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-text-center" uk-grid-parallax="translate:200">
 
-
       <div v-for="(product, index) in products" :key="index">
           <div class="uk-card uk-card-default uk-card-body">{{product.name}}</div>
       </div>
