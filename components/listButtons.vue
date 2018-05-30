@@ -1,12 +1,12 @@
 <template>
 <div class="list-buttons">
-   <transition enter-active-class="animated fadeIn"
-    leave-active-class="animated fadeOut">
+   <transition enter-active-class="uk-animation-scale-up"
+    leave-active-class="uk-animation-scale-down">
 
-    <a v-if="status == 0" class="add-btn" @click.prevent="addToList(id, category, image)" uk-icon="icon: plus"></a>
+    <a v-if="status == 0" class="add-btn" @click.prevent="addToList(id, category, name, type, url)" uk-icon="icon: plus"></a>
 
     <a v-else-if="status == 1" class="remove-btn" @click.prevent="removeFromList(id)" uk-icon="icon: minus"></a>
-    <div v-else uk-spinner></div>
+    <!-- <div v-else uk-spinner></div> -->
   </transition>
  </div>
 </template>
@@ -15,7 +15,7 @@
 import axios from 'axios'
 
 export default {
-  props: ['id', 'category', 'image'],
+  props: ['id', 'category', 'name', 'type', 'url'],
   data: function () {
     return {
       status: 3
@@ -37,8 +37,8 @@ export default {
 
   },
   methods: {
-    addToList (product, category) {
-      axios.post('https://huestudios.com/sites/camila.life/scripts/list.php?email=' + this.$auth.user.email + '&product_id=' + product + '&category=' + category + '&action=add&status=1').then(res => {
+    addToList (product, category, name, type, url) {
+      axios.post('https://huestudios.com/sites/camila.life/scripts/list.php?email=' + this.$auth.user.email + '&product_id=' + product + '&category=' + category + '&name=' + name + '&type=' + type + '&url=' + url + '&purchased=0&action=add&status=1').then(res => {
         console.log(res)
         if (res.status === 200) {
           this.status = 1

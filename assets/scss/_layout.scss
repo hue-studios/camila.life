@@ -68,3 +68,52 @@
 .page-leave-active {
   opacity: 0;
 }
+
+.bounce-enter-active {
+  animation: bounce-in .8s;
+}
+.bounce-leave-active {
+  animation: bounce-out .5s;
+}
+@keyframes bounce-in {
+  0% { transform: scale(0) }
+  50% { transform: scale(1.5) }
+  100% { transform: scale(1) }
+}
+@keyframes bounce-out {
+  0% { transform: scale(1) }
+  50% { transform: scale(1.5) }
+  100% { transform: scale(0) }
+}
+
+.slide-left-enter-active {
+  animation: slide-in-left .5s;
+}
+.slide-left-leave-active {
+  animation: slide-out-left .5s;
+}
+
+@keyframes slide-in-left {
+  0% { transform: translate(100%, 0) }
+  100% { transform: translate(0%, 0)  }
+}
+@keyframes slide-out-left {
+	0% { transform: translate(0%, 0) }
+  100% { transform: translate(-100%, 0)  }
+}
+
+.slide-right-enter-active {
+  animation: slide-in-right .5s;
+}
+.slide-right-leave-active {
+  animation: slide-out-right .5s;
+}
+
+@keyframes slide-in-right {
+  0% { transform: translate(-100%, 0) }
+  100% { transform: translate(0%, 0)  }
+}
+@keyframes slide-out-right {
+	0% { transform: translate(0%, 0) }
+  100% { transform: translate(100%, 0)  }
+}

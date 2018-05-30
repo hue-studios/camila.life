@@ -2,7 +2,7 @@
 <div>
   <vk-scrollspy repeat :cls="['uk-animation-fade']">
     <vk-card class="uk-position-relative ingredient-item" hover padding="large">
-      <listButtons :id="ingredient.id" :category="ingredient.category" />
+      <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" />
       <div v-if="this.ingredient.images.data.length > 0" slot="media-top" class="recipe-top" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.ingredient.images.data[0].name + ')'"></div>
       <div v-else slot="media-top" class="recipe-top" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/camila-sun.jpg')"></div>
 

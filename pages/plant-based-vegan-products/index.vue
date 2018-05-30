@@ -90,6 +90,9 @@ import axios from 'axios'
 import ingredient from '~/components/ingredient.vue'
 
 export default {
+  // transition (to, from) {
+  //   console.log("to: " + to.name + " :: from: " + from.name)
+  // },
   components: {
     ingredient
   },

@@ -3,7 +3,7 @@ const pkg = require('./package')
 module.exports = {
   mode: 'universal',
   router: {
-    middleware: ['auth']
+    middleware: ['auth', 'pages']
   },
   /*
   ** Headers of the page
@@ -43,7 +43,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/ga', ssr: false },
     { src: '~/plugins/social-sharing', ssr: false },
-    '~/plugins/uikit.js'
+    '~/plugins/vuikit.js'
   ],
 
   /*
@@ -54,7 +54,7 @@ module.exports = {
     '@nuxtjs/auth'
   ],
   axios: {
-    baseURL: 'https://huestudios.com/sites/camila.life/content/api/1.1/tables/'
+    baseURL: 'https://huestudios.com/sites/camila.life/content/api/1.1/'
   },
   auth: {
     redirect: {

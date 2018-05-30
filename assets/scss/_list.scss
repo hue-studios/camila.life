@@ -1,45 +1,49 @@
 #list {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100vh;
-	background: $black;
-	color: $white !important;
-	overflow-y: scroll;
-	z-index: 10000;
+	// position: fixed;
+	// top: 0;
+	// left: 0;
+	// width: 100%;
+	// height: 100vh;
+	// background: $black;
+	// color: $white !important;
+	// overflow-y: scroll;
+	// z-index: 10000;
 	@media (min-width: $breakpoint-small) {}
 	@media (min-width: $breakpoint-medium) {}
 
 	h1 {
-		color: $white;
 		font-size: 22px;
 		margin-top: 50px;
 		height: 50px;
 	}
+	//
+	// #close-btn {
+	// 	position: fixed;
+	// 	right: 20px;
+	// 	top: 20px;
+	// 	padding: 8px;
+	// 	background: rgba($white, 0.3);
+	// 	color: $white;
+	// 	width: 60px;
+	// 	height: 60px;
+	// }
+	.login-callout {
+		ul.checkmark-list {
+			font-size: 22px;
 
-	#close-btn {
-		position: fixed;
-		right: 20px;
-		top: 20px;
-		padding: 8px;
-		background: rgba($white, 0.3);
-		color: $white;
-		width: 60px;
-		height: 60px;
+		}
+		button {
+			margin: 10px auto;
+			font-size: 22px;
+			display: block;
+		}
 	}
 
-	ul.checkmark-list {
-		font-size: 22px;
-
-	}
 	.ingredient-list {
 		margin: 0 5%;
-		background: rgba($white, 0.1);
 		list-style-type: none;
 		padding: 0;
 		.uk-accordion-title {
-			background: rgba($white, 0.1);
 			font-size: 26px;
 			font-family: $condensed-font;
 
@@ -47,12 +51,15 @@
 
 		.list-row {
 			h4 {
-				color: $white;
-
+				margin-bottom: 0;
+			}
+			h5 {
+				margin-top: 0;
 				span {
-					display: block;
+					opacity: 0.5;
 				}
 			}
+
 
 			input[type=checkbox] {
 				width: 25px;

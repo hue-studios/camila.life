@@ -1,0 +1,170 @@
+#home {
+	#site-intro {
+		background-image: url('~/images/duotone.png');
+		height: 100vh;
+		overflow:hidden;
+		@media (min-width: $breakpoint-small) {
+			height: 80vh;
+		}
+		@media (min-width: $breakpoint-medium) {
+			height: 600px
+		}
+		#flare {
+			background-image: url('~/images/flare.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 200%;
+    height: calc(100vh + 50px);
+    transform-origin: 22% 53%;
+    opacity: .7;
+		@media (min-width: $breakpoint-small) {
+			height: calc(80vh + 50px);
+		}
+		@media (min-width: $breakpoint-medium) {
+			width: 100%;
+			  height: 700px;
+		}
+		}
+		#site-intro-caption {
+			z-index: 10;
+
+			h2, p {
+				color: $white;
+			}
+		}
+	}
+	#home-intro {
+
+		min-height: 600px;
+		margin-top: 0px;
+		@media (min-width: $breakpoint-small) {}
+		@media (min-width: $breakpoint-medium) {
+			height: 90vh;
+		}
+		#featured-article {
+			background-color: rgba($black, 0.75);
+			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-medium) {}
+			#featured-caption {
+				padding: 50px;
+				h3 {
+					font-size: 64px;
+					line-height: 64px;
+				}
+				.uk-button {
+					color: $white;
+				}
+			}
+		}
+		#featured-items {
+			padding: 20px;
+			align-content:flex-end;
+			.featured-item-col {
+				overflow: hidden;
+				height: calc((90vh / 3) - 40px);
+			}
+
+			.featured-item {
+				height: 100%;
+			}
+
+			.featured-item-link {
+				background: $black;
+				bottom: -100%;
+				width: calc(100% - 15px);
+				height: 100%;
+				color: $pink;
+				transition: 0.2s all $curve;
+				flex-direction: column;
+				h4 {
+					color: $white;
+					margin-bottom: 0;
+
+				}
+				h5 {
+					color: $pink;
+					margin-bottom: 0;
+					margin-top: 0px;
+				}
+			}
+			.featured-item-col:hover {
+
+			}
+
+			.featured-item-col:hover .featured-item {
+				background-image: none;
+			}
+			.featured-item-col:hover .featured-item-link {
+				bottom: 0%;
+			}
+		}
+
+	}
+	#featured-products {
+		box-shadow: inset 0px -1px 25px rgba($black, 0.5);
+		background: $blue-gradient;
+		padding:70px 0;
+		margin-top: 0;
+		.uk-card-media-top {
+			img {
+				border-bottom: thin solid rgba($black, 0.4);
+			}
+		}
+	}
+	#featured-recipe {
+		margin-top: 0;
+		background-color: rgba($black, 0.75);
+		height: 600px;
+		.bg-title {
+				position:absolute;
+				left: 0px;
+				top: 50px;
+				opacity: 0.1;
+				font-size: 188px;
+		}
+		.label {
+			opacity: 0.6;
+		}
+	}
+	#featured-quote {
+		height: 400px;
+		margin-top: 0;
+		padding: 50px 0;
+		background-image: url('~/images/duotone-ingredients.png');
+		box-shadow: inset 0px -1px 25px rgba($black, 0.5);
+		color: $pink;
+		font-size: 72px;
+	}
+	#featured-ingredients {
+			margin-top: 0;
+			padding: 50px 0;
+	}
+	#instafeed {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.goto-page-link {
+		color: $blue;
+		p {
+			margin-bottom: 0px;
+			font-size: 32px;
+			line-height: 28px;
+		}
+		.uk-icon {
+			svg {
+				width: 80px;
+				height: 80px;
+
+				polyline {
+						stroke-width: 0.5 !important;
+				}
+			}
+		}
+	}
+}

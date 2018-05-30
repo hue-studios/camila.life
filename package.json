@@ -17,10 +17,13 @@
     "@nuxtjs/axios": "^5.3.1",
     "@vuikit/icons": "^0.8.1",
     "@vuikit/theme": "^0.8.0",
+    "firebase": "^5.0.3",
+    "instafeed.js": "^1.4.1",
     "moment": "^2.22.1",
     "nuxt": "^1.0.0",
     "striptags": "^3.1.1",
     "uikit": "^3.0.0-beta.42",
+    "vue-instagram": "^1.3.1",
     "vue-social-sharing": "^2.3.3",
     "vuikit": "^0.8.4"
   },

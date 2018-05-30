@@ -10,8 +10,8 @@ const createStore = () => {
       backLink: false
     },
     mutations: {
-      SET_PAGE (state, name) {
-        state.page = name
+      UPDATE_PAGE(state, pageName) {
+        state.page = pageName
       },
       SET_BACKLINK (state, backLink) {
         state.backLink = backLink || false
