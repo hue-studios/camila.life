@@ -75,7 +75,6 @@
     <div class="uk-width-1-1@s uk-width-1-3@m uk-text-center white">
       <h2 class="white">{{recipe.name}}</h2>
       <h4 class="white"><span class="label">CUISINE</span> {{recipe.cuisine}}</h4>
-      <h5 v-if="styles.length > 0" v-for="(style, index) in styles" v-bind:key="index" class="uk-text-uppercase white">{{style}}</h5>
       <p class="white uk-text-justify">{{truncate(recipe.caption, 200)}}</p>
       <p><span v-if="recipe.recipe_directions.meta.total > 0" class="condensed-bold timing">{{recipe.recipe_directions.meta.total}} STEPS</span> +
 
