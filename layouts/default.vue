@@ -7,7 +7,7 @@
   </div>
   <nuxt-link to="/list" id="grocery-list-btn">
     <h2 class="condensed uk-text-uppercase uk-position-relative">GROCERY<transition name="fade"><span class="uk-badge uk-position-absolute" v-if="$store.state.list.length > 0">{{this.$store.state.list.length}}</span></transition></h2>
-    <h3 class="condensed-bold">LIS</h3>
+    <h3 class="condensed-bold">LIST</h3>
   </nuxt-link>
   <div id="shopping-bag-btn">
     <h2 class="condensed uk-text-uppercase uk-position-relative">SHOPPING <transition name="fade"><span class="uk-badge uk-position-absolute" v-if="$store.state.bag.length > 0">{{$store.state.bag.length}}</span></transition></h2>
