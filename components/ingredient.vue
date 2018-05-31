@@ -2,7 +2,7 @@
 <div>
   <vk-scrollspy repeat :cls="['uk-animation-fade']">
     <vk-card class="uk-position-relative ingredient-item" hover padding="large">
-      <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" />
+      <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" v-if="$auth.$state.loggedIn" />
       <div v-if="this.ingredient.images.data.length > 0" slot="media-top" class="recipe-top" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.ingredient.images.data[0].name + ')'"></div>
       <div v-else slot="media-top" class="recipe-top" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/camila-sun.jpg')"></div>
 
@@ -40,7 +40,7 @@ export default {
     listButtons
   },
   async asyncData({ app }) {
-    const response = await app.$axios.$get('recipe_ingredients/rows/?filters[ingredient][eq]=' + this.ingredient.id)
+    const response = await app.$axios.$get('tables/recipe_ingredients/rows/?filters[ingredient][eq]=' + this.ingredient.id)
     this.recipes = response.data.data
     this.total = this.recipes.length
   },

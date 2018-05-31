@@ -55,6 +55,7 @@ import axios from 'axios'
 
 
 export default {
+  auth: false,
   scrollToTop: true,
   async asyncData({
     params

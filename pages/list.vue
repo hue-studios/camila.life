@@ -63,7 +63,7 @@ export default {
   },
   async asyncData({ app }) {
     let [listReq] = await Promise.all([
-      app.$axios.get('list/rows/?filters[email][eq]=' + app.$auth.user.email)
+      app.$axios.get('tables/list/rows/?filters[email][eq]=' + app.$auth.user.email)
     ])
     return {
       list: listReq.data.data

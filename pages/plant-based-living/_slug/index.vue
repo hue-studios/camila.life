@@ -42,6 +42,7 @@ import moment from 'moment'
 import socialSharingArticle from '~/components/socialSharingArticle.vue'
 
 export default {
+  auth: false,
   scrollToTop: true,
   async asyncData({
     params
@@ -56,7 +57,9 @@ export default {
     }
   },
   created() {
-    this.tags = this.makeArray(this.article.tags)
+    if(this.article.tags) {
+      this.tags = this.makeArray(this.article.tags)
+    }
   },
   head() {
     return {

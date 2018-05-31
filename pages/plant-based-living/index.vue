@@ -32,6 +32,7 @@
 import axios from 'axios'
 
 export default {
+  auth: false,
   async asyncData () {
     let { data, req } = await
       axios.get('http://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?order[date_published]=ASC')

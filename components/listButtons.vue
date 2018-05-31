@@ -25,7 +25,7 @@ export default {
 
   },
   mounted: function () {
-    this.$axios.get('list/rows/?filters[email][eq]=' + this.$auth.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
+    this.$axios.get('tables/list/rows/?filters[email][eq]=' + this.$auth.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
       if (response.data.data.length >= 1) {
         this.status = 1
       } else {

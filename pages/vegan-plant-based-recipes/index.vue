@@ -89,6 +89,7 @@ import axios from 'axios'
 import recipe from '~/components/recipe'
 
 export default {
+  auth: false,
   scrollToTop: true,
   async asyncData() {
     let [recipesReq, pageReq] = await Promise.all([

@@ -1,11 +1,9 @@
 <template>
-<div class="container d-flex align-items-center justify-content-center flex-column">
-  Logging in...
-</div>
+<vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+  Logging in.
+</vk-grid>
 </template>
 
 <style scoped>
-.container {
-  min-height: 70vh;
-}
+
 </style>

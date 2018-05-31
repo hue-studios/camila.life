@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const axios = require('axios')
 
 module.exports = {
   mode: 'universal',
@@ -6,49 +7,70 @@ module.exports = {
     middleware: ['auth', 'pages']
   },
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: pkg.name,
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+    meta: [{
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: pkg.description
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
+    link: [{
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicon.ico'
+    }],
     script: [
       // { src: '/js/uikit.min.js' },
       // { src: '/js/uikit-icons.min.js' },
-      { src: '//fast.fonts.net/jsapi/3bac6251-f95f-450e-adf8-3f326b8e374a.js' }
+      {
+        src: '//fast.fonts.net/jsapi/3bac6251-f95f-450e-adf8-3f326b8e374a.js'
+      }
     ]
   },
 
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#00FF1B', height: '12px' },
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: '#00FF1B',
+    height: '12px'
+  },
 
   /*
-  ** Global CSS
-  */
-  css: [
-   { src: '~/assets/scss/main.scss', lang: 'scss' }
-  ],
+   ** Global CSS
+   */
+  css: [{
+    src: '~/assets/scss/main.scss',
+    lang: 'scss'
+  }],
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    { src: '~/plugins/ga', ssr: false },
-    { src: '~/plugins/social-sharing', ssr: false },
+   ** Plugins to load before mounting the App
+   */
+  plugins: [{
+      src: '~/plugins/ga',
+      ssr: false
+    },
+    {
+      src: '~/plugins/social-sharing',
+      ssr: false
+    },
     '~/plugins/vuikit.js'
   ],
 
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/auth'
@@ -72,13 +94,41 @@ module.exports = {
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
+
+
+  generate: {
+    routes: function() {
+      let ingredients = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/')
+        .then((res) => {
+          return res.data.data.map((item) => {
+            return '/plant-based-vegan-products/' + item.url
+          })
+        })
+      let recipes = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/')
+        .then((res) => {
+          return res.data.data.map((item) => {
+            return '/vegan-plant-based-recipes/' + item.url
+          })
+        })
+      let articles = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/')
+        .then((res) => {
+          return res.data.data.map((item) => {
+            return '/plant-based-living/' + item.url
+          })
+        })
+      return Promise.all([ingredients, recipes, articles]).then(values => {
+        return values.join().split(',');
+      })
+    }
+  },
+
   build: {
     vendor: ['uikit'],
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
