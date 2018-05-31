@@ -27,19 +27,20 @@
             <nuxt-link to="/plant-based-living" class="condensed one">PLANT BASED LIVING</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/vegan-plant-based-recipes" class="condensed two">RECIPES</nuxt-link>
+            <nuxt-link to="/plant-based-vegan-products" class="condensed three">VEGAN PRODUCTS</nuxt-link>
           </li>
           <li>
-            <nuxt-link to="/plant-based-vegan-products" class="condensed three">PRODUCTS</nuxt-link>
+            <nuxt-link to="/vegan-plant-based-recipes" class="condensed two">VEGAN RECIPES</nuxt-link>
           </li>
+
           <li>
-            <nuxt-link to="#" class="condensed four">SHOP</nuxt-link>
+            <nuxt-link to="#" class="condensed four">CAMILA BOUTIQUE</nuxt-link>
           </li>
-          <li>
+          <li v-if="$auth.$state.loggedIn">
             <nuxt-link to="/account" class="condensed five">ACCOUNT</nuxt-link>
           </li>
-          <vk-grid class="uk-flex uk-flex-center uk-flex-top uk-grid-small uk-text-center uk-margin-large-top" v-if="$auth.$state.loggedIn">
-
+          <vk-grid class="uk-flex uk-flex-center uk-flex-top uk-grid-small uk-text-center uk-margin-large-top">
+            <div v-if="$auth.$state.loggedIn">
           <h5 class="uk-width-1-1">{{$auth.user.email}}</h5>
           <div class="uk-width-1-1">
           <img :src='$auth.user.picture' style="width: 70px; height: 70px; border-radius: 50%;"/>
@@ -47,8 +48,12 @@
         <div class="uk-width-1-1">
           <nuxt-link class="uk-button uk-button-default uk-text-center" to="/logout">LOGOUT</nuxt-link>
         </div>
+        </div>
+        <div class="uk-width-1-1" v-else>
+        <button class="uk-button uk-button-default uk-text-center uk-margin-large-top" @click.prevent="$auth.loginWith('auth0')" >LOGIN</button>
+      </div>
         </vk-grid>
-      <button class="uk-button uk-button-default uk-text-center uk-margin-large-top" @click.prevent="$auth.loginWith('auth0')" v-else>LOGIN</button>
+
         </ul>
 
     <!-- <h1><span class="uk-badge">{{ $auth.$state.loggedIn ? 'Logged In' : 'Guest' }}</span></h1> -->

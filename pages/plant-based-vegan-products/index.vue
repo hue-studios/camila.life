@@ -14,7 +14,7 @@
         <form>
           <vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
           <div class="">
-          <h5>FILTER <span class="uk-visible@s">RECIPES</span>: </h5>
+          <h5>FILTER <span class="uk-visible@s">INGREDIENTS</span>: </h5>
         </div>
           <div class="uk-visible@s">
               <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />

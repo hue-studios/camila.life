@@ -36,14 +36,14 @@ import axios from 'axios'
 
 export default {
   auth: false,
-  // transition (to, from) {
-  //   if (!from) {
-  //
-  //   } else if (from.name == 'index' || from.name == 'list') {
-  //     return 'slide-left'
-  //     console.log("to: " + to.name + " :: from: " + from.name)
-  //   }
-  // },
+  transition (to, from) {
+    if (!from) {
+
+    } else if (from.name == 'index' || from.name == 'list') {
+      return 'slide-left'
+      console.log("to: " + to.name + " :: from: " + from.name)
+    }
+  },
   scrollToTop: true,
   async asyncData({
     params
