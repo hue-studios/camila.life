@@ -1,7 +1,7 @@
 <template>
 <div id="home">
-  <vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-background-cover uk-background-blend-multiply uk-position-relative" v-if="!$auth.$state.loggedIn" id="site-intro" uk-parallax="bgy:150px; target: #site-intro">
-    <div id="flare" uk-parallax="rotate: -30; scale: 2.3 ;top: 120px; target: #site-intro"></div>
+  <vk-grid class="top-section uk-flex uk-flex-center uk-flex-middle uk-text-center uk-background-cover uk-background-blend-multiply uk-position-relative" v-if="!$auth.$state.loggedIn" id="site-intro" uk-parallax="bgy:150px; target: #site-intro">
+    <div id="flare" uk-parallax="rotate: -50; scale: 2.3 ;top: 120px; target: #site-intro"></div>
     <div class="uk-width-1-1" id="site-intro-caption">
       <h2>introducing camila.life!</h2>
       <p>This could be an intro if a person is not signed in.</p>
@@ -48,8 +48,11 @@
 
     <p class="uk-width-1-2" uk-parallax="color: #FB00DA,#00bfff,#FB00DA; viewport: 0.8">A nice quote here!</p>
   </vk-grid>
-  <vk-grid class="uk-grid-large uk-text-center uk-flex uk-flex-center uk-flex-middle" id="featured-ingredients" v-vk-height-match="{ target: '.uk-card' }">
-    <div v-for="(ingredient, index) in ingredients" :key="index">
+  <vk-grid class="uk-grid-large uk-text-center uk-flex uk-flex-center uk-flex-middle uk-position-relative" id="featured-ingredients" v-vk-height-match="{ target: '.uk-card' }">
+
+      <h1 class="uk-position-absolute uk-text-left bg-title">FEATURED <br>VEGAN <br>PRODUCTS</h1>
+
+    <div v-for="(ingredient, index) in ingredients" :key="index" v-bind:class="{ 'uk-visible@l': (index === 2) }" >
       <div class="uk-card uk-card-default">
         <div class="uk-card-media-top">
           <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + ingredient.images.data[0].name" :alt="ingredient.name" class="">
@@ -61,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="uk-width-1-1">
         <nuxt-link to="/plant-based-vegan-products" class="uk-flex uk-flex-center uk-flex-middle goto-page-link">
         <p class="uk-text-left" uk-parallax="color: #00bfff,#FB00DA; x: 40px">see all<br> vegan<br> products </p>
         <vk-icon icon="chevron-right" uk-parallax="color: #FB00DA, #00bfff; x: 30px"></vk-icon>
@@ -71,30 +74,33 @@
 
   <vk-grid id="featured-recipe" class="uk-background-cover uk-background-blend-multiply uk-panel uk-flex uk-flex-center uk-flex-middle uk-position-relative" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/' + recipe.images.data[0].name + ')'"
     uk-parallax="bgy: 800; target: #featured-recipe">
-    <h1 class="bg-title white uk-width-1-1 uk-text-center" uk-parallax="y: -60px; target: #featured-recipe">Featured Recipe</h1>
-    <div class="uk-width-1-1@s uk-width-1-3@m uk-text-center white">
+    <h1 class="bg-title white uk-width-1-1 uk-text-center" uk-parallax="y: -200px; target: #featured-recipe">Featured Recipe</h1>
+
+    <div class="uk-width-1-2@s uk-width-1-3@xl  uk-text-center white">
       <h2 class="white">{{recipe.name}}</h2>
       <h4 class="white"><span class="label">CUISINE</span> {{recipe.cuisine}}</h4>
-      <p class="white uk-text-justify">{{truncate(recipe.caption, 200)}}</p>
+      <div class="white uk-text-justify uk-padding-large uk-padding-remove-top uk-padding-remove-bottom" v-html="truncate(recipe.caption, 200)"></div>
       <p><span v-if="recipe.recipe_directions.meta.total > 0" class="condensed-bold timing">{{recipe.recipe_directions.meta.total}} STEPS</span> +
 
         <span v-if="recipe.recipe_ingredients.meta.total > 0" class="condensed-bold timing">{{recipe.recipe_ingredients.meta.total}} INGREDIENTS</span></p>
       <a class="uk-button uk-button-default condensed-bold white" :href="'/vegan-plant-based-recipes/' + recipe.url">DETAILS</a>
     </div>
+
   </vk-grid>
-  <vk-grid class="uk-grid-large uk-text-center uk-flex uk-flex-center uk-flex-middle" id="featured-products">
+  <vk-grid gutter="large" class="uk-grid-large uk-text-center uk-flex uk-flex-center uk-flex-middle uk-position-relative" id="featured-products">
+    <h1 class="bg-title white uk-position-absolute uk-text-lowercase" uk-parallax="opacity: .1, .5; y: 60px; target: #featured-products">boutique</h1>
     <div v-for="(product, index) in products" :key="index">
       <div class="uk-card uk-card-default">
         <div class="uk-card-media-top">
           <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + product.images.data[0].name" :alt="product.name" class="">
         </div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title">{{product.name}} <span class="pink condensed-bold">${{product.price}}</span></h3>
+          <h3 class="uk-card-title">{{product.name}}<br> <span class="pink condensed-bold">${{product.price}}</span></h3>
           <nuxt-link :to="product.url" class="uk-button uk-button-default">SHOP THIS</nuxt-link>
         </div>
       </div>
     </div>
-    <div>
+    <div class="uk-width-1-1">
       <nuxt-link to="/plant-based-vegan-products" class="uk-flex uk-flex-center uk-flex-middle goto-page-link">
       <p class="uk-text-left" uk-parallax="color: #00bfff,#fff, #FB00DA; x: 40px">go to<br> camila<br> boutique </p>
       <vk-icon icon="chevron-right" uk-parallax="color: #FB00DA, #fff, #00bfff; x: 30px"></vk-icon>
@@ -107,6 +113,7 @@
 <script>
 import iconLabels from '~/components/iconLabels.vue'
 import instafeed from 'instafeed.js'
+import striptags from 'striptags'
 
 export default {
   auth: false,

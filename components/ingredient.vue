@@ -15,7 +15,7 @@
 
       <p v-html="truncate(ingredient.description, 120)"></p>
       <div slot="footer" class="uk-flex uk-flex-bottom uk-flex-center">
-        <a class="uk-button uk-button-default condensed-bold" :href="'/vegan-plant-based-recipes/' + ingredient.url">DETAILS</a>
+        <a class="uk-button uk-button-default condensed-bold" :href="'/plant-based-vegan-products/' + ingredient.url">DETAILS</a>
       </div>
     </vk-card>
   </vk-scrollspy>

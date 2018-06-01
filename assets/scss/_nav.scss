@@ -1,17 +1,19 @@
 #logo {
 
-	height: 40px;
-	background: $pink;
-	width: 100%;
-	z-index: 100;
+	width: 100px;
+	z-index: 10;
+	height: auto;
+	position: fixed;
+	top: -1px;
+	left: -18px;
+	transform-origin: top left;
 	@media (min-width: $breakpoint-small) {
-		height: 60px;
+		width: 150px;
+		left: -20px;
 	}
 	@media (min-width: $breakpoint-medium) {
-		width: 150px;
-		background: none;
-		height: auto;
-		position: absolute;
+		top: -4px;
+
 	}
 	@media (min-width: $breakpoint-xlarge) {
 		width: 200px;
@@ -26,21 +28,22 @@
 	h1 {
 		word-wrap: break-word;
 		transition: all 0.3s $curve;
-		color: $white;
+		color: $pink;
 		font-family: $body-font;
-		font-size: 22px;
-		line-height: 40px;
+		font-size: 56px;
+		line-height: 46px;
 		vertical-align: middle;
 		margin-bottom: 0px;
 		margin-left: 15px;
 		@media (min-width: $breakpoint-small) {
 			font-size: 86px;
 			line-height: 70px;
+
 		}
 		@media (min-width: $breakpoint-medium) {
 			font-size: 96px;
 			line-height: 80px;
-			color: $pink;
+
 		}
 		@media (min-width: $breakpoint-xlarge) {
 			font-size: 126px;
@@ -168,8 +171,8 @@
 	@media (min-width: $breakpoint-medium) {
 		background: $black;
 		bottom: auto;
-		top: 10px;
-    right: 10px;
+		top: 20px;
+    right: 20px;
 		width: auto;
     display: block;
 	}
@@ -182,7 +185,7 @@
 
     cursor: pointer;
     @media (min-width: $breakpoint-medium) {
-      margin: 15px 25px;
+      margin: 5px 25px;
     }
     span {
       display: block;
@@ -221,11 +224,17 @@
     }
   }
 }
-.uk-offcanvas-container #nav-btn {
+#nav-btn.open  {
 	transition: .35s $curve;
+	@media (min-width: $breakpoint-medium) {
+		background: none;
+	}
   #nav-icon {
     span {
 			transition: .35s $curve;
+			@media (min-width: $breakpoint-medium) {
+				background-color: $pink;
+			}
     }
     span:nth-child(1) {
       transform: rotate(35deg);

@@ -2,7 +2,7 @@
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
-	z-index: 100;
+	z-index: 10;
 	// width:calc(100% - 110px);
 	width: 75%;
 	background: $black;
@@ -13,25 +13,55 @@
 		width: 80%;
 	}
 	@media (min-width: $breakpoint-medium) {
-		display: none;
+		bottom: auto;
+		top: 20px;
+		right:120px;
+		left: auto;
+		width: auto;
+		height: 40px;
+		align-items: center;
+		justify-content: center;
+		align-content: center;
+		text-align: center;
 	}
 	a, div {
-		width: 33.3333%;
+		width: 50%;
 		cursor: pointer;
+		align-items: center;
+		justify-content: center;
+		align-content: center;
 		text-align: center;
+		display: flex;
 		font-family: $condensed-font;
 		color: $white;
-		line-height: 30px;
-		font-size: 16px;
-		padding-top: 7px;
+		// line-height: 30px;
+		font-size: 14px;
+		padding-top: 6px;
 		padding-bottom: 3px;
-		vertical-align: bottom;
-		height: 30px;
-		border-right: thin solid rgba($dark-pink, 0.1);
+		// vertical-align: bottom;
+		// height: 30px;
+		border-right: thin solid rgba($dark-pink, 0.5);
 		.uk-badge {
 			background: none;
 			border:thin solid $pink;
-			margin-top: -3px;
+			margin-top: -2px;
+			margin-left: 5px;
+			font-size: 12px;
+			line-height: 10px;
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+		}
+		@media (min-width: $breakpoint-small) {
+			width:33.3333%
+		}
+		@media (min-width: $breakpoint-medium) {
+			width: auto;
+			padding-left: 20px;
+			padding-right: 20px;
+			font-size: 15px;
+			line-height: 15px;
 		}
 	}
 	a:hover {

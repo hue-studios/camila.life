@@ -1,6 +1,6 @@
 
 <template>
-<div id="articles" class="" uk-scrollspy="target: > .article; cls:uk-animation-fade; delay: 400; repeat:true">
+<div id="articles" class="top-section" uk-scrollspy="target: > .article; cls:uk-animation-fade; delay: 400; repeat:true">
     <h1 class="uk-width-1-1">Plant-Based Living: {{name}}</h1>
   <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-text-center uk-grid-match" uk-grid-parallax="translate:200">
 

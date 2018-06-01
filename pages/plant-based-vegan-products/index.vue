@@ -1,10 +1,10 @@
 
 <template>
   <vk-grid id="recipes">
-    <div class="uk-width-1-1 uk-background-cover uk-flex uk-flex-center uk-flex-middle page-cover" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'" uk-parallax="bgy: 200; target: .uk-background-cover">
+    <div class="top-section uk-width-1-1 uk-background-cover uk-flex uk-flex-center uk-flex-middle page-cover" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'" uk-parallax="bgy: 200; target: .uk-background-cover">
       <div class="uk-overlay-primary uk-position-cover"></div>
       <div class="uk-overlay uk-position-middle uk-light uk-padding-large uk-text-center">
-        <h1 class="uk-text-uppercase white" uk-parallax="y: 100; target: .uk-background-cover">{{page.page}} <span class="uk-badge pink-bg">{{total}}</span></h1>
+        <h1 class="uk-text-uppercase white" uk-parallax="y: 100; target: .uk-background-cover">VEGAN INGREDIENTS <span class="uk-badge pink-bg">{{total}}</span></h1>
         <p class="white" uk-parallax="y: 60; target: .uk-background-cover">{{page.caption}}</p>
       </div>
 
@@ -14,7 +14,7 @@
         <form>
           <vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
           <div class="">
-          <h5>FILTER <span class="uk-visible@s">INGREDIENTS</span>: </h5>
+          <h5>FILTER <span class="uk-visible@s">PRODUCTS</span>: </h5>
         </div>
           <div class="uk-visible@s">
               <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />

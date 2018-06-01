@@ -2,7 +2,7 @@
 <template>
 <div id="__article" class="uk-container uk-container-expand uk-padding-remove">
   <vk-grid id="__article-grid" class="uk-grid-collapse">
-  <div class="uk-width-1-1 uk-width-1-2@l uk-width-2-5@xl article-details__cover">
+  <div class="top-section uk-width-1-1 uk-width-1-2@l uk-width-2-5@xl article-details__cover">
     <vk-sticky media="1200">
       <div class="uk-background-cover uk-flex uk-flex-center uk-flex-middle" :style="'background-image: url(http://huestudios.com' + image + ')'" uk-parallax="bgy: -185; target: .uk-background-cover">
         <div class="uk-overlay-primary uk-position-cover"></div>

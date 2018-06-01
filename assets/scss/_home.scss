@@ -11,22 +11,27 @@
 		}
 		#flare {
 			background-image: url('~/images/flare.png');
-    background-size: 100% auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    top: -20px;
+    top: -30px;
     left: 0;
     width: 200%;
     height: calc(100vh + 50px);
     transform-origin: 22% 53%;
-    opacity: .7;
+    opacity: .8;
 		@media (min-width: $breakpoint-small) {
 			height: calc(80vh + 50px);
 		}
 		@media (min-width: $breakpoint-medium) {
-			width: 100%;
+			width: 130%;
 			  height: 700px;
+				top: -20px;
+		}
+		@media (min-width: $breakpoint-large) {
+				width: 200%;
+				top: 0px;
 		}
 		}
 		#site-intro-caption {
@@ -46,7 +51,7 @@
 			height: 90vh;
 		}
 		#featured-article {
-			background-color: rgba($black, 0.75);
+			background-color: rgba($black, 0.35);
 			@media (min-width: $breakpoint-small) {}
 			@media (min-width: $breakpoint-medium) {}
 			#featured-caption {
@@ -107,8 +112,28 @@
 	#featured-products {
 		box-shadow: inset 0px -1px 25px rgba($black, 0.5);
 		background: $blue-gradient;
-		padding:70px 0;
+		padding:70px 40px;
 		margin-top: 0;
+		.bg-title {
+				position:absolute;
+				left: -8px;
+				top: -10px;
+				opacity: 0.1;
+				font-size: 92px;
+				line-height: 90px;
+				font-family: $body-font;
+				@media (min-width: $breakpoint-small) {
+					top: -20px;
+					font-size: 142px;
+					line-height: 90px;
+				}
+				@media (min-width: $breakpoint-medium) {
+					left: -15px;
+					top: -50px;
+					font-size: 188px;
+					line-height: 132px;
+				}
+		}
 		.uk-card-media-top {
 			img {
 				border-bottom: thin solid rgba($black, 0.4);
@@ -122,9 +147,15 @@
 		.bg-title {
 				position:absolute;
 				left: 0px;
-				top: 50px;
+				top: 40%;
 				opacity: 0.1;
-				font-size: 188px;
+				font-size: 122px;
+				line-height: 90px;
+				@media (min-width: $breakpoint-small) {}
+				@media (min-width: $breakpoint-medium) {
+					font-size: 188px;
+					line-height: 132px;
+				}
 		}
 		.label {
 			opacity: 0.6;
@@ -138,10 +169,31 @@
 		box-shadow: inset 0px -1px 25px rgba($black, 0.5);
 		color: $pink;
 		font-size: 72px;
+		line-height: 66px;
 	}
 	#featured-ingredients {
 			margin-top: 0;
-			padding: 50px 0;
+			padding:70px 40px;
+			.uk-card-body{
+
+			}
+			.bg-title {
+					position:absolute;
+					left: -10px;
+					top: 10px;
+					opacity: 0.1;
+					font-size: 126px;
+					line-height: 90px;
+					@media (min-width: $breakpoint-small) {}
+					@media (min-width: $breakpoint-medium) {
+						font-size: 228px;
+						line-height: 160px;
+						top: 15px;
+					}
+					@media (min-width: $breakpoint-large) {
+
+					}
+			}
 	}
 	#instafeed {
 		img {
@@ -151,6 +203,7 @@
 	}
 	.goto-page-link {
 		color: $blue;
+
 		p {
 			margin-bottom: 0px;
 			font-size: 32px;
