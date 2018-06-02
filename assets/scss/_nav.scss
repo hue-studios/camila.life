@@ -51,108 +51,6 @@
 		}
 	}
 }
-#grocery-list-btn {
-	display: none;
-	@media (min-width: $breakpoint-small) {
-
-	}
-	@media (min-width: $breakpoint-medium) {
-		width: 98px;
-		display: block;
-		position: fixed;
-		top: 70px;
-		right: 10px;
-		text-align: center;
-		z-index: 999;
-		background: $white;
-		border: thin solid rgba($black, 0.5);
-		cursor: pointer;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		align-content: center;
-		flex-direction: column;
-		padding: 15px 0;
-		border-radius: 0 0 3px 3px;
-	}
-	h2 {
-		font-size: 18px;
-		line-height: 15px;
-		margin: 0;
-		padding: 0;
-		letter-spacing: 0.1em;
-		.uk-badge {
-			background: rgba($black, 0.1);
-			color: $pink;
-			top: -15px;
-			right: -20px;
-			border-radius: 0;
-			width: 20px;
-			height: 20px;
-			font-size: 12px;
-		}
-	}
-	h3 {
-		font-size: 36px;
-		line-height: 28px;
-		margin: 0;
-		padding: 0;
-		letter-spacing: 0.1em;
-	}
-
-}
-#shopping-bag-btn {
-	display: none;
-	@media (min-width: $breakpoint-small) {
-
-	}
-	@media (min-width: $breakpoint-medium) {
-		width: 98px;
-		display: block;
-		position: fixed;
-		top: 140px;
-		right: 10px;
-		text-align: center;
-		z-index: 999;
-		background: $white;
-		border: thin solid rgba($black, 0.5);
-		cursor: pointer;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		align-content: center;
-		flex-direction: column;
-		padding: 15px 0;
-		border-radius: 0 0 3px 3px;
-	}
-	h2 {
-		font-size: 18px;
-		line-height: 15px;
-		margin: 0;
-		padding: 0;
-		letter-spacing: 0.1em;
-		.uk-badge {
-			background: rgba($black, 0.1);
-			color: $pink;
-			top: -15px;
-			right: -20px;
-			border-radius: 0;
-			width: 20px;
-			height: 20px;
-			font-size: 12px;
-		}
-	}
-	h3 {
-		font-size: 36px;
-		line-height: 28px;
-		margin: 0;
-		padding: 0;
-		letter-spacing: 0.1em;
-	}
-
-}
 #nav-btn {
 	bottom: 0px;
 	right: 0px;
@@ -180,7 +78,7 @@
     width: 50px;
     height: 30px;
     position: relative;
-    margin: 5px auto 5px auto;
+    margin: 10px;
     transform: rotate(0deg);
 
     cursor: pointer;

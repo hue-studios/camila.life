@@ -83,7 +83,7 @@
       <p><span v-if="recipe.recipe_directions.meta.total > 0" class="condensed-bold timing">{{recipe.recipe_directions.meta.total}} STEPS</span> +
 
         <span v-if="recipe.recipe_ingredients.meta.total > 0" class="condensed-bold timing">{{recipe.recipe_ingredients.meta.total}} INGREDIENTS</span></p>
-      <a class="uk-button uk-button-default condensed-bold white" :href="'/vegan-plant-based-recipes/' + recipe.url">DETAILS</a>
+      <nuxt-link class="uk-button uk-button-default condensed-bold white" :to="'/vegan-plant-based-recipes/' + recipe.url">DETAILS</nuxt-link>
     </div>
 
   </vk-grid>

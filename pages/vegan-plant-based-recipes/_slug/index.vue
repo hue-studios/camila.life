@@ -2,10 +2,10 @@
 <template>
 <div id="recipe">
 
-  <div class="uk-position-relative uk-visible-toggle uk-dark slideshow" uk-slideshow="animation: push">
+  <div class="top-section uk-position-relative uk-visible-toggle uk-dark slideshow" uk-slideshow="animation: push">
 
     <ul class="uk-slideshow-items">
-      <li v-for="(image, index) in images" v-bind:key="index">
+      <li v-for="(image, index) in images" v-bind:key="image.id">
         <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
           <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ image.name" :alt="index" uk-cover>
 
@@ -41,7 +41,7 @@
     <div class="small-12 cell recipe__directions">
       <h3 class="text-lowercase bold-font">HOW TO GET IT DONE</h3>
 
-      <div v-for="(index, direction) in recipe.recipe_directions.data" v-bind:key="index">
+      <div v-for="(index, direction) in recipe.recipe_directions.data" v-bind:key="direction.id">
         <h3 class="blue text-uppercase">{{direction.title}}</h3>
         <div v-html="direction.content"></div>
       </div>
@@ -70,6 +70,9 @@ export default {
     })
   },
   components: {},
+  created () {
+    console.log(this.images)
+  },
   head() {
     return {
       title: this.recipe.name

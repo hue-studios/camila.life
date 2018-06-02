@@ -27,7 +27,7 @@
 
 
       <div slot="footer" class="uk-flex uk-flex-bottom uk-flex-center">
-        <a class="uk-button uk-button-default condensed-bold" :href="'/vegan-plant-based-recipes/' + recipe.url">DETAILS</a>
+        <nuxt-link class="uk-button uk-button-default condensed-bold" :to="'/vegan-plant-based-recipes/' + recipe.url">DETAILS</nuxt-link>
       </div>
     </vk-card>
   </vk-scrollspy>
