@@ -12,7 +12,7 @@
 
 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s article" uk-grid v-for="(article, index) in articles" :article="article" :index="index" :id="article.id" v-bind:key="article.id">
     <div class=" uk-cover-container" v-bind:class="[index % 2 == 0 ? 'uk-card-media-left' : 'uk-flex-last@s uk-card-media-right']">
-        <img :src="'http://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/best/' + article.image.data.name" alt="" uk-cover >
+        <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/best/' + article.image.data.name" alt="" uk-cover >
         <canvas width="600" height="400"></canvas>
     </div>
     <div>
@@ -35,7 +35,7 @@ export default {
   auth: false,
   async asyncData () {
     let { data, req } = await
-      axios.get('http://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?order[date_published]=ASC')
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?order[date_published]=ASC')
     return {
       articles: data.data,
       name: req ? 'server' : 'client'

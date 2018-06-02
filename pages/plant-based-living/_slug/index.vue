@@ -4,7 +4,7 @@
   <vk-grid id="__article-grid" class="uk-grid-collapse">
   <div class="top-section uk-width-1-1 uk-width-1-2@l uk-width-2-5@xl article-details__cover">
     <vk-sticky media="1200">
-      <div class="uk-background-cover uk-flex uk-flex-center uk-flex-middle" :style="'background-image: url(http://huestudios.com' + image + ')'" uk-parallax="bgy: -185; target: .uk-background-cover">
+      <div class="uk-background-cover uk-flex uk-flex-center uk-flex-middle" :style="'background-image: url(https://huestudios.com' + image + ')'" uk-parallax="bgy: -185; target: .uk-background-cover">
         <div class="uk-overlay-primary uk-position-cover"></div>
         <div class="uk-overlay uk-position-middle uk-light uk-padding-large">
           <h1 class="uk-text-uppercase white" uk-parallax="y: -370; target: .uk-background-cover">{{ article.title }}</h1>
@@ -49,7 +49,7 @@ export default {
   }) {
     let {
       data
-    } = await axios.get('http://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?filters[url][eq]=' + params.slug)
+    } = await axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?filters[url][eq]=' + params.slug)
     return {
       article: data.data[0],
       image: data.data[0].image.data.url,
@@ -77,7 +77,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'http://huestudios.com' + this.image
+          content: 'https://huestudios.com' + this.image
         },
         {
           hid: 'og:title',
@@ -112,7 +112,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: 'http://huestudios.com' + this.image
+          content: 'https://huestudios.com' + this.image
         },
         {
           hid: 'twitter:image:alt',
