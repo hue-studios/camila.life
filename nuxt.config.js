@@ -1,5 +1,4 @@
 const pkg = require('./package')
-const axios = require('axios')
 
 module.exports = {
   mode: 'universal',
@@ -30,8 +29,8 @@ module.exports = {
       href: '/favicon.ico'
     }],
     script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit.min.js' },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit-icons.min.js' },
+      // { src: '/js/uikit.js' },
+      // { src: '/js/uikit-icons.js' },
       {
         src: '//fast.fonts.net/jsapi/3bac6251-f95f-450e-adf8-3f326b8e374a.js'
       }
@@ -52,17 +51,13 @@ module.exports = {
   css: [{
     src: '~/assets/scss/main.scss',
     lang: 'scss'
-  },
-  { src: '~/assets/css/swiper.min.css' }
+  }
 ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{
-      src: '~/plugins/ga',
-      ssr: false
-    },
+  plugins: [
     {
       src: '~/plugins/social-sharing',
       ssr: false
@@ -104,32 +99,6 @@ module.exports = {
    ** Build configuration
    */
 
-
-  generate: {
-    // routes: function() {
-    //   let ingredients = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/')
-    //     .then((res) => {
-    //       return res.data.data.map((item) => {
-    //         return '/plant-based-vegan-products/' + item.url
-    //       })
-    //     })
-    //   let recipes = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/')
-    //     .then((res) => {
-    //       return res.data.data.map((item) => {
-    //         return '/vegan-plant-based-recipes/' + item.url
-    //       })
-    //     })
-    //   let articles = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/')
-    //     .then((res) => {
-    //       return res.data.data.map((item) => {
-    //         return '/plant-based-living/' + item.url
-    //       })
-    //     })
-    //   return Promise.all([ingredients, recipes, articles]).then(values => {
-    //     return values.join().split(',');
-    //   })
-    // }
-  },
 
   build: {
     vendor: ['vuikit','vue-notifications','axios'],
