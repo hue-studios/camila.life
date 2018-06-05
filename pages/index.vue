@@ -60,7 +60,7 @@
         <div class="uk-card-body">
           <h3 class="uk-card-title">{{ingredient.name}}</h3>
           <iconLabels :item="ingredient" />
-          <nuxt-link :to="'/plant-based-vegan-products/'+ingredient.url" class="uk-button uk-button-default">DETAILS</nuxt-link>
+          <nuxt-link :to="'/'+ingredient.url" class="uk-button uk-button-default">DETAILS</nuxt-link>
         </div>
       </div>
     </div>

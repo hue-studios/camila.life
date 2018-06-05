@@ -1,14 +1,7 @@
 
 <template>
 <div id="articles" class="top-section" uk-scrollspy="target: > .article; cls:uk-animation-fade; delay: 400; repeat:true">
-    <h1 class="uk-width-1-1">Plant-Based Living: {{name}}</h1>
-  <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-text-center uk-grid-match" uk-grid-parallax="translate:200">
-
-    <div v-for="(article, index) in articles" :article="article" :index="index" :id="article.id" v-bind:key="article.id">
-        <div class="uk-card uk-card-default uk-card-body uk-box-shadow-bottom">
-          <h3 class="uk-card-title uk-text-uppercase">{{article.title}}</h3></div>
-    </div>
-</div>
+    <h1 class="uk-width-1-1">Plant-Based Living</h1>
 
 <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s article" uk-grid v-for="(article, index) in articles" :article="article" :index="index" :id="article.id" v-bind:key="article.id">
     <div class=" uk-cover-container" v-bind:class="[index % 2 == 0 ? 'uk-card-media-left' : 'uk-flex-last@s uk-card-media-right']">

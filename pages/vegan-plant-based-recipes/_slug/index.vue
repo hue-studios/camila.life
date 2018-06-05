@@ -2,29 +2,14 @@
 <template>
 <div id="recipe">
 
-  <div class="top-section uk-position-relative uk-visible-toggle uk-dark slideshow" uk-slideshow="animation: push">
-
-    <ul class="uk-slideshow-items">
-      <li v-for="(image, index) in images" v-bind:key="image.id">
-        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-          <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ image.name" :alt="index" uk-cover>
-
-        </div>
-      </li>
-    </ul>
-    <div class="uk-overlay-primary uk-position-cover"></div>
-    <div class="uk-overlay uk-position-bottom uk-light">
-      <h1 class="condensed-bold uk-text-uppercase pink">{{ recipe.name }}</h1>
-    </div>
-
-    <a class="uk-position-center-left uk-position-small " href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-    <a class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-
+  <div class="top-section">
+  <div>
+      <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ images[0].name" >
+  </div>
   </div>
   <div>
 
-
+    <h1>{{name}}</h1>
     <div class="recipe__caption" v-html="recipe.caption"></div>
     <div class="recipe__stats">
       <div class="recipe-sub-title">
@@ -58,12 +43,13 @@ export default {
   auth: false,
   scrollToTop: true,
   async asyncData({
-    params
+    params, req
   }) {
     return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[url][eq]=' + params.slug).then(res => {
       return {
         recipe: res.data.data[0],
-        images: res.data.data[0].images.data
+        images: res.data.data[0].images.data,
+        name: req ? 'server' : 'client'
       }
     }).catch(function (error) {
       console.log(error)
@@ -72,6 +58,9 @@ export default {
   components: {},
   created () {
     console.log(this.images)
+    if(process.server) {
+      this.request = 'server'
+    }
   },
   head() {
     return {

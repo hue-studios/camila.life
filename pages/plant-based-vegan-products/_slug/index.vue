@@ -1,32 +1,19 @@
 
 <template>
 <div id="ingredient">
-
-  <div class="uk-position-relative uk-visible-toggle uk-dark slideshow" uk-slideshow="animation: push">
-
-    <ul class="uk-slideshow-items">
-      <li v-for="(image, index) in images" v-bind:key="index">
-        <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-          <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ image.name" :alt="index" uk-cover>
-
-        </div>
-      </li>
-    </ul>
-    <div class="uk-overlay-primary uk-position-cover"></div>
-    <div class="uk-overlay uk-position-bottom uk-light">
-      <h1 class="condensed-bold uk-text-uppercase pink">{{ ingredient.name }}</h1>
-    </div>
-
-    <a class="uk-position-center-left uk-position-small " href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-    <a class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-
+  <vk-grid class="uk-grid-collapse uk-flex uk-flex-center uk-flex-middle">
+  <div class="uk-width-1-2 top-section">
+  <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ ingredient.images.data[0].name" alt="">
   </div>
-
-
-
+  <div class="uk-width-1-2">
+      <h1 class="condensed uk-text-uppercase">{{ ingredient.name }}</h1>
+      <div class="article-details__tags">
+        <h5 v-if="goes_with.length > 0" class="article-details__tag" v-for="(item,index) in goes_with" v-bind:key="index">{{item}}</h5>
+      </div>
     <div class="recipe__caption" v-html="ingredient.description"></div>
 
+  </div>
+</vk-grid>
 </div>
 </template>
 
@@ -36,34 +23,42 @@ import axios from 'axios'
 
 export default {
   auth: false,
-  transition (to, from) {
-    if (!from) {
-
-    } else if (from.name == 'index' || from.name == 'list') {
-      return 'slide-left'
-      console.log("to: " + to.name + " :: from: " + from.name)
-    }
-  },
   scrollToTop: true,
+  // transition (to, from) {
+  //     if (from.name == 'index' || from.name == 'list') {
+  //       return 'slide-left'
+  //     }
+  // },
   async asyncData({
     params
   }) {
     return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[url][eq]=' + params.slug).then(res => {
       return {
         ingredient: res.data.data[0],
-        images: res.data.data[0].images.data
+        goes_with: []
       }
     }).catch(function (error) {
       console.log(error)
     })
   },
   components: {},
+  created () {
+    if(this.ingredient.goes_with) {
+      this.goes_with = this.makeArray(this.ingredient.goes_with)
+    }
+
+  },
   head() {
     return {
-      title: this.ingredient.name
+      title: this.ingredient.name + ' on camila.life - Vegan Product Review'
     }
   },
-  methods: {}
+  methods: {
+    makeArray(str) {
+      var newArray = str.split(',')
+      return newArray
+    }
+  }
 }
 </script>
 

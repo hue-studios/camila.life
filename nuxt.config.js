@@ -30,8 +30,8 @@ module.exports = {
       href: '/favicon.ico'
     }],
     script: [
-      { src: '/js/uikit.min.js' },
-      { src: '/js/uikit-icons.min.js' },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit.min.js' },
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit-icons.min.js' },
       {
         src: '//fast.fonts.net/jsapi/3bac6251-f95f-450e-adf8-3f326b8e374a.js'
       }
@@ -52,7 +52,9 @@ module.exports = {
   css: [{
     src: '~/assets/scss/main.scss',
     lang: 'scss'
-  }],
+  },
+  { src: '~/assets/css/swiper.min.css' }
+],
 
   /*
    ** Plugins to load before mounting the App
@@ -65,6 +67,7 @@ module.exports = {
       src: '~/plugins/social-sharing',
       ssr: false
     },
+    { src: '~/plugins/vue-notifications', ssr: false },
     '~/plugins/vuikit.js'
   ],
 
@@ -73,8 +76,12 @@ module.exports = {
    */
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    '@nuxtjs/google-analytics'
   ],
+  'google-analytics': {
+    id: 'UA-106815130-1'
+  },
   axios: {
     baseURL: 'https://huestudios.com/sites/camila.life/content/api/1.1/'
   },
@@ -99,33 +106,33 @@ module.exports = {
 
 
   generate: {
-    routes: function() {
-      let ingredients = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/')
-        .then((res) => {
-          return res.data.data.map((item) => {
-            return '/plant-based-vegan-products/' + item.url
-          })
-        })
-      let recipes = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/')
-        .then((res) => {
-          return res.data.data.map((item) => {
-            return '/vegan-plant-based-recipes/' + item.url
-          })
-        })
-      let articles = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/')
-        .then((res) => {
-          return res.data.data.map((item) => {
-            return '/plant-based-living/' + item.url
-          })
-        })
-      return Promise.all([ingredients, recipes, articles]).then(values => {
-        return values.join().split(',');
-      })
-    }
+    // routes: function() {
+    //   let ingredients = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/')
+    //     .then((res) => {
+    //       return res.data.data.map((item) => {
+    //         return '/plant-based-vegan-products/' + item.url
+    //       })
+    //     })
+    //   let recipes = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/')
+    //     .then((res) => {
+    //       return res.data.data.map((item) => {
+    //         return '/vegan-plant-based-recipes/' + item.url
+    //       })
+    //     })
+    //   let articles = axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/')
+    //     .then((res) => {
+    //       return res.data.data.map((item) => {
+    //         return '/plant-based-living/' + item.url
+    //       })
+    //     })
+    //   return Promise.all([ingredients, recipes, articles]).then(values => {
+    //     return values.join().split(',');
+    //   })
+    // }
   },
 
   build: {
-    vendor: ['uikit'],
+    vendor: ['vuikit','vue-notifications','axios'],
     /*
      ** You can extend webpack config here
      */
