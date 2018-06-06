@@ -10,6 +10,8 @@
     </nuxt-link>
     <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" v-if="$auth.$state.loggedIn" />
     <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ ingredient.images.data[0].name" alt="">
+    <a @click.prevent="show = true" id="image-modal-link"><vk-icon icon="expand" ></vk-icon>
+</a>
   </div>
 
   <div class="uk-width-1-1 uk-text-center heading">
@@ -28,22 +30,30 @@
   </div>
 
   <div class="uk-width-1-1 uk-text-center goes-with" v-if="goes_with.length > 0">
-    <h4 class="white">GOES WITH:</h4>
+    <h4 class="script-font uk-text-lowercase ">GOES WITH:</h4>
     <h5 v-for="(item,index) in goes_with" v-bind:key="index" class="goes-with-tag">{{item}}</h5>
 
   </div>
-  <div class="uk-width-1-1 related-recipes">
-    <h4 class="uk-padding-large uk-text-center">RECIPES FEATURING <span class="pink">{{ingredient.name}}</span></h4>
-  <vk-grid id="ingredient" class="uk-flex uk-flex-center uk-flex-middle" gutter="large" v-if="relatedRecipes.length > 0">
-      <ingredient-recipes v-for="(recipe, index) in relatedRecipes" :id="recipe.recipe_id" :index="index" v-bind:key="recipe.recipe_id" class="uk-width-auto"></ingredient-recipes>
-  </vk-grid>
-</div>
+
+<h4 class="uk-width-1-1 uk-text-center related-recipes-title">RECIPES FEATURING <span class="pink">{{ingredient.name}}</span></h4>
+  <div class="uk-position-relative uk-visible-toggle uk-width-1-1 related-recipes" uk-slider="center: true">
+    <ul class="uk-slider-items uk-grid">
+      <ingredient-recipes v-for="(recipe, index) in relatedRecipes" :id="recipe.recipe_id" :index="index" v-bind:key="recipe.recipe_id" v-if="ingredient" class="uk-width-5-6"></ingredient-recipes>
+    </ul>
+    <a class="uk-position-center-left uk-position-large uk-light" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-large uk-light" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    <ul class="uk-slider-nav uk-dotnav uk-flex uk-flex-center uk-dark"></ul>
+  </div>
+
   <!-- <h4 class="small-12 cell text-center body-font text-lowercase ingredient-page-sub-title" v-if="relatedIngredients.length > 0"><span>related</span> <span class="green">{{ingredient.category}}</span> ingredients</h4>
    <div class="small-12 cell related-ingredients-list" v-if="relatedIngredients.length > 0">
 
      <related-ingredients v-for="(relatedIngredient, index) in relatedIngredients" :ingredient="relatedIngredient" :index="index" v-bind:key="relatedIngredient.id"></related-ingredients>
    </div> -->
-
+   <vk-modal center size="container" :show.sync="show" class="uk-padding-remove uk-margin-remove-top full-image">
+     <vk-modal-close @click="show = false"></vk-modal-close>
+     <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/1600/1600/crop/'+ ingredient.images.data[0].name" alt="">
+   </vk-modal>
 </vk-grid>
 </template>
 
@@ -70,7 +80,8 @@ export default {
         ingredient: res.data.data[0],
         goes_with: [],
         relatedIngredients: [],
-        relatedRecipes: []
+        relatedRecipes: [],
+        show: false
       }
     }).catch(function (error) {
       console.log(error)

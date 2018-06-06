@@ -1,5 +1,6 @@
 <template>
 <div id="page-container-box">
+
   <div id="nav-bg-one" @click.prevent="closeSideMenu()">
     <div>
       <p class="body-font quote">"You alone are enough."</p>
@@ -69,9 +70,11 @@
       </div>
     </vk-grid>
   </nav>
-  <div class="page-container" id="page-container" @click.prevent="closeSideMenu()">
-    <nuxt/>
-   </div>
+<div id="page-container">
+  <nuxt/>
+</div>
+
+
   <toolbar />
 
 </div>

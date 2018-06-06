@@ -46,6 +46,27 @@ h1, h2, h3, h4, h5 {
 	font-family: $condensed-font;
 }
 
+.uk-modal {
+	z-index: 1050;
+}
+.uk-modal.uk-padding-remove .uk-modal-body {
+	padding: 0;
+	background: rgba($black, 0.95) !important;
+}
+
+.uk-modal.full-image {
+	background: rgba($black, 0.95);
+	img {
+		padding: 0px
+	}
+	.uk-close {
+		background: $black;
+		padding: 20px;
+		color: $white;
+		border-radius: 50%;
+	}
+}
+
 a, .link {
 	color: $black;
 	text-decoration: none;
