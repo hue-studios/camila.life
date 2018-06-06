@@ -1,10 +1,10 @@
 #logo {
 
-	width: 100px;
+	width: 80px;
 	z-index: 990;
 	height: auto;
 	position: fixed;
-	top: -1px;
+	top: 0px;
 	left: -18px;
 	transform-origin: top left;
 	@media (min-width: $breakpoint-small) {
@@ -30,8 +30,8 @@
 		transition: all 0.3s $curve;
 		color: $pink;
 		font-family: $body-font;
-		font-size: 56px;
-		line-height: 46px;
+		font-size: 40px;
+		line-height: 32px;
 		vertical-align: middle;
 		margin-bottom: 0px;
 		margin-left: 15px;
