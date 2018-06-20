@@ -77,9 +77,10 @@ module.exports = {
   'google-analytics': {
     id: 'UA-106815130-1'
   },
-  axios: {
-    baseURL: 'https://huestudios.com/sites/camila.life/content/api/1.1/'
-  },
+  // axios: {
+  //   baseURL: 'https://huestudios.com/sites/camila.life/content/api/1.1/',
+  //   credentials: true
+  // },
   auth: {
     redirect: {
       login: '/login',

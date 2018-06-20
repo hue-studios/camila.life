@@ -298,6 +298,25 @@ nav#nav-bar.in-left {
   opacity: 0;
 }
 
+.card-enter, .card-leave-to
+/* .card-leave-active for <2.1.8 */ {
+  opacity: 0;
+  transform: scale(0);
+}
+.card-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-leave-active {
+  /*position: absolute;*/
+}
+
+.card-move {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
 .bounce-enter-active {
   animation: bounce-in .8s;
 }
@@ -316,10 +335,10 @@ nav#nav-bar.in-left {
 }
 
 .slide-left-enter-active {
-  animation: slide-in-left .5s;
+  animation: slide-in-left .25s $curve;
 }
 .slide-left-leave-active {
-  animation: slide-out-left .5s;
+  animation: slide-out-left .25s $curve;
 }
 
 @keyframes slide-in-left {
@@ -332,10 +351,10 @@ nav#nav-bar.in-left {
 }
 
 .slide-right-enter-active {
-  animation: slide-in-right .5s;
+  animation: slide-in-right .25s $curve;
 }
 .slide-right-leave-active {
-  animation: slide-out-right .5s;
+  animation: slide-out-right .25s $curve;
 }
 
 @keyframes slide-in-right {

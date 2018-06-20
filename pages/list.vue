@@ -45,7 +45,7 @@
 
 <script>
 import ingredientListItem from '~/components/ingredientListItem'
-
+import axios from 'axios'
 
 export default {
   transition (to, from) {
@@ -63,7 +63,7 @@ export default {
   },
   async asyncData({ app }) {
     let [listReq] = await Promise.all([
-      app.$axios.get('tables/list/rows/?filters[email][eq]=' + app.$auth.user.email)
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + app.$auth.user.email)
     ])
     return {
       list: listReq.data.data

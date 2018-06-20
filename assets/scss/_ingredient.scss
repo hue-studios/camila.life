@@ -1,14 +1,16 @@
 #ingredients {
 	// recipe-landing styles
+	overflow: hidden;
+	justify-content: space-evenly;
 	.page-cover {
-		height: 350px;
+		height: 200px;
 		position: relative;
 		@media (min-width: $breakpoint-small) {}
 		@media (min-width: $breakpoint-medium) {
-			height: 400px;
+			height: 200px;
 		}
 		@media (min-width: $breakpoint-large) {
-			height: 500px;
+			height: 200px;
 		}
 
 		h1 {
@@ -19,317 +21,535 @@
 			}
 		}
 	}
+
 	#listings {
-		min-height: 100vh;
-		margin-top: 0;
-		padding-top: 0;
+		// min-height: 100vh;
+
+		@media (min-width: $breakpoint-small) {
+			max-width: 640px;
+		}
+		@media (min-width: $breakpoint-medium) {
+			max-width: 900px;
+			padding-left: 0;
+			min-height: calc(100vh - 200px);
+		}
+		@media (min-width: $breakpoint-large) {
+		}
+		#listings-grid {
+			@media (min-width: $breakpoint-medium) {
+				min-height: calc(100vh - 200px);
+				.uk-first-column {
+					padding-left: 0px;
+				}
+			}
+		}
+		.listings-item {
+			margin-bottom: 30px;
+			transition: all 0.35s $curve;
+		}
 	}
-	#filters {
+
+	#search-settings-bar {
 		margin: 0;
 		padding-top: 0;
 		padding-bottom: 0;
 		transition: all 0.25s ease-out;
+		align-content: center;
+
+
+			div.uk-flex{
+				margin-left: 0;
+				background: $white;
+				border-bottom: thin solid rgba($black, 0.2);
+				padding: 11px;
+
+
+					@media (min-width: $breakpoint-small) {
+
+					}
+					@media (min-width: $breakpoint-medium) {
+
+					}
+			}
+
+
+			.uk-form-icon {
+				svg {
+					width: 15px;
+					height: 15px;
+				}
+			}
+			input.uk-search-input {
+				padding: 0 10px;
+				width: 150px;
+				font-family: $condensed-font;
+				border-bottom: thin solid rgba($black, 0.6);
+			}
+			#filters-btn {
+				padding: 5px;
+				margin: 5px 0px 5px 20px;
+				border: thin solid rgba($black, 0.6);
+
+
+
+			}
+			.uk-sticky.uk-active {
+				@media (min-width: $breakpoint-medium) {
+					background: none;
+					border-bottom: none;
+					justify-content: flex-end;
+				}
+				.uk-search-input {
+					@media (min-width: $breakpoint-medium) {
+					display: none;
+				}
+				}
+				.uk-icon {
+					@media (min-width: $breakpoint-medium) {
+						position: absolute;
+						right: 20px;
+						top: 75px;
+						background: $pink;
+						border-color: $pink;
+						padding: 10px;
+					}
+					svg {
+						color: $white;
+					}
+				}
+			}
+
+
+	}
+	#filters {
+		position: fixed;
+		width: 100%;
+		right: -110%;
+		top: 0px;
+		height: 100vh;
+		background: $white;
+		box-shadow: 0px 1px 15px rgba($black, 0.4);
+		margin: 0;
+		padding-left: 0;
+		z-index: 990;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		transition: .15s $curve;
 
 		form {
-			align-content: center;
-		background: $white;
-		border-bottom: thin solid rgba($black, 0.2);
-		padding: 10px;
-		@media (min-width: $breakpoint-small) {
-			padding: 20px;
-		}
-		@media (min-width: $breakpoint-medium) {
-
-		}
-		.uk-grid {
-			margin-left: 0;
-		}
-		h5 {
-			font-size: 16px;
-			margin-right: 0px;
-			margin-bottom: 0;
-			vertical-align: bottom;
+			width: calc(100% - 40px);
+			position: relative;
 			@media (min-width: $breakpoint-small) {
-				font-size: 22px;
-				margin-right: 10px;
+				width: 375px;
+			}
+			@media (min-width: $breakpoint-medium) {
+			}
+		}
+		.uk-close {
+			position: absolute;
+			top: -60px;
+			right: calc(50% - 19px);
+
+			border-radius: 50%;
+			background: $pink;
+			color: $white;
+			padding: 5px;
+			@media (min-width: $breakpoint-small) {
+
+			}
+			@media (min-width: $breakpoint-medium) {
+			}
+		}
+		input.uk-search-input {
+			font-family: $condensed-font;
+			padding: 0 10px;
+			border-bottom: thin solid rgba($black, 0.6);
+		}
+		.uk-form-icon {
+			svg {
+				width: 15px;
+				height: 15px;
+			}
+		}
+		select {
+			border: none;
+			height: 25px;
+			border-bottom: thin solid rgba($black, 0.6);
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		button {
+			height: 40px;
+			display: block;
+			width: 150px;
+		}
+		#apply-filters-btn {
+			background: $pink;
+			color: $white;
+			border: none;
+			margin: 0 auto;
+		}
+		#clear-filters-btn {
+			margin: 10px auto;
+		}
+	}
+	#filters.open {
+		right: 0%;
+	}
+	#filters-inline {
+		margin: 0;
+		padding: 0;
+		transition: all 0.35s $curve;
+		width: 270px !important;
+		height: calc(100vh - 200px);
+		.uk-sticky.uk-sticky-fixed {
+			width: 270px !important;
+			overflow: scroll;
+			height: 100vh;
+			transition: all 0.25s ease-out;
+			transition: all 0.35s $curve;
+		}
+		#filters-inline-box {
+			padding:20px;
+			height: 100%;
+			width: 270px !important;
+			transition: all 0.35s $curve;
+			@media (min-width: $breakpoint-large) {
+
+			}
+		}
+		input.uk-search-input {
+			font-family: $condensed-font;
+			padding: 0 10px;
+			border-bottom: thin solid rgba($black, 0.6);
+		}
+		select {
+			border: none;
+			height: 40px;
+			border-bottom: thin solid rgba($black, 0.6);
+			text-align: center;
+		}
+		button {
+			height: 40px;
+		}
+		#apply-filters-btn {
+			background: $pink;
+			color: $white;
+			border: none;
+		}
+	}
+}
+
+// recipe-item styles
+
+.listing-item {
+	padding: 0;
+	.uk-card-body {
+		padding: 0;
+		width: 100%;
+		display: flex;
+		align-items:center;
+		justify-content: center;
+
+		.listing-top {
+			width: 125px;
+			@media (min-width: $breakpoint-small) {
+				width: 200px;
 			}
 			@media (min-width: $breakpoint-medium) {
 
 			}
-		}
-			input {
-				height: 40px;
-				border-bottom: thin solid rgba($black, 0.6);
+			@media (min-width: $breakpoint-large) {
+				width: 250px;
 			}
-			select {
-				border: none;
-				height: 40px;
-				border-bottom: thin solid rgba($black, 0.6);
+			.listing-image {
+
+				width: 125px;
+				height: 125px;
+				background-size: cover;
+				background-position: center;
+				@media (min-width: $breakpoint-small) {
+					width: 200px;
+					height: 200px;
+				}
+				@media (min-width: $breakpoint-medium) {
+
+				}
+				@media (min-width: $breakpoint-large) {
+					width: 250px;
+					height: 250px;
+				}
+				.uk-marker {
+					background: $white;
+					color: $black;
+					right: -10px;
+					top: 35px;
+
+					svg {
+						width: 40px;
+						height: 40px;
+					}
+				}
 			}
-			button {
-				height: 40px;
+		}
+
+		.listing-bottom {
+			margin-left: 25px;
+			width: calc(100% - 150px);
+			padding-right: 50px;
+			text-align: left;
+			@media (min-width: $breakpoint-small) {
+				width: calc(100% - 250px);
 			}
-		}
-	}
-}
-// recipe-item styles
-.ingredient-item {
-	.recipe-top {
-		height: 150px;
-		background-size: cover;
-		background-position: center;
-		.uk-marker {
-			background: $white;
-			color: $black;
-			right: -10px;
-			top: 35px;
-			svg {
-				width: 40px;
-				height: 40px;
+			@media (min-width: $breakpoint-large) {
+				width: calc(100% - 300px);
 			}
-		}
-	}
+			.uk-card-title {
+				margin-bottom: 0;
+				line-height: 1em;
+				font-size: 20px;
+				@media (min-width: $breakpoint-small) {
+					font-size: 26px;
+				}
+				@media (min-width: $breakpoint-large) {
+					font-size: 20px;
+				}
+			}
 
-	.uk-card-title {
-		margin-bottom: 0;
-	}
 
-	h2 {}
-
-	h4 {
-		margin-top: 0;
-
-		.label {
-			opacity: 0.6;
-		}
-	}
-
-	h5 {
-		display: inline;
-		margin: 5px;
-		font-size: 16px;
-		line-height: 16px;
-		border: thin solid $black;
-		padding: 5px 5px 3px;
-	}
-
-	h5:first-of-type {
-		margin-left: 0;
-	}
-
-	p.timing {
-		margin: 0;
-
-		span {}
-	}
-
-	.uk-card-footer {
-		.uk-button {
-			// border: thin solid $pink;
-			// color: $pink;
-			// font-size: 32px;
-		}
-	}
-}
-// ingredient-details styles
-#ingredient {
-
-	a.details-page-back-link {
-		line-height: 17px;
-		font-size: 17px;
-		width: 45%;
-		display: inline-block;
-		text-align: right;
-		margin-right: 5%;
-		@media (min-width: $breakpoint-small) {
+			h4 {
+				margin-top: 0;
+				margin-bottom: 0;
+				font-size: 12px;
+			}
+			.icon-labels {
+				justify-content: flex-start !important;
+				margin-left: -5px;
+			}
+			.listing-description {
+				font-size: 14px;
+			}
 
 		}
-		@media (min-width: $breakpoint-medium) {
-			position: absolute;
+		.details-link-icon {
+			right: 5px;
 			top: 50%;
-			left:calc(50% + 20px);
-			width: 200px;
-			margin-left: -390px;
-			text-align: right;
-			margin-right: 0;
+			margin-top: -25px;
+			@media (min-width: $breakpoint-small) {
+
+			}
+			@media (min-width: $breakpoint-large) {
+
+			}
+			svg {
+				width: 50px;
+				height: 50px;
+			}
 		}
+	}
+	}
+	// ingredient-details styles
+
+	#ingredient {
+		a.details-page-back-link {
+			line-height: 17px;
+			font-size: 17px;
+			width: 45%;
+			display: inline-block;
+			text-align: right;
+			margin-right: 5%;
+			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-medium) {
+				position: absolute;
+				top: 50%;
+				left: calc(50% + 20px);
+				width: 200px;
+				margin-left: -390px;
+				text-align: right;
+				margin-right: 0;
+			}
 
 			svg {
-
 				margin-top: -4px;
 			}
+		}
 
-
-	}
-	a.details-page-next-link {
-		line-height: 17px;
-		font-size: 17px;
-		width: 45%;
+		a.details-page-next-link {
+			line-height: 17px;
+			font-size: 17px;
+			width: 45%;
 			display: inline-block;
 			text-align: left;
 			margin-left: 5%;
-		@media (min-width: $breakpoint-small) {
-
-		}
-		@media (min-width: $breakpoint-medium) {
-			position: absolute;
-			top: 50%;
-			left:calc(50% + 20px);
-			width: 200px;
-			margin-left: 190px;
-			text-align: left;
-		}
-
+			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-medium) {
+				position: absolute;
+				top: 50%;
+				left: calc(50% + 20px);
+				width: 200px;
+				margin-left: 190px;
+				text-align: left;
+			}
 
 			svg {
-
 				margin-top: -4px;
 			}
-	}
-	.top-section {
-		width: 100%;
-		text-align:center;
-		margin-top: 30px;
-		@media (min-width: $breakpoint-small) {
-
 		}
-		@media (min-width: $breakpoint-medium) {
-			margin-top: 80px;
 
-		}
-		img {
+		.top-section {
 			width: 100%;
-			max-width: 300px;
-			height: auto;
-			border: thin solid rgba($black, 0.2);
-			border-radius: 2px;
-			box-shadow: 0px 2px 15px rgba($black, 0.2);
+			text-align: center;
 			margin-top: 30px;
-			@media (min-width: $breakpoint-small) {
-				width: 300px;
-			}
+			@media (min-width: $breakpoint-small) {}
 			@media (min-width: $breakpoint-medium) {
-
+				margin-top: 80px;
 			}
-		}
-		#image-modal-link {
-			position: absolute;
-			top: 60px;
-			left: 50%;
-			margin-left: -125px;
-			color: $white;
-			font-size: 20px;
-			width: 40px;
-			height: 40px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: rgba($black, 0.75);
-			@media (min-width: $breakpoint-small) {
+
+			img {
+				width: 100%;
+				max-width: 300px;
+				height: auto;
+				border: thin solid rgba($black, 0.2);
+				border-radius: 2px;
+				box-shadow: 0 2px 15px rgba($black, 0.2);
+				margin-top: 30px;
+				@media (min-width: $breakpoint-small) {
+					width: 300px;
+				}
+				@media (min-width: $breakpoint-medium) {}
+			}
+
+			#image-modal-link {
+				position: absolute;
+				top: 60px;
 				left: 50%;
 				margin-left: -125px;
+				color: $white;
+				font-size: 20px;
+				width: 40px;
+				height: 40px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: rgba($black, 0.75);
+				@media (min-width: $breakpoint-small) {
+					left: 50%;
+					margin-left: -125px;
+				}
+				@media (min-width: $breakpoint-medium) {
+					top: 35px;
+					left: 50%;
+					margin-left: -125px;
+				}
 			}
+		}
+
+		.heading {
+			h1 {
+				margin-top: 30px;
+				margin-bottom: 10px;
+				line-height: 0.9em;
+			}
+
+			h4 {
+				margin-top: 0;
+				display: inline-block;
+				font-size: 16px;
+				padding: 0 7px;
+				margin-bottom: 0;
+
+				span {
+					color: $pink;
+				}
+			}
+
+			p {
+				margin: 30px 0;
+			}
+		}
+
+		.ingredient-details {
+			margin-top: 10px;
+			max-width: 800px;
 			@media (min-width: $breakpoint-medium) {
-				top: 35px;
-				left: 50%;
-				margin-left: -125px;
+				margin-top: 5px;
+			}
+
+			.icon-labels {
+				margin-top: 0;
+				margin-bottom: 30px;
 			}
 		}
-	}
-	.heading {
-		h1 {
-			margin-top: 30px;
-			margin-bottom: 10px;
-			line-height: 0.9em;
-		}
-		h4 {
-			margin-top: 0;
-			display: inline-block;
-			font-size: 16px;
-			padding: 0 7px;
-			margin-bottom: 0;
-			span {
-				color: $pink;
 
+		.goes-with {
+			margin-top: 10px;
+
+			h4 {
+				font-size: 26px;
+				margin-bottom: 0;
+				width: 100%;
+				display: block;
+			}
+
+			h5.goes-with-tag {
+				color: $black;
+				padding: 10px 15px;
+				margin: 0;
+				display: inline-flex;
+				width: auto;
+				position: relative;
+				line-height: 15px;
+			}
+
+			h5.goes-with-tag::before {
+				content: '';
+				position: absolute;
+				left: -5px;
+				top: calc(50% - 7px);
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: $black;
+			}
+
+			h5.goes-with-tag:first-of-type::before {
+				background: $white;
 			}
 		}
-		p {
-			margin: 30px 0
-		}
-	}
 
-	.ingredient-details {
-		margin-top: 10px;
-		max-width: 800px;
-		@media (min-width: $breakpoint-medium) {
-			margin-top: 5px;
-		}
-		.icon-labels {
-			margin-top: 0;
-			margin-bottom: 30px;
-		}
-	}
-	.goes-with {
-		margin-top: 10px;
-
-		h4 {
+		.related-recipes-title {
 			font-size: 26px;
 			margin-bottom: 0;
-			width: 100%;
-			display: block;
-		}
-		h5.goes-with-tag {
-			color: $black;
-			padding: 10px 15px;
-			margin: 0px;
-			display: inline-flex;
-			width: auto;
-			position: relative;
-			line-height: 15px;
+			margin-top: 50px;
 		}
 
-		h5.goes-with-tag::before {
-			content:'';
-			position: absolute;
-			left: -5px;
-			top: calc(50% - 7px);
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-			background: $black;
-		}
-		h5.goes-with-tag:first-of-type::before {
-			background: $white;
-		}
-	}
-	.related-recipes-title {
-		font-size: 26px;
-		margin-bottom: 0;
-		margin-top: 50px;
-	}
-	.related-recipes {
-		margin-top: 10px;
-		padding-top: 0px;
-		padding-bottom: 40px;
-		ul.slider-items {
-			width: 100%;
-		}
-		li.slider-item {
+		.related-recipes {
+			margin-top: 10px;
+			padding-top: 0;
+			padding-bottom: 40px;
 
-			.uk-panel {
-				height: 500px;
-				background-color: rgba($black, 0.7);
-				background-blend-mode: darken;
+			ul.slider-items {
+				width: 100%;
+			}
+
+			li.slider-item {
+				.uk-panel {
+					height: 500px;
+					background-color: rgba($black, 0.7);
+					background-blend-mode: darken;
+				}
+			}
+
+			h4 {
+				font-size: 26px;
+				line-height: 26px;
+				margin-bottom: 0;
+			}
+
+			ul.uk-slider-nav {
+				padding-top: 10px;
+				padding-bottom: 10px;
 			}
 		}
-		h4 {
-			font-size: 26px;
-			line-height: 26px;
-			margin-bottom: 0;
-		}
-		ul.uk-slider-nav  {
-			padding-top: 10px;
-			padding-bottom: 10px;
-		}
 	}
-}

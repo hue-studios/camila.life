@@ -68,7 +68,8 @@ export default {
   auth: false,
   scrollToTop: true,
   transition(to, from) {
-    if (from && (from.name == 'index' || from.name == 'list')) {
+    console.log("to: " + to.name + " :: from: " + from.name)
+    if (from && (from.name == 'index' || from.name == 'list' || from.name == 'plant-based-vegan-products')) {
       return 'slide-left'
     }
   },

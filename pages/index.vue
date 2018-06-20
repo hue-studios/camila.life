@@ -114,6 +114,7 @@
 import iconLabels from '~/components/iconLabels.vue'
 import instafeed from 'instafeed.js'
 import striptags from 'striptags'
+import axios from 'axios'
 
 export default {
   auth: false,
@@ -122,11 +123,11 @@ export default {
     app
   }) {
     let [articleReq, homeReq, ingredientsReq, productsReq, recipeReq] = await Promise.all([
-      app.$axios.get('tables/articles/rows/?filters[sort][eq]=0'),
-      app.$axios.get('tables/home_page_featured_items/rows/?limit=6'),
-      app.$axios.get('tables/ingredients/rows/?limit=3'),
-      app.$axios.get('tables/products/rows/?limit=2'),
-      app.$axios.get('tables/recipes/rows/?filters[sort][eq]=0')
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?filters[sort][eq]=0'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/home_page_featured_items/rows/?limit=6'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?limit=3'),
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?limit=2'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[sort][eq]=0')
     ])
     return {
       article: articleReq.data.data[0],

@@ -19,11 +19,12 @@
 			}
 		}
 	}
+
 	#listings {
-		min-height: 100vh;
-		margin-top: 0;
-		padding-top: 0;
+		padding-left: 50px;
+		padding-right: 50px;
 	}
+
 	#filters {
 		margin: 0;
 		padding-top: 0;
@@ -32,40 +33,41 @@
 
 		form {
 			align-content: center;
-		background: $white;
-		border-bottom: thin solid rgba($black, 0.2);
-		padding: 10px;
-		@media (min-width: $breakpoint-small) {
-			padding: 20px;
-		}
-		@media (min-width: $breakpoint-medium) {
-
-		}
-		.uk-grid {
-			margin-left: 0;
-		}
-		h5 {
-			font-size: 16px;
-			margin-right: 0px;
-			margin-bottom: 0;
-			vertical-align: bottom;
+			background: $white;
+			border-bottom: thin solid rgba($black, 0.2);
+			padding: 10px;
 			@media (min-width: $breakpoint-small) {
-				font-size: 22px;
-				margin-right: 10px;
+				padding: 20px;
 			}
-			@media (min-width: $breakpoint-medium) {
+			@media (min-width: $breakpoint-medium) {}
 
+			.uk-grid {
+				margin-left: 0;
 			}
-		}
+
+			h5 {
+				font-size: 16px;
+				margin-right: 0;
+				margin-bottom: 0;
+				vertical-align: bottom;
+				@media (min-width: $breakpoint-small) {
+					font-size: 22px;
+					margin-right: 10px;
+				}
+				@media (min-width: $breakpoint-medium) {}
+			}
+
 			input {
 				height: 40px;
 				border-bottom: thin solid rgba($black, 0.6);
 			}
+
 			select {
 				border: none;
 				height: 40px;
 				border-bottom: thin solid rgba($black, 0.6);
 			}
+
 			button {
 				height: 40px;
 			}
@@ -73,16 +75,19 @@
 	}
 }
 // recipe-item styles
+
 .recipe-item {
 	.recipe-top {
 		height: 150px;
 		background-size: cover;
 		background-position: center;
+
 		.uk-marker {
 			background: $white;
 			color: $black;
 			right: -10px;
 			top: 35px;
+
 			svg {
 				width: 40px;
 				height: 40px;
@@ -132,15 +137,16 @@
 	}
 }
 // recipe-details styles
+
 #recipe {
 	.slideshow {
 		h1 {
-
 			font-size: 112px;
 		}
+
 		.uk-slideshow-nav {
-			margin-top: 0px !important;
-			margin-bottom: 0px;
+			margin-top: 0 !important;
+			margin-bottom: 0;
 		}
 	}
 }

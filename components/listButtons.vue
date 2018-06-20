@@ -25,7 +25,7 @@ export default {
 
   },
   mounted: function () {
-    this.$axios.get('tables/list/rows/?filters[email][eq]=' + this.$auth.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$auth.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
       if (response.data.data.length >= 1) {
         this.status = 1
       } else {
