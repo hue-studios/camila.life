@@ -356,18 +356,32 @@
 			line-height: 17px;
 			font-size: 17px;
 			width: 45%;
-			display: inline-block;
+			top: 0px;
+			left: calc(50% + 20px);
+			position: absolute;
 			text-align: right;
-			margin-right: 5%;
+			padding-right: 5%;
+			margin-left: -50%;
+
 			@media (min-width: $breakpoint-small) {}
 			@media (min-width: $breakpoint-medium) {
 				position: absolute;
 				top: 50%;
+				right: auto;
 				left: calc(50% + 20px);
 				width: 200px;
-				margin-left: -390px;
+				margin-left: -450px;
+				padding-right: 5%;
 				text-align: right;
 				margin-right: 0;
+			}
+			@media (min-width: $breakpoint-large) {
+				margin-left: -470px;
+
+			}
+			@media (min-width: $breakpoint-xlarge) {
+				margin-left: -490px;
+
 			}
 
 			svg {
@@ -378,10 +392,13 @@
 		a.details-page-next-link {
 			line-height: 17px;
 			font-size: 17px;
-			width: 45%;
-			display: inline-block;
+			width: 50%;
+		position:absolute;
+		top: 0px;
+		left: calc(50% + 20px);
 			text-align: left;
-			margin-left: 5%;
+			padding-left: 5%;
+
 			@media (min-width: $breakpoint-small) {}
 			@media (min-width: $breakpoint-medium) {
 				position: absolute;
@@ -401,19 +418,25 @@
 			width: 100%;
 			text-align: center;
 			margin-top: 30px;
+
 			@media (min-width: $breakpoint-small) {}
 			@media (min-width: $breakpoint-medium) {
 				margin-top: 80px;
 			}
-
+			.image-box {
+				position: relative;
+				width: 300px;
+				height: 300px;
+				margin-top: 30px;
+			}
 			img {
 				width: 100%;
 				max-width: 300px;
-				height: auto;
+				height:300px;
 				border: thin solid rgba($black, 0.2);
 				border-radius: 2px;
 				box-shadow: 0 2px 15px rgba($black, 0.2);
-				margin-top: 30px;
+
 				@media (min-width: $breakpoint-small) {
 					width: 300px;
 				}
@@ -422,9 +445,9 @@
 
 			#image-modal-link {
 				position: absolute;
-				top: 60px;
+				top: 10px;
 				left: 50%;
-				margin-left: -125px;
+				margin-left: -140px;
 				color: $white;
 				font-size: 20px;
 				width: 40px;
@@ -435,12 +458,13 @@
 				background: rgba($black, 0.75);
 				@media (min-width: $breakpoint-small) {
 					left: 50%;
-					margin-left: -125px;
+					margin-left: -135px;
+					top: 15px;
 				}
 				@media (min-width: $breakpoint-medium) {
-					top: 35px;
-					left: 50%;
-					margin-left: -125px;
+					// top: 35px;
+					// left: 50%;
+					// margin-left: -125px;
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 <template>
 <div class="list-buttons">
+
    <transition enter-active-class="uk-animation-scale-up"
     leave-active-class="uk-animation-scale-down">
 
@@ -15,7 +16,7 @@
 import axios from 'axios'
 
 export default {
-  props: ['id', 'category', 'name', 'type', 'url'],
+  props: ['id', 'category', 'name', 'type', 'url', 'image'],
   data: function () {
     return {
       status: 3
@@ -25,6 +26,7 @@ export default {
 
   },
   mounted: function () {
+    console.log("PETERS : " + this.image)
     axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$auth.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
       if (response.data.data.length >= 1) {
         this.status = 1
@@ -44,7 +46,7 @@ export default {
           this.status = 1
         }
         this.updateListTotal()
-        // this.showSuccessMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>added <span class='condensed-bold'>` + this.product.name + `</span> TO SHOPPING LIST</span>`, image: 'https://huestudios.com' + this.product.images.data[0].url})
+        this.showSuccessMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>added <span class='condensed-bold'>` + this.name + `</span> TO SHOPPING LIST</span>`, image: 'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.image})
       }).catch(function (error) {
         console.log(error)
       })
@@ -56,7 +58,7 @@ export default {
           this.status = 0
         }
         this.updateListTotal()
-        // this.showDeleteMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>removed <span class='condensed-bold'>` + this.product.name + `</span> FROM SHOPPING LIST</span>`, image: 'https://huestudios.com' + this.product.images.data[0].url})
+        this.showDeleteMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>removed <span class='condensed-bold'>` + this.name + `</span> FROM SHOPPING LIST</span>`, image: 'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.image})
       }).catch(function (error) {
         console.log(error)
       })
@@ -78,18 +80,18 @@ export default {
       position: 'bottomRight',
       color: 'white',
       message: '',
-      timeout: 2000,
+      timeout: 200000,
       cb: function () {
       },
       onClosing: function () {
-        var listTotalBadge = document.getElementById('list-total-badge')
+        var listTotalBadge = document.getElementById('grocery-list-count')
         listTotalBadge.classList.remove('pulseEffect')
       },
       onClosed: function () {
-        var listTotalBadge = document.getElementById('list-total-badge')
+        var listTotalBadge = document.getElementById('grocery-list-count')
         setTimeout(function () {
           listTotalBadge.classList.add('pulseEffect')
-        }, 1000)
+        }, 200)
       }
     },
     showDeleteMsg: {
@@ -102,14 +104,14 @@ export default {
       cb: function () {
       },
       onClosing: function () {
-        var listTotalBadge = document.getElementById('list-total-badge')
+        var listTotalBadge = document.getElementById('grocery-list-count')
         listTotalBadge.classList.remove('pulseEffect')
       },
       onClosed: function () {
-        var listTotalBadge = document.getElementById('list-total-badge')
+        var listTotalBadge = document.getElementById('grocery-list-count')
         setTimeout(function () {
           listTotalBadge.classList.add('pulseEffect')
-        }, 1000)
+        }, 200)
       }
     }
   }

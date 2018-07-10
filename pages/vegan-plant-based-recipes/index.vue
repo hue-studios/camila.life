@@ -5,81 +5,169 @@
     <div class="uk-overlay-primary uk-position-cover"></div>
     <div class="uk-overlay uk-position-middle uk-light uk-padding-large uk-text-center">
       <h1 class="uk-text-uppercase white" uk-parallax="y: 100; target: .uk-background-cover">RECIPES <span class="uk-badge pink-bg">{{total}}</span></h1>
-      <p class="white" uk-parallax="y: 60; target: .uk-background-cover">{{page.caption}}</p>
+      <!-- <p class="white" uk-parallax="y: 60; target: .uk-background-cover">{{page.caption}}</p> -->
     </div>
 
   </div>
-  <div id="filters" class="uk-width-1-1">
+  <div id="search-settings-bar" class="uk-width-1-1 uk-hidden@m">
     <vk-sticky :top="50" animation="slide-top">
-      <form>
-        <vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
-        <div class="">
-        <h5>FILTER <span class="uk-visible@s">RECIPES</span>: </h5>
+      <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+        <div class="uk-position-relative">
+          <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></span>
+          <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
+        </div>
+
+        <vk-icon id="filters-btn" icon="settings" @click.prevent="filtersToggle()"></vk-icon>
       </div>
-        <div class="uk-visible@s">
-            <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
-          </div>
-          <div>
-          <select class="uk-select uk-text-uppercase condensed" v-model="cuisine">
-          <option value="" selected>SELECT CUISIN</option>
-            <option value="just good">just good</option>
-            <option value="mexican">mexican</option>
-            <option value="american">american</option>
-            <option value="italian">italian</option>
-            <option value="asian fusion">asian fusion</option>
-            <option value="mediterranean">mediterranean</option>
-            <option value="indian">indian</option>
-        </select>
-      </div>
-
-<div class="uk-visible@s">
-  <p class="condensed uk-text-uppercase">found
-      <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition>.</p>
-    </div>
-<div>
-
-
-        <button id="clear-filters-btn" @click.prevent="clearFilters()" class="uk-button uk-button-default condensed">CLEAR<span class="uk-visible@s"> FILTERS</span></button>
-</div>
-</vk-grid>
-      </form>
-      <!-- <p class="uk-label">STEPS:</p>
-      <select class="uk-select uk-text-uppercase condensed" v-model="steps">
-        <option value="" selected>I Don't Care</option>
-          <option value="4">less than 5</option>
-          <option value="5">5-10</option>
-
-      </select> -->
-
-      <!-- <input class="uk-range" type="range" value="1" min="1" max="15" step="1" v-model="steps">
-
-        <select class="uk-select uk-text-uppercase condensed" v-model="ingredients">
-        <option value="" selected>I Don't Care</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-
-      </select> -->
-      <!-- <p class="script-font">search all of my favorite vegan products...found
-          <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition>.</p> -->
     </vk-sticky>
   </div>
-  <div id="listings" class="uk-section">
-    <div class="uk-container-large uk-padding-large">
-      <vk-grid class="uk-child-width-1-1 uk-child-width-1-2@m uk-child-width-1-2@m uk-child-width-1-3@l" v-vk-height-match="{ target: '.uk-card' }" gutter="large">
-        <recipe v-for="(recipe, index) in filteredList" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id" v-if="filteredList.length > 0"></recipe>
-        <div v-else-if="recipes.length < 1 || filteredList.length < 1" class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle">
-          <h5>THERE ARE NO RESULTS.</h5>
-        </div>
-        <div v-else class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle">
-          <vk-spinner ratio="1.5"></vk-spinner>
-        </div>
-      </vk-grid>
+  <div id="filters" class="uk-hidden@m">
+    <form>
+      <vk-icon ratio="1.4" class="uk-close" icon="close" @click.prevent="closeFilters()"></vk-icon>
+      <div class="">
+        <h5 class="uk-text-center">FILTER INGREDIENTS</h5>
+      </div>
+      <div>
+
+      <vk-grid class="uk-margin uk-grid-small uk-child-width-1-2 uk-flex uk-flex-middle uk-text-center uk-grid-collapse">
+       <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Easy" v-model="category"> EASY</label>
+       <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Radical" v-model="category"> RADICAL</label>
+     </vk-grid>
+   </div>
+      <div class="uk-position-relative">
+        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></span>
+        <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
+      </div>
+      <div class="uk-margin-medium-top">
+        <select class="uk-select uk-text-uppercase condensed" v-model="cuisine">
+      <option value="" selected>SELECT CUISINE</option>
+      <option value="just good">just good</option>
+      <option value="mexican">mexican</option>
+      <option value="american">american</option>
+      <option value="italian">italian</option>
+      <option value="asian fusion">asian fusion</option>
+      <option value="mediterranean">mediterranean</option>
+      <option value="indian">indian</option>
+
+    </select>
+      </div>
+      <div>
+      <!-- <h5 class="uk-text-left range-label">NUMBER OF INGREDIENTS</h5> -->
+      <vk-grid class="uk-flex uk-flex-middle uk-flex-center uk-grid-collapse">
+        <div>
+      <input class="range" type="range" v-model="ingredients" min="2" max="15" step="1">
     </div>
+      <div>
+        <p class="condensed-bold range-count">{{ingredients}} INGREDIENTS</p>
+      </div>
+    </vk-grid>
+    </div>
+      <div>
+      <!-- <h5 class="uk-text-left range-label">NUMBER OF STEPS</h5> -->
+      <vk-grid class="uk-flex uk-flex-middle uk-flex-center uk-grid-collapse">
+        <div>
+      <input class="range" type="range" v-model="steps" min="2" max="15">
+    </div>
+      <div>
+        <p class="condensed-bold range-count">{{steps}} STEPS</p>
+      </div>
+    </vk-grid>
+
+    </div>
+
+
+        <p class="condensed-bold uk-text-uppercase uk-text-center uk-width-1-1 uk-margin-medium-top">found
+          <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
+        <vk-grid class="uk-margin-small uk-child-width-1-1">
+          <div class="uk-text-center">
+            <button id="apply-filters-btn" @click.prevent="closeFilters()" class="uk-button uk-button-default condensed">VIEW RESULTS</button>
+            <button id="clear-filters-btn" @click.prevent="clearFilters()" class="uk-button uk-button-default condensed">CLEAR FILTERS</button>
+          </div>
+        </vk-grid>
+
+    </form>
+  </div>
+  <div id="filters-inline" class="uk-width-1-5 uk-visible@m uk-flex uk-flex-center uk-flex-middle">
+    <vk-sticky bottom="#ingredients">
+      <div id="filters-inline-box" class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
+        <vk-grid class="uk-grid-small uk-child-width-1-1">
+          <div class="">
+            <h5 class="uk-text-center">FILTERS</h5>
+          </div>
+          <div>
+
+          <vk-grid class="uk-margin uk-grid-small uk-child-width-1-2 uk-flex uk-flex-middle uk-grid-collapse">
+           <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Easy" v-model="category"> EASY</label>
+           <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Radical" v-model="category"> RADICAL</label>
+         </vk-grid>
+       </div>
+          <div>
+            <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
+          </div>
+
+          <div>
+            <select class="uk-select uk-text-uppercase condensed" v-model="cuisine">
+          <option value="" selected>SELECT CUISINE</option>
+          <option value="just good">just good</option>
+          <option value="mexican">mexican</option>
+          <option value="american">american</option>
+          <option value="italian">italian</option>
+          <option value="asian fusion">asian fusion</option>
+          <option value="mediterranean">mediterranean</option>
+          <option value="indian">indian</option>
+
+        </select>
+          </div>
+
+          <div>
+          <!-- <h5 class="uk-text-left range-label">NUMBER OF INGREDIENTS</h5> -->
+          <vk-grid class="uk-flex uk-flex-middle uk-grid-collapse">
+            <div>
+          <input class="range" type="range" v-model="ingredients" min="2" max="15" step="1">
+        </div>
+          <div>
+            <p class="condensed-bold range-count">{{ingredients}} INGREDIENTS</p>
+          </div>
+        </vk-grid>
+        </div>
+          <div>
+          <!-- <h5 class="uk-text-left range-label">NUMBER OF STEPS</h5> -->
+          <vk-grid class="uk-flex uk-flex-middle uk-grid-collapse">
+            <div>
+          <input class="range" type="range" v-model="steps" min="2" max="15">
+        </div>
+          <div>
+            <p class="condensed-bold range-count">{{steps}} STEPS</p>
+          </div>
+        </vk-grid>
+
+        </div>
+
+          <p class="condensed-bold uk-text-uppercase uk-text-center uk-width-1-1">found
+            <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
+          <div>
+
+            <button id="clear-filters-btn" @click.prevent="clearFilters()" class="uk-button uk-button-default condensed">CLEAR<span class="uk-visible@s"> FILTERS</span></button>
+
+          </div>
+        </vk-grid>
+      </div>
+    </vk-sticky>
+  </div>
+  <div id="listings" class="uk-width-5-6 uk-width-3-5@m">
+    <vk-grid id="listings-grid" class="">
+      <p class="condensed uk-text-uppercase uk-text-center uk-width-1-1 uk-hidden@m">found
+        <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
+      <transition-group name="card" mode="out-in" v-if="filteredList.length > 0" class="uk-grid">
+        <recipe class="uk-width-1-2 listings-item" v-for="(recipe, index) in filteredList" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id" v-if="filteredList.length > 0"></recipe>
+      </transition-group>
+
+      <div v-if="filteredList.length < 1" class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle">
+        <h5><span class="pink" @click.prevent="filtersToggle()">REFINE YOUR SEARCH</span> TO FIND MORE INGREDIENTS.</h5>
+      </div>
+
+
+    </vk-grid>
   </div>
 </vk-grid>
 </template>
@@ -108,7 +196,8 @@ export default {
       cuisine: '',
       style: '',
       ingredients: '',
-      steps: ''
+      steps: '',
+      category: ''
     }
   },
   components: {
@@ -121,17 +210,14 @@ export default {
       var vm = this;
       var cuisine = vm.cuisine;
       var search = vm.search;
-      var style = vm.style;
+      var category = vm.category;
       var steps = vm.steps;
       var ingredients = vm.ingredients;
-
-      if (cuisine === "" && search === "" && steps === "" && ingredients === "") {
+      if (cuisine === "" && search === "" && steps === "" && ingredients === "" && category === "") {
         return vm.recipes;
       } else {
         return vm.recipes.filter(function (recipe) {
-          return (cuisine === '' || recipe.cuisine === cuisine) && (ingredients === '' || recipe.recipe_ingredients.meta.total == ingredients) && (search === '' || recipe.name.toLowerCase().includes(vm.search.toLowerCase())) && (steps === '' ||
-            recipe.recipe_directions.meta.total === steps);
-
+          return (cuisine === '' || recipe.cuisine === cuisine) && (category === '' || recipe.category === category) && (ingredients == '' || recipe.recipe_ingredients.data.length == ingredients) && (search === '' || recipe.name.toLowerCase().includes(vm.search.toLowerCase())) && (steps == '' || recipe.recipe_directions.data.length == steps);
         });
       }
     },
@@ -144,7 +230,19 @@ export default {
       var vm = this;
       vm.cuisine = ''
       vm.search = ''
-      console.log("PETER")
+      vm.steps = ''
+      vm.ingredients = ''
+      vm.category = ''
+    },
+    filtersToggle() {
+      var element = document.getElementById('filters')
+      var element2 = document.getElementById('search-settings-box')
+      element.classList.toggle('open')
+    },
+    closeFilters() {
+      var element = document.getElementById('filters')
+      var element2 = document.getElementById('search-settings-box')
+      element.classList.remove('open')
     }
   }
 }

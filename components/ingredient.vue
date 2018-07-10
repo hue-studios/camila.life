@@ -2,7 +2,7 @@
 <div>
   <vk-card class="uk-flex uk-flex-center uk-flex-middle listing-item" hover>
     <div class="uk-position-relative listing-top">
-      <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" v-if="$auth.$state.loggedIn" />
+      <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" :image="this.image" v-if="$auth.$state.loggedIn" />
       <div v-if="this.ingredient.images.data.length > 0" class="listing-image" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.ingredient.images.data[0].name + ')'"></div>
       <div v-else class="listing-image" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/camila-sun.jpg')"></div>
     </div>
@@ -15,7 +15,7 @@
       <div class="uk-visible@m listing-description" v-html="truncate(ingredient.description, 75)"></div>
     </nuxt-link>
   </vk-card>
-  
+
 </div>
 </template>
 
@@ -29,7 +29,8 @@ export default {
   props: ['ingredient'],
   data() {
     return {
-      recipes: []
+      recipes: [],
+      image: 'camila-sun.jpg'
       // goesWith: []
     }
   },
@@ -48,6 +49,9 @@ export default {
     // if (this.ingredient.goes_with) {
     //   this.goesWith = this.makeArray(this.ingredient.goes_with)
     // }
+    if (this.ingredient.images.data.length > 0) {
+      this.image = this.ingredient.images.data[0].name 
+    }
   },
   methods: {
     makeArray(str) {

@@ -2,16 +2,19 @@
 <template>
 <vk-grid id="ingredient" class="uk-flex uk-flex-center uk-flex-middle">
 
-  <div class="uk-width-1-1 uk-position-relative top-section">
+  <div class="uk-width-1-1 uk-position-relative uk-flex uk-flex-center top-section">
     <nuxt-link to="/plant-based-vegan-products" class="details-page-back-link condensed uk-text-uppercase">
       <vk-icon icon="chevron-left"></vk-icon> BACK <span class="uk-visible@s">TO ALL PRODUCTS</span></nuxt-link>
     <nuxt-link to="/plant-based-vegan-products" class="details-page-next-link condensed uk-text-uppercase">NEXT <span class="pink uk-visible@s">{{ingredient.category}}</span><span class="uk-visible@s"> PRODUCT</span>
       <vk-icon icon="chevron-right"></vk-icon>
     </nuxt-link>
-    <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" v-if="$auth.$state.loggedIn" />
-    <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ ingredient.images.data[0].name" alt="">
-    <a @click.prevent="show = true" id="image-modal-link"><vk-icon icon="expand" ></vk-icon>
-</a>
+
+    <div class="image-box">
+    <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" :image="ingredient.images.data[0].name" v-if="$auth.$state.loggedIn" />
+    <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/'+ ingredient.images.data[0].name" alt="">
+    <a @click.prevent="show = true" id="image-modal-link"><vk-icon icon="expand" ></vk-icon></a>
+    </div>
+
   </div>
 
   <div class="uk-width-1-1 uk-text-center heading">
@@ -35,10 +38,10 @@
 
   </div>
 
-<h4 class="uk-width-1-1 uk-text-center related-recipes-title">RECIPES FEATURING <span class="pink">{{ingredient.name}}</span></h4>
-  <div class="uk-position-relative uk-visible-toggle uk-width-1-1 related-recipes" uk-slider="center: true">
+<h4 class="uk-width-1-1 uk-text-center related-recipes-title" v-if="relatedRecipes.length > 0">RECIPES FEATURING <span class="pink">{{ingredient.name}}</span></h4>
+  <div class="uk-position-relative uk-visible-toggle uk-width-1-1 related-recipes" uk-slider="center: true" v-if="relatedRecipes.length > 0">
     <ul class="uk-slider-items uk-grid">
-      <ingredient-recipes v-for="(recipe, index) in relatedRecipes" :id="recipe.recipe_id" :index="index" v-bind:key="recipe.recipe_id" v-if="ingredient" class="uk-width-5-6"></ingredient-recipes>
+      <ingredient-recipes v-for="(recipe, index) in relatedRecipes" :id="recipe.recipe_id" :index="index" v-bind:key="recipe.recipe_id" class="uk-width-5-6"></ingredient-recipes>
     </ul>
     <a class="uk-position-center-left uk-position-large uk-light" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
     <a class="uk-position-center-right uk-position-large uk-light" href="#" uk-slidenav-next uk-slider-item="next"></a>
@@ -68,7 +71,6 @@ export default {
   auth: false,
   scrollToTop: true,
   transition(to, from) {
-    console.log("to: " + to.name + " :: from: " + from.name)
     if (from && (from.name == 'index' || from.name == 'list' || from.name == 'plant-based-vegan-products')) {
       return 'slide-left'
     }
@@ -99,7 +101,7 @@ export default {
   }) {
     if (store.state.user) {
       return axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + store.state.user.email).then((res) => {
-        console.log(res)
+
         store.commit('SET_LISTITEMS', res.data.meta.total)
         store.commit('SET_BACKLINK', '')
       })
@@ -107,7 +109,8 @@ export default {
   },
   created() {
     axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipe_ingredients/rows/?filters[ingredient][eq]=' + this.ingredient.id).then(response => {
-      console.log(response)
+
+        console.log("TESTER : " + this.ingredient.name)
       this.relatedRecipes = response.data.data
     }).catch(e => {
       this.errors.push(e)
