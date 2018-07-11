@@ -44,7 +44,6 @@
     </select>
       </div>
       <vk-grid class="uk-grid-small uk-margin-small uk-child-width-1-2 uk-child-width-1-3@s">
-        <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="vegan"> VEGAN</label>
         <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="organic"> ORGANIC</label>
         <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="gluten_free"> GLUTEN-FREE</label>
         <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="soy_free"> SOY-FREE</label>
@@ -158,7 +157,6 @@ export default {
       search: '',
       category: '',
       organic: false,
-      vegan: false,
       non_gmo: false,
       gluten_free: false,
       soy_free: false,
@@ -183,7 +181,6 @@ export default {
       vm.category = ''
       vm.search = ''
       vm.organic = 0
-      vm.vegan = 0
       vm.non_gmo = 0
       vm.gluten_free = 0
       vm.soy_free = 0
@@ -206,15 +203,14 @@ export default {
       var category = vm.category;
       var search = vm.search;
       var organic = vm.organic;
-      var vegan = vm.vegan;
       var non_gmo = vm.non_gmo;
       var gluten_free = vm.gluten_free;
       var soy_free = vm.soy_free;
-      if (category === "" && search === "" && !organic && !vegan && !non_gmo && !gluten_free && !soy_free) {
+      if (category === "" && search === "" && !organic &&  !non_gmo && !gluten_free && !soy_free) {
         return vm.ingredients;
       } else {
         return vm.ingredients.filter(function (ingredient) {
-          return (category === '' || ingredient.category === category) && (!organic || ingredient.organic === 1) && (!vegan || ingredient.vegan === 1) && (!non_gmo|| ingredient.non_gmo === 1) && (!gluten_free || ingredient.gluten_free=== 1) && (!soy_free || ingredient.soy_free === 1) && (search === '' || ingredient.name.toLowerCase().includes(vm.search.toLowerCase()));
+          return (category === '' || ingredient.category === category) && (!organic || ingredient.organic === 1) && (!non_gmo|| ingredient.non_gmo === 1) && (!gluten_free || ingredient.gluten_free=== 1) && (!soy_free || ingredient.soy_free === 1) && (search === '' || ingredient.name.toLowerCase().includes(vm.search.toLowerCase()));
         });
       }
     },

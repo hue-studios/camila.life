@@ -2,42 +2,74 @@
 	// recipe-landing styles
 	.top-section {
 		position: relative;
-		@media (min-width: $breakpoint-small) {}
-		@media (min-width: $breakpoint-medium) {
+		padding: 30px;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-blend-mode: darken;
+		background-color: rgba($black, 0.55);
+		color: $white;
+		box-shadow: inset 0 2px 45px rgba($black, 0.6);
+		@media (min-width: $breakpoint-small) {
+			padding: 50px;
 		}
-		@media (min-width: $breakpoint-large) {
+		@media (min-width: $breakpoint-medium) {
+			padding: 120px 60px 60px;
+		}
+		@media (min-width: $breakpoint-large) {}
+
+		h2 {
+			font-size: 32px;
+			line-height: 30px;
+			padding: 0 0 0 80px;
+			color: $white;
+			text-shadow: 0 2px 5px rgba($black, 0.5);
+			@media (min-width: $breakpoint-medium) {
+				font-size: 64px;
+				line-height: 60px;
+			}
 		}
 
-		h1 {
-			.uk-badge {
-				vertical-align: text-top;
-				background: $pink;
+		.caption {
+			margin-top: 0;
+			padding: 20px 0 20px 80px;
+
+			h5 {
+				margin: 0 0 8px;
+				font-size: 16px;
+				line-height: 16px;
 				color: $white;
+				text-shadow: 0 2px 6px rgba($black, 0.3);
+				@media (min-width: $breakpoint-small) {
+					font-size: 20px;
+					line-height: 20px;
+				}
+				@media (min-width: $breakpoint-medium) {
+					font-size: 26px;
+					margin: 0 0 15px;
+				}
+				@media (min-width: $breakpoint-large) {}
 			}
 		}
 	}
 
 	#listings {
-		// min-height: 100vh;
-
-		@media (min-width: $breakpoint-small) {
-			max-width: 640px;
-		}
+		@media (min-width: $breakpoint-small) {}
 		@media (min-width: $breakpoint-medium) {
-			max-width: 900px;
-
 			min-height: calc(100vh - 200px);
 		}
-		@media (min-width: $breakpoint-large) {
-		}
+		@media (min-width: $breakpoint-large) {}
+
 		#listings-grid {
 			@media (min-width: $breakpoint-medium) {
 				min-height: calc(100vh - 200px);
+
 				.uk-first-column {
-					padding-left: 0px;
+					padding-left: 0;
 				}
 			}
 		}
+
 		.listings-item {
 			margin-bottom: 30px;
 			transition: all 0.35s $curve;
@@ -50,174 +82,222 @@
 		padding-bottom: 0;
 		transition: all 0.25s ease-out;
 		align-content: center;
+		overflow: hidden;
 
+		div.uk-flex {
+			overflow: hidden;
+			margin-left: 0;
+			justify-content: flex-end;
+			// background: rgba($white, 0.4);
+			padding: 4px 0;
+			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-medium) {}
+		}
 
-			div.uk-flex{
-				margin-left: 0;
-				background: $white;
-				border-bottom: thin solid rgba($black, 0.2);
-				padding: 11px;
+		.uk-form-icon {
+			svg {
+				width: 15px;
+				height: 15px;
+				color: $white;
+			}
+		}
 
+		input.uk-search-input {
+			background: none;
+			padding: 0 10px;
+			width: 150px;
+			font-family: $condensed-font;
+			border-bottom: thin solid rgba($white, 0.6);
+			color: $white;
+		}
 
-					@media (min-width: $breakpoint-small) {
+		input.uk-search-input::placeholder {
+			color: $white;
+			opacity: 1;
+			/* Firefox */
+		}
 
-					}
-					@media (min-width: $breakpoint-medium) {
+		input.uk-search-input:-ms-input-placeholder {
+			color: $white;
+		}
 
-					}
+		input.uk-search-input::-ms-input-placeholder {
+			color: $white;
+		}
+
+		#filters-btn {
+			padding: 5px;
+			margin: 5px 0 5px 20px;
+			border: thin solid rgba($black, 0.6);
+			background: $white;
+
+			svg {
+				color: $black;
+			}
+		}
+
+		#clear-btn {
+			padding: 7px 5px 3px;
+			margin: 0 0 0 10px;
+			line-height: 20px;
+			font-size: 14px;
+			vertical-align: center;
+			border: thin solid rgba($black, 0.6);
+			background: $white;
+		}
+
+		.uk-sticky.uk-active {
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			background: rgba($white, 0.85);
+			justify-content: center;
+			@media (min-width: $breakpoint-medium) {
+				background: none;
+				border-bottom: none;
+				justify-content: flex-end;
 			}
 
-
-			.uk-form-icon {
-				svg {
-					width: 15px;
-					height: 15px;
-				}
-			}
-			input.uk-search-input {
-				padding: 0 10px;
-				width: 150px;
-				font-family: $condensed-font;
-				border-bottom: thin solid rgba($black, 0.6);
-			}
-			#filters-btn {
-				padding: 5px;
-				margin: 5px 0px 5px 20px;
-				border: thin solid rgba($black, 0.6);
-
-
-
-			}
-			#clear-btn {
-				padding: 7px 5px 3px;
-				margin: 0px 0px 0px 10px;
-				line-height: 20px;
-				font-size: 14px;
-				vertical-align: center;
-				border: thin solid rgba($black, 0.6);
-			}
-			.uk-sticky.uk-active {
+			.uk-search-input {
 				@media (min-width: $breakpoint-medium) {
-					background: none;
-					border-bottom: none;
-					justify-content: flex-end;
-				}
-				.uk-search-input {
-					@media (min-width: $breakpoint-medium) {
 					display: none;
 				}
-				}
-				.uk-icon {
-					@media (min-width: $breakpoint-medium) {
-						position: absolute;
-						right: 20px;
-						top: 75px;
-						background: $pink;
-						border-color: $pink;
-						padding: 10px;
-					}
-					svg {
-						color: $white;
-					}
-				}
 			}
 
+			input.uk-search-input {
+				border-bottom: thin solid rgba($black, 0.6);
+				color: $black;
+			}
 
+			input.uk-search-input::placeholder {
+				color: $black;
+			}
+
+			input.uk-search-input:-ms-input-placeholder {
+				color: $black;
+			}
+
+			input.uk-search-input::-ms-input-placeholder {
+				color: $black;
+			}
+
+			.uk-icon {
+				@media (min-width: $breakpoint-medium) {
+					position: absolute;
+					right: 20px;
+					top: 75px;
+					background: $pink;
+					border-color: $pink;
+					padding: 10px;
+				}
+
+				svg {
+					color: $black;
+				}
+			}
+		}
 	}
+
 	#filters {
 		position: fixed;
 		width: 80%;
 		right: -110%;
-		top: 0px;
+		top: 0;
 		height: 100vh;
 		background: $white;
-		box-shadow: 0px 1px 15px rgba($black, 0.4);
+		box-shadow: 0 1px 15px rgba($black, 0.4);
 		margin: 0;
 		padding-left: 0;
 		z-index: 990;
 		display: flex;
-		align-items:center;
+		align-items: center;
 		justify-content: center;
-		transition: .2s $curve;
+		transition: 0.2s $curve;
 		@media (min-width: 375px) {
 			width: 70%;
 		}
 		@media (min-width: $breakpoint-small) {
 			width: 50%;
 		}
+
 		form {
 			width: calc(100% - 40px);
 			position: relative;
 			@media (min-width: $breakpoint-small) {
 				// width: 375px;
 			}
-			@media (min-width: $breakpoint-medium) {
-			}
+			@media (min-width: $breakpoint-medium) {}
 		}
+
 		.uk-close {
 			position: absolute;
 			top: -60px;
 			right: calc(50% - 19px);
-
 			border-radius: 50%;
 			background: $pink;
 			color: $white;
 			padding: 5px;
-			@media (min-width: $breakpoint-small) {
-
-			}
-			@media (min-width: $breakpoint-medium) {
-			}
+			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-medium) {}
 		}
+
 		input.uk-search-input {
 			font-family: $condensed-font;
 			padding: 0 10px;
 			border-bottom: thin solid rgba($black, 0.6);
 		}
+
 		.uk-form-icon {
 			svg {
 				width: 15px;
 				height: 15px;
 			}
 		}
+
 		.range {
 			width: 110px;
 		}
+
 		.range-count {
 			width: 80px;
 		}
+
 		select {
 			border: none;
 			height: 25px;
 			border-bottom: thin solid rgba($black, 0.6);
 			text-align: center;
 			margin-bottom: 10px;
-
 		}
+
 		button {
 			height: 40px;
 			display: block;
 			width: 150px;
 		}
+
 		#apply-filters-btn {
 			background: $pink;
 			color: $white;
 			border: none;
 			margin: 0 auto;
 		}
+
 		#clear-filters-btn {
 			margin: 10px auto;
 		}
 	}
+
 	#filters.open {
-		right: 0%;
+		right: 0;
 	}
+
 	#filters-inline {
 		margin: 0;
 		padding: 0;
 		transition: all 0.35s $curve;
 		width: 270px !important;
 		height: calc(100vh - 200px);
+
 		.uk-sticky.uk-sticky-fixed {
 			width: 270px !important;
 			overflow: scroll;
@@ -225,32 +305,36 @@
 			transition: all 0.25s ease-out;
 			transition: all 0.35s $curve;
 		}
+
 		#filters-inline-box {
-			padding:20px;
+			padding: 20px;
 			height: 100%;
 			width: 270px !important;
 			transition: all 0.35s $curve;
-			@media (min-width: $breakpoint-large) {
-
-			}
+			@media (min-width: $breakpoint-large) {}
 		}
+
 		input.uk-search-input {
 			font-family: $condensed-font;
 			padding: 0 10px;
 			border-bottom: thin solid rgba($black, 0.6);
 		}
+
 		.range {
 			width: 140px;
 		}
+
 		select {
 			border: none;
 			height: 40px;
 			border-bottom: thin solid rgba($black, 0.6);
 			text-align: center;
 		}
+
 		button {
 			height: 40px;
 		}
+
 		#apply-filters-btn {
 			background: $pink;
 			color: $white;
@@ -260,47 +344,62 @@
 }
 // recipe-item styles
 
-.recipe-item {
-	.recipe-image {
-		height: 300px;
-		background-size: cover;
-		background-position: center;
-	}
+.listings-item {
+	margin-bottom: 40px;
+	position: relative;
+	overflow: hidden;
 
-	h2 {}
-
-	h4 {
-		margin-top: 0;
-
-		.label {
-			opacity: 0.6;
+	.recipe-item {
+		// background-color: rgba($black, 0.3);
+		// background-blend-mode: darken;
+		h2 {
+			position: absolute;
+			top: 5px;
+			left: -4px;
+			width: 65%;
+			font-size: 56px;
+			line-height: 40px;
+			color: $white;
+			text-shadow: 0 3px 10px rgba($black, 0.3);
+			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-medium) {
+				top: 5px;
+				left: -4px;
+				width: 70%;
+				font-size: 92px;
+				line-height: 70px;
+			}
 		}
-	}
 
-	h5 {
-		display: inline;
-		margin: 5px;
-		font-size: 16px;
-		line-height: 16px;
-		border: thin solid $black;
-		padding: 5px 5px 3px;
-	}
+		.caption {
+			position: absolute;
+			top: 0;
+			height: 100%;
+			right: 0;
+			max-width: 30%;
+			padding: 0 15px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background: rgba($black, 0.8);
+			@media (min-width: $breakpoint-small) {
+				padding: 0 25px;
+			}
+			@media (min-width: $breakpoint-medium) {
+				max-width: 24%;
+				padding: 0 20px;
+			}
 
-	h5:first-of-type {
-		margin-left: 0;
-	}
-
-	p.timing {
-		margin: 0;
-
-		span {}
-	}
-
-	.uk-card-footer {
-		.uk-button {
-			// border: thin solid $pink;
-			// color: $pink;
-			// font-size: 32px;
+			h4 {
+				margin: 10px 0;
+				font-size: 14px;
+				@media (min-width: $breakpoint-small) {
+					font-size: 18px;
+				}
+				@media (min-width: $breakpoint-medium) {
+					font-size: 18px;
+				}
+			}
 		}
 	}
 }
@@ -320,61 +419,54 @@
 }
 
 .range {
--webkit-appearance: none;
-width:140px;
-height: 36px;
-background: none;
-// box-shadow: inset 0px 2px 25px rgba($black, 0.35);
-outline: none;
-opacity: 1;
-border-radius: 18px;
-// padding: 0 10px;
-// border: thin solid rgba($black, 0.1);
-// transition: opacity .2s;
+	-webkit-appearance: none;
+	width: 140px;
+	height: 36px;
+	background: none; // box-shadow: inset 0px 2px 25px rgba($black, 0.35);
+	outline: none;
+	opacity: 1;
+	border-radius: 18px; // padding: 0 10px;
+	// border: thin solid rgba($black, 0.1);
+	// transition: opacity .2s;
 }
 
 .range::-webkit-slider-thumb {
--webkit-appearance: none;
-appearance: none;
-width: 24px;
-height: 24px;
-margin-top: -10px;
-cursor: pointer;
-border-radius: 50%;
-box-shadow:
-0 1px .125em #585858,
-inset 0 1px 5px #f8f8f8;
-background:
-radial-gradient(rgba($green, 0.9) 35%, rgba($green, 0.3) 71%) content-box,
-linear-gradient(#d4d4d4, #bfbfbf) border-box;
+	-webkit-appearance: none;
+	appearance: none;
+	width: 24px;
+	height: 24px;
+	margin-top: -10px;
+	cursor: pointer;
+	border-radius: 50%;
+	box-shadow: 0 1px 0.125em #585858, inset 0 1px 5px #f8f8f8;
+	background: radial-gradient(rgba($green, 0.9) 35%, rgba($green, 0.3) 71%) content-box, linear-gradient(#d4d4d4, #bfbfbf) border-box;
 }
+
 .range::-webkit-slider-runnable-track {
-width: 100%;
-height: 6px;
-margin: 0px;
-cursor: pointer;
-background: rgba($black, 0.3);
-// border: 0.2px solid #010101;
-border-radius: 12px;
+	width: 100%;
+	height: 6px;
+	margin: 0;
+	cursor: pointer;
+	background: rgba($black, 0.3); // border: 0.2px solid #010101;
+	border-radius: 12px;
 }
+
 .range::-moz-range-thumb {
--webkit-appearance: none;
-appearance: none;
-width: 24px;
-height: 24px;
-margin-top: -10px;
-cursor: pointer;
-border-radius: 50%;
-box-shadow:
-0 1px .125em #585858,
-inset 0 1px 5px #f8f8f8;
-background:
-radial-gradient($blue 35%, $blue 71%) content-box,
-linear-gradient(#d4d4d4, #bfbfbf) border-box;
+	-webkit-appearance: none;
+	appearance: none;
+	width: 24px;
+	height: 24px;
+	margin-top: -10px;
+	cursor: pointer;
+	border-radius: 50%;
+	box-shadow: 0 1px 0.125em #585858, inset 0 1px 5px #f8f8f8;
+	background: radial-gradient($blue 35%, $blue 71%) content-box, linear-gradient(#d4d4d4, #bfbfbf) border-box;
 }
+
 .range:focus {
 	border: thin solid $pink;
 }
+
 .range-count {
 	line-height: 36px;
 	font-size: 14px;

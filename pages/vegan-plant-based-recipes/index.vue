@@ -1,25 +1,29 @@
 
 <template>
 <vk-grid id="recipes">
-  <div id="search-settings-bar" class="uk-width-1-1 uk-hidden@m">
-    <vk-sticky :top="50" animation="slide-top">
-      <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
-        <div class="uk-position-relative">
-          <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></span>
-          <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
-        </div>
-
-        <vk-icon id="filters-btn" icon="settings" @click.prevent="filtersToggle()"></vk-icon>
-        <a id="clear-btn" class="condensed" @click.prevent="clearFilters()">CLEAR</a>
-        <p class="condensed-bold uk-text-uppercase uk-text-center uk-hidden@m uk-margin-small-left">found
-          <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients</p>
+  <div class="top-section uk-width-1-1 uk-background-image" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'">
+    <vk-grid class="uk-flex uk-flex-right uk-flex-middle">
+      <h2 class="uk-width-1-1 uk-text-right">RECIPES / <span class="pink">CREATE THE LOVE</span></h2>
+      <div class="uk-text-right caption uk-width-1-1">
+        <h5 class=""><span class="green condensed-bold">EASY</span>: FAMILIAR RECIPES THAT EVERYONE LOVES</h5>
+        <h5 class=""><span class="pink condensed-bold">RADICAL</span>: WARRIOR STYLE, HANDS-ON, HEALTHY RECIPES THAT CHALLENGE</h5>
       </div>
-    </vk-sticky>
-  </div>
-  <div class="top-section uk-width-1-1">
-<h2 class="uk-text-right uk-margin-right">RECIPES / <span class="pink">CREATE THE LOVE</span></h2>
-<h5 class="uk-text-right uk-margin-right uk-margin-remove-bottom uk-margin-small-top"><span class="green condensed-bold">EASY</span> : FAMILIAR RECIPES THAT EVERYONE LOVES</h5>
-<h5 class="uk-text-right uk-margin-right uk-margin-remove-top uk-margin-large-bottom"><span class="pink condensed-bold">RADICAL</span> : WARRIOR STYLE, HANDS-ON, HEALTHY RECIPES THAT CHALLENGE</h5>
+      <div id="search-settings-bar" class="uk-width-1-1 uk-hidden@m">
+        <vk-sticky :top="50" animation="slide-top">
+
+          <div class="uk-flex uk-flex-middle uk-text-center">
+            <div class="uk-position-relative">
+
+              <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></span>
+              <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
+            </div>
+            <vk-icon id="filters-btn" icon="settings" @click.prevent="filtersToggle()"></vk-icon>
+            <a id="clear-btn" class="condensed" @click.prevent="clearFilters()">CLEAR</a>
+
+          </div>
+        </vk-sticky>
+      </div>
+    </vk-grid>
   </div>
 
   <div id="filters" class="uk-hidden@m">
@@ -30,11 +34,11 @@
       </div>
       <div>
 
-      <vk-grid class="uk-margin uk-grid-small uk-child-width-1-2 uk-flex uk-flex-middle uk-text-center uk-grid-collapse">
-       <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Easy" v-model="category"> EASY</label>
-       <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Radical" v-model="category"> RADICAL</label>
-     </vk-grid>
-   </div>
+        <vk-grid class="uk-margin uk-grid-small uk-child-width-1-2 uk-flex uk-flex-middle uk-text-center uk-grid-collapse">
+          <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Easy" v-model="category"> EASY</label>
+          <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Radical" v-model="category"> RADICAL</label>
+        </vk-grid>
+      </div>
       <div class="uk-position-relative">
         <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></span>
         <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
@@ -53,42 +57,42 @@
     </select>
       </div>
       <div>
-      <!-- <h5 class="uk-text-left range-label">NUMBER OF INGREDIENTS</h5> -->
-      <vk-grid class="uk-flex uk-flex-middle uk-flex-center uk-grid-collapse">
-        <div>
-      <input class="range" type="range" v-model="ingredients" min="2" max="15" step="1">
-    </div>
-      <div>
-        <p class="condensed-bold range-count">{{ingredients}} INGREDIENTS</p>
+        <!-- <h5 class="uk-text-left range-label">NUMBER OF INGREDIENTS</h5> -->
+        <vk-grid class="uk-flex uk-flex-middle uk-flex-center uk-grid-collapse">
+          <div>
+            <input class="range" type="range" v-model="ingredients" min="2" max="15" step="1">
+          </div>
+          <div>
+            <p class="condensed-bold range-count">{{ingredients}} INGREDIENTS</p>
+          </div>
+        </vk-grid>
       </div>
-    </vk-grid>
-    </div>
       <div>
-      <!-- <h5 class="uk-text-left range-label">NUMBER OF STEPS</h5> -->
-      <vk-grid class="uk-flex uk-flex-middle uk-flex-center uk-grid-collapse">
-        <div>
-      <input class="range" type="range" v-model="steps" min="2" max="15">
-    </div>
-      <div>
-        <p class="condensed-bold range-count">{{steps}} STEPS</p>
-      </div>
-    </vk-grid>
-
-    </div>
-
-
-        <p class="condensed-bold uk-text-uppercase uk-text-center uk-width-1-1 uk-margin-small-top">found
-          <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
-        <vk-grid class="uk-margin-small uk-child-width-1-1">
-          <div class="uk-text-center">
-            <button id="apply-filters-btn" @click.prevent="closeFilters()" class="uk-button uk-button-default condensed">VIEW RESULTS</button>
-            <button id="clear-filters-btn" @click.prevent="clearFilters()" class="uk-button uk-button-default condensed">CLEAR FILTERS</button>
+        <!-- <h5 class="uk-text-left range-label">NUMBER OF STEPS</h5> -->
+        <vk-grid class="uk-flex uk-flex-middle uk-flex-center uk-grid-collapse">
+          <div>
+            <input class="range" type="range" v-model="steps" min="2" max="15">
+          </div>
+          <div>
+            <p class="condensed-bold range-count">{{steps}} STEPS</p>
           </div>
         </vk-grid>
 
+      </div>
+
+
+      <p class="condensed-bold uk-text-uppercase uk-text-center uk-width-1-1 uk-margin-small-top">found
+        <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
+      <vk-grid class="uk-margin-small uk-child-width-1-1">
+        <div class="uk-text-center">
+          <button id="apply-filters-btn" @click.prevent="closeFilters()" class="uk-button uk-button-default condensed">VIEW RESULTS</button>
+          <button id="clear-filters-btn" @click.prevent="clearFilters()" class="uk-button uk-button-default condensed">CLEAR FILTERS</button>
+        </div>
+      </vk-grid>
+
     </form>
   </div>
-  <div id="filters-inline" class="uk-width-1-5 uk-visible@m uk-flex uk-flex-center uk-flex-middle">
+  <div id="filters-inline" class="uk-width-1-5 uk-width-2-6@m uk-width-1-5@l uk-visible@m uk-flex uk-flex-center uk-flex-middle">
     <vk-sticky bottom="#ingredients">
       <div id="filters-inline-box" class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
         <vk-grid class="uk-grid-small uk-child-width-1-1">
@@ -97,11 +101,11 @@
           </div>
           <div>
 
-          <vk-grid class="uk-margin uk-grid-small uk-child-width-1-2 uk-flex uk-flex-middle uk-grid-collapse">
-           <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Easy" v-model="category"> EASY</label>
-           <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Radical" v-model="category"> RADICAL</label>
-         </vk-grid>
-       </div>
+            <vk-grid class="uk-margin uk-grid-small uk-child-width-1-2 uk-flex uk-flex-middle uk-grid-collapse">
+              <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Easy" v-model="category"> EASY</label>
+              <label class=" condensed-bold"><input class="uk-radio" type="radio" value="Radical" v-model="category"> RADICAL</label>
+            </vk-grid>
+          </div>
           <div>
             <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
           </div>
@@ -121,28 +125,28 @@
           </div>
 
           <div>
-          <!-- <h5 class="uk-text-left range-label">NUMBER OF INGREDIENTS</h5> -->
-          <vk-grid class="uk-flex uk-flex-middle uk-grid-collapse">
-            <div>
-          <input class="range" type="range" v-model="ingredients" min="2" max="15" step="1">
-        </div>
-          <div>
-            <p class="condensed-bold range-count">{{ingredients}} INGREDIENTS</p>
+            <!-- <h5 class="uk-text-left range-label">NUMBER OF INGREDIENTS</h5> -->
+            <vk-grid class="uk-flex uk-flex-middle uk-grid-collapse">
+              <div>
+                <input class="range" type="range" v-model="ingredients" min="2" max="15" step="1">
+              </div>
+              <div>
+                <p class="condensed-bold range-count">{{ingredients}} INGREDIENTS</p>
+              </div>
+            </vk-grid>
           </div>
-        </vk-grid>
-        </div>
           <div>
-          <!-- <h5 class="uk-text-left range-label">NUMBER OF STEPS</h5> -->
-          <vk-grid class="uk-flex uk-flex-middle uk-grid-collapse">
-            <div>
-          <input class="range" type="range" v-model="steps" min="2" max="15">
-        </div>
-          <div>
-            <p class="condensed-bold range-count">{{steps}} STEPS</p>
-          </div>
-        </vk-grid>
+            <!-- <h5 class="uk-text-left range-label">NUMBER OF STEPS</h5> -->
+            <vk-grid class="uk-flex uk-flex-middle uk-grid-collapse">
+              <div>
+                <input class="range" type="range" v-model="steps" min="2" max="15">
+              </div>
+              <div>
+                <p class="condensed-bold range-count">{{steps}} STEPS</p>
+              </div>
+            </vk-grid>
 
-        </div>
+          </div>
 
           <p class="condensed-bold uk-text-uppercase uk-text-center uk-width-1-1">found
             <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
@@ -155,11 +159,12 @@
       </div>
     </vk-sticky>
   </div>
-  <div id="listings" class="uk-width-5-6 uk-width-3-5@m">
-    <vk-grid id="listings-grid" class="">
-
-      <transition-group name="card" mode="out-in" v-if="filteredList.length > 0" class="uk-grid">
-        <recipe class="uk-width-1-2 listings-item" v-for="(recipe, index) in filteredList" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id" v-if="filteredList.length > 0"></recipe>
+  <div class="uk-width-5-6 uk-width-3-5@m ">
+    <vk-grid id="listings-grid" class="uk-child-width-1-1 uk-flex uk-flex-middle">
+      <p class="condensed-bold uk-width-1-1 uk-text-uppercase uk-text-center uk-hidden@m">found
+        <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients</p>
+      <transition-group name="card" mode="out-in" v-if="filteredList.length > 0">
+        <recipe class="listings-item" v-for="(recipe, index) in filteredList" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id" v-if="filteredList.length > 0"></recipe>
       </transition-group>
 
       <div v-if="filteredList.length < 1" class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle">
@@ -217,7 +222,8 @@ export default {
         return vm.recipes;
       } else {
         return vm.recipes.filter(function (recipe) {
-          return (cuisine === '' || recipe.cuisine === cuisine) && (category === '' || recipe.category === category) && (ingredients == '' || recipe.recipe_ingredients.data.length == ingredients) && (search === '' || recipe.name.toLowerCase().includes(vm.search.toLowerCase())) && (steps == '' || recipe.recipe_directions.data.length == steps);
+          return (cuisine === '' || recipe.cuisine === cuisine) && (category === '' || recipe.category === category) && (ingredients == '' || recipe.recipe_ingredients.data.length == ingredients) && (search === '' || recipe.name.toLowerCase().includes(
+            vm.search.toLowerCase())) && (steps == '' || recipe.recipe_directions.data.length == steps);
         });
       }
     },
@@ -254,4 +260,7 @@ export default {
     justify-content: center;
     flex-direction: row;
 }
+// .top-section {
+//   background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/duotone_(1).png');
+// }
 </style>

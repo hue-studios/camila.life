@@ -1,29 +1,25 @@
 <template>
-<div class="recipe-item">
+<div>
   <nuxt-link :to="'/vegan-plant-based-recipes/' + recipe.url">
-      <div v-if="this.recipe.images.data.length > 0"  class="uk-position-relative recipe-image" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.recipe.images.data[0].name+ ')'">
-      <h2>{{recipe.name}}</h2>
-          <h4 class="green"><span class="label">CUISINE</span> {{recipe.cuisine}}</h4>
-          <p><span v-if="recipe.recipe_directions.meta.total > 0" class="condensed-bold timing">{{recipe.recipe_directions.meta.total}} STEPS</span> +
+  <vk-grid class="uk-child-width-1-1">
+    <div>
+        <div v-if="this.recipe.images.data.length > 0"  class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle recipe-item" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.recipe.images.data[0].name+ ')'">
+          <h2 class="condensed-bold">{{recipe.name}}</h2>
+            <div class="caption">
+              <h4 class="green"><span class="white">CUISINE</span> {{recipe.cuisine}}</h4>
+              <h4 class="white"><span v-if="recipe.recipe_directions.meta.total > 0" class=""><span class="green">{{recipe.recipe_directions.meta.total}}</span> STEPS</span>
+                <br>
 
-          <span v-if="recipe.recipe_ingredients.meta.total > 0" class="condensed-bold timing">{{recipe.recipe_ingredients.meta.total}} INGREDIENTS</span></p>
-      </div>
+              <span v-if="recipe.recipe_ingredients.meta.total > 0" class=""><span class="green">{{recipe.recipe_ingredients.meta.total}}</span> INGREDIENTS</span></h4>
+              <h4 class="white"> <span v-if="recipe.prep_time">PREP TIME: <span class="green">{{recipe.prep_time}} MIN</span></span><br>
+              <span v-if="recipe.cook_time">COOK TIME: <span class="green">{{recipe.cook_time}} MIN</span></span></h4>
+              </div>
+        </div>
+        <div v-else class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle recipe-item" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/camila-sun.jpg')">
 
-      <div v-else class="uk-position-relative recipe-image" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/camila-sun.jpg')">
-
-      </div>
-
-
-
-
-      <!-- <h5 v-if="styles.length > 0" v-for="(style, index) in styles" v-bind:key="index" class="uk-text-uppercase">{{style}}</h5> -->
-
-
-
-
-      <!-- <p v-if="recipe.prep_time" class="condensed-bold timing"><span class="condensed label">PREP TIME:</span> {{recipe.prep_time}} MIN</p>
-      <p v-if="recipe.cook_time" class="condensed-bold timing"><span class="condensed label">COOK TIME:</span> {{recipe.cook_time}} MIN</p>
-      <p v-else class="condensed-bold timing"><span class="condensed label">No cook time...</span>it's ready to eat!</p> -->
+        </div>
+    </div>
+  </vk-grid>
 </nuxt-link>
 
 </div>
