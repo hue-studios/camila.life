@@ -1,14 +1,6 @@
 
 <template>
 <vk-grid id="recipes">
-  <div class="top-section uk-width-1-1 uk-background-cover uk-flex uk-flex-center uk-flex-middle page-cover" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'" uk-parallax="bgy: 200; target: .uk-background-cover">
-    <div class="uk-overlay-primary uk-position-cover"></div>
-    <div class="uk-overlay uk-position-middle uk-light uk-padding-large uk-text-center">
-      <h1 class="uk-text-uppercase white" uk-parallax="y: 100; target: .uk-background-cover">RECIPES <span class="uk-badge pink-bg">{{total}}</span></h1>
-      <!-- <p class="white" uk-parallax="y: 60; target: .uk-background-cover">{{page.caption}}</p> -->
-    </div>
-
-  </div>
   <div id="search-settings-bar" class="uk-width-1-1 uk-hidden@m">
     <vk-sticky :top="50" animation="slide-top">
       <div class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
@@ -18,14 +10,23 @@
         </div>
 
         <vk-icon id="filters-btn" icon="settings" @click.prevent="filtersToggle()"></vk-icon>
+        <a id="clear-btn" class="condensed" @click.prevent="clearFilters()">CLEAR</a>
+        <p class="condensed-bold uk-text-uppercase uk-text-center uk-hidden@m uk-margin-small-left">found
+          <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients</p>
       </div>
     </vk-sticky>
   </div>
+  <div class="top-section uk-width-1-1">
+<h2 class="uk-text-right uk-margin-right">RECIPES / <span class="pink">CREATE THE LOVE</span></h2>
+<h5 class="uk-text-right uk-margin-right uk-margin-remove-bottom uk-margin-small-top"><span class="green condensed-bold">EASY</span> : FAMILIAR RECIPES THAT EVERYONE LOVES</h5>
+<h5 class="uk-text-right uk-margin-right uk-margin-remove-top uk-margin-large-bottom"><span class="pink condensed-bold">RADICAL</span> : WARRIOR STYLE, HANDS-ON, HEALTHY RECIPES THAT CHALLENGE</h5>
+  </div>
+
   <div id="filters" class="uk-hidden@m">
     <form>
       <vk-icon ratio="1.4" class="uk-close" icon="close" @click.prevent="closeFilters()"></vk-icon>
       <div class="">
-        <h5 class="uk-text-center">FILTER INGREDIENTS</h5>
+        <h5 class="uk-text-center">FILTER RECIPES</h5>
       </div>
       <div>
 
@@ -76,7 +77,7 @@
     </div>
 
 
-        <p class="condensed-bold uk-text-uppercase uk-text-center uk-width-1-1 uk-margin-medium-top">found
+        <p class="condensed-bold uk-text-uppercase uk-text-center uk-width-1-1 uk-margin-small-top">found
           <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
         <vk-grid class="uk-margin-small uk-child-width-1-1">
           <div class="uk-text-center">
@@ -156,8 +157,7 @@
   </div>
   <div id="listings" class="uk-width-5-6 uk-width-3-5@m">
     <vk-grid id="listings-grid" class="">
-      <p class="condensed uk-text-uppercase uk-text-center uk-width-1-1 uk-hidden@m">found
-        <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients.</p>
+
       <transition-group name="card" mode="out-in" v-if="filteredList.length > 0" class="uk-grid">
         <recipe class="uk-width-1-2 listings-item" v-for="(recipe, index) in filteredList" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id" v-if="filteredList.length > 0"></recipe>
       </transition-group>
