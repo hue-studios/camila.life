@@ -1,25 +1,27 @@
 
 <template>
 <vk-grid id="recipes">
-  <div class="top-section uk-width-1-1 uk-background-image" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'">
+  <div class="top-section uk-width-1-1 uk-background-image uk-flex uk-flex-middle" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'">
     <vk-grid class="uk-flex uk-flex-right uk-flex-middle">
       <h2 class="uk-width-1-1 uk-text-right">RECIPES / <span class="pink">CREATE THE LOVE</span></h2>
       <div class="uk-text-right caption uk-width-1-1">
-        <h5 class=""><span class="green condensed-bold">EASY</span>: FAMILIAR RECIPES THAT EVERYONE LOVES</h5>
-        <h5 class=""><span class="pink condensed-bold">RADICAL</span>: WARRIOR STYLE, HANDS-ON, HEALTHY RECIPES THAT CHALLENGE</h5>
+        <h5 class=""><span class="green condensed-bold black-bg">EASY</span>: FAMILIAR RECIPES THAT EVERYONE LOVES</h5>
+        <h5 class=""><span class="pink condensed-bold black-bg">RADICAL</span>: WARRIOR STYLE, HANDS-ON, HEALTHY RECIPES THAT CHALLENGE</h5>
       </div>
       <div id="search-settings-bar" class="uk-width-1-1 uk-hidden@m">
-        <vk-sticky :top="50" animation="slide-top">
+        <vk-sticky animation="slide-top">
 
           <div class="uk-flex uk-flex-middle uk-text-center">
-            <div class="uk-position-relative">
-
-              <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></span>
-              <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
-            </div>
-            <vk-icon id="filters-btn" icon="settings" @click.prevent="filtersToggle()"></vk-icon>
-            <a id="clear-btn" class="condensed" @click.prevent="clearFilters()">CLEAR</a>
-
+            <vk-grid>
+              <div class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle">
+                <div class="uk-position-relative">
+                  <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: search"></span>
+                  <input class="uk-search-input condensed-bold uk-text-uppercase" type="search" placeholder="Search..." v-model="search" />
+                </div>
+                <vk-icon id="filters-btn" icon="settings" @click.prevent="filtersToggle()"></vk-icon>
+                <a id="clear-btn" class="condensed" @click.prevent="clearFilters()">CLEAR</a>
+              </div>
+            </vk-grid>
           </div>
         </vk-sticky>
       </div>
@@ -160,15 +162,15 @@
     </vk-sticky>
   </div>
   <div class="uk-width-5-6 uk-width-3-5@m ">
-    <vk-grid id="listings-grid" class="uk-child-width-1-1 uk-flex uk-flex-middle">
-      <p class="condensed-bold uk-width-1-1 uk-text-uppercase uk-text-center uk-hidden@m">found
+    <vk-grid id="listings-grid" class="uk-child-width-1-1 uk-flex uk-flex-center uk-flex-middle">
+      <p class="condensed-bold uk-width-1-1 uk-text-uppercase uk-text-center uk-hidden@m uk-flex-middle ">found
         <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients</p>
       <transition-group name="card" mode="out-in" v-if="filteredList.length > 0">
-        <recipe class="listings-item" v-for="(recipe, index) in filteredList" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id" v-if="filteredList.length > 0"></recipe>
+        <recipe class="listings-item" v-for="(recipe, index) in filteredList" :recipe="recipe" :index="index" :id="recipe.id" v-bind:key="recipe.id"></recipe>
       </transition-group>
 
       <div v-if="filteredList.length < 1" class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle">
-        <h5><span class="pink" @click.prevent="filtersToggle()">REFINE YOUR SEARCH</span> TO FIND MORE INGREDIENTS.</h5>
+        <h5 style="margin-bottom: 50px;"><span class="pink" @click.prevent="filtersToggle()">REFINE YOUR SEARCH</span> TO FIND MORE INGREDIENTS.</h5>
       </div>
 
 

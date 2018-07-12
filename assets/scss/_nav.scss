@@ -8,12 +8,12 @@
 	left: -18px;
 	transform-origin: top left;
 	@media (min-width: $breakpoint-small) {
-		width: 150px;
+		width: 130px;
 		left: -20px;
 	}
 	@media (min-width: $breakpoint-medium) {
 		top: -4px;
-
+		width: 150px;
 	}
 	@media (min-width: $breakpoint-xlarge) {
 		width: 200px;
@@ -36,8 +36,8 @@
 		margin-bottom: 0px;
 		margin-left: 15px;
 		@media (min-width: $breakpoint-small) {
-			font-size: 86px;
-			line-height: 70px;
+			font-size: 76px;
+			line-height: 60px;
 
 		}
 		@media (min-width: $breakpoint-medium) {

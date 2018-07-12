@@ -297,7 +297,9 @@ nav#nav-bar.in-left {
 .page-leave-active {
   opacity: 0;
 }
-
+.card {
+  transition: all 0.5s;
+}
 .card-enter, .card-leave-to
 /* .card-leave-active for <2.1.8 */ {
   opacity: 0;

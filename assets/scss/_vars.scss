@@ -70,18 +70,21 @@ a:hover {
 .white {
     color: $white;
 }
-.pink {
+.pink, .Radical {
     color: $pink;
 }
 
 .blue {
     color: $blue;
 }
-.green {
+.green, .Easy {
     color: $green;
 }
 .red {
   color:#DC0003;
+}
+.black-bg {
+  background: $black;
 }
 .bg-image {
   background-position: center;
