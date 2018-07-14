@@ -1,13 +1,13 @@
 
 <template>
 <vk-grid id="recipe" class="uk-flex uk-flex-center uk-flex-middle">
-
-  <div class="uk-visible@m recipe-title" uk-parallax="y: 0px,-60px; target: .top-section; easing: 0.8; media: @m;">
+  <!-- uk-parallax="y: 0px,-60px; target: .top-section; easing: 0.8; media: @m;" -->
+  <div class="uk-visible@m recipe-title">
     <h3><span v-if="style.length > 0">{{style[0]}} /</span>
-  <span v-if="recipe.cuisine" class="pink"> {{recipe.cuisine}}</span></h3>
-    <h1 class="pink condensed-bold">{{findLove(recipe.name)}}<span v-if="love"><br>LOVE</span></h1>
+  <span v-if="recipe.cuisine" class="pink" uk-parallax="color: #FB00DA, #e000fb; target: .top-section; easing: 0.8; "> {{recipe.cuisine}}</span></h3>
+    <h1 uk-parallax="color: #FB00DA, #e000fb; target: .top-section; easing: 0.8; " class="pink condensed-bold">{{findLove(recipe.name)}}<span v-if="love"><br>LOVE</span></h1>
   </div>
-  <div class="uk-hidden@m recipe-title" uk-parallax="y: 0px,-40px; x: 0px, 15px; color: #1a1a1a, #fff; background-color: rgba(1,1,1,1); scale: 1, 0.7; target: .top-section; easing: 0.8;">
+  <div class="uk-hidden@m recipe-title uk-position-fixed" uk-parallax="y: 0px,-40px; x: 0px, 15px; color: #1a1a1a, #fff; background-color: rgba(1,1,1,1); scale: 1, 0.7; target: .top-section; easing: 0.8;">
     <h3><span v-if="style.length > 0">{{style[0]}} /</span>
   <span v-if="recipe.cuisine" class="pink"> {{recipe.cuisine}}</span></h3>
     <h1 class="pink condensed-bold">{{findLove(recipe.name)}}<span v-if="love"><br>LOVE</span></h1>
@@ -35,58 +35,71 @@
     </vk-grid>
     <div class="uk-text-justify recipe-caption" v-html="recipe.caption"></div>
   </div>
-  <div class="uk-width-5-6">
-    <vk-grid class="uk-flex uk-flex-center">
-      <div class="recipe-stats-box">
+  <div class="uk-width-1-1 recipe-stats-box">
 
-        <div class="uk-position-relative recipe-stats">
-          <h3 class="condensed-bold pink">STATS</h3>
-          <h5> <span v-if="recipe.prep_time" class="stats-item">PREP TIME: <span class="pink condensed-bold">{{recipe.prep_time}} MIN</span></span>
+    <vk-grid class="uk-flex uk-flex-center uk-position-relative">
+      <h3 class="condensed-bold dark-pink" uk-parallax="opacity: 0.4, 0.1, 0.4; easing: 0.8; media: 500">STATS</h3>
+      <div>
 
-      <span v-if="recipe.cook_time" class="stats-item">COOK TIME: <span class="pink condensed-bold">{{recipe.cook_time}} MIN</span></span>
+        <div class="recipe-stats">
+          <h5> <span v-if="recipe.prep_time" class="stats-item condensed-bold">PREP TIME: <span class="white condensed-bold">{{recipe.prep_time}} MIN</span></span>
 
-      <span class="stats-item"><span class="pink condensed-bold">{{recipe.recipe_ingredients.data.length}}</span> INGREDIENTS</span>
+      <span v-if="recipe.cook_time" class="stats-item condensed-bold">COOK TIME: <span class="white condensed-bold">{{recipe.cook_time}} MIN</span></span>
 
-      <span class="stats-item"><span class="pink condensed-bold">{{recipe.recipe_directions.data.length}}</span> STEPS</span></h5>
+      <span class="stats-item condensed-bold"><span class="white condensed-bold">{{recipe.recipe_ingredients.data.length}}</span> INGREDIENTS</span>
+
+      <span class="stats-item condensed-bold"><span class="white condensed-bold">{{recipe.recipe_directions.data.length}}</span> STEPS</span></h5>
         </div>
       </div>
     </vk-grid>
   </div>
 
-  <div class="uk-width-1-1 uk-width-5-6@s recipe-tabs">
-    <ul class="uk-child-width-expand" uk-switcher="animation: uk-animation-slide-left-small, uk-animation-slide-right-small" uk-tab>
-      <li><a @click.prevent>HOW TO GET IT DONE <span class="uk-visible@s">[{{recipe.recipe_directions.data.length}} STEPS]</span></a></li>
-      <li><a @click.prevent>{{recipe.recipe_ingredients.data.length}}  Ingredients</a></li>
-    </ul>
-    <ul class="uk-switcher" uk-height-match>
-      <li class="recipe-tab">
-        <vk-grid class="uk-flex uk-flex-middle uk-flex-center">
-          <div class="uk-width-1-1 uk-text-center">
+  <div class="uk-width-1-1 uk-width-5-6@s uk-width-1-1@m recipe-tabs">
+    <vk-grid class="uk-flex uk-flex-center ">
+      <div class="uk-width-1-1 uk-text-center">
+        <h2 class="uk-text-center condensed-bold recipe-tab-title">HOW TO GET IT DONE [<span class="pink">{{ recipe.recipe_directions.data.length}}</span> STEPS + <span class="pink">{{ recipe.recipe_ingredients.data.length}}</span> ingredients]</h2>
+      </div>
+      <div class="uk-width-1-1 uk-width-auto@m" id="steps-tab">
+        <div class="uk-text-center">
           <h4 class="uk-margin-remove-bottom">Completed <span class="script-font pink">{{currentStep}}</span> of <span class="script-font pink">{{totalSteps}}</span> steps.</h4>
-          <p class="script-font uk-margin-small-bottom uk-margin-remove-top">{{stepMessage}}</p>
+          <transition name="fade" mode="out-in">
+          <p class="script-font uk-margin-small-bottom uk-margin-remove-top" id="step-message">{{stepMessage}}</p>
+        </transition>
         </div>
-        <div class="uk-width-1-1 uk-width-auto@s uk-margin-remove-top">
+        <div class="uk-margin-remove-top uk-flex uk-flex-center uk-flex-middle uk-flex-column recipe-tab">
           <div v-for="(direction, index) in recipe.recipe_directions.data" v-bind:key="direction.id" class="recipe-direction">
             <input class="uk-checkbox" :id="'checkbox-' + index" type="checkbox" @click="stepComplete(index)">
             <p class="uk-text-capitalize title"><span class="condensed-bold pink uk-text-uppercase" :id="'step-' + index">STEP {{index + 1}}: </span> <span class="title-word" :id="'title-' + index">{{titleCase(direction.title)}}</span></p>
             <div class="content" :id="'content-' + index" v-html="direction.content"></div>
           </div>
-          </div>
-        </vk-grid>
-      </li>
-      <li class="recipe-tab">
-        <!-- <div v-for="ingredient in ingredients" v-bind:key="ingredient.id">
-          <span v-if="ingredient.measurement">{{ingredient.measurement}}</span>
-          <span v-if="ingredient.measurement_label">{{ingredient.measurement_label}}</span>
-          <span v-if="ingredient.recipe_ingredient_description">{{ingredient.recipe_ingredient_description}}</span>
         </div>
-        <ingredient v-for="(ingredient, index) in ingredients" :index="index" v-bind:key="ingredient.id" :id="ingredient.ingredient" :recipe="ingredient.recipe" :measurement="ingredient.measurement" :label="ingredient.measurement_label" :description="ingredient.recipe_ingredient_description"></ingredient> -->
-      </li>
+      </div>
 
-    </ul>
+      <div id="ingredients-tab" class="uk-width-1-1 uk-width-2-5@m uk-flex uk-flex-center uk-flex-column recipe-tab">
+
+        <div class="uk-width-1-1 uk-text-center">
+
+          <h4 class="uk-margin-remove-bottom">Ingredients</h4>
+          <p class="script-font uk-margin-small-bottom uk-margin-remove-top">Click the <vk-icon icon="plus" ratio="0.6"></vk-icon> to add the ingredient to your grocery list.</p>
+        </div>
+        <div class="uk-width-auto">
+        <ingredient v-for="(ingredient, index) in ingredients" :index="index" v-bind:key="ingredient.id" :id="ingredient.ingredient" :recipe="ingredient.recipe" :measurement="ingredient.measurement" :label="ingredient.measurement_label" :description="ingredient.recipe_ingredient_description"></ingredient>
+      </div>
+      </div>
+    </vk-grid>
+
   </div>
   <div class="uk-width-1-1">
     <h1 class="uk-text-center">MORE <span v-if="recipe.category" class="black-bg" :class="recipe.category">{{recipe.category}}</span> <span v-if="recipe.cuisine" class="" > {{recipe.cuisine}}</span> RECIPES</h1>
+
+    <div class="uk-position-relative uk-visible-toggle uk-width-1-1 related-recipes" uk-slider="center: true" v-if="relatedRecipes.length > 0">
+      <ul class="uk-slider-items uk-grid">
+        <related-recipe v-for="(recipe, index) in relatedRecipes" :id="recipe.id" :index="index" v-bind:key="recipe.id" class="uk-width-5-6"></related-recipe>
+      </ul>
+      <a class="uk-position-center-left uk-position-large uk-light" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+      <a class="uk-position-center-right uk-position-large uk-light" href="#" uk-slidenav-next uk-slider-item="next"></a>
+      <ul class="uk-slider-nav uk-dotnav uk-flex uk-flex-center uk-dark"></ul>
+    </div>
   </div>
   <vk-modal center size="container" :show.sync="show" class="uk-padding-remove uk-margin-remove-top full-image">
     <vk-modal-close @click="show = false"></vk-modal-close>
@@ -98,6 +111,7 @@
 <script>
 import axios from 'axios'
 import ingredient from '~/components/recipeIngredient.vue'
+import relatedRecipe from '~/components/relatedRecipe.vue'
 
 export default {
   auth: false,
@@ -132,21 +146,29 @@ export default {
       currentStep: 0,
       nextStep: 1,
       totalSteps: 0,
-      stepMessage: 'Time to try something new!'
+      stepMessage: 'Time to try something new!',
+      relatedRecipes: []
     }
   },
   components: {
-    ingredient
+    ingredient,
+    relatedRecipe
   },
   created() {
+
     if (this.recipe.style) {
       this.style = this.makeArray(this.recipe.style)
     }
-    console.log(this.ingredients)
     this.totalSteps = this.recipe.recipe_directions.data.length
     // if(process.server) {
     //   this.request = 'server'
     // }
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[category][eq]=' + this.recipe.category).then(response => {
+      this.relatedRecipes = response.data.data
+      console.log(response.data.data)
+    }).catch(e => {
+      this.errors.push(e)
+    })
   },
   head() {
     return {
@@ -159,6 +181,8 @@ export default {
         var newStr = str.replace('LOVE', '')
         this.love = true
         return newStr.trim()
+      } else {
+        return str
       }
     },
     makeArray(str) {
@@ -183,13 +207,13 @@ export default {
       element3.classList.toggle('change-to-grey')
       // console.log(this.currentStep + " to next: " + this.nextStep)
 
-      if(element4.checked && (this.currentStep == 1)) {
+      if (element4.checked && (this.currentStep == 1)) {
         this.stepMessage = "Now you're cookin'!"
       }
-      if(element4.checked && (this.currentStep == (this.totalSteps - 1))) {
+      if (element4.checked && (this.currentStep == (this.totalSteps - 1))) {
         this.stepMessage = "Only one more step..."
       }
-      if(!element4.checked && (this.currentStep !== 1)) {
+      if (!element4.checked && (this.currentStep !== 1)) {
         console.log(this.currentStep + " it's unchecked dummy")
         this.currentStep = index;
         this.nextStep = index + 1;
@@ -234,14 +258,14 @@ export default {
       timeout: 5000,
       cb: function () {},
       onClosing: function () {
-        // var listTotalBadge = document.getElementById('grocery-list-count')
-        // listTotalBadge.classList.remove('pulseEffect')
+        var listTotalBadge = document.getElementById('step-message')
+        listTotalBadge.classList.remove('pulseEffect')
       },
       onClosed: function () {
-        // var listTotalBadge = document.getElementById('grocery-list-count')
-        // setTimeout(function () {
-        //   listTotalBadge.classList.add('pulseEffect')
-        // }, 200)
+        var listTotalBadge = document.getElementById('step-message')
+        setTimeout(function () {
+          listTotalBadge.classList.add('pulseEffect')
+        }, 20)
       }
     }
   }

@@ -504,14 +504,18 @@
 // recipe-details styles
 
 #recipe {
-	.recipe-title {
+	.recipe-title-mobile {
 		position: fixed;
+	}
+	.recipe-title {
+		position: absolute;
 		right: 5px;
 		top: 30px;
 		text-align: right;
 		z-index: 10;
 		padding-left: 10px;
 		padding-right: 10px;
+		max-width: 75%;
 		@media (min-width: 375px) {
 			right: 5%;
 		}
@@ -599,6 +603,7 @@
 	.recipe-category {
 		margin-top: 50px;
 		margin-bottom: 0;
+
 		h3 {
 			font-size: 17px;
 			@media (min-width: 500px) {
@@ -607,12 +612,9 @@
 			@media (min-width: $breakpoint-small) {
 				font-size: 22px;
 			}
-			@media (min-width: $breakpoint-medium) {
+			@media (min-width: $breakpoint-medium) {}
+			@media (min-width: $breakpoint-large) {}
 
-			}
-			@media (min-width: $breakpoint-large) {
-
-			}
 			.title {
 				background: $pink;
 				padding: 5px 5px 3px;
@@ -623,6 +625,7 @@
 				padding: 5px 5px 3px;
 			}
 		}
+
 		#recipe-buttons {
 			margin-top: 20px;
 			margin-bottom: 30px;
@@ -631,15 +634,16 @@
 				font-family: $condensed-bold-font;
 				border-color: $black;
 				color: $black;
-				padding-top:3px;
-				padding-bottom: 0px;
+				padding-top: 3px;
+				padding-bottom: 0;
 				margin: 0 10px;
 				line-height: 1em;
 				padding: 6px 8px 4px;
 				vertical-align: middle;
-				.uk-icon {
 
+				.uk-icon {
 					padding-right: 3px;
+
 					svg {
 						width: 15px;
 						height: 15px;
@@ -647,6 +651,7 @@
 				}
 			}
 		}
+
 		.recipe-caption {
 			max-width: 700px;
 			margin: 0 auto;
@@ -654,116 +659,114 @@
 			padding-right: 5%;
 		}
 	}
-.recipe-stats-box {
-	margin-bottom: 50px;
 
-}
-	.recipe-stats {
-		margin-top: 0px;
+	.recipe-stats-box {
+		background: $pink-gradient-2;
+		overflow: hidden;
+		box-shadow: inset 0px 2px 25px rgba($dark-pink, 1);
 		margin-bottom: 0px;
-		border: thin solid $pink;
-		padding: 20px;
-		text-align: center;
 		h3 {
-			position:absolute;
+			position: absolute;
+			z-index: 0;
+			opacity: 0.4;
 			transform-origin: left bottom;
 			transform:rotate(-90deg);
-			bottom: -25px;
-			left: 14px;
-			font-size: 76px;
-			line-height: 70px;
+			margin:0;
+			bottom: -35px;
+			right: -240px;
+			font-size: 96px;
+			line-height: 90px;
+
 			@media (min-width: 500px) {
-				display: none;
+				bottom: -30px;
+				right: auto;
+				left: 0px;
+				font-size: 122px;
+				line-height: 120px;
+				transform:rotate(0deg);
 			}
 			@media (min-width: $breakpoint-small) {
-				display: block;
-				bottom: -22px;
-				left: 10px;
-				font-size: 56px;
-				line-height: 50px;
+				bottom: -35px;
+				font-size: 166px;
+				line-height: 150px;
 			}
-			@media (min-width: $breakpoint-medium) {
-				bottom: -22px;
-				left: 14px;
-				font-size: 60px;
-				line-height: 60px;
+			@media (min-width: $breakpoint-large) {
+				color: transparent;
+				background-color: $dark-pink;
+				color: transparent;
+				text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+				-webkit-background-clip: text;
+				-moz-background-clip: text;
+						background-clip: text;
 			}
-		}
-		h5 {
-			margin-top: 0px;
-			margin-bottom: 0;
-			.stats-item {
-				padding: 3px;
-				font-size: 18px;
-				margin-top: 5px;
-				margin-bottom: 0;
-				display: block;
-				@media (min-width: 500px) {
-					display: inline-block;
-					padding: 6px;
-				}
-				@media (min-width: $breakpoint-small) {
-					font-size: 16px;
-					padding: 20px;
-				}
-				@media (min-width: $breakpoint-medium) {
-					font-size: 20px;
 
+		}
+
+		.recipe-stats {
+			margin-top: 0;
+			margin-bottom: 0;
+			padding: 20px;
+			text-align: center;
+			color: $white;
+				z-index: 2;
+
+			h5 {
+				margin-top: 0;
+				margin-bottom: 0;
+
+
+				.stats-item {
+					padding: 3px;
+					font-size: 18px;
+					margin-top: 5px;
+					margin-bottom: 0;
+					display: block;
+					@media (min-width: 500px) {
+						display: inline-block;
+						padding: 6px;
+					}
+					@media (min-width: $breakpoint-small) {
+						font-size: 20px;
+						padding: 20px;
+					}
+					@media (min-width: $breakpoint-medium) {
+						font-size: 24px;
+					}
+					@media (min-width: $breakpoint-large) {}
 				}
-				@media (min-width: $breakpoint-large) {}
 			}
 		}
 	}
 
 	.recipe-tabs {
-		.uk-tab {
-			li {
-				a {
-					font-family: $condensed-bold-font;
-					font-size: 17px;
-					@media (min-width: 500px) {
-						font-size: 20px;
-					}
-					@media (min-width: $breakpoint-small) {
-						font-size: 22px;
-
-					}
-					@media (min-width: $breakpoint-medium) {
-						font-size: 26px;
-					}
-					@media (min-width: $breakpoint-large) {
-						font-size: 28px;
-					}
-				}
-			}
-
-			li.uk-active {
-				// background: $pink;
-				a {
-					border-color: $pink;
-				}
-			}
+		@media (min-width:$breakpoint-medium) {
+			// height: 100vh;
+			// overflow: scroll;
+			margin-top: 0px;
+			padding-top: 50px;
 		}
-
 		.recipe-tab {
-			padding: 30px;
+			// padding: 0px;
 
 			.recipe-direction {
 				padding-top: 10px;
 				padding-bottom: 10px;
-
+				@media (min-width: 500px) {
+					padding-top: 15px;
+					padding-bottom: 15px;
+					width: 470px;
+				}
 				@media (min-width: $breakpoint-small) {
 					padding-top: 15px;
 					padding-bottom: 15px;
+					width: 500px;
 				}
 				@media (min-width: $breakpoint-medium) {
 					padding-top: 20px;
 					padding-bottom: 20px;
-					width: 600px;
+					width: 500px;
 				}
-				@media (min-width: $breakpoint-large) {
-
-				}
+				@media (min-width: $breakpoint-large) {}
 
 				input[type=checkbox] {
 					margin-right: 5px;
@@ -806,9 +809,31 @@
 
 				.strike-through {
 					opacity: 0.4;
-
 				}
 			}
 		}
+		#steps-tab, #ingredients-tab {
+			margin: 20px;
+		}
+	}
+	.related-recipes{
+		.uk-card-media-top {
+			img {
+				width: 250px;
+				height: auto;
+			}
+		}
+		.uk-card-body {
+			h3 {
+				margin-bottom: 0px;
+			}
+			h5 {
+				font-size: 16px;
+				line-height: 16px;
+				margin-top: 0px;
+
+			}
+		}
+
 	}
 }

@@ -73,6 +73,9 @@ a:hover {
 .pink, .Radical {
     color: $pink;
 }
+.dark-pink {
+  color: $dark-pink;
+}
 
 .blue {
     color: $blue;
@@ -94,6 +97,9 @@ a:hover {
 .pulseEffect {
   animation: pulse 0.3s $bounce 2;
 }
+.bounceEffect {
+  animation: bounce 0.3s ease-out 2;
+}
 
 @keyframes pulse {
   0% {
@@ -102,6 +108,25 @@ a:hover {
 
   70% {
     transform: scale(1.5)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1)
+  }
+
+  60% {
+    transform: scale(1.5)
+  }
+  80% {
+    transform: scale(1.2)
+  }
+  90% {
+    transform: scale(1.4)
   }
   100% {
     transform: scale(1)

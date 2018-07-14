@@ -84,7 +84,6 @@
       </div>
       <div>
       <vk-grid class="uk-grid-small uk-margin-small uk-child-width-1-2 uk-text-left">
-        <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="vegan"> VEGAN</label>
         <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="organic"> ORGANIC</label>
         <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="gluten_free"> GLUTEN-FREE</label>
         <label class="condensed"><input class="uk-checkbox" type="checkbox" v-model="soy_free"> SOY-FREE</label>
@@ -151,6 +150,9 @@ export default {
       total: ingredientsReq.data.data.length,
       page: pageReq.data.data[0]
     }
+  },
+  created () {
+      console.log(this.ingredients[0])
   },
   data() {
     return {
