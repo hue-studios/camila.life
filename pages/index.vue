@@ -1,5 +1,6 @@
 <template>
 <div id="home">
+  <div id="top-section">
   <vk-grid class="top-section uk-flex uk-flex-center uk-flex-middle uk-text-center uk-background-cover uk-background-blend-multiply uk-position-relative" v-if="!$auth.$state.loggedIn" id="site-intro" uk-parallax="bgy:150px; target: #site-intro">
     <div id="flare" uk-parallax="rotate: -50; scale: 2.3 ;top: 120px; target: #site-intro"></div>
     <div class="uk-width-1-1" id="site-intro-caption">
@@ -44,6 +45,7 @@
       </vk-grid>
     </div>
   </vk-grid>
+</div>
   <vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center uk-background-cover uk-background-blend-multiply uk-background-fixed" id="featured-quote">
 
     <p class="uk-width-1-2" uk-parallax="color: #FB00DA,#00bfff,#FB00DA; viewport: 0.8">A nice quote here!</p>

@@ -1,20 +1,19 @@
 
 <template>
 <vk-grid id="recipe" class="uk-flex uk-flex-center uk-flex-middle">
+
+
+
   <!-- uk-parallax="y: 0px,-60px; target: .top-section; easing: 0.8; media: @m;" -->
-  <div class="uk-visible@m recipe-title">
-    <h3><span v-if="style.length > 0">{{style[0]}} /</span>
-  <span v-if="recipe.cuisine" class="pink" uk-parallax="color: #FB00DA, #e000fb; target: .top-section; easing: 0.8; "> {{recipe.cuisine}}</span></h3>
-    <h1 uk-parallax="color: #FB00DA, #e000fb; target: .top-section; easing: 0.8; " class="pink condensed-bold">{{findLove(recipe.name)}}<span v-if="love"><br>LOVE</span></h1>
-  </div>
-  <div class="uk-hidden@m recipe-title uk-position-fixed" uk-parallax="y: 0px,-40px; x: 0px, 15px; color: #1a1a1a, #fff; background-color: rgba(1,1,1,1); scale: 1, 0.7; target: .top-section; easing: 0.8;">
+  <div class="recipe-title">
     <h3><span v-if="style.length > 0">{{style[0]}} /</span>
   <span v-if="recipe.cuisine" class="pink"> {{recipe.cuisine}}</span></h3>
     <h1 class="pink condensed-bold">{{findLove(recipe.name)}}<span v-if="love"><br>LOVE</span></h1>
   </div>
 
-  <div class="uk-width-1-1">
-    <div class="uk-position-relative uk-visible-toggle top-section recipe-images" uk-slider="center: true; animation: pull" v-if="images.length > 0">
+
+  <div id="top-section" class="uk-width-1-1 top-section">
+    <div class="uk-position-relative uk-visible-toggle recipe-images" uk-slider="center: true; animation: pull" v-if="images.length > 0">
       <ul class="uk-slider-items uk-grid">
         <li class="slider-item uk-width-1-1" v-for="(image, index) in images" :id="image.id" :index="index" v-bind:key="image.id" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/600/600/crop/' + image.name +')'">
         </li>
@@ -54,13 +53,18 @@
     </vk-grid>
   </div>
 
-  <div class="uk-width-1-1 uk-width-5-6@s uk-width-1-1@m recipe-tabs">
+  <div class="uk-width-1-1 uk-width-5-6@s uk-width-1-1@m recipe-tabs" id="recipe-tabs">
     <vk-grid class="uk-flex uk-flex-center ">
-      <div class="uk-width-1-1 uk-text-center">
-        <h2 class="uk-text-center condensed-bold recipe-tab-title">HOW TO GET IT DONE [<span class="pink">{{ recipe.recipe_directions.data.length}}</span> STEPS + <span class="pink">{{ recipe.recipe_ingredients.data.length}}</span> ingredients]</h2>
+      <div class="uk-width-1-1 uk-text-center recipe-tabs-intro">
+        <h2 class="uk-text-center condensed- uk-margin-remove-bottom">HOW TO GET IT DONE</h2>
+        <h3 class="condensed-bold uk-margin-remove">[<span class="pink">{{ recipe.recipe_directions.data.length}}</span> STEPS + <span class="pink">{{ recipe.recipe_ingredients.data.length}}</span> ingredients]</h3>
+        <vk-icon class="uk-margin-remove-top" icon="chevron-down"></vk-icon>
       </div>
+
       <div class="uk-width-1-1 uk-width-auto@m" id="steps-tab">
-        <div class="uk-text-center">
+          <vk-sticky bottom="#recipe-tabs" :offset="80" :media="960">
+            <div>
+        <div class="uk-text-center recipe-tab-intro">
           <h4 class="uk-margin-remove-bottom">Completed <span class="script-font pink">{{currentStep}}</span> of <span class="script-font pink">{{totalSteps}}</span> steps.</h4>
           <transition name="fade" mode="out-in">
           <p class="script-font uk-margin-small-bottom uk-margin-remove-top" id="step-message">{{stepMessage}}</p>
@@ -73,37 +77,52 @@
             <div class="content" :id="'content-' + index" v-html="direction.content"></div>
           </div>
         </div>
+        </div>
+          </vk-sticky>
       </div>
+
 
       <div id="ingredients-tab" class="uk-width-1-1 uk-width-2-5@m uk-flex uk-flex-center uk-flex-column recipe-tab">
-
-        <div class="uk-width-1-1 uk-text-center">
+        <vk-sticky bottom="#recipe-tabs" :offset="80" :media="960">
+          <div>
+        <div class="uk-width-1-1 uk-text-center recipe-tab-intro">
 
           <h4 class="uk-margin-remove-bottom">Ingredients</h4>
-          <p class="script-font uk-margin-small-bottom uk-margin-remove-top">Click the <vk-icon icon="plus" ratio="0.6"></vk-icon> to add the ingredient to your grocery list.</p>
+          <p class="script-font uk-margin-small-bottom uk-margin-remove-top">Click the <vk-icon class="uk-border-circle green-bg" icon="plus" ratio="0.6"></vk-icon> to add the ingredient to your grocery list.</p>
         </div>
-        <div class="uk-width-auto">
+        <div class="uk-width-1-1">
         <ingredient v-for="(ingredient, index) in ingredients" :index="index" v-bind:key="ingredient.id" :id="ingredient.ingredient" :recipe="ingredient.recipe" :measurement="ingredient.measurement" :label="ingredient.measurement_label" :description="ingredient.recipe_ingredient_description"></ingredient>
       </div>
+    </div>
+</vk-sticky>
       </div>
+
     </vk-grid>
 
   </div>
-  <div class="uk-width-1-1">
-    <h1 class="uk-text-center">MORE <span v-if="recipe.category" class="black-bg" :class="recipe.category">{{recipe.category}}</span> <span v-if="recipe.cuisine" class="" > {{recipe.cuisine}}</span> RECIPES</h1>
+  <div class="uk-width-1-1 related-recipes">
+    <h1 class="uk-text-center condensed-bold white">MORE <span v-if="recipe.category" class="black-bg" :class="recipe.category">{{recipe.category}}</span> RECIPES</h1>
 
-    <div class="uk-position-relative uk-visible-toggle uk-width-1-1 related-recipes" uk-slider="center: true" v-if="relatedRecipes.length > 0">
+    <div class="uk-position-relative uk-visible-toggle uk-width-1-1 related-recipes-slider" uk-slider="center: true; velocity: 30" v-if="relatedRecipes.length > 0">
       <ul class="uk-slider-items uk-grid">
-        <related-recipe v-for="(recipe, index) in relatedRecipes" :id="recipe.id" :index="index" v-bind:key="recipe.id" class="uk-width-5-6"></related-recipe>
+        <related-recipe v-for="(recipe, index) in relatedRecipes" :id="recipe.id" :index="index" v-bind:key="recipe.id" class="uk-width-1-1 uk-width-1-2@s"></related-recipe>
       </ul>
       <a class="uk-position-center-left uk-position-large uk-light" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
       <a class="uk-position-center-right uk-position-large uk-light" href="#" uk-slidenav-next uk-slider-item="next"></a>
       <ul class="uk-slider-nav uk-dotnav uk-flex uk-flex-center uk-dark"></ul>
     </div>
   </div>
+  <vk-sticky top="#top-section" animation="slide-right" :offset="10">
+    <div id="sticky-title">
+
+      <h3 class="white"><span v-if="style.length > 0">{{style[0]}} /</span>
+    <span v-if="recipe.cuisine" class="pink"> {{recipe.cuisine}}</span></h3>
+      <h1 class="pink condensed-bold">{{findLove(recipe.name)}}<span v-if="love"><br>LOVE</span></h1>
+    </div>
+  </vk-sticky>
   <vk-modal center size="container" :show.sync="show" class="uk-padding-remove uk-margin-remove-top full-image">
     <vk-modal-close @click="show = false"></vk-modal-close>
-
+    <sharing :item="recipe" :media="images[0].name" />
   </vk-modal>
 </vk-grid>
 </template>
@@ -112,6 +131,7 @@
 import axios from 'axios'
 import ingredient from '~/components/recipeIngredient.vue'
 import relatedRecipe from '~/components/relatedRecipe.vue'
+import sharing from '~/components/sharing/sharing.vue'
 
 export default {
   auth: false,
@@ -152,7 +172,8 @@ export default {
   },
   components: {
     ingredient,
-    relatedRecipe
+    relatedRecipe,
+    sharing
   },
   created() {
 
@@ -163,7 +184,7 @@ export default {
     // if(process.server) {
     //   this.request = 'server'
     // }
-    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[category][eq]=' + this.recipe.category).then(response => {
+    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[category][eq]=' + this.recipe.category + '&filters[id][neq]=' + this.recipe.id + '&limit=3&order[sort]').then(response => {
       this.relatedRecipes = response.data.data
       console.log(response.data.data)
     }).catch(e => {
@@ -233,7 +254,7 @@ export default {
 
       // last step notification
       if (((index + 1) == this.recipe.recipe_directions.data.length) && element4.checked && this.$auth.$state.loggedIn) {
-        this.stepMessage = "You did it " + this.$auth.user.given_name + "!! Now time to eat!";
+        this.stepMessage = "You did it " + this.$auth.user.given_name + "!! Now it's time to indulge!";
         this.showSuccessMsg({
           title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>GREAT JOB <span class='condensed-bold'>` + this.$auth.user.given_name + `</span>!<br>YOU FINISHED MAKING THE <span class='condensed-bold'>` +
             this.recipe.name + `</span> RECIPE!</span>`,

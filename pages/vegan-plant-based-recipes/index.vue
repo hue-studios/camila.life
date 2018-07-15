@@ -1,7 +1,7 @@
 
 <template>
 <vk-grid id="recipes">
-  <div class="top-section uk-width-1-1 uk-background-image uk-flex uk-flex-middle" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'">
+  <div id="top-section" class="top-section uk-width-1-1 uk-background-image uk-flex uk-flex-middle" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'">
     <vk-grid class="uk-flex uk-flex-right uk-flex-middle">
       <h2 class="uk-width-1-1 uk-text-right">RECIPES / <span class="pink">CREATE THE LOVE</span></h2>
       <div class="uk-text-right caption uk-width-1-1">

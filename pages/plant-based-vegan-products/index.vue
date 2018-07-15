@@ -1,11 +1,11 @@
 
 <template>
 <vk-grid id="ingredients" class="uk-flex uk-flex-center uk-flex-top">
-  <div class="top-section uk-width-1-1 uk-background-cover uk-flex uk-flex-center uk-flex-middle page-cover" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'" uk-parallax="bgy: 200; target: .uk-background-cover">
+  <div id="top-section" class="top-section uk-width-1-1 uk-background-cover uk-flex uk-flex-center uk-flex-middle page-cover" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/'+ page.header_image.data.name + ')'">
     <div class="uk-overlay-primary uk-position-cover"></div>
     <div class="uk-overlay uk-position-middle uk-light uk-padding-large uk-text-center">
-      <h1 class="uk-text-uppercase white" uk-parallax="y: 100; target: .uk-background-cover">VEGAN INGREDIENTS <span class="uk-badge pink-bg">{{total}}</span></h1>
-      <p class="white" uk-parallax="y: 60; target: .uk-background-cover">{{page.caption}}</p>
+      <h1 class="uk-text-uppercase white" >VEGAN INGREDIENTS <span class="uk-badge pink-bg">{{total}}</span></h1>
+      <p class="white">{{page.caption}}</p>
     </div>
   </div>
   <div id="search-settings-bar" class="uk-width-1-1 uk-hidden@m">

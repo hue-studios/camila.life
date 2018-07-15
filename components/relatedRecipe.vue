@@ -3,13 +3,13 @@
   <li class="slider-item">
       <div class="uk-panel uk-background-cover uk-light" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + image+')'">
           <div class="uk-position-center uk-text-center">
-              <h2 uk-slider-parallax="x: 200,-200" class="script-font uk-text-lowercase">{{recipe.name}}</h2>
-                <h5 uk-slider-parallax="x: 400,-400"><span class="green">CUISINE</span> {{recipe.cuisine}}</h5>
+              <h2 uk-slider-parallax=" x: 300,-300; opacity: 1,1,0" class="condensed-bold uk-text-uppercase">{{recipe.name}}</h2>
+                <h5 uk-slider-parallax="opacity: 1,1,0; x: 350,-350;"><span class="green">CUISINE</span> {{recipe.cuisine}}</h5>
 
-           <p uk-slider-parallax="x: 600,-600"><span v-if="directions > 0" class="condensed-bold timing">{{directions}} STEPS</span> +
+           <p uk-slider-parallax="opacity: 1,1,0; x: 400,-400;"><span v-if="directions > 0" class="condensed-bold timing">{{directions}} STEPS</span> +
 
                   <span v-if="ingredients > 0" class="condensed-bold timing">{{ingredients}} INGREDIENTS</span></p>
-                <nuxt-link uk-slider-parallax="x: 800,-800" :to="'/vegan-plant-based-recipes/'+recipe.url" class="uk-button uk-button-default">DETAILS</nuxt-link>
+                <nuxt-link uk-slider-parallax="opacity: 1,1,0; x: 500,-500; " :to="'/vegan-plant-based-recipes/'+recipe.url" class="uk-button uk-button-default">DETAILS</nuxt-link>
 
           </div>
       </div>

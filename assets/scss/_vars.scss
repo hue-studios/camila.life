@@ -21,6 +21,7 @@ $blue-gradient-2: linear-gradient(90deg, rgba(50,76,237,1) 0%, rgba(0,191,255,1)
 
 $serif-font: "Bauer Bodoni Pro_1 W01 Roman", Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 $condensed-font:"DINNextW01-CondensedLig", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+$light-font: 'AvenirNextLTW01-UltraLi', "Helvetica Neue", Helvetica, Arial, "sans-serif";
 
 $condensed-bold-font: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
 
@@ -88,6 +89,9 @@ a:hover {
 }
 .black-bg {
   background: $black;
+}
+.green-bg {
+  background: $green;
 }
 .bg-image {
   background-position: center;

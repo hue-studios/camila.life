@@ -2,7 +2,7 @@
 <template>
 <vk-grid id="ingredient" class="uk-flex uk-flex-center uk-flex-middle">
 
-  <div class="uk-width-1-1 uk-position-relative uk-flex uk-flex-center top-section">
+  <div id="top-section" class="uk-width-1-1 uk-position-relative uk-flex uk-flex-center top-section">
     <nuxt-link to="/plant-based-vegan-products" class="details-page-back-link condensed uk-text-uppercase">
       <vk-icon icon="chevron-left"></vk-icon> BACK <span class="uk-visible@s">TO ALL PRODUCTS</span></nuxt-link>
     <nuxt-link to="/plant-based-vegan-products" class="details-page-next-link condensed uk-text-uppercase">NEXT <span class="pink uk-visible@s">{{ingredient.category}}</span><span class="uk-visible@s"> PRODUCT</span>

@@ -3,16 +3,19 @@
 	width: 80px;
 	z-index: 990;
 	height: auto;
-	position: fixed;
-	top: 0px;
-	left: -18px;
+	position: absolute;
+	top: 5px;
+	left: -13px;
 	transform-origin: top left;
+
 	@media (min-width: $breakpoint-small) {
+		top: 5px;
 		width: 130px;
-		left: -20px;
+		left: -13px;
 	}
 	@media (min-width: $breakpoint-medium) {
-		top: -4px;
+		top: 5px;
+		left: -10px;
 		width: 150px;
 	}
 	@media (min-width: $breakpoint-xlarge) {
@@ -29,7 +32,7 @@
 		word-wrap: break-word;
 		transition: all 0.3s $curve;
 		color: $pink;
-		font-family: $body-font;
+		font-family: $light-font;
 		font-size: 40px;
 		line-height: 32px;
 		vertical-align: middle;

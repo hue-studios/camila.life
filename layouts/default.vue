@@ -9,7 +9,7 @@
   </div>
   <div id="nav-bg-two"></div>
   <div id="nav-bg-three"></div>
-  <div id="logo" uk-parallax="scale:0.6; y: 3px; x: 7px; target: .top-section; easing: 0.8;">
+  <div id="logo" uk-parallax="scale:0.5; y: 3px; x: 7px; target: .top-section; easing: 0;">
     <nuxt-link to="/">
       <h1 uk-parallax="color: #FB00DA, #00bfff;">CAMILA</h1>
     </nuxt-link>
