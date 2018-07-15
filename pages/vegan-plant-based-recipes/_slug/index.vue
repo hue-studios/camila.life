@@ -193,7 +193,63 @@ export default {
   },
   head() {
     return {
-      title: this.recipe.name
+      title: this.recipe.name + ' - ' + this.recipe.category + ' Vegan Recipe on camila.life'
+      meta: [{
+          hid: 'description',
+          name: 'description',
+          content: this.recipe.caption
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: 'http://www.camila.life/vegan-plant-based-recipes/' + this.recipe.url
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://huestudios.com/sites/camila.life/content/thumbnail/600/600/crop/' + this.images[0].name
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.recipe.name + ' - ' + this.recipe.category + ' Vegan Recipe on camila.life'
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.recipe.caption
+        },
+        {
+          hid: 'twitter:summary_large_image',
+          name: 'twitter:summary_large_image',
+          content: 'summary'
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@camila_life_now'
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.recipe.name + ' - ' + this.recipe.category + ' Vegan Recipe on camila.life'
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.recipe.caption
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: 'https://huestudios.com' + this.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          content: this.recipe.name
+        }
+      ]
+    }
     }
   },
   methods: {
