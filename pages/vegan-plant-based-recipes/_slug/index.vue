@@ -193,7 +193,7 @@ export default {
   },
   head() {
     return {
-      title: this.recipe.name + ' - ' + this.recipe.category + ' Vegan Recipe on camila.life'
+      title: this.recipe.name + ' - ' + this.recipe.category + ' Vegan Recipe on camila.life',
       meta: [{
           hid: 'description',
           name: 'description',
@@ -250,7 +250,7 @@ export default {
         }
       ]
     }
-    }
+    
   },
   methods: {
     findLove(str) {
