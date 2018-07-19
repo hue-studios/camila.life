@@ -1,6 +1,6 @@
 <template>
   <vk-grid class="uk-flex uk-flex-center uk-flex-middle">
-  <social-sharing :url="'http://www.camila.life/vegan-plant-based-recipes/' + item.url"
+  <social-sharing :url="'https://www.camila.life/vegan-plant-based-recipes/' + item.url"
                 :title="item.name + ' - ' + item.category + ' Vegan Recipe on camila.life'"
                 :description="description"
                 :quote="quote"
@@ -42,7 +42,7 @@ export default {
   },
   created () {
     if(!this.item.tags) {
-      this.tags = 'Vegan Recipe, Healthy Lifestyle'
+      this.tags = 'VeganRecipe, HealthyLifestyle'
     }
     if(this.item.category = 'Radical') {
       this.description = this.item.name + ' is a RADICAL, warrior-style, vegan recipe that challenges!!'
@@ -71,6 +71,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+
 
 </style>

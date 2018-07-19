@@ -1,6 +1,6 @@
 <template>
 <div class="grocery-list-item">
-  <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/'+image"/>
+  <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/100/100/crop/'+image"/>
   <h5>{{item.name}}</h5>
   <h5>{{item.category}}</h5>
 </div>

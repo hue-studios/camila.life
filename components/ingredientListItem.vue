@@ -1,39 +1,37 @@
 <template>
-<div :id="id">
-  <transition enter-active-class="uk-animation-slide-top" leave-active-class="uk-animation-slide-top uk-animation-reverse">
-    <vk-grid v-if="status" class="list-row">
-  <div class="uk-text-center uk-width-1-5 uk-width-1-4@s"><input class="uk-checkbox" type="checkbox" v-model="completed">
-  </div>
+    <transition enter-active-class="uk-animation-slide-top uk-animation-fast" leave-active-class="uk-animation-slide-top uk-animation-reverse uk-animation-fast">
+<div :id="item.product_id" v-if="status">
 
+    <vk-grid class="uk-flex uk-flex-center uk-flex-middle list-row">
+  <div class="uk-width-auto">
+    <input class="uk-checkbox" type="checkbox" v-model="purchased">
+    <img v-if="item.image" :src="'https://huestudios.com/sites/camila.life/content/thumbnail/100/100/crop/' + item.image" /></div>
   <div class="uk-width-1-4"><h4>{{item.name}}</h4>
     <h5 v-if="item.brand"><span>BRAND: </span>{{item.brand}}</h5></div>
   <div class="uk-width-1-4"><h4>{{item.category}}</h4></div>
-  <!-- <div class="uk-width-1-4"><img v-if="image" :src="'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + image" /></div> -->
-  <vk-icon @click="removeFromList(id)" icon="close" ratio="2"></vk-icon>
+
+  <vk-icon @click="removeFromList(item.product_id)" icon="close" ratio="2"></vk-icon>
   <nuxt-link :to="'/plant-based-vegan-products/' + item.url"><vk-icon icon="chevron-right" ratio="2"></vk-icon></nuxt-link>
 </vk-grid>
-</transition>
+
 </div>
+</transition>
 </template>
 
 <script>
 import axios from 'axios'
 
 export default {
-  props: ['id', 'group', 'index', 'completed'],
+  props: ['item', 'group', 'index'],
   data() {
     return {
-      item: {},
-      status: true
+      status: true,
+      purchased: false
     }
   },
   components: {},
   created: function () {
-    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?filters[id][eq]=' + this.id).then(response => {
-      this.item = response.data.data[0]
-    }).catch(e => {
-      this.errors.push(e)
-    })
+
   },
   computed: {},
   methods: {
@@ -49,14 +47,25 @@ export default {
         console.log(error)
       })
     },
+
     updateListTotal () {
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$auth.user.email).then(res => {
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$auth.user.email + '&filters[type][eq]=ingredient').then(res => {
         console.log("PETER" + res.data.data)
         this.$store.commit('SET_LISTITEMS', res.data.data)
       }).catch(function (error) {
         console.log(error)
       })
       console.log("LIST" + this.$store.state.list)
+    },
+    purchasedItem () {
+      var element1 = document.getElementById('title-' + index)
+      var element2 = document.getElementById('content-' + index)
+      var element3 = document.getElementById('step-' + index)
+      var element4 = document.getElementById('checkbox-' + index)
+
+      element1.classList.toggle('strike-through')
+      element2.classList.toggle('strike-through')
+      element3.classList.toggle('change-to-grey')
     },
     truncate(str, length, ending) {
       if (str !== null) {

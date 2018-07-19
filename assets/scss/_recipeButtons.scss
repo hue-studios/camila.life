@@ -1,0 +1,45 @@
+#recipe {
+.list-recipe-buttons {
+	button , a {
+		font-family: $condensed-bold-font;
+		border-color: $black;
+		color: $black;
+		padding-top: 3px;
+		padding-bottom: 0;
+		margin: 0 10px;
+		line-height: 1em;
+		padding: 6px 8px 4px;
+		vertical-align: middle;
+
+		.uk-icon {
+			padding-right: 3px;
+
+			svg {
+				width: 15px;
+				height: 15px;
+			}
+		}
+	}
+	.save-btn {
+
+	}
+	.remove-btn {
+		color: $pink !important;
+		border-color: $pink !important;
+	}
+}
+}
+#recipes {
+.action-btns {
+	.list-recipe-buttons {
+		button , a {
+			font-family: $condensed-bold-font;
+			border: none;
+		}
+		.remove-btn {
+			color: $white !important;
+			background: $pink !important;
+		}
+	}
+}
+}

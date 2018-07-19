@@ -338,9 +338,13 @@
 // listings
 
 #listings-grid {
+		max-width: 800px;
 	@media (min-width: $breakpoint-medium) {
 		min-height: calc(100vh - 200px);
 		transition: all 0.35s $curve;
+	}
+	@media (min-width: $breakpoint-large) {
+		width: 800px;
 	}
 }
 
@@ -680,10 +684,10 @@
 		}
 
 		#recipe-buttons {
-			margin-top: 20px;
+			margin-top: 30px;
 			margin-bottom: 30px;
 
-			button {
+			button , a {
 				font-family: $condensed-bold-font;
 				border-color: $black;
 				color: $black;

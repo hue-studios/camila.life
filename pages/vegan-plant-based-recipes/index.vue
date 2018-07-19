@@ -161,7 +161,7 @@
       </div>
     </vk-sticky>
   </div>
-  <div class="uk-width-5-6 uk-width-3-5@m ">
+  <div class="uk-width-5-6 uk-width-3-5@m uk-width-auto@l ">
     <vk-grid id="listings-grid" class="uk-child-width-1-1 uk-flex uk-flex-center uk-flex-middle">
       <p class="condensed-bold uk-width-1-1 uk-text-uppercase uk-text-center uk-hidden@m uk-flex-middle ">found
         <transition name="fade"> <span class="pink" v-text="filteredList.length"></span></transition> ingredients</p>

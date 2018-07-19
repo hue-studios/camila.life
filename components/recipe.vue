@@ -1,15 +1,13 @@
 <template>
 <div>
   <div class="action-btns">
-    <div class="favorite-count">
-      12
-    </div>
-    <a href="#" @click.prevent="" class="condensed-bold favorite-btn">SAVE</a>
+    <list-recipe-buttons v-if="this.recipe.images.data.length > 0" :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" :image="recipe.images.data[0].name" />
+    <list-recipe-buttons v-else :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" image="" />
   </div>
   <nuxt-link :to="'/vegan-plant-based-recipes/' + recipe.url">
     <vk-grid class="uk-child-width-1-1">
       <div>
-        <div v-if="this.recipe.images.data.length > 0" class="uk-background-cover uk-panel uk-flex uk-flex-center uk-flex-middle recipe-item" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.recipe.images.data[0].name+ ')'">
+        <div v-if="this.recipe.images.data.length > 0" class="uk-background-cover uk-panel uk-flex uk-flex-center uk-flex-middle recipe-item" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/600/600/crop/' + this.recipe.images.data[0].name+ ')'">
           <h2 class="condensed-bold">{{recipe.name}}</h2>
 
           <div class="caption">
@@ -23,7 +21,7 @@
               <h3 :class="recipe.category" class="condensed-bold category">{{recipe.category}}</h3>
           </div>
         </div>
-        <div v-else class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle recipe-item" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/camila-sun.jpg')">
+        <div v-else class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-middle recipe-item" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/600/600/crop/camila-sun.jpg')">
           <h2 class="condensed-bold">{{recipe.name}}</h2>
           <div class="caption">
             <h4 class="green"><span class="white">CUISINE</span> {{recipe.cuisine}}</h4>
@@ -44,6 +42,7 @@
 
 <script>
 import striptags from 'striptags'
+import listRecipeButtons from '~/components/listRecipeButtons'
 
 export default {
   props: ['recipe', 'index'],
@@ -52,7 +51,9 @@ export default {
       styles: []
     }
   },
-  components: {},
+  components: {
+    listRecipeButtons
+  },
 
   created: function () {
     this.styles = this.makeArray(this.recipe.style)

@@ -26,9 +26,11 @@
   <div class="uk-width-1-1 uk-width-5-6@m uk-text-center recipe-category" v-if="recipe.category">
     <h3 v-if="recipe.category == 'Easy'"><span class="condensed-bold title">{{recipe.name}}</span> is an <span class="black-bg green condensed-bold category">EASY</span><span class="uk-visible@s">, familiar</span> recipe made with <span class="uk-visible@s">healthy</span> vegan ingredients!!</h3>
     <h3 v-if="recipe.category == 'Radical'"><span class="condensed-bold title">{{recipe.name}}</span> is a <span class="black-bg pink condensed-bold category">RADICAL</span>, <span class="uk-visible@s">warrior-style,</span> vegan recipe that challenges!!</h3>
-    <vk-grid class="uk-flex uk-flex-center uk-flex-middle">
-      <div id="recipe-buttons">
-        <button class="uk-button uk-button-default condensed-bold"><vk-icon icon="plus"></vk-icon> SAVE RECIPE</button>
+    <vk-grid class="uk-flex uk-flex-center uk-flex-middle" id="recipe-buttons">
+      <div>
+        <list-recipe-buttons :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" :image="this.images[0].name" />
+        </div>
+        <div>
         <button @click.prevent="show = true" class="uk-button uk-button-default condensed-bold"><vk-icon icon="heart"></vk-icon> SHARE THE LOVE</button>
       </div>
     </vk-grid>
@@ -120,7 +122,7 @@
       <h1 class="pink condensed-bold">{{findLove(recipe.name)}}<span v-if="love"><br>LOVE</span></h1>
     </div>
   </vk-sticky>
-  <vk-modal center size="container" :show.sync="show" class="uk-padding-remove uk-margin-remove-top full-image">
+  <vk-modal center :show.sync="show" class="uk-padding-remove uk-margin-remove-top full-image sharing-modal">
     <vk-modal-close @click="show = false"></vk-modal-close>
     <sharing :item="recipe" :media="images[0].name" />
   </vk-modal>
@@ -132,6 +134,7 @@ import axios from 'axios'
 import ingredient from '~/components/recipeIngredient.vue'
 import relatedRecipe from '~/components/relatedRecipe.vue'
 import sharing from '~/components/sharing/sharing.vue'
+import listRecipeButtons from '~/components/listRecipeButtons.vue'
 
 export default {
   auth: false,
@@ -173,7 +176,8 @@ export default {
   components: {
     ingredient,
     relatedRecipe,
-    sharing
+    sharing,
+    listRecipeButtons
   },
   created() {
 
@@ -250,7 +254,7 @@ export default {
         }
       ]
     }
-    
+
   },
   methods: {
     findLove(str) {
@@ -329,21 +333,10 @@ export default {
     showSuccessMsg: {
       type: 'success',
       title: 'successfully added',
-      position: 'bottomRight',
+      position: 'center',
       color: 'white',
       message: '',
-      timeout: 5000,
-      cb: function () {},
-      onClosing: function () {
-        var listTotalBadge = document.getElementById('step-message')
-        listTotalBadge.classList.remove('pulseEffect')
-      },
-      onClosed: function () {
-        var listTotalBadge = document.getElementById('step-message')
-        setTimeout(function () {
-          listTotalBadge.classList.add('pulseEffect')
-        }, 20)
-      }
+      timeout: 4000
     }
   }
 }

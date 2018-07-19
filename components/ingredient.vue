@@ -2,7 +2,7 @@
 <div>
   <vk-card class="uk-flex uk-flex-center uk-flex-middle listing-item" hover>
     <div class="uk-position-relative listing-top">
-      <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :url="ingredient.url" :image="this.image" v-if="$auth.$state.loggedIn" />
+      <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :brand="ingredient.brand" :url="ingredient.url" :image="this.image" v-if="$auth.$state.loggedIn" />
       <div v-if="this.ingredient.images.data.length > 0" class="listing-image" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + this.ingredient.images.data[0].name + ')'"></div>
       <div v-else class="listing-image" style="background-image: url('https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/camila-sun.jpg')"></div>
     </div>
@@ -50,7 +50,7 @@ export default {
     //   this.goesWith = this.makeArray(this.ingredient.goes_with)
     // }
     if (this.ingredient.images.data.length > 0) {
-      this.image = this.ingredient.images.data[0].name 
+      this.image = this.ingredient.images.data[0].name
     }
   },
   methods: {

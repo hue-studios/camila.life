@@ -23,6 +23,7 @@ $global-link-color: #DA7D02;
 @import 'iconLabels';
 @import 'listButtons';
 @import 'list';
+@import 'recipeButtons';
 
 body {
 	background: $white;
@@ -54,7 +55,7 @@ h1, h2, h3, h4, h5 {
 }
 .uk-modal.uk-padding-remove .uk-modal-body {
 	padding: 0;
-	background: rgba($black, 0.95) !important;
+	background: rgba($black, 0) !important;
 }
 
 .uk-modal.full-image {
@@ -68,6 +69,26 @@ h1, h2, h3, h4, h5 {
 		color: $white;
 		border-radius: 50%;
 	}
+}
+.sharing-modal {
+
+	.uk-modal-dialog {
+		background: rgba(0,0,0,0) !important;
+	}
+  .uk-modal-body {
+    background: rgba(0,0,0,0) !important;
+		// border: thin solid rgba($white, 0.5);
+		border-radius: 3px;
+
+  #sharing-links {
+    color: #fff;
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+    svg {
+
+    }
+  }
+    }
 }
 
 a, .link {
