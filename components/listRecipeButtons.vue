@@ -1,15 +1,16 @@
 <template>
 <div class="list-recipe-buttons">
+  <transition enter-active-class="uk-animation-scale-up" leave-active-class="uk-animation-scale-down" v-if="this.$auth.$state.loggedIn">
 
-  <transition enter-active-class="uk-animation-scale-up" leave-active-class="uk-animation-scale-down">
-
-    <a v-if="status == 0" class="uk-button uk-button-default condensed-bold save-btn" @click.prevent="addRecipeToList(id, category, name, type, url, image)">
+    <a v-if="status == 0" class="uk-button uk-button-default condensed-bold save-btn" @click.prevent="addRecipeToList(id, category, name, image, type, url, steps, ingredients)">
       <vk-icon icon="plus"></vk-icon> SAVE RECIPE</a>
 
     <a v-else-if="status == 1" class="uk-button uk-button-default condensed-bold remove-btn" @click.prevent="removeRecipeFromList(id)">
       <vk-icon icon="check"></vk-icon> SAVED</a>
 
   </transition>
+  <a v-else @click.prevent="showLoginModal()" class="uk-button uk-button-default condensed-bold save-btn">
+    <vk-icon icon="plus"></vk-icon> SAVE RECIPE</a>
 </div>
 </template>
 
@@ -17,7 +18,7 @@
 import axios from 'axios'
 
 export default {
-  props: ['id', 'category', 'name', 'type', 'url', 'image'],
+  props: ['id', 'category', 'name', 'type', 'url', 'image', 'steps', 'ingredients'],
   data: function () {
     return {
       status: 3
@@ -43,9 +44,10 @@ export default {
 
   },
   methods: {
-    addRecipeToList(recipe, category, name, type, url, image) {
-      axios.post('https://huestudios.com/sites/camila.life/scripts/list.php?email=' + this.$auth.user.email + '&recipe_id=' + recipe + '&category=' + category + '&name=' + name + '&type=' + type + '&url=' + url + '&image' + image +
+    addRecipeToList(recipe, category, name, image, type, url, steps, ingredients) {
+      axios.post('https://huestudios.com/sites/camila.life/scripts/list.php?email=' + this.$auth.user.email + '&recipe_id=' + recipe + '&category=' + category + '&name=' + name + '&image=' + image + '&type=' + type + '&url=' + url  + '&steps=' + steps + '&ingredients=' + ingredients +
         '&purchased=0&action=add&status=1').then(res => {
+          console.log(res)
         if (res.status === 200) {
           this.status = 1
         }
@@ -57,6 +59,9 @@ export default {
       }).catch(function (error) {
         console.log(error)
       })
+    },
+    showLoginModal () {
+      this.$store.commit('SET_LOGINMODAL', true)
     },
     removeRecipeFromList(recipe) {
       axios.post('https://huestudios.com/sites/camila.life/scripts/list.php?email=' + this.$auth.user.email + '&recipe_id=' + recipe + '&action=delete').then(res => {

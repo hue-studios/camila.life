@@ -2,13 +2,14 @@
 <div class="list-buttons">
 
    <transition enter-active-class="uk-animation-scale-up"
-    leave-active-class="uk-animation-scale-down">
+    leave-active-class="uk-animation-scale-down" v-if="this.$auth.$state.loggedIn">
 
-    <a v-if="status == 0" class="add-btn" @click.prevent="addToList(id, category, name, brand, type, url, image)" uk-icon="icon: plus"></a>
+    <a v-if="status == 0" class="add-btn" @click.prevent="addToList(id, category, name, brand, type, url, image)"><vk-icon icon="plus"></vk-icon></a>
 
-    <a v-else-if="status == 1" class="remove-btn" @click.prevent="removeFromList(id)" uk-icon="icon: minus"></a>
+    <a v-else-if="status == 1" class="remove-btn" @click.prevent="removeFromList(id)"><vk-icon icon="minus"></vk-icon></a>
     <!-- <div v-else uk-spinner></div> -->
   </transition>
+  <a @click.prevent="showLoginModal()" v-else class="add-btn" v-vk-tooltip.right="{ title: 'ADD TO GROCERY LIST', animation: 'scale-up fade', }"><vk-icon icon="plus"></vk-icon></a>
  </div>
 </template>
 
@@ -26,7 +27,7 @@ export default {
 
   },
   mounted: function () {
-    console.log("PETERS : " + this.image)
+    if (this.$auth.$state.loggedIn) {
     axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=' + this.$auth.user.email + '&filters[product_id][eq]=' + this.id).then(response => {
       if (response.data.data.length >= 1) {
         this.status = 1
@@ -36,6 +37,7 @@ export default {
     }).catch(function (error) {
       console.log(error)
     })
+  }
 
   },
   methods: {
@@ -50,6 +52,9 @@ export default {
       }).catch(function (error) {
         console.log(error)
       })
+    },
+    showLoginModal () {
+      this.$store.commit('SET_LOGINMODAL', true)
     },
     removeFromList (product) {
       axios.post('https://huestudios.com/sites/camila.life/scripts/list.php?email=' + this.$auth.user.email + '&product_id=' + product + '&action=delete').then(res => {

@@ -206,7 +206,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'http://www.camila.life/vegan-plant-based-recipes/' + this.recipe.url
+          content: 'https://www.camila.life/vegan-plant-based-recipes/' + this.recipe.url
         },
         {
           hid: 'og:image',

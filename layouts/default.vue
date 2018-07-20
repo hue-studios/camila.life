@@ -59,7 +59,9 @@
       <div v-if="$auth.$state.loggedIn">
         <h5 class="uk-width-1-1 white uk-margin-remove-bottom">{{$auth.user.email}}</h5>
         <div class="uk-width-1-1">
+          <nuxt-link to="/account">
           <img :src='$auth.user.picture' style="width: 50px; height: 50px; border-radius: 50%;margin-top: 5px;" />
+        </nuxt-link>
         </div>
         <div class="uk-width-1-1 uk-margin-small-top">
           <nuxt-link class="uk-button uk-button-default uk-text-center" to="/logout">LOGOUT</nuxt-link>
@@ -70,16 +72,34 @@
       </div>
     </vk-grid>
   </nav>
-<div id="page-container">
-  <nuxt/>
-</div>
+  <div id="page-container">
+    <nuxt/>
+  </div>
 
 
   <toolbar />
+  <vk-modal id="account-modal" size="container" :show.sync="$store.state.loginModal" center>
+    <vk-modal-close @click.prevent="$store.commit('SET_LOGINMODAL', false)"></vk-modal-close>
+    <vk-grid class="uk-flex uk-flex-center">
+      <div class="">
+        <h3 class="uk-text-center body-font uk-text-lowercase">CREATE A <span class="pink bold">CAMILA.LIFE</span> ACCOUNT</h3>
+        <p class="uk-text-center">An account will give you the following:</p>
+        <ul class="uk-text-lowercase script-font">
+          <li>A personalized <span class="pink">grocery list</span> for your favorite vegan products</li>
+          <li>Your own <span class="pink">recipe list</span> to keep track of what you love and what to try next</li>
+          <li><span class="pink">Direct access</span> to Camila for answers to questions, plus tips and tricks when preparing vegan dishes</li>
+          <li>Plus, you'll be the first to know of <span class="pink">new features</span>, products, and recipes!</li>
+        </ul>
+        <p class="uk-text-center">Sign up now to get started and stay connected.</p>
+        <div class="uk-text-center"><button @click="$auth.loginWith('auth0')" class="uk-button uk-button-default">Login</button></div>
+      </div>
+    </vk-grid>
 
+  </vk-modal>
 </div>
 </template>
 <script>
+import axios from 'axios'
 import toolbar from '~/components/toolbar'
 import {
   mapState
@@ -88,12 +108,29 @@ import {
 export default {
   scrollToTop: true,
   data() {
-    return {}
+    return {
+      ip_address: ''
+    }
   },
 
   created() {
     if (this.$auth.$state.loggedIn) {
       this.$store.dispatch('GET_LIST_ITEMS', this.$auth.user.email)
+      console.log(this.$auth.user)
+      const vm = this
+      axios.post('https://huestudios.com/sites/camila.life/scripts/user.php?table=users&name=' + this.$auth.user.name + '&email=' + this.$auth.user.email + '&given_name=' + this.$auth.user.given_name + '&family_name=' + this.$auth.user.family_name +
+        '&email_verified=' + this.$auth.user.email_verified + '&gender=' + this.$auth.user.gender + '&birthday=' + this.$auth.user.birthday + '&last_login=' + this.$auth.user.updated_at + '&created_at=' + this.$auth.user.created_at + '&time_zone=' +
+        this.$auth.user.timezone + '&picture=' + escape(this.$auth.user.picture) + '&identity=' + this.$auth.user.identities[0].connection + '&social_id=' + this.$auth.user.identities[
+          0].user_id).then(function (response) {
+        console.log(response)
+      }).catch(function (error) {
+        console.log(error)
+      })
+      axios.get('https://api.ipify.org')
+        .then((res) => {
+          vm.ip_address = (res.data)
+          console.log(vm.ip_address)
+        })
     }
   },
   computed: mapState(['page']),

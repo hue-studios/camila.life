@@ -8,7 +8,9 @@ const createStore = () => {
       list: [],
       bag: [],
       recipes: [],
-      backLink: false
+      backLink: false,
+      loginModal: false,
+      user: null,
     },
     mutations: {
       UPDATE_PAGE(state, pageName) {
@@ -16,6 +18,9 @@ const createStore = () => {
       },
       SET_BACKLINK (state, backLink) {
         state.backLink = backLink || false
+      },
+      SET_LOGINMODAL (state, loginModal) {
+        state.loginModal = loginModal
       },
       SET_LISTITEMS (state, items) {
         state.list = items
@@ -28,14 +33,19 @@ const createStore = () => {
       },
       SET_LOADING_STATE (state, loading) {
       	state.loading = loading
-      }
+      },
+      SET_USER (state, user) {
+        state.user = user || null
+      },
     },
     getters: {
       GET_PAGE: state => state.page,
       GET_BACKLINK: state => state.backLink,
+      GET_LOGINMODAL: state => state.loginModal,
       GET_LIST: state => state.list,
       GET_RECIPES: state => state.recipes,
-      GET_BAG: state => state.bag
+      GET_BAG: state => state.bag,
+      GET_USER: state => state.user
     },
     actions: {
       GET_LIST_ITEMS({commit}, data) {

@@ -417,9 +417,11 @@
 		.top-section {
 			width: 100%;
 			text-align: center;
-			margin-top: 30px;
+			margin-top: 100px;
 
-			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-small) {
+				margin-top: 40px;
+			}
 			@media (min-width: $breakpoint-medium) {
 				margin-top: 80px;
 			}
@@ -428,6 +430,12 @@
 				width: 300px;
 				height: 300px;
 				margin-top: 30px;
+				@media (min-width: $breakpoint-small) {
+					margin-top: 50px;
+				}
+				@media (min-width: $breakpoint-medium) {
+				margin-top: 30px;
+				}
 			}
 			img {
 				width: 100%;
@@ -446,8 +454,8 @@
 			#image-modal-link {
 				position: absolute;
 				top: 10px;
-				left: 50%;
-				margin-left: -140px;
+				right: 50%;
+				margin-right: -140px;
 				color: $white;
 				font-size: 20px;
 				width: 40px;
@@ -457,8 +465,8 @@
 				justify-content: center;
 				background: rgba($black, 0.75);
 				@media (min-width: $breakpoint-small) {
-					left: 50%;
-					margin-left: -135px;
+					right: 50%;
+					margin-right: -135px;
 					top: 15px;
 				}
 				@media (min-width: $breakpoint-medium) {
@@ -471,9 +479,18 @@
 
 		.heading {
 			h1 {
-				margin-top: 30px;
+				margin-top: 10px;
 				margin-bottom: 10px;
-				line-height: 0.9em;
+				line-height: 1.1em;
+				font-size: 28px;
+				padding-left: 5px;
+				padding-right: 5px;
+				@media (min-width: $breakpoint-small) {
+					font-size: 32px;
+				}
+				@media (min-width: $breakpoint-medium) {
+					font-size: 36px;
+				}
 			}
 
 			h4 {

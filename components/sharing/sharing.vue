@@ -42,12 +42,12 @@ export default {
   },
   created () {
     if(!this.item.tags) {
-      this.tags = 'VeganRecipe, HealthyLifestyle'
+      this.tags = 'veganRecipe, vegan, camilLife'
     }
     if(this.item.category = 'Radical') {
-      this.description = this.item.name + ' is a RADICAL, warrior-style, vegan recipe that challenges!!'
+      this.description = this.item.name + ' is a RADICAL, warrior-style, vegan recipe that challenges!! Visit www.camila.life for more RADICAL vegan recipes!'
     } else {
-      this.description = this.item.name + ' is an EASY, familiar recipe made with healthy vegan ingredients!!'
+      this.description = this.item.name + ' is an EASY, familiar recipe made with healthy vegan ingredients!! Visit www.camila.life for more EASY vegan recipes!'
     }
   },
   methods: {

@@ -29,8 +29,8 @@ module.exports = {
       href: '/favicon.ico'
     }],
     script: [
-      { src: '/js/uikit.js' },
-      { src: '/js/uikit-icons.js' },
+      { src: 'https://www.camila.life/js/uikit.js' },
+      { src: 'https://www.camila.life/js/uikit-icons.js' },
       {
         src: '//fast.fonts.net/jsapi/3bac6251-f95f-450e-adf8-3f326b8e374a.js'
       }

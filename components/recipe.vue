@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="action-btns">
-    <list-recipe-buttons v-if="this.recipe.images.data.length > 0" :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" :image="recipe.images.data[0].name" />
+    <list-recipe-buttons v-if="this.recipe.images.data.length > 0" :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" :image="recipe.images.data[0].name" :steps="recipe.recipe_directions.meta.total" :ingredients="recipe.recipe_ingredients.meta.total"/>
     <list-recipe-buttons v-else :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" image="" />
   </div>
   <nuxt-link :to="'/vegan-plant-based-recipes/' + recipe.url">
