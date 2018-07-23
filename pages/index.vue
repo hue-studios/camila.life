@@ -1,8 +1,8 @@
 <template>
 <div id="home">
   <div id="top-section">
-  <vk-grid class="top-section uk-flex uk-flex-center uk-flex-middle uk-text-center uk-background-cover uk-background-blend-multiply uk-position-relative" v-if="!$auth.$state.loggedIn" id="site-intro" uk-parallax="bgy:150px; target: #site-intro">
-    <div id="flare" uk-parallax="rotate: -50; scale: 2.3 ;top: 120px; target: #site-intro"></div>
+  <vk-grid class="top-section uk-flex uk-flex-center uk-flex-middle uk-text-center uk-background-cover uk-background-blend-multiply uk-position-relative" v-if="!$auth.$state.loggedIn" id="site-intro" uk-parallax="media: @m; bgy:150px; target: #site-intro">
+    <div id="flare" uk-parallax="media: @m; rotate: -50; scale: 2.3 ;top: 120px; target: #site-intro"></div>
     <div class="uk-width-1-1" id="site-intro-caption">
       <h2>introducing camila.life!</h2>
       <p>This could be an intro if a person is not signed in.</p>
@@ -23,7 +23,7 @@
         <div class="uk-width-1-1 uk-position-relative uk-text-center">
           <h1>WELCOME <span class="condensed-bold" v-if="$auth.$state.loggedIn"> {{$auth.user.given_name}}</span>!</h1>
           <div v-if="$auth.$state.loggedIn">
-            <p class="script-font">You have <span v-if="$store.state.list.length > 0"><span class="pink">{{this.$store.state.list.length}} ingredient<span v-if="$store.state.list.length > 1">s</span></span> saved</span> <span v-else>no ingredients</span> in your grocery list.</p>
+            <p class="script-font">You have <span v-if="$store.state.list.length > 0"><span class="pink">{{this.$store.state.list.length}} ingredient<span v-if="$store.state.list.length > 1">s</span></span> saved</span> <span v-else>no ingredients</span> in your grocery list<span v-if="$store.state.recipes.length > 0"> and <span class="pink">{{this.$store.state.recipes.length}} recipe<span v-if="$store.state.recipes.length > 1">s</span></span> saved in your account</span>.</p>
           </div>
           <div v-else>
             <p>This is why you should create an account.</p>
