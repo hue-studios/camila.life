@@ -1,5 +1,5 @@
 <template>
-<vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center" v-vk-height-viewport>
+<vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center">
   <div>
     <h1 class="condensed-bold pink">Logging in.</h1>
   </div>
@@ -15,6 +15,9 @@ export default {
   }
 }
 </script>
-<style scoped>
-
+<style lang="scss" scoped>
+  .uk-grid {
+    min-height: 100vh;
+    height: 100vh;
+  }
 </style>

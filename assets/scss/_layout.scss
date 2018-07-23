@@ -156,10 +156,38 @@ nav#nav-bar {
 		@media (min-width: $breakpoint-small) {
 			  font-size: 26px;
 		}
+    @media (min-width: $breakpoint-medium) {
+      width: auto;
+      // padding-left: 20px;
+      // padding-right: 20px;
+      // font-size: 15px;
+      // line-height: 15px;
+    }
+    .uk-badge {
+      background: none;
+      border:thin solid $pink;
+      margin-top: -15px;
+      margin-left: 2px;
+      font-size: 10px;
+      line-height: 10px;
+      // display: flex;
+      // justify-content: center;
+      // align-content: center;
+      // align-items: center;
+      font-family: $condensed-bold-font;
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+
+    @media (min-width: $breakpoint-small) {
+      // width:33.3333%
+    }
+
+    }
   }
   a.nuxt-link-exact-active {
     // font-family:$bold-font;
-    color: $pink;
+    color: $green;
   }
   a::before {
     content: '';
@@ -191,6 +219,8 @@ nav#nav-bar {
       width: 30px;
       height: 30px;
 			display:flex;
+      padding-right: 0px;
+      padding-left: 0px;
 			align-content: center;
 			justify-content: center;
 			align-items: center;
@@ -213,14 +243,35 @@ nav#nav-bar {
       transform: scale(1.3);
     }
   }
+  .account-btns {
+    h5 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: 7px;
+    }
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      // margin-top: 5px;
+      @media (min-width: $breakpoint-small) {
+        width: 50px;
+        height: 50px;
+      }
+      @media (min-width: $breakpoint-medium) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
 	a.uk-button {
-		font-size: 16px;
+		font-size: 14px;
 		margin-top: 5px;
 		@media (min-width: $breakpoint-small) {
-			font-size: 20px;
 			margin-top: 10px;
 		}
 	}
+    }
 }
 @keyframes borderBottomAnimate {
 0%  {

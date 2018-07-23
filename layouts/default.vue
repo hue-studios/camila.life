@@ -30,7 +30,7 @@
       <nuxt-link to="/">Home</nuxt-link>
     </p>
     <p>
-      <nuxt-link to="plant-based-vegan-products">Vegan Products</nuxt-link>
+      <nuxt-link to="plant-based-vegan-products">Vegan INGREDIENTS</nuxt-link>
     </p>
 
     <p>
@@ -42,6 +42,10 @@
     <p>
       <nuxt-link to="/camila-life-boutique">boutique</nuxt-link>
     </p>
+    <p>
+      <nuxt-link to="/account" v-if="$auth.$state.loggedIn">ACCOUNT <span class="uk-badge">{{$store.state.list.length + $store.state.recipes.length}}</span></nuxt-link>
+    </p>
+
 
     <div id="social-links">
       <a href="https://twitter.com/hue_studios" target="_blank">
@@ -55,20 +59,23 @@
       </a>
     </div>
 
-    <vk-grid class="uk-flex uk-flex-center uk-flex-top uk-grid-small uk-text-center uk-margin-top">
-      <div v-if="$auth.$state.loggedIn">
-        <h5 class="uk-width-1-1 white uk-margin-remove-bottom">{{$auth.user.email}}</h5>
-        <div class="uk-width-1-1">
-          <nuxt-link to="/account">
-          <img :src='$auth.user.picture' style="width: 50px; height: 50px; border-radius: 50%;margin-top: 5px;" />
+    <vk-grid class="uk-flex uk-flex-center uk-flex-top uk-grid-small uk-text-center uk-margin-top account-btns">
+      <div  v-if="$auth.$state.loggedIn">
+
+          <nuxt-link class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle" to="/account">
+            <img :src='$auth.user.picture'  />
+        <h5 class="white">{{$auth.user.email}}</h5>
+
+
+
         </nuxt-link>
-        </div>
+
         <div class="uk-width-1-1 uk-margin-small-top">
-          <nuxt-link class="uk-button uk-button-default uk-text-center" to="/logout">LOGOUT</nuxt-link>
+          <nuxt-link class="uk-button uk-button-default uk-text-center white" to="/logout">LOGOUT</nuxt-link>
         </div>
       </div>
       <div class="uk-width-1-1" v-else>
-        <button class="uk-button uk-button-default uk-text-center uk-margin-small-top" @click.prevent="$auth.loginWith('auth0')">LOGIN</button>
+        <button class="uk-button uk-button-default uk-text-center uk-margin-small-top white" @click.prevent="$auth.loginWith('auth0')">LOGIN</button>
       </div>
     </vk-grid>
   </nav>
@@ -116,6 +123,7 @@ export default {
   created() {
     if (this.$auth.$state.loggedIn) {
       this.$store.dispatch('GET_LIST_ITEMS', this.$auth.user.email)
+      this.$store.dispatch('GET_SAVED_RECIPES', this.$auth.user.email)
       console.log(this.$auth.user)
       const vm = this
       axios.post('https://huestudios.com/sites/camila.life/scripts/user.php?table=users&name=' + this.$auth.user.name + '&email=' + this.$auth.user.email + '&given_name=' + this.$auth.user.given_name + '&family_name=' + this.$auth.user.family_name +

@@ -58,7 +58,7 @@ const createStore = () => {
           this.errors.push(e)
         })
       },
-      GET_LIST_RECIPES({commit}, data) {
+      GET_SAVED_RECIPES({commit}, data) {
         axios.get(`https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=` + data + `&filters[type][eq]=recipe`)
         .then((response) => {
           commit('SET_RECIPES', response.data.data)

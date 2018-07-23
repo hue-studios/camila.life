@@ -124,8 +124,8 @@
 	#filters {
 		position: fixed;
 		width: 100%;
-		right: -110%;
-		top: 0px;
+		bottom: -110vh;
+		left: 0px;
 		height: 100vh;
 		background: $white;
 		box-shadow: 0px 1px 15px rgba($black, 0.4);
@@ -135,7 +135,7 @@
 		display: flex;
 		align-items:center;
 		justify-content: center;
-		transition: .15s $curve;
+		transition: .25s $curve;
 
 		form {
 			width: calc(100% - 40px);
@@ -195,7 +195,7 @@
 		}
 	}
 	#filters.open {
-		right: 0%;
+		bottom: 0vh;
 	}
 	#filters-inline {
 		margin: 0;

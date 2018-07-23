@@ -48,7 +48,7 @@ export default {
           this.status = 1
         }
         this.updateListTotal()
-        this.showSuccessMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>added <span class='condensed-bold'>` + this.name + `</span> TO SHOPPING LIST</span>`, image: 'https://huestudios.com/sites/camila.life/content/thumbnail/100/100/crop/' + this.image})
+        this.showSuccessMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>added <span class='condensed-bold'>` + this.name + `</span> TO GROCERY LIST</span>`, image: 'https://huestudios.com/sites/camila.life/content/thumbnail/100/100/crop/' + this.image})
       }).catch(function (error) {
         console.log(error)
       })
@@ -63,7 +63,7 @@ export default {
           this.status = 0
         }
         this.updateListTotal()
-        this.showDeleteMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>removed <span class='condensed-bold'>` + this.name + `</span> FROM SHOPPING LIST</span>`, image: 'https://huestudios.com/sites/camila.life/content/thumbnail/100/100/crop/' + this.image})
+        this.showDeleteMsg({title: `<span class='condensed' style='font-size: 20px; line-height: 20px; font-weight: 100;'>removed <span class='condensed-bold'>` + this.name + `</span> FROM GROCERY LIST</span>`, image: 'https://huestudios.com/sites/camila.life/content/thumbnail/100/100/crop/' + this.image})
       }).catch(function (error) {
         console.log(error)
       })

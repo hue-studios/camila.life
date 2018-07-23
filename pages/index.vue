@@ -23,11 +23,11 @@
         <div class="uk-width-1-1 uk-position-relative uk-text-center">
           <h1>WELCOME <span class="condensed-bold" v-if="$auth.$state.loggedIn"> {{$auth.user.given_name}}</span>!</h1>
           <div v-if="$auth.$state.loggedIn">
-            <p>You have <span v-if="$store.state.list.length > 0">{{this.$store.state.list.length}}</span> item<span v-if="$store.state.list.length > 1">s</span> in your grocery list.</p>
+            <p class="script-font">You have <span v-if="$store.state.list.length > 0"><span class="pink">{{this.$store.state.list.length}} ingredient<span v-if="$store.state.list.length > 1">s</span></span> saved</span> <span v-else>no ingredients</span> in your grocery list.</p>
           </div>
           <div v-else>
             <p>This is why you should create an account.</p>
-            <button class="uk-button uk-button-default uk-text-center" @click.prevent="$auth.loginWith('auth0')">CREATE ACCOUNT</button>
+            <button class="uk-button uk-button-default uk-text-center" @click.prevent="showLoginModal()">CREATE ACCOUNT</button>
 
           </div>
         </div>
@@ -52,23 +52,37 @@
   </vk-grid>
   <vk-grid class="uk-grid-large uk-text-center uk-flex uk-flex-center uk-flex-middle uk-position-relative" id="featured-ingredients" v-vk-height-match="{ target: '.uk-card' }">
 
-      <h1 class="uk-position-absolute uk-text-left bg-title">FEATURED <br>VEGAN <br>PRODUCTS</h1>
+      <h1 class="uk-position-absolute uk-text-left bg-title">VEGAN <br>INGREDIENTS</h1>
+      <div class="uk-width-5-6 uk-text-center">
+          <p id="intro" class="script-font uk-margin-remove-top">Click the <vk-icon class="uk-border-circle green-bg" icon="plus" ratio="0.8"></vk-icon> to add the ingredient to your grocery list.</p>
+        </div>
+      <div uk-slider="finite: false; center:true">
+    <div class="uk-position-relative">
+        <ul class="uk-slider-items uk-child-width-auto uk-grid uk-grid-large">
 
-    <div v-for="(ingredient, index) in ingredients" :key="index" v-bind:class="{ 'uk-visible@l': (index === 2) }" >
-      <div class="uk-card uk-card-default">
+    <li v-for="(ingredient, index) in ingredients" :key="index"  class="featured-ingredient-slide">
+      <div class="uk-card uk-card-default featured-ingredient">
+        <listButtons :id="ingredient.id" :category="ingredient.category" :name="ingredient.name" type="ingredient" :brand="ingredient.brand" :url="ingredient.url" :image="ingredient.images.data[0].name" />
         <div class="uk-card-media-top">
           <img :src="'https://huestudios.com/sites/camila.life/content/thumbnail/300/300/crop/' + ingredient.images.data[0].name" :alt="ingredient.name" class="">
         </div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title">{{ingredient.name}}</h3>
+          <h3 class="uk-card-title uk-margin-remove-bottom">{{ingredient.name}}</h3>
+          <h5 v-if="ingredient.brand" class="brand"><span class="pink">BRAND:  </span> {{ingredient.brand}}</h5>
+          <h5><span class="pink">CATEGORY: </span>  {{ingredient.category}}</h5>
           <iconLabels :item="ingredient" />
           <nuxt-link :to="'/plant-based-vegan-products/'+ingredient.url" class="uk-button uk-button-default">DETAILS</nuxt-link>
         </div>
       </div>
-    </div>
+    </li>
+  </ul>
+  <a class="uk-position-center-left uk-position-small uk-hidden-hover uk-slidenav-large uk-visible@m" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover uk-slidenav-large uk-visible@m" href="#" uk-slidenav-next uk-slider-item="next"></a>
+  </div>
+  </div>
     <div class="uk-width-1-1">
         <nuxt-link to="/plant-based-vegan-products" class="uk-flex uk-flex-center uk-flex-middle goto-page-link">
-        <p class="uk-text-left" uk-parallax="color: #00bfff,#FB00DA; x: 40px">see all<br> vegan<br> products </p>
+        <p class="uk-text-left" uk-parallax="color: #00bfff,#FB00DA; x: 40px">see all <br> vegan<br> ingredients </p>
         <vk-icon icon="chevron-right" uk-parallax="color: #FB00DA, #00bfff; x: 30px"></vk-icon>
         </nuxt-link>
     </div>
@@ -76,6 +90,8 @@
 
   <vk-grid id="featured-recipe" class="uk-background-cover uk-background-blend-multiply uk-panel uk-flex uk-flex-center uk-flex-middle uk-position-relative" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/900/900/crop/' + recipe.images.data[0].name + ')'"
     uk-parallax="bgy: 800; target: #featured-recipe">
+    <list-recipe-buttons v-if="this.recipe.images.data.length > 0" :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" :image="recipe.images.data[0].name" :steps="recipe.recipe_directions.meta.total" :ingredients="recipe.recipe_ingredients.meta.total"/>
+    <list-recipe-buttons v-else :id="recipe.id" :category="recipe.category" :name="recipe.name" type="recipe" :url="recipe.url" image="" />
     <h1 class="bg-title white uk-width-1-1 uk-text-center" uk-parallax="y: -200px; target: #featured-recipe">Featured Recipe</h1>
 
     <div class="uk-width-1-2@s uk-width-1-3@xl  uk-text-center white">
@@ -114,6 +130,8 @@
 </template>
 <script>
 import iconLabels from '~/components/iconLabels.vue'
+import listButtons from '~/components/listButtons.vue'
+import listRecipeButtons from '~/components/listRecipeButtons.vue'
 import instafeed from 'instafeed.js'
 import striptags from 'striptags'
 import axios from 'axios'
@@ -127,7 +145,7 @@ export default {
     let [articleReq, homeReq, ingredientsReq, productsReq, recipeReq] = await Promise.all([
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?filters[sort][eq]=0'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/home_page_featured_items/rows/?limit=6'),
-      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?limit=3'),
+      axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/ingredients/rows/?limit=8'),
     axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/products/rows/?limit=2'),
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/recipes/rows/?filters[sort][eq]=0')
     ])
@@ -136,11 +154,12 @@ export default {
       items: homeReq.data.data,
       products: productsReq.data.data,
       recipe: recipeReq.data.data[0],
-      ingredients: ingredientsReq.data.data,
+      ingredients: ingredientsReq.data.data
     }
   },
   data() {
-    return {}
+    return {
+    }
   },
   created() {
     console.log(this.article)
@@ -158,9 +177,14 @@ export default {
 
   },
   components: {
-    iconLabels
+    iconLabels,
+    listButtons,
+    listRecipeButtons
   },
   methods: {
+    showLoginModal () {
+      this.$store.commit('SET_LOGINMODAL', true)
+    },
     truncate(str, length, ending) {
       if (str !== null) {
         if (length == null) {

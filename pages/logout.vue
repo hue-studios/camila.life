@@ -1,14 +1,9 @@
 <template>
-<div>
-  <h2 class="text-center">Logout</h2>
-  <hr>
-
-  <div class="uk-section uk-flex uk-flex-center">
-    <div class="uk-width-1-3 uk-text-center">
-      <button class="uk-button uk-button-default" @click.prevent="$auth.login()">Login</button>
+  <vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-text-center" v-vk-height-viewport>
+    <div>
+      <h1 class="condensed-bold pink">Logging OUT.</h1>
     </div>
-  </div>
-</div>
+  </vk-grid>
 </template>
 
 <script>
@@ -17,6 +12,16 @@ export default {
     this.$auth.logout()
     return this.$auth.reset()
     window.localStorage.removeItem('auth.strategy')
+    this.$store.commit('SET_LISTITEMS', 0)
+    this.$store.commit('SET_RECIPES', 0)
+    this.$store.commit('SET_USER', '')
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .uk-grid {
+    min-height: 100vh;
+    height: 100vh;
+  }
+</style>

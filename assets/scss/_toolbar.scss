@@ -41,20 +41,28 @@
 		// vertical-align: bottom;
 		// height: 30px;
 		border-right: thin solid rgba($dark-pink, 0.5);
+
+		span:first-of-type {
+			padding-right: 4px;
+		}
 		.uk-badge {
 			background: none;
 			border:thin solid $pink;
-			margin-top: -2px;
-			margin-left: 5px;
-			font-size: 12px;
+			margin-top: -15px;
+			margin-left: 2px;
+			font-size: 10px;
 			line-height: 10px;
 			display: flex;
 			justify-content: center;
 			align-content: center;
 			align-items: center;
+			font-family: $condensed-bold-font;
+			width: 18px;
+			height: 18px;
+			min-width: 18px;
 		}
 		@media (min-width: $breakpoint-small) {
-			width:33.3333%
+			// width:33.3333%
 		}
 		@media (min-width: $breakpoint-medium) {
 			width: auto;
@@ -64,12 +72,28 @@
 			line-height: 15px;
 		}
 	}
+	#account-btn {
+		.uk-icon {
+			padding-right: 0px;
+			border: thin solid rgba($white, 0.4);
+			padding: 5px;
+			border-radius: 50%;
+			svg {
+				width: 15px;
+				height: 15px;
+			}
+		}
+		.uk-badge {
+			margin-left: -5px;
+			background: $black;
+		}
+	}
 	a:hover {
 		color: $white;
 		text-decoration: none;
 	}
 	.nuxt-link-exact-active {
-		color: $blue !important;
+		color: $green !important;
 		text-decoration: none;
 	}
 }
