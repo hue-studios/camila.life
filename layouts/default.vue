@@ -1,7 +1,7 @@
 <template>
 <div id="page-container-box">
 
-  <div id="nav-bg-one" @click.prevent="closeSideMenu()">
+  <!-- <div id="nav-bg-one" @click.prevent="closeSideMenu()">
     <div>
       <p class="body-font quote">"You alone are enough."</p>
       <p class="author">-Maya Angelou</p>
@@ -14,14 +14,14 @@
       <h1 uk-parallax="color: #FB00DA, #00bfff;">CAMILA</h1>
     </nuxt-link>
   </div>
-  <!-- <nuxt-link to="/list" id="grocery-list-btn">
+<nuxt-link to="/list" id="grocery-list-btn">
     <h2 class="condensed uk-text-uppercase uk-position-relative">GROCERY<transition name="fade"><span class="uk-badge uk-position-absolute" v-if="$store.state.list.length > 0">{{this.$store.state.list.length}}</span></transition></h2>
     <h3 class="condensed-bold">LIST</h3>
   </nuxt-link>
   <div id="shopping-bag-btn">
     <h2 class="condensed uk-text-uppercase uk-position-relative">SHOPPING <transition name="fade"><span class="uk-badge uk-position-absolute" v-if="$store.state.bag.length > 0">{{$store.state.bag.length}}</span></transition></h2>
     <h3 class="condensed-bold">BAG</h3>
-  </div> -->
+  </div>
   <div id="nav-btn" @click.prevent="sideMenuToggle()">
     <div id="nav-icon"> <span></span> <span></span> </div>
   </div>
@@ -78,13 +78,13 @@
         <button class="uk-button uk-button-default uk-text-center uk-margin-small-top white" @click.prevent="$auth.loginWith('auth0')">LOGIN</button>
       </div>
     </vk-grid>
-  </nav>
+  </nav> -->
   <div id="page-container">
     <nuxt/>
   </div>
 
 
-  <toolbar />
+  <!-- <toolbar /> -->
   <vk-modal id="account-modal" size="container" :show.sync="$store.state.loginModal" center>
     <vk-modal-close @click.prevent="$store.commit('SET_LOGINMODAL', false)"></vk-modal-close>
     <vk-grid class="uk-flex uk-flex-center">

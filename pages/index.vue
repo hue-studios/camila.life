@@ -1,7 +1,7 @@
 <template>
 <vk-grid id="new-home" class="uk-flex uk-flex-center uk-flex-middle">
   <div class="uk-width-1-1 uk-text-center">
-    <img src="/images/jam.jpg" style="width: 400px; height 400px;">
+    <img src="/images/jam.jpg" style="width: 400px; height 100px;">
     <h2 class="body-font uk-text-lowercase">I'm a total loser!</h2>
       <p>I eat meat more than vegatables and dairy way more than soy....so the joke is on you!!</p>
     <h4 class="script-font uk-text-lowercase">Please tell all my folllows that I am a hypocrite.</h4>
