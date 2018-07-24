@@ -9,7 +9,8 @@
     <a v-else-if="status == 1" class="remove-btn" @click.prevent="removeFromList(id)"><vk-icon icon="minus"></vk-icon></a>
     <!-- <div v-else uk-spinner></div> -->
   </transition>
-  <a @click.prevent="showLoginModal()" v-else class="add-btn" v-vk-tooltip.right="{ title: 'ADD TO GROCERY LIST', animation: 'scale-up fade', }"><vk-icon icon="plus"></vk-icon></a>
+  <!-- <a @click.prevent="showLoginModal()" v-else class="add-btn" v-vk-tooltip.right="{ title: 'ADD TO GROCERY LIST', animation: 'scale-up fade', }"><vk-icon icon="plus"></vk-icon></a> -->
+  <a @click.prevent="showLoginModal()" v-else class="add-btn"><vk-icon icon="plus"></vk-icon></a>
  </div>
 </template>
 

@@ -146,11 +146,17 @@
 			}
 		}
 		.uk-slidenav-large {
-			background: rgba($white, 0.4) !important;
+			background: rgba($black, 0.2) !important;
 			width: 40px;
 			height: 40px;
 			text-align: center;
 			border-radius: 50%;
+			svg {
+				fill: $white;
+				polyline {
+					stroke: $white;
+				}
+			}
 		}
 		.featured-ingredient-slide {
 			padding-top: 20px;
@@ -158,12 +164,32 @@
 		.featured-ingredient {
 					position: relative;
 					max-width: 300px;
+					border: thin solid rgba($black, 0.05);
+					border-radius: 3px;
+					.ingredient-card-info-bar {
+						p {
+							font-size: 10px;
+							opacity: 0.9;
+						}
+					}
+					.uk-card-media-top {
+						img {
+							width: 300px;
+							height: 300px;
+							background: rgba($black, 0.05);
+						}
+					}
 					h3.uk-card-title {
 						margin-top: 10px;
 						margin-bottom: 0;
 						line-height: 1em;
 					}
-
+					p.time-published {
+						margin-top: 0px;
+						margin-bottom: 0px;
+						font-size: 10px;
+						opacity: 0.9;
+					}
 					h5 {
 						margin-top: 8px;
 						margin-bottom: 0px;
@@ -177,7 +203,7 @@
 					h5:last-of-type {
 						margin-right: 0px;
 						margin-top: 0px;
-						margin-bottom: 8px;
+						margin-bottom: 0px;
 					}
 					.uk-card-media-top {
 						img {
@@ -206,29 +232,28 @@
 		.bg-title {
 			position: absolute;
 			left: -8px;
-			top: -10px;
+			top: 50%;
+			margin-top: -45px;
 			opacity: 0.1;
 			font-size: 92px;
 			line-height: 90px;
 			font-family: $body-font;
 			@media (min-width: $breakpoint-small) {
-				top: -20px;
+				margin-top: -45px;
 				font-size: 142px;
 				line-height: 90px;
 			}
 			@media (min-width: $breakpoint-medium) {
 				left: -15px;
-				top: -50px;
+				margin-top: -65px;
 				font-size: 188px;
 				line-height: 132px;
 			}
 		}
 	}
 
-	#featured-recipe {
+	#featured-recipes {
 		margin-top: 0;
-		background-color: rgba($black, 0.75);
-		height: 600px;
 
 		.bg-title {
 			position: absolute;
@@ -243,24 +268,51 @@
 				line-height: 132px;
 			}
 		}
+		.uk-slidenav-large {
+			background: rgba($black, 0.2) !important;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			border-radius: 50%;
 
+			svg {
+				fill: $white;
+				polyline {
+					stroke: $white;
+				}
+			}
+		}
+		.featured-recipe-slide {
+		}
+		.featured-recipe {
+			background-color: rgba($black, 0.75);
+			min-height: calc(100vh - 54px);
+			@media (min-width: $breakpoint-small) {
+				height: 500px;
+				min-height: 500px;
+			}
+			@media (min-width: $breakpoint-medium) {
+				height: 500px;
+			}
 		.label {
 			opacity: 0.6;
 		}
+
 		.list-recipe-buttons {
 			position: absolute;
 			bottom: 0;
-			left: 0;
+			left: 0px;
 			z-index: 10;
 			border-radius: 0;
 			background: $green;
 			a {
 				border: none;
+				color: $black;
 			}
 			.favorite-btn {
 				border-radius: 0;
 				background: $green;
-
+				color: $black;
 				svg {
 					color: $black;
 					width: 24px;
@@ -271,19 +323,21 @@
 					}
 				}
 			}
-		}
-
-		.remove-btn {
-			background: $pink;
-			color: $white;
-			svg {
+			.remove-btn {
+				background: $pink;
 				color: $white;
+				svg {
+					color: $white;
 
-				path {
-					fill: $white;
+					path {
+						fill: $white;
+					}
 				}
 			}
 		}
+
+
+	}
 	}
 
 	#featured-quote {
