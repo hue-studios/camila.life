@@ -273,6 +273,29 @@ nav#nav-bar {
 	}
     }
 }
+#log-btn {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  z-index: 100;
+  background: $green;
+  padding: 5px 10px;
+  font-size: 14px;
+  @media (min-width: $breakpoint-medium) {
+    right: 120px;
+    width: 60px;
+    top:20px;
+		padding-top: 14px;
+		padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    // box-shadow: inset 0px 1px 25px rgba($black, 0.4);
+  }
+}
 @keyframes borderBottomAnimate {
 0%  {
  width: 0%;

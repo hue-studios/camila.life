@@ -1,0 +1,104 @@
+#account {
+	padding: 30px 0;
+	@media (min-width: $breakpoint-small) {
+		padding: 50px 0;
+	}
+	@media (min-width: $breakpoint-medium) {
+		padding: 100px 0;
+	}
+	.top-section {
+		img {
+			width: 50px; height: 50px;
+			border-radius: 50%;
+			margin-bottom: 10px;
+		}
+		h5 {
+
+		}
+	}
+	.uk-tab {
+		li {
+			a {
+				font-family: $condensed-font
+			}
+		}
+		.uk-active {
+			a {
+				border-color: $pink;
+			}
+		}
+	}
+	#profile {
+		#social-notice {
+			padding: 0 10px;
+			margin-bottom: 20px;
+			border-right: 5px solid $black;
+			border-left: 5px solid $black;
+			h5 {
+				font-size: 14px;
+				line-height: 18px;
+				margin-bottom: 0px;
+				vertical-align: bottom;
+			}
+		}
+		form {
+			max-width: 500px;
+			padding: 20px 0;
+			@media (min-width: $breakpoint-small) {}
+			@media (min-width: $breakpoint-medium) {
+				padding: 50px 0;
+			}
+			.form-field {
+				margin-top: 10px;
+				margin-bottom: 5px;
+			}
+			label {
+					font-family: $condensed-font;
+					text-transform: uppercase;
+					opacity: 0.5;
+					font-size: 14px;
+			}
+			input[type='text'], input[type='date'], input[type='email'], input[type='number'] {
+				border: none;
+				margin-top: 0px;
+				padding: 5px 0px 0px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 16px;
+				vertical-align: baseline;
+				border-bottom: thin solid rgba($black, 0.6);
+			}
+			input[disabled] {
+				opacity: 0.6;
+				background: none;
+			}
+		select {
+			border: none;
+			height: 30px;
+			border-bottom: thin solid rgba($black, 0.6);
+			text-align: center;
+			padding-top: 5px;
+			font-size: 16px;
+			padding-left: 0;
+
+		}
+		#birthday {
+			max-width: 200px;
+		}
+		#zip {
+			@media (min-width: $breakpoint-small) {
+				max-width: 100px;
+			}
+
+		}
+		#gender {
+			max-width: 200px;
+		}
+		.uk-button {
+			border-color: $pink;
+			color: $pink;
+		}
+	}
+	}
+
+}

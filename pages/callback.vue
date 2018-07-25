@@ -12,6 +12,12 @@ export default {
   data() {
   },
   mounted () {
+  },
+  created () {
+    console.log("FROM callback created")
+    if (this.$auth.$state.loggedIn) {
+      console.log("FROM callback :: " + this.$auth.user)
+    }
   }
 }
 </script>

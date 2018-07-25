@@ -81,7 +81,7 @@
               </div>
               <div class="uk-card-body">
                 <h3 class="uk-card-title uk-margin-remove-bottom">{{ingredient.name}}</h3>
-                <p class="time-published" v-if="ingredient.date_modified">{{formatDateFromNow(ingredient.date_modified)}}</p>
+                <p class="time-published" v-if="ingredient.date_modified">{{formatDate(ingredient.date_modified)}}</p>
                 <h5 v-if="ingredient.brand" class="brand"><span class="pink">BRAND:  </span> {{ingredient.brand}}</h5>
                 <h5><span class="pink">CATEGORY: </span>  {{ingredient.category}}</h5>
                 <iconLabels :item="ingredient" />
@@ -165,9 +165,37 @@ import instafeed from 'instafeed.js'
 import striptags from 'striptags'
 import axios from 'axios'
 import moment from 'moment'
+import { TweenMax, Back } from 'gsap'
 
 export default {
   auth: false,
+  // transition: {
+  //   mode: 'out-in',
+  //   css: false,
+  //   beforeEnter (el) {
+  //     TweenMax.set(el, {
+  //       transformPerspective: 600,
+  //       perspective: 300,
+  //       transformStyle: 'preserve-3d'
+  //     })
+  //   },
+  //   enter (el, done) {
+  //     TweenMax.to(el, 1, {
+  //       rotationY: 360,
+  //       transformOrigin: '50% 50%',
+  //       ease: Back.easeOut
+  //     })
+  //     done()
+  //   },
+  //   leave (el, done) {
+  //     TweenMax.to(el, 1, {
+  //       rotationY: 0,
+  //       transformOrigin: '50% 50%',
+  //       ease: Back.easeIn
+  //     })
+  //     done()
+  //   }
+  // },
   scrollToTop: true,
   async asyncData({
     app
@@ -191,7 +219,6 @@ export default {
     return {}
   },
   created() {
-    console.log(this.article)
     var feed = new instafeed({
       get: "user",
       userId: '5545214567',
@@ -211,11 +238,25 @@ export default {
     listRecipeButtons
   },
   methods: {
-    formatDateFromNow(data) {
-      // return moment(data, 'YYYY-MM-DD HH:mm Z').fromNow()
-      var newTime = moment(data);
+    formatDate(data) {
+      var newDate = moment(data)
+      if(moment(data).isAfter(moment().subtract(24, 'hours'))) {
+        return moment(data).fromNow()
+      } else if (moment(newDate).format('YYYY') < moment().format('YYYY')) {
+        return moment(newDate).format('MMM D, YYYY')
+      } else {
+        return moment(newDate).format('MMM D') + ' at ' + moment(newDate).format('h:mm a')
+      }
 
-			return moment(newTime).fromNow();
+      // if(moment(data).subtract(24, 'hours') <= moment().subtract(24, 'hours')) {
+      //   console.log("less than" + moment(data).subtract(24, 'hours').format('MMMM Do YYYY H:mm') + ' ::: ' + moment().subtract(24, 'hours').format('MMMM Do YYYY H:mm'))
+      //   return moment(newDate).fromNow()
+      // } else {
+      //   console.log("greater than" + moment(data).subtract(24, 'hours').format('MMMM Do YYYY H:mm') + ' ::: ' + moment().subtract(24, 'hours').format('MMMM Do YYYY H:mm'))
+      //   return moment(newDate).format('MMMM Do YYYY');
+      // }
+      // moment().subtract(24, 'hours').format("MMMM Do YYYY") + ' // ' + moment(data).subtract(24, 'hours').format("MMMM Do YYYY"))
+
     },
     showLoginModal() {
       this.$store.commit('SET_LOGINMODAL', true)

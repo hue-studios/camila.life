@@ -40,10 +40,8 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: {
-    color: '#00FF1B',
-    height: '12px'
-  },
+  loading: '~/components/loading.vue',
+
 
   /*
    ** Global CSS
@@ -86,7 +84,7 @@ module.exports = {
       login: '/login',
       logout: '/',
       callback: '/callback',
-      user: '/'
+      home: '/test'
     },
     strategies: {
       auth0: {
