@@ -84,7 +84,7 @@ module.exports = {
       login: '/login',
       logout: '/',
       callback: '/callback',
-      home: '/test'
+      home: '/account/login'
     },
     strategies: {
       auth0: {

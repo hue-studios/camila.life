@@ -39,7 +39,7 @@
 <script>
 import axios from 'axios'
 import moment from 'moment'
-import socialSharingArticle from '~/components/socialSharingArticle.vue'
+import socialSharingArticle from '~/components/sharing/socialSharingArticle.vue'
 
 export default {
   auth: false,

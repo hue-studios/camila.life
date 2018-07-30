@@ -50,7 +50,7 @@
 
 <script>
 import axios from 'axios'
-import ingredientListItem from '~/components/ingredientListItem'
+import ingredientListItem from '~/components/list/ingredientListItem'
 export default {
   transition(to, from) {
     if (!from) {

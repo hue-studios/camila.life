@@ -83,9 +83,7 @@
     <nuxt/>
   </div>
   <transition mode="out-in" name="fade">
-<nuxt-link to="/logout" v-if="$auth.$state.loggedIn" id="log-btn">
-<span class="uk-visible@s condensed">LOGOUT</span> 
-</nuxt-link>
+<nuxt-link to="/logout" v-if="$auth.$state.loggedIn" id="log-btn" class="condensed">LOGOUT</nuxt-link>
 <a class="" id="log-btn" @click.prevent="$auth.loginWith('auth0')" v-else><span class="uk-visible@s condensed">LOGIN</span> </a>
 </transition>
   <toolbar />
@@ -125,7 +123,10 @@ export default {
   },
 
   created() {
-
+    if (this.$auth.$state.loggedIn) {
+      this.$store.dispatch('GET_LIST_ITEMS', this.$auth.user.email)
+      this.$store.dispatch('GET_SAVED_RECIPES', this.$auth.user.email)
+    }
   },
   computed: mapState(['page']),
 

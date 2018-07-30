@@ -10,7 +10,13 @@
 	// z-index: 10000;
 	@media (min-width: $breakpoint-small) {}
 	@media (min-width: $breakpoint-medium) {}
+	.list-item {
 
+	}
+	.list-row.purchased {
+		filter: grayscale(100);
+		opacity: 0.3;
+	}
 	h1 {
 		font-size: 22px;
 		margin-top: 50px;
@@ -30,8 +36,8 @@
 	.login-callout {
 		ul.checkmark-list {
 			font-size: 22px;
-
 		}
+
 		button {
 			margin: 10px auto;
 			font-size: 22px;
@@ -43,23 +49,24 @@
 		margin: 0 5%;
 		list-style-type: none;
 		padding: 0;
+
 		.uk-accordion-title {
 			font-size: 26px;
 			font-family: $condensed-font;
-
 		}
 
 		.list-row {
 			h4 {
 				margin-bottom: 0;
 			}
+
 			h5 {
 				margin-top: 0;
+
 				span {
 					opacity: 0.5;
 				}
 			}
-
 
 			input[type=checkbox] {
 				width: 25px;
@@ -73,6 +80,7 @@
 			}
 		}
 	}
+
 	.ingredient-list > :nth-child(n+2) {
 		margin-top: 0;
 	}
@@ -93,4 +101,4 @@
 	}
 }
 
-#list.open {}
+			#list.open {}

@@ -49,7 +49,7 @@ const createStore = () => {
     },
     actions: {
       GET_LIST_ITEMS({commit}, data) {
-        axios.get(`https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=` + data + `&filters[type][eq]=ingredient`)
+        axios.get(`https://huestudios.com/sites/camila.life/content/api/1.1/tables/list/rows/?filters[email][eq]=` + data + `&filters[type][eq]=ingredient&order[category]`)
         .then((response) => {
           commit('SET_LISTITEMS', response.data.data)
           commit('SET_LOADING_STATE', false)

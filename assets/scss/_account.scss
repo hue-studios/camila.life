@@ -55,8 +55,12 @@
 			label {
 					font-family: $condensed-font;
 					text-transform: uppercase;
-					opacity: 0.5;
+					color: rgba($black, 0.4);
 					font-size: 14px;
+					transition: all 0.3s $bounce;
+					.error {
+						color: $pink;
+					}
 			}
 			input[type='text'], input[type='date'], input[type='email'], input[type='number'] {
 				border: none;
@@ -94,8 +98,15 @@
 		#gender {
 			max-width: 200px;
 		}
+		.uk-button[disabled] {
+			border-color: rgba($black, 0.5);
+			color: rgba($black, 0.5);
+			background: rgba($black, 0.1);
+			opacity: 0.5;
+		}
 		.uk-button {
-			border-color: $pink;
+			transition: all 0.3s ease-out;
+			// border-color: $pink;
 			color: $pink;
 		}
 	}

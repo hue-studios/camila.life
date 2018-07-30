@@ -1,7 +1,7 @@
 <template>
 
 <vk-grid class="uk-flex uk-flex-center uk-flex-middle uk-position-relative recipe-ingredient">
-<listButtons :id="id" :category="item.category" :name="item.name" type="ingredient" :url="item.url" :image="this.image" v-if="id && $auth.$state.loggedIn && item.brand" />
+<listButtons :id="id" :category="item.category" :name="item.name" type="ingredient" :url="item.url" :image="this.image" :brand="item.brand" v-if="id && $auth.$state.loggedIn && item.brand" />
   <div class="uk-width-auto recipe-ingredient-image" :style="'background-image: url(https://huestudios.com/sites/camila.life/content/thumbnail/100/100/crop/' + this.image + ')'"></div>
   <div class="uk-width-expand recipe-ingredient-info">
     <h5 class="name">{{item.name}}<span v-if="item.brand" class="brand"><span class="label">BRAND: </span>{{item.brand}}</span></h5>
