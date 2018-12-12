@@ -137,7 +137,9 @@ import sharing from '~/components/sharing/sharing.vue'
 import listRecipeButtons from '~/components/listRecipeButtons.vue'
 
 export default {
-  auth: false,
+    middleware: 'auth',
+  layout: 'authorized',
+
   // transition(to, from) {
   //   if (from && (from.name == 'index' || from.name == 'list' || from.name == 'vegan-plant-based-recipes')) {
   //     return 'slide-left'

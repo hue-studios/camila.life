@@ -134,7 +134,7 @@
     </div>
   </div>
 </vk-grid>
-  <vk-grid gutter="large" class="uk-grid-large uk-text-center uk-flex uk-flex-center uk-flex-middle uk-position-relative" id="featured-products">
+  <!-- <vk-grid gutter="large" class="uk-grid-large uk-text-center uk-flex uk-flex-center uk-flex-middle uk-position-relative" id="featured-products">
     <h1 class="bg-title white uk-position-absolute uk-text-lowercase" uk-parallax="opacity: .1, .5; y: 60px; target: #featured-products">boutique</h1>
     <div v-for="(product, index) in products" :key="index">
       <div class="uk-card uk-card-default">
@@ -153,7 +153,7 @@
         <vk-icon icon="chevron-right" uk-parallax="color: #FB00DA, #fff, #00bfff; x: 30px"></vk-icon>
       </nuxt-link>
     </div>
-  </vk-grid>
+  </vk-grid> -->
   <vk-grid id="instafeed" class="uk-grid-collapse uk-flex uk-flex-center" uk-scrollspy="cls: uk-animation-fade; target: > a; repeat: true"></vk-grid>
 </div>
 </template>
@@ -165,9 +165,14 @@ import instafeed from 'instafeed.js'
 import striptags from 'striptags'
 import axios from 'axios'
 import moment from 'moment'
-import { TweenMax, Back } from 'gsap'
+
 
 export default {
+  layout({
+    app
+  }) {
+    return !app.$auth.loggedIn ? 'default' : 'authorized';
+  },
   auth: false,
   // transition: {
   //   mode: 'out-in',

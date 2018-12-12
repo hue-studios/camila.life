@@ -68,7 +68,8 @@ import ingredientRecipes from '~/components/ingredientRecipes'
 import relatedIngredients from '~/components/ingredient'
 
 export default {
-  auth: false,
+  middleware: 'auth',
+  layout: 'authorized',
   scrollToTop: true,
   transition(to, from) {
     if (from && (from.name == 'index' || from.name == 'list' || from.name == 'plant-based-vegan-products')) {

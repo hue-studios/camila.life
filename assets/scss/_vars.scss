@@ -19,41 +19,41 @@ $pink-gradient-vertical: linear-gradient(to bottom, #fb00da 0%,#ba00a1 100%);
 $blue-gradient: radial-gradient(circle, rgba(103,54,221,1) 0%, rgba(0,191,255,1) 100%);
 $blue-gradient-2: linear-gradient(90deg, rgba(50,76,237,1) 0%, rgba(0,191,255,1) 83%);
 
-$serif-font: "Bauer Bodoni Pro_1 W01 Roman", Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-$condensed-font:"DINNextW01-CondensedLig", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
-$light-font: 'AvenirNextLTW01-UltraLi', "Helvetica Neue", Helvetica, Arial, "sans-serif";
+$serif-font: "Bauer Bodoni Pro_1 W01 Roman", Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+$condensed-font:"DINNextW01-CondensedLig", Impact, Haettenschweiler, "Franklin Gothic Bold", Arial, sans-serif;
+$light-font: 'AvenirNextLTW01-UltraLi', "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$condensed-bold-font: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+$condensed-bold-font: "DINNextW01-CondensedMed", Impact, Haettenschweiler, "Franklin Gothic Bold", Arial, sans-serif;
 
-$body-font: "Avenir Next W01 Thin", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+$body-font: "Avenir Next W01 Thin", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$bold-font: "AvenirNextLTW01-Regular", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+$bold-font: "AvenirNextLTW01-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
-$script-font: "ITCZemkeHandW01-Regular","Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+$script-font: "ITCZemkeHandW01-Regular","Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
 
 
 .iziToast {
   font-family: $condensed-bold-font !important
 }
 .body-font {
-  font-family: $body-font;
+  font-family: $body-font !important;
 }
 .bold-font, .bold, strong {
-  font-family: $bold-font;
+  font-family: $bold-font !important;
 }
 
 .serif-font {
-  font-family: $serif-font;
+  font-family: $serif-font !important;
 }
 .script-font {
-  font-family: $script-font;
+  font-family: $script-font !important;
 }
 .condensed {
-  font-family: $condensed-font;
+  font-family: $condensed-font !important;
 }
 .condensed-bold {
-  font-family: $condensed-bold-font;
+  font-family: $condensed-bold-font !important;
 }
 
 a, a:link, a:visited {

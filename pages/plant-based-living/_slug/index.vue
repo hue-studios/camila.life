@@ -42,7 +42,8 @@ import moment from 'moment'
 import socialSharingArticle from '~/components/sharing/socialSharingArticle.vue'
 
 export default {
-  auth: false,
+    middleware: 'auth',
+  layout: 'authorized',
   scrollToTop: true,
   async asyncData({
     params

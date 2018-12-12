@@ -2,8 +2,8 @@
 <template>
 <vk-grid class="uk-flex uk-flex-center" id="account">
   <div class="uk-width-5-6 uk-width-2-3@m uk-text-center top-section">
-    <img :src="$auth.user.picture" style=""/>
-    <h5 class="uk-margin-remove-top"><span class="pink">{{email}}</span></h5>
+    <img :src="this.$store.state.picture" style=""/>
+    <h5 class="uk-margin-remove-top"><span class="pink">{{this.$store.state.user.email}}</span></h5>
   </div>
   <div class="uk-width-5-6 uk-width-2-3@m">
     <vk-tabs align="justify" animation="fade">
@@ -12,7 +12,7 @@
           <div class="uk-width-1-1">
             <h3 class="script-font uk-text-lowercase uk-text-center uk-animation-shake">hey <span class="pink"><span v-if="given_name">{{given_name}}</span><span v-else>{{this.$auth.user.nickname}}</span></span>! </h3>
             <p>this is your camila.life profile. we will be updating this to help customize the experience and help you <span class="pink">track your journey</span>. so, make sure it's accurate and keep enjoying the <span class="script-font pink">love</span>!!</p>
-            <div id="social-notice" class="" v-if="this.$auth.user.identities[0].isSocial">
+            <div id="social-notice" class="" v-if="this.$auth.strategy !== 'local'">
               <h5>Your account is connected to your social media account you used to login with.  Certain fields are directly connected to that account.</h5>
             </div>
           </div>
@@ -26,14 +26,14 @@
             </div>
             <div class="uk-width-1-1 uk-width-1-2@s form-field" v-bind:class="[given_name_error ? 'uk-animation-shake' : '']">
               <label >first name <span id="family-name-error" class="error">REQUIRED</span></label>
-              <input class="uk-input" type="text" placeholder="" v-model="given_name" v-if="this.$auth.user.identities[0].isSocial" v-bind:class="[given_name_error ? 'pink-porder' : '']" readonly disabled>
+              <input class="uk-input" type="text" placeholder="" v-model="given_name" v-if="this.$auth.strategy !== 'local'" v-bind:class="[given_name_error ? 'pink-porder' : '']" readonly disabled>
               <input class="uk-input" type="text"  placeholder="" v-model="given_name" v-else v-bind:class="[given_name_error ? 'pink-border' : '']" required>
 
             </div>
 
             <div class="uk-width-1-1 uk-width-1-2@s form-field" v-bind:class="[family_name_error ? 'uk-animation-shake' : '']">
               <label v-bind:class="[family_name_error ? 'uk-animation-shake' : '']">last name <span id="family-name-error" class="error" >REQUIRED</span></label>
-              <input type="text" v-if="this.$auth.user.identities[0].isSocial" class="uk-input" placeholder="" v-model="family_name" v-bind:class="[family_name_error ? 'pink-border' : '']" readonly disabled>
+              <input type="text" v-if="this.$auth.strategy !== 'local'" class="uk-input" placeholder="" v-model="family_name" v-bind:class="[family_name_error ? 'pink-border' : '']" readonly disabled>
               <input type="text" class="uk-input" v-else placeholder="" v-model="family_name" v-bind:class="[family_name_error ? 'pink-border' : '']" required>
 
             </div>
@@ -86,6 +86,7 @@ import axios from 'axios'
 import list from '~/components/list/list'
 
 export default {
+  layout: 'authorized',
   // fetch({
   //   app
   // }) {
@@ -94,14 +95,15 @@ export default {
   //       console.log(res)
   //     })
   // },
+  middleware: 'auth',
   data() {
     return {
-      email: this.$auth.user.email,
-      given_name: this.$auth.user.given_name,
-      family_name: this.$auth.user.family_name,
-      zip_code: this.$auth.user.zipcode,
-      birthday: this.$auth.user.birthday,
-      gender: this.$auth.user.gender,
+      email: '',
+      given_name: this.$store.state.user.given_name,
+      family_name: this.$store.state.user.family_name,
+      zip_code: this.$store.state.user.zipcode,
+      birthday: this.$store.state.user.birthday,
+      gender: this.$store.state.user.gender,
       given_name_error: false,
       family_name_error: false
     }
@@ -110,33 +112,24 @@ export default {
     list
   },
   scrollToTop: true,
+  mounted () {
+    if(!this.$store.state.user) {
+      this.$axios.get('/tables/users/rows/?filters[email][eq]=' + this.$auth.user.email, {
+        headers: {
+          'Authorization': 'Bearer 9LSpa60vezZKbi8oiLs1ngYu8T6hQ1WF'
+        }
+      }).then((res) => {
+        console.log(res)
+        app.$store.commit('SET_USER', res.data.data[0])
+      })
+    }
+  },
   created() {
 
     const vm = this
     axios.get('https://api.ipify.org')
       .then((res) => {
         vm.ip_address = (res.data)
-      })
-    axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/users/rows/?filters[email][eq]=' + this.$auth.user.email)
-      .then((res) => {
-        console.log(res)
-
-        if ((!vm.given_name || vm.given_name == 'undefined') && res.data.data[0].given_name) {
-          vm.given_name = res.data.data[0].given_name
-        }
-        if ((!vm.family_name || vm.family_name == 'undefined') && res.data.data[0].family_name) {
-          vm.family_name = res.data.data[0].family_name
-        }
-        if ((!vm.zip_code || vm.zip_code == 'undefined') && res.data.data[0].zip_code) {
-          vm.zip_code = res.data.data[0].zip_code
-        }
-        if ((!vm.birthday || vm.birthday == 'undefined') && res.data.data[0].birthday) {
-          vm.birthday = res.data.data[0].birthday
-        }
-        if ((!vm.gender || vm.gender == 'undefined') && res.data.data[0].gender) {
-          vm.gender = res.data.data[0].gender
-        }
-
       })
   },
   watch: {

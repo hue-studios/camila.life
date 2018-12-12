@@ -14,14 +14,6 @@
       <h1 uk-parallax="color: #FB00DA, #00bfff;">CAMILA</h1>
     </nuxt-link>
   </div>
-  <!-- <nuxt-link to="/list" id="grocery-list-btn">
-    <h2 class="condensed uk-text-uppercase uk-position-relative">GROCERY<transition name="fade"><span class="uk-badge uk-position-absolute" v-if="$store.state.list.length > 0">{{this.$store.state.list.length}}</span></transition></h2>
-    <h3 class="condensed-bold">LIST</h3>
-  </nuxt-link>
-  <div id="shopping-bag-btn">
-    <h2 class="condensed uk-text-uppercase uk-position-relative">SHOPPING <transition name="fade"><span class="uk-badge uk-position-absolute" v-if="$store.state.bag.length > 0">{{$store.state.bag.length}}</span></transition></h2>
-    <h3 class="condensed-bold">BAG</h3>
-  </div> -->
   <div id="nav-btn" @click.prevent="sideMenuToggle()">
     <div id="nav-icon"> <span></span> <span></span> </div>
   </div>
@@ -39,12 +31,10 @@
     <p>
       <nuxt-link to="/plant-based-living">Plant-Based Living</nuxt-link>
     </p>
-    <p>
+    <!-- <p>
       <nuxt-link to="/camila-life-boutique">boutique</nuxt-link>
-    </p>
-    <p>
-      <nuxt-link to="/account" v-if="$auth.$state.loggedIn">ACCOUNT <span class="uk-badge">{{$store.state.list.length + $store.state.recipes.length}}</span></nuxt-link>
-    </p>
+    </p> -->
+
 
 
     <div id="social-links">
@@ -60,32 +50,15 @@
     </div>
 
     <vk-grid class="uk-flex uk-flex-center uk-flex-top uk-grid-small uk-text-center uk-margin-top account-btns">
-      <div  v-if="$auth.$state.loggedIn">
-
-          <nuxt-link class="uk-width-1-1 uk-flex uk-flex-center uk-flex-middle" to="/account">
-            <img :src='$auth.user.picture'  />
-        <h5 class="white">{{$auth.user.email}}</h5>
-
-
-
-        </nuxt-link>
-
-        <div class="uk-width-1-1 uk-margin-small-top">
-          <nuxt-link class="uk-button uk-button-default uk-text-center white" to="/logout">LOGOUT</nuxt-link>
-        </div>
-      </div>
-      <div class="uk-width-1-1" v-else>
-        <button class="uk-button uk-button-default uk-text-center uk-margin-small-top white" @click.prevent="$auth.loginWith('auth0')">LOGIN</button>
+      <div class="uk-width-1-1">
+        <nuxt-link class="uk-button uk-button-default uk-text-center uk-margin-small-top white" to="/account/login/">LOGIN</nuxt-link>
       </div>
     </vk-grid>
   </nav>
   <div id="page-container">
     <nuxt/>
   </div>
-  <transition mode="out-in" name="fade">
-<nuxt-link to="/logout" v-if="$auth.$state.loggedIn" id="log-btn" class="condensed">LOGOUT</nuxt-link>
-<a class="" id="log-btn" @click.prevent="$auth.loginWith('auth0')" v-else><span class="uk-visible@s condensed">LOGIN</span> </a>
-</transition>
+<nuxt-link class="" id="log-btn" to="/account/login/"><span class="uk-visible@s condensed">LOGIN</span> </nuxt-link>
   <toolbar />
   <vk-modal id="account-modal" size="container" :show.sync="$store.state.loginModal" center>
     <vk-modal-close @click.prevent="$store.commit('SET_LOGINMODAL', false)"></vk-modal-close>
@@ -100,7 +73,7 @@
           <li>Plus, you'll be the first to know of <span class="pink">new features</span>, products, and recipes!</li>
         </ul>
         <p class="uk-text-center">Sign up now to get started and stay connected.</p>
-        <div class="uk-text-center"><button @click="$auth.loginWith('auth0')" class="uk-button uk-button-default">Login</button></div>
+        <div class="uk-text-center"><nuxt-link to="/account/login/" class="uk-button uk-button-default">Login</nuxt-link></div>
       </div>
     </vk-grid>
 
@@ -108,7 +81,6 @@
 </div>
 </template>
 <script>
-import axios from 'axios'
 import toolbar from '~/components/toolbar'
 import {
   mapState
@@ -118,21 +90,11 @@ export default {
   scrollToTop: true,
   data() {
     return {
-
     }
   },
-
   created() {
-    if (this.$auth.$state.loggedIn) {
-      this.$store.dispatch('GET_LIST_ITEMS', this.$auth.user.email)
-      this.$store.dispatch('GET_SAVED_RECIPES', this.$auth.user.email)
-    }
   },
   computed: mapState(['page']),
-
-  // list() {
-  //   return this.$store.getters.GET_LIST;
-  // },
 
   methods: {
     sideMenuToggle() {
@@ -170,5 +132,3 @@ export default {
 
 }
 </script>
-<style lang="scss">
-</style>

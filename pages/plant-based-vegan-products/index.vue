@@ -124,7 +124,11 @@ import axios from 'axios'
 import ingredient from '~/components/ingredient.vue'
 
 export default {
-  auth: false,
+  layout({
+    app
+  }) {
+    return !app.$auth.loggedIn ? 'default' : 'authorized';
+  },
   // transition (to, from) {
   //   console.log("to: " + to.name + " :: from: " + from.name)
   // },

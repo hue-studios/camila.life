@@ -1,15 +1,15 @@
 /* Scss Document */
-$global-link-color: #DA7D02;
+$global-link-color: #00C7FF;
 
 // 2. Import default variables and available mixins.
-@import "uikit/variables-theme.scss";
-@import "uikit/mixins-theme.scss";
+@import "uikit/variables.scss";
+@import "uikit/mixins.scss";
 
 // 3. Your custom mixin overwrites.
 @mixin hook-card() { color: #000; }
 
 // 4. Import UIkit.
-@import "uikit/uikit-theme.scss";
+@import "uikit/uikit.scss";
 @import 'vars';
 @import 'nav';
 @import 'layout';
@@ -37,7 +37,7 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: $condensed-font;
+    font-family: $condensed-font !important;
     text-transform: uppercase;
 }
 .strike-through {

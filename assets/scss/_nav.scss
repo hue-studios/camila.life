@@ -32,7 +32,7 @@
 		word-wrap: break-word;
 		transition: all 0.3s $curve;
 		color: $pink;
-		font-family: $light-font;
+		font-family: $light-font !important;
 		font-size: 40px;
 		line-height: 32px;
 		vertical-align: middle;

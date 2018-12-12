@@ -184,7 +184,11 @@ import axios from 'axios'
 import recipe from '~/components/recipe'
 
 export default {
-  auth: false,
+  layout({
+    app
+  }) {
+    return !app.$auth.loggedIn ? 'default' : 'authorized';
+  },
   scrollToTop: true,
   async asyncData() {
     let [recipesReq, pageReq] = await Promise.all([

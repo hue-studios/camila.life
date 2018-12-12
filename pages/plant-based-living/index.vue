@@ -55,7 +55,11 @@
 import axios from 'axios'
 
 export default {
-  auth: false,
+  layout({
+    app
+  }) {
+    return !app.$auth.loggedIn ? 'default' : 'authorized';
+  },
   async asyncData () {
     let { data, req } = await
       axios.get('https://huestudios.com/sites/camila.life/content/api/1.1/tables/articles/rows/?order[date_published]=ASC')

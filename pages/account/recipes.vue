@@ -23,6 +23,8 @@
 import axios from 'axios'
 
 export default {
+    middleware: 'auth',
+    layout: 'authorized',
   data() {
     return {
       storeRecipes: []

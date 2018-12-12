@@ -52,6 +52,8 @@
 import axios from 'axios'
 import ingredientListItem from '~/components/list/ingredientListItem'
 export default {
+  layout: 'authorized',
+    middleware: 'auth',
   transition(to, from) {
     if (!from) {
 
